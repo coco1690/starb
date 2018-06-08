@@ -1,0 +1,26 @@
+{
+  "name": "taquilla",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^5.0.3",
+    "moment": "^2.22.1",
+    "moment-timezone": "^0.5.17",
+    "react": "^16.3.2",
+    "react-bootstrap-navbar": "^1.1.0",
+    "react-bootstrap-table": "^4.3.1",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.3.2",
+    "react-moment": "^0.7.0",
+    "react-responsive-carousel": "^3.1.39",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "react-sticky-el": "^1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
