@@ -99,7 +99,7 @@ class Centerpanel extends Component {
             // console.log("Pintando datos... ");
             let headers = [];
             headers[0] = "HORA"
-            headers[1] = "Nombre de la liga de cansones";
+            headers[1] = "Nombre de la liga ";
             // console.table(data);
             let idmatches = Object.keys(data);
             let odds = idmatches.map((id) => { return data[id].odds });
@@ -148,7 +148,8 @@ class Centerpanel extends Component {
                                 <div className="btn botn">{i.odds[j].o3}</div>
                             </div>
                         </td>
-                        : (j > 2 ? <td key={j}></td> : (j === 'z' ? <td key={j}><i className='ion-android-add-circle' style={{ marginLeft: 10 }}></i></td> : null))
+                        : (j > 2 ? <td key={j}></td> : (j === 'z' ? <td key={j}>
+                        <i className='ion-android-add-circle' ></i></td> : null))
                 });
                 return (
                     <tr key={id}>

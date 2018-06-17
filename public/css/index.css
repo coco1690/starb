@@ -43,10 +43,7 @@ table {
       
 }
 thead{
-  background: rgba(255, 255, 255, 0.1);
-
-
-  
+  background: rgba(255, 255, 255, 0.1);  
 }
 tr{
   height: 40px;
@@ -56,14 +53,8 @@ th, td {
      border: 1px solid rgba(255,255,255,0.1);
     border-collapse: collapse;
     overflow: hidden;
-    padding: 0px;  
-  
-     
-    
+    padding: 0px;      
 } 
-
-
-
 input{
   background: #FFF;
   color: #000000;
@@ -83,29 +74,75 @@ input{
   background: rgba(245, 241, 241, 0.37);
   text-align: center;
   font-size: 10px;
-  
-  
-  
 }
 a:link {
     text-decoration: none;
 }
-.loading-over{
-  position: absolute;
-  top:0px; left:0px;
-  background: rgba(0,0,0,0.8);
-  height:100%; width:100%;
-  z-index: 2;
-}
-.bg-modal{
-  position: fixed;
-  top:0px; left:0px;
-  background: rgba(0,0,0,0.8);
-  height:100%; width:100%;
-}
+
 .btn{opacity:1; cursor: pointer;}
 .btn:hover{opacity:0.7;}
 .btn:active{opacity:1;}
+.headcont{
+  height: 35px;
+  position: absolute;
+  top: 23px;
+  right: 0;
+  width: auto;
+}
+#btnLogin{
+  float:right;
+  box-sizing:border-box;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  color: #333;
+  background: #FEE064;
+  font-size: 14px;
+  border: hidden; 
+}
+#pass, #email{
+
+  float: right;
+  box-sizing: border-box; 
+  padding: 5px;
+  height: 30px;
+  width: 150px;
+  border:hidden;
+  outline:none;
+  margin-right: 5px;
+
+}
+
+.ion-social-usd, .ion-android-arrow-dropdown, .ion-power, .ion-android-add-circle{
+  margin-left: 10px;
+}
+.ion-ios-alarm{
+   margin-left: -6px;
+}
+
+#deposito{
+  background:orange;
+}
+#usuario{
+  background: rgba(227, 231, 6, 0.411);
+}
+
+#salir{
+  background: rgba(146, 1, 1, 0.98);
+}
+.contenedor-total{
+  text-align:center;
+  float:left;
+  height:auto; 
+  width:100%;
+}
+.contenedor-sub{
+  display:inline-block;
+  width: 95%;
+  height: 100%;
+  position: relative;
+  text-align: left;
+}
 .header{
   float:left;
   position: relative;
@@ -115,13 +152,7 @@ a:link {
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 90%;
-}
-.upline{
-  position: absolute;
-  background: #FEE064;
-  width:100%;
-  height: 2px;
-  top:0px;left:0px;
+  text-align: center;
 }
 .header-menu{
   float:left;
@@ -133,7 +164,28 @@ a:link {
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
 }
+.contenedor-login{
 
+  display:inline-block;
+  width: 95%;
+  height: 100%; 
+  position:relative;
+
+}
+
+.img-logo{
+
+  height: 50%; 
+  position: absolute;
+  top: 32px;
+  left: 0;
+
+}
+
+.proximos, .perfil, .envivo, .resultados{
+
+  margin-right: 10px;
+}
 .panelright{
   height:px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -208,6 +260,37 @@ a:link {
   opacity: 1;
 }
 
+.tabcontent{
+  display: none;
+  vertical-align: top;
+  width: 150px;
+  max-height: 500px;
+}
+#buscar{
+  background:rgba(255,255,255,0.1);
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.contenedor-deportes{
+  display:table;
+  width: 100%;
+  
+}
+#contenedor-deportes{
+  background:rgba(255,255,255,0.1);
+}
+
+#contenedorsub-deportes{
+  display:table-cell;
+  width: 60px;
+}
+#contenedor-paises{
+  display: table-cell;
+  vertical-align: top;
+  width: 150%;
+  max-height: 500px;
+}
 .center-panel{
   float:left;
   box-sizing: border-box;
@@ -228,9 +311,39 @@ a:link {
   
   height: 480px;
   margin-top: 0px;
-  
-  
- 
+  padding: 20px;
+}
+#panel-usuario{
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold; 
+  background: rgba(255,255,255,0.1);
+  text-transform: uppercase;
+}
+#imagen-perfil{
+  height: 75%; 
+  margin-top: 17px;
+}
+#nombre, #apellido, #direccion, #pais{
+  opacity:0.3;
+  margin: 10px;
+  border-radius: 5px;
+  width: 40%;
+  background: rgba(255,255,255,0.1);
+}
+#telefono{
+  opacity:0.3;
+  margin: 10px;
+  border-radius: 5px;
+  width: 60%;
+  background: rgba(255,255,255,0.1);
+}
+#email2{
+ opacity:0.3;
+  margin: 10px;
+  border-radius: 5px;
+  width: 80%;
+  background: rgba(255,255,255,0.1);
 }
 .foto{
   height: 100%;
@@ -238,12 +351,7 @@ a:link {
   margin-top: 15px;
   margin-left: 10%;
   border-radius: 10px;
-  
-  
-  
-
 }
-
 .formulario{
   height: 65%;
   width: 96%;
@@ -251,10 +359,7 @@ a:link {
   margin: 10px;
   border-radius: 10px;
   opacity: 0.6;
-  
-  
-
-
+  font-size: 13px;
 }
 .iconuser{
   height: 30%;
@@ -264,19 +369,15 @@ a:link {
   text-align: center;
   margin:10px;
   border-radius: 10px;
- 
 }
-.lineavertical{
- 
-    width: 50%;
-    height: 96%;
-    margin-left: 50%;
-    margin-top: -269px;
-    border-top-right-radius: 10px;
-    border-left: 1px solid; 
-  
+.lineavertical{ 
+  width: 50%;
+  height: 96%;
+  margin-left: 50%;
+  margin-top: -269px;
+  border-top-right-radius: 10px;
+  border-left: 1px solid;  
 }
-
 .right-panel{
   margin-top: 0px;
   float:right;
@@ -297,7 +398,7 @@ a:link {
 .header-menu .menu-item.active{
   color:#FFF;
 }
-
+/* 
 .matchbox{
   background:rgba(0,0,0,0.01);font-size:11px;height:60px;position:relative;overflow:hidden;
 }
@@ -384,7 +485,7 @@ a:link {
 }
 .bets .line:nth-child(odd){
   background: rgba(255,255,255,0.07);
-}
+} */
 
 .matches-panel{
   margin-top: -1px;
@@ -400,7 +501,7 @@ a:link {
   cursor: pointer;
 } */
 
-.matchbox-live{
+/* .matchbox-live{
   position:relative;height:70px;background:#EEE;
 }
 .matchbox-live:nth-child(odd){
@@ -487,7 +588,7 @@ overflow: auto;
 }
 .match:nth-child(even){
   background:rgba(255,255,255,0.03);
-}
+} */
 
 .sportbutton{
   position:relative;height:60px;border-right: 1px solid rgba(255,255,255,0.5);
