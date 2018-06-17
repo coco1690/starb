@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Tabs, Tab } from 'react-bootstrap-tabs';
+
+
 
 
 
@@ -16,29 +19,34 @@ class Perfil extends Component {
         return (
             <div>
             <div className="panels">
-                <div style={{ padding: 20, fontSize: 16, fontWeight: 'bold', background: 'rgba(255,255,255,0.1)', textTransform: 'uppercase' }} className="title-text"> Perfil del usuario      </div>
+                <div id="panel-usuario" className="title-text"> Perfil del usuario</div>
                   
                  <div>
-                        <div className="perfil" style={{ padding: 20,}}>
+                        <div className="perfil">
                             <div className="foto">
-                            <div className="iconuser"><img alt="" style={{ height: '75%', marginTop: 17 }}src="img/icons/user.png" /></div>
-                                <div className="formulario" style={{  fontSize: 13}}> 
+                            <div className="iconuser"><img id="imagen-perfil" alt="" src="img/icons/user.png" /></div>
+                                <div className="formulario"> 
+                                   
+                                    <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
+                                        <Tab label="Tab1">
+                                            <br /> &nbsp;&nbsp;Nombre<br /><input id="nombre" type="text" value={this.state.name} />
+                                            <br /> &nbsp;&nbsp;Apellido<br /><input id="apellido" type="text" value={this.state.name} />
+                                            <br />&nbsp;&nbsp;Direccion<br /><input id="direccion" type="text" value={this.state.name} />
+                                            <br />&nbsp;&nbsp;Pais<br /><input id="pais" type="email" value={this.state.name} />
 
-                                    <br /> &nbsp;&nbsp;Nombre<br/><input type="text" value={this.state.name} style={{opacity:0.3, margin: 10, borderRadius: 5, width: "40%", background: 'rgba(255,255,255,0.1)' }} />    
+                                            <div className='lineavertical'>
 
-                                    <br /> &nbsp;&nbsp;Apellido<br /><input type="text" value={this.state.name} style={{opacity:0.3, margin: 10, borderRadius: 5, width: "40%", background: 'rgba(255,255,255,0.1)' }} />
+                                            <br />&nbsp;&nbsp;Telefono<br /> <input id="telefono" type="tel" name="telefono" value={this.state.name} placeholder="(Código de área) Número" />
 
-                                    <br/>&nbsp;&nbsp;Direccion<br/><input type="text" value={this.state.name} style={{opacity:0.3, margin: 10, borderRadius: 5, width: "40%", background: 'rgba(255,255,255,0.1)' }} />
+                                            <br />&nbsp;&nbsp;Email<br /><input id="email2" type="email" value={this.state.name} />
+                                            </div> 
+                                        </Tab>
+                                        <Tab label="Tab2">Tab 2 content</Tab>
+                                    </Tabs>
+                                   
 
-                                    <br/>&nbsp;&nbsp;Pais<br/><input type="email" value={this.state.name} style={{opacity:0.3, margin: 10, borderRadius: 5, width: "40%", background: 'rgba(255,255,255,0.1)' }} />
-
-                                    <div className='lineavertical'>
-                                        
-                                        <br />&nbsp;&nbsp;Telefono<br /> <input type="tel" name="telefono" value={this.state.name} placeholder="(Código de área) Número" style={{ opacity: 0.3, margin: 10, borderRadius: 5, width: "60%", background: 'rgba(255,255,255,0.1)' }} />
-
-                                        <br />&nbsp;&nbsp;Email<br /><input type="email" value={this.state.name} style={{ opacity: 0.3, margin: 10, borderRadius: 5, width: "80%", background: 'rgba(255,255,255,0.1)' }} />
-
-                                    </div>                                      
+                            
+                                                                         
                                 </div>
                             </div>                          
                         </div>
