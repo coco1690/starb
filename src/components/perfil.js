@@ -19,7 +19,7 @@ class Perfil extends Component {
         return (
             <div>
             <div className="panels">
-                <div id="panel-usuario" className="title-text"> Perfil del usuario</div>
+                <div id="panel-usuario" className="title-text"> Perfil del usuario </div>
                   
                  <div>
                         <div className="perfil">
