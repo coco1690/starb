@@ -159,11 +159,7 @@ a:link {
   text-align: center;
   background-size: cover;
   background-position: center;
-  background: 
-    linear-gradient(to bottom, #000000 0%, #222121 100%),
-    linear-gradient( -45deg, #2b2b2b, transparent),
-    linear-gradient( 45deg, #2e2727, transparent), center center / cover no-repeat;
-	background-blend-mode: difference;
+  background-color: #bbbbbb;
 }
 .footer{
   float:left;
@@ -188,7 +184,7 @@ a:link {
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
-  background-color: (linear, 0% 0%, 0% 100%, from(#2e2e2e), to(#3f0000), color-stop(.5,#380101));
+  background-color:#ffdc13;
 }
 .contenedor-login{
 
@@ -440,7 +436,7 @@ a:link {
   color: rgba(255,255,255,0.2);
 }
 .header-menu .menu-item.active{
-  color:#FFF;
+  color:rgb(255, 0, 0);
 }
 /* 
 .matchbox{
