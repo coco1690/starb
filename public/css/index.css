@@ -1,9 +1,13 @@
- @font-face {
-  font-family: Gotham;
-  src: url(GothamRounded-Book.otf);       
+@import url('https://fonts.googleapis.com/css?family=Play');
+
+
+
+@font-face {
+  font-family: 'Play', sans-serif;
+  /* src: url(GothamRounded-Book.otf);        */
 }   
 html, body{
-  font-family: Gotham; 
+  font-family: 'Play', sans-serif;
   margin:0px;
   padding:0px;
   height:100%;
