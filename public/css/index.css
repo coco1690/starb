@@ -2,10 +2,10 @@
 
 
 
-@font-face {
+/* @font-face {
   font-family: 'Play', sans-serif;
-  /* src: url(GothamRounded-Book.otf);        */
-}   
+  src: url(GothamRounded-Book.otf);       
+}    */
 html, body{
   font-family: 'Play', sans-serif;
   margin:0px;
