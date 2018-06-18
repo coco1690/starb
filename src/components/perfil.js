@@ -25,29 +25,39 @@ class Perfil extends Component {
                         <div className="perfil">
                             <div className="foto">
                             <div className="iconuser"><img id="imagen-perfil" alt="" src="img/icons/user.png" /></div>
-                                <div className="formulario"> 
-                                   
-                                    <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
-                                        <Tab label="Tab1">
+                                
+                                {/* <div className="formulario"> */}
+                                <Tabs className="formulario" onSelect={(index, label) => console.log(label + ' selected')}>
+                                    
+                                        <Tab  label="PERFIL"> 
+                                       
+                                        <div id="contenedor-form" ><hr></hr>
+                                            
+                                            <div id="form">
+
                                             <br /> &nbsp;&nbsp;Nombre<br /><input id="nombre" type="text" value={this.state.name} />
                                             <br /> &nbsp;&nbsp;Apellido<br /><input id="apellido" type="text" value={this.state.name} />
-                                            <br />&nbsp;&nbsp;Direccion<br /><input id="direccion" type="text" value={this.state.name} />
+                                            <br />&nbsp;&nbsp;Direccion<br /><input id="direccion" type="text" value={this.state.name} /> 
+                                            
+                                            </div>
+                                            <div id="form2">
+
                                             <br />&nbsp;&nbsp;Pais<br /><input id="pais" type="email" value={this.state.name} />
-
-                                            <div className='lineavertical'>
-
                                             <br />&nbsp;&nbsp;Telefono<br /> <input id="telefono" type="tel" name="telefono" value={this.state.name} placeholder="(Código de área) Número" />
+                                            <br />&nbsp;&nbsp;Email<br /><input id="email2" type="email" value={this.state.name} /> 
+                                            </div>
+                                            </div>
+                                           
 
-                                            <br />&nbsp;&nbsp;Email<br /><input id="email2" type="email" value={this.state.name} />
-                                            </div> 
+                                            
+                                         
                                         </Tab>
-                                        <Tab label="Tab2">Tab 2 content</Tab>
+                                        <Tab label="Tab2">
+                                        aca se guarda la informacion del deposito
+                                        </Tab>
+                                    
                                     </Tabs>
-                                   
-
-                            
-                                                                         
-                                </div>
+                                {/* </div>   */}
                             </div>                          
                         </div>
                      </div >
