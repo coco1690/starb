@@ -7,14 +7,14 @@ html, body{
   margin:0px;
   padding:0px;
   height:100%;
-  color: #212121;
+  color: #FFF;
  
   font-size: 12px;
   background: #0c0d11; /* Old browsers */
   background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   background: linear-gradient(to bottom, #4d4d4d 0%,#ffffff 80%);
+   background: linear-gradient(to bottom, #1c2d38 0%,#044065 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
@@ -124,7 +124,7 @@ a:link {
   background:orange;
 }
 #usuario{
-  background: #626262;
+  background: rgba(227, 231, 6, 0.411);
 }
 
 #salir{
@@ -153,54 +153,32 @@ a:link {
   background-repeat: no-repeat;
   background-size: 90%;
   text-align: center;
-  background-size: cover;
-  background-position: center;
-  background: 
-    linear-gradient(to bottom, #000000 0%, #222121 100%),
-    linear-gradient( -45deg, #2b2b2b, transparent),
-    linear-gradient( 45deg, #2e2727, transparent), center center / cover no-repeat;
-	background-blend-mode: difference;
-}
-.footer{
-  float:left;
-  position: relative;
-  height:120px;
-  width:100%;
-  box-sizing: border-box;
-  background-size: cover;
-  background-position: center;
-  background: 
-    linear-gradient(to bottom, #000000 0%, #383838 100%),
-    linear-gradient( -45deg, #747474, transparent),
-    linear-gradient( 45deg, #1d1d1d, transparent), center center / cover no-repeat;
-	background-blend-mode: difference;
 }
 .header-menu{
   float:left;
   position: relative;
-  height:30px;
+  height:40px;
   width:100%;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
-  background-color: (linear, 0% 0%, 0% 100%, from(#2e2e2e), to(#3f0000), color-stop(.5,#380101));
 }
 .contenedor-login{
 
   display:inline-block;
-  width: 100%;
-  height: 120%; 
+  width: 95%;
+  height: 100%; 
   position:relative;
 
 }
 
 .img-logo{
 
-  height: 60%; 
+  height: 50%; 
   position: absolute;
-  top: 9px;
-  left: 4px;
+  top: 32px;
+  left: 0;
 
 }
 
@@ -300,7 +278,7 @@ a:link {
   
 }
 #contenedor-deportes{
-  background:#858585;
+  background:#ff1307;
 }
 
 #contenedorsub-deportes{
@@ -414,7 +392,7 @@ a:link {
   display:inline-block;padding:11px;padding-left:15px;padding-right:15px;font-size:13px;
   box-sizing: border-box;
   cursor: pointer;
-  padding-top: 7px;
+  padding-top: 12px;
   color: rgba(255,255,255,0.2);
 }
 .header-menu .menu-item.active{
@@ -685,7 +663,7 @@ li.dropdown {
     display: none;
     position: absolute;
      /* background:rgba(90, 7, 4, 0.877); */
-    background:rgba(58, 58, 58, 0.89);
+    background:rgba(27, 45, 58, 0.89);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.596);
     z-index: 1;
