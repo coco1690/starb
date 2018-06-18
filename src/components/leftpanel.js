@@ -92,7 +92,7 @@ class Leftpanel extends Component {
 
 
             //  ---------------------MUESTRA PAISES-------------------------------
-            aux = <div key={index} className="tabcontent" id={index} style={{ display: 'none', verticalAlign: 'top', width: 150, maxHeight: 500 }}>
+            aux = <div key={index} className="tabcontent" id={index}>
                 {aux}
             </div>
             paises.push(aux);
@@ -108,19 +108,18 @@ class Leftpanel extends Component {
 
         return (
             <div>
-                <div style={{ background: 'rgba(255,255,255,0.1)', padding: 5, marginBottom: 10 }}>
+                <div id="buscar">
                     <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
                 </div>
 
-                <div style={{ background: 'rgba(255,255,255,0.1)' }}>
-                    <div className="x" style={{ display: 'table', width: '100%', }}>
-                        <div style={{ display: 'tableCell', width: 60 }}>
+                <div id="contenedor-deportes">
+                    <div className="contenedor-deportes">
+                        <div id="contenedorsub-deportes">
                             {deportes}
                         </div>
 
-                        <Scrollbars
-                            style={{ height: 500, display: 'table-cell', verticalAlign: 'top' }}>
-                            <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 500 }}>
+                        <Scrollbars style={{ height: 500, display: 'table-cell', verticalAlign: 'top' }}>
+                            <div id="contendor-paises">
                                 {paises}
                             </div>
 

@@ -54,42 +54,33 @@ class App extends Component {
       <Router>
         <div className="App">
 
-          <div className="header" style={{ textAlign: 'center' }}>
-            <div style={{ display: 'inline-block', width: '95%', height: '100%', position: 'relative' }}>
-              <Link to="/"> <img alt="" src="/img/logo.png" style={{ height: '50%', position: 'absolute', top: 32, left: 0 }} /> </Link>
+          <div className="header">
+            <div className="contenedor-login">
+              <Link to="/"> <img className="img-logo" alt="" src="/img/logo.png"/> </Link>
               <Login />
             </div>
           </div>
 
           <div className="header-menu">
-            <a className="menu-item btn active" href="index-2.html"><i className="fa fa-futbol" style={{ margiRright: 10 }}></i>Proximos</a>
-            <a className="menu-item btn active" href="/perfil"><i className="fa fa-futbol" style={{ margiRright: 10 }}></i>Perfil (demo a)</a>
-            <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link>
 
-            <a className="menu-item btn" href="index.html"><i className="fa fa-tv" style={{ marginRight: 10 }}></i>En vivo</a>
-            <a className="menu-item btn" href="index.html"><i className="fa fa-tv" style={{ marginRight: 10 }}></i>Resultados</a>
+            <a className="menu-item btn active" href="index-2.html"><i className="proximos"></i>Proximos</a>            
+            <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
+            <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link>
+            <a className="menu-item btn" href="index.html"><i className="envivo"></i>En vivo</a>
+            <a className="menu-item btn" href="index.html"><i className="resultados"></i>Resultados</a>
           </div>
-          <div style={{ textAlign: 'center', float: 'left', height: 'auto', width: '100%' }}>
-            <div style={{ display: 'inline-block', width: '95%', height: '100%', position: 'relative' }}>
-              <div style={{ textAlign: 'left' }}>
+          <div className="contenedor-total">
+            <div className="contenedor-sub">
                 <div className="contenedor">
                   <div className="left-panel">
                     <Leftpanel />
-
                   </div>
-
                   <div className="center-panel">
-
-
                     <div >
-
                       <div className='center-panel2' >
                         <Carusel />
                       </div>
-
-
                       <div>
-
                         <Switch>
                           <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />}/>
                           <Route exact path="/perfil" component={Perfil} />
@@ -97,26 +88,16 @@ class App extends Component {
                           <Route exact path="/sport/:index/pais/:index2" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                           <Redirect to="/" />
                         </Switch>
-
                       </div>
-
                     </div>
                   </div>
-
                   <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.save} />
-
-
-                </div>
-              </div>
+                </div>            
             </div>
           </div>
-
         </div>
       </Router>
-
-
     );
-
   }
 }
 
