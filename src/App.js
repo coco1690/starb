@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; 
 
 import Leftpanel from './components/leftpanel';
 import './App.css';
@@ -56,7 +56,7 @@ class App extends Component {
 
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="/img/logo.png"/> </Link>
+              <Link to="/"> <img className="img-logo" alt="" src="/img/logobet3.png"/> </Link>
               <Login />
             </div>
           </div>
@@ -92,9 +92,12 @@ class App extends Component {
                     </div>
                   </div>
                   <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.save} />
-                </div>            
+                </div> 
+                  
             </div>
+            
           </div>
+          <div className="footer">   </div> 
         </div>
       </Router>
     );
