@@ -350,7 +350,7 @@ a:link {
   opacity:0.3;
   margin: 10px;
   border-radius: 5px;
-  width: 40%;
+  width: 80%;
   background: rgba(255,255,255,0.1);
 }
 #telefono{
@@ -392,14 +392,33 @@ a:link {
   margin:10px;
   border-radius: 10px;
 }
-.lineavertical{ 
+#contenedor-form{
+  width: 96%;
+  height: 250px;
+  margin-top: 45px;
+  margin-left: 12px;
+}
+#form{
+  float: left;
+  width: 48%;
+  height: 250px;  
+}
+#form2{
+  float: right;
+  width: 48%;
+  height: 250px;
+  margin-left: 10px; 
+}
+/* .lineavertical{ 
   width: 50%;
   height: 96%;
   margin-left: 50%;
   margin-top: -269px;
   border-top-right-radius: 10px;
-  border-left: 1px solid;  
-}
+  border-left: 1px solid; 
+  display: inline-block; 
+} */
+
 .right-panel{
   margin-top: 0px;
   float:right;
