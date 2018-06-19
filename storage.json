@@ -432,11 +432,12 @@
     "windowsState": {
         "openedWindows": [],
         "lastActiveWindow": {
-            "backupPath": "/home/creative/Documentos/github/charmeleon/Backups/1529379885880",
+            "folderPath": "/home/creative/Documentos/github/charmeleon",
+            "backupPath": "/home/creative/Documentos/github/charmeleon/Backups/c50fe4ea9462afde341c816fdaa4f9aa",
             "uiState": {
                 "mode": 0,
-                "x": 0,
-                "y": 55,
+                "x": 1920,
+                "y": 367,
                 "width": 1329,
                 "height": 713
             }
@@ -445,6 +446,7 @@
     "pickerWorkingDir": "/home/creative/Documentos/github",
     "openedPathsList": {
         "workspaces": [
+            "/home/creative/Documentos/github/charmeleon",
             "/home/creative/Documentos/github/charmeleon"
         ],
         "files": []
