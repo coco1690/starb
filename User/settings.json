@@ -1,0 +1,4 @@
+{
+    "git.autofetch": true,
+    "terminal.integrated.rendererType": "dom"
+}

@@ -58,7 +58,7 @@
         },
         "workbench.action.closeWindow": {
             "id": "workbench.action.closeWindow",
-            "label": "Ctrl+Shift+W",
+            "label": "Ctrl+W",
             "isNative": true
         },
         "workbench.action.closeFolder": {
@@ -441,5 +441,12 @@
                 "height": 713
             }
         }
+    },
+    "pickerWorkingDir": "/home/creative/Documentos/github",
+    "openedPathsList": {
+        "workspaces": [
+            "/home/creative/Documentos/github/charmeleon"
+        ],
+        "files": []
     }
 }
