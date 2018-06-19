@@ -63,7 +63,7 @@ class Leftpanel extends Component {
                     return (
                         <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600,  }} className="countriesfav">
                             <div style={{ display: 'table-row' }}>
-                            <div  style={{ }}>
+                            <div>
                                     <Link  className={"country btn "+c[index2].class}style={{width: '140px', color: 'white', display: 'table-cell' }} to={"/sport/"+index+"/pais/" + index2} >
                                     
                                     {c[index2].name}
@@ -95,28 +95,61 @@ class Leftpanel extends Component {
             )
         })
 
-        return (
-            <div>
-                <div id="buscar">
-                    <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
-                </div>
+        // return (
+        //     <div>
+        //         <div id="buscar">
+        //             <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
+        //         </div>
 
-                <div id="contenedor-deportes">
-                    <div className="contenedor-deportes">
-                        <div id="contenedorsub-deportes">
+        //         <div id="contenedor-deportes">
+        //             <div className="contenedor-deportes">
+        //                 <div id="contenedorsub-deportes">
+        //                     {deportes}
+        //                 </div>
+
+        //                 <Scrollbars style={{ height: 500, display: 'table-cell', verticalAlign: 'top' }}>
+        //                     <div id="contendor-paises">
+        //                         {paises}
+        //                     </div>
+
+        //                 </Scrollbars>
+        //             </div>
+        //         </div>
+        //     </div>
+
+        return (
+            // <div>
+            //     <div style={{ background: 'rgba(255,255,255,0.1)', padding: 5, marginBottom: 10 }}>
+            //         <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
+            //     </div>
+
+            <div>
+            <div id="buscar">
+                <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
+            </div>
+                
+                <div className="contenedor-deportes">
+                    
+                    <div className="contenedor-deportes2">
+                       
+                        <div style={{ width: 70, margin:1 }}>
                             {deportes}
                         </div>
+                        
 
-                        <Scrollbars style={{ height: 500, display: 'table-cell', verticalAlign: 'top' }}>
-                            <div id="contendor-paises">
+                        <Scrollbars
+                            style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
+                            <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
                                 {paises}
                             </div>
 
                         </Scrollbars>
+                       
                     </div>
+                   
                 </div>
+                  
             </div>
-
 
 
 

@@ -12,10 +12,10 @@ var actualizarHora = function () {
         pSegundos = document.getElementById("segundos");
 
     if (horas => 12) {
-        horas = horas - 12;
-        ampm = 'PM';
-    } else {
+        horas = horas -! 12;
         ampm = 'AM';
+    } else {
+        ampm = 'PM';
     }
 
     if (horas == 0) {
