@@ -65,9 +65,16 @@ class Centerpanel extends Component {
     //     return null;
 
     // }
+    
+
 
     render() {
 
+        let salida =  Object.keys (this.state.data).map(i=>{
+            return(
+                
+            )
+        })
         /**
         Obtengo las cabezeras de la tabla
         **/
@@ -75,6 +82,8 @@ class Centerpanel extends Component {
         return (
 
             <div className="panels">
+
+            {salida}
 
                 {/* {this.state.resultados === 1 ? "Cargando..." : this.generarTabla(this.state.resultados)}
                 {this.generarTabla(this.state.matchesAlternative)}
