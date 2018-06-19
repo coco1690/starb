@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Leftpanel from './components/leftpanel';
 import './App.css';
- 
 import Centerpanel from "./components/centerpanel"; 
 import Carusel from "./components/carusel";
 import Perfil from "./components/perfil";

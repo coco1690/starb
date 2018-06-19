@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import firebase from '../data';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
-
-const menu = firebase.database().ref().child('menu');
 
 class Leftpanel extends Component {
 
@@ -11,26 +8,18 @@ class Leftpanel extends Component {
         super()
         this.openCity = this.openCity.bind(this)
         this.state = {
-            menu: [],
+            menu: {},
         }
     }
-
-    componentWillUnmount() {
-        menu.off();
-
-
-    }
-
-
     componentDidMount() {
-        menu.on('value', snapshot => {
-            // console.log (snapshot.val());
-
-            this.setState({
-                menu: snapshot.val()
-            })
+        var context = this;
+        fetch('http://kingdeportes.com/oddsMaster/api/list/model/menu/'
+        ).then(results => {
+            return results.json();
+        }).then(data => {
+            context.setState({ menu: data })
+            // console.log(data);
         });
-
     }
 
     openCity(event, y) {
