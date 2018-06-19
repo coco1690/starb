@@ -743,7 +743,7 @@ li.dropdown {
 }
 
 .horas, .minutos{
-  font-family: Gotham; 
+  font-family: 'Righteous', cursive; 
   font-style: normal;
 }
 
@@ -751,7 +751,7 @@ li.dropdown {
   display: inline-block;
   font-size: 10px;
   font-style: normal;
-  font-family: Gotham; 
+  font-family: 'Righteous', cursive;
   position: absolute;
    margin-left: 15px;  
   margin-top: 0px;
