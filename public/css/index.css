@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 
 
@@ -184,8 +183,9 @@ a:link {
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
-  background-color:#811b02fa;round
+  background-color:#811b02fa;
 }
+
 .contenedor-login{
 
   display:inline-block;
