@@ -18,7 +18,8 @@ class Centerpanel extends Component {
     constructor() {
         super()
         this.state = {
-            matches: [],
+            // menu:{},
+            data:[],
         }
         context = this;
         console.log("trabajando con " + timestamp.getTime() + " = " + timestamp);

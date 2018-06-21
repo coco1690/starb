@@ -16,7 +16,8 @@ class Centerpanel extends Component {
     constructor() {
         super()
         this.state = {
-            matches: [],
+            data: [],
+           
         }
         context = this;
         console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
@@ -28,8 +29,11 @@ class Centerpanel extends Component {
         }).then(data => {
             context.setState({
                 data: data,
+             
             })
             console.table(data)
+           
+
         });
 
     }
@@ -69,7 +73,7 @@ class Centerpanel extends Component {
 
 
     render() {
-
+        
         // let salida =  Object.keys (this.state.data).map(i=>{
         //     return(
                 
@@ -78,12 +82,25 @@ class Centerpanel extends Component {
         /**
         Obtengo las cabezeras de la tabla
         **/
-
+        let l = this.state.data;
+        let ligasId = Object.keys(l);
+        let liga = ligasId.map(index=> {
+            return(
+                (l[index].name)
+                
+            )
+            
+               
+            
+            
+        });
+        console.log(liga)
+       
         return (
 
             <div className="panels">
-
-            {/* {salida} */}
+               {liga}
+             {/* {salida}  */}
 
                 {/* {this.state.resultados === 1 ? "Cargando..." : this.generarTabla(this.state.resultados)}
                 {this.generarTabla(this.state.matchesAlternative)}
