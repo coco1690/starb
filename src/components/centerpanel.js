@@ -82,16 +82,79 @@ class Centerpanel extends Component {
         **/
         let l = this.state.data;
         let ligasId = Object.keys(l);
-        let liga = ligasId.map(index=> {
+        let liga = ligasId.map(idliga=> {
+            let o = l[idliga].matches
+
+            
+            let listaeventos = Object.keys(o).map(idevent=>{
+                let y = o[idevent];
+                let min = 1, max = 4.5;
+                let timess = new Date(y.timestamp * 1000);
+                let pmam = 'AM';
+                var hours = timess.getHours();
+                // correct for number over 24, and negatives
+                if (hours >= 24) { hours -= 24; }
+                if (hours <=0) { hours += 12; }
+                if (hours > 12) { hours -= 12; pmam='PM'}
+                    
+
+                // add leading zero, first convert hours to string
+                hours = hours + "";
+                if (hours.length === 1) { hours = "0" + hours; }
+
+                // minutes are the same on every time zone
+                var minutes = timess.getMinutes();
+
+                // add leading zero, first convert hours to string
+                minutes = minutes + "";
+                if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+                var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                var dd = timess.getDate();
+                dd = dd < 10 ? '0' + dd : dd;
+                var today = months[timess.getMonth()] + " " + dd;
+                timess = today;
+
+                
+                return (
+                    
+                <tr key= {y.idmatch} >
+                        <th style={{width:70}} >
+                            <div>
+                                {hours   + ":"+ minutes + pmam}
+                            </div>
+                            <small>
+                                {timess} 
+                            </small>                     
+                        </th>
+                    <th style={{width:'40%'}} >{y.name}</th>
+                    <th>Age</th>
+                 </tr>
+                );
+            })
+            
             return(
-                < table >
-                    < tr >
-                   
-                        < th > {l[index].name}</ th >
-                        < th > others </ th >
-                    </ tr > 
-                     
-                    </table>
+
+                <table key={idliga} id={idliga} className="table table-sm table-bordered bg-light">
+                    <thead className="table-primary">
+                        <tr >
+                            <th colSpan='3' >{l[idliga].sportName + " " + l[idliga].name}</th>
+                            <th className='text-center'>1</th>
+                            <th className='text-center'>X</th>
+                            <th className='text-center'>2</th>
+
+                            <th className='text-center'>Under</th>
+                            <th className='text-center'>Over</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+
+                        {listaeventos}
+                    </tbody>
+                </table>
+
           
             )
                
