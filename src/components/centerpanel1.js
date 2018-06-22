@@ -26,8 +26,17 @@ class Centerpanel extends Component {
     }
 
     componentDidMount() {
+        // fetch('http://kingdeportes.com/oddsMaster/api/list/model/next').then(results => {
+        //     return results.json();
+        // }).then(data => {
+        //     context.setState({
+        //         data: data,
+
+        //     })
+        //     console.table(data)
+            
         matches.on('value', snapshot => {
-            // console.log("events:", snapshot.val());
+            console.log("events:", snapshot.val());
 
             var idListaEventos = Object.keys(snapshot.val());
             // console.log("mis eventos ID: ", idListaEventos);

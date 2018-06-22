@@ -69,12 +69,10 @@ class Centerpanel extends Component {
     //     return null;
 
     // }
-    
-
-
+   
     render() {
         
-        // let salida =  Object.keys (this.state.data).map(i=>{
+        // let liga=  Object.keys (this.state.data).map(i=>{
         //     return(
                 
         //     )
@@ -86,23 +84,30 @@ class Centerpanel extends Component {
         let ligasId = Object.keys(l);
         let liga = ligasId.map(index=> {
             return(
-                (l[index].name)
-                
+                l[index].name
             )
-            
                
-            
-            
         });
+
+        
+        // console.log(c)
         console.log(liga)
        
         return (
 
             <div className="panels">
-               {liga}
+                < table >
+                    < tr >
+                        < th > hora </ th >
+                        < th >  {liga} </ th >
+                        < th > others </ th >
+                    </ tr > 
+                     
+                    </table>
+          
              {/* {salida}  */}
 
-                {/* {this.state.resultados === 1 ? "Cargando..." : this.generarTabla(this.state.resultados)}
+                {/* {this.state.data === 1 ? "Cargando..." : this.generarTabla(this.state.data)}
                 {this.generarTabla(this.state.matchesAlternative)}
                 {this.generarTabla(this.state.matches)} */}
             </div >

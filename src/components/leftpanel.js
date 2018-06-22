@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 
+let api= 'http://kingdeportes.com/oddsMaster/api/list/model/menu/'
 class Leftpanel extends Component {
 
     constructor() {
