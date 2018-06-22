@@ -24,7 +24,7 @@ debug.log
 1.24.1-main.sock
 1.24.1-shared.sock
 Backups
-Cache
+/Cache
 CachedData
 CachedExtensions
 Cookies
@@ -39,3 +39,13 @@ Preferences
 storage.json
 User
 
+GPUCache/index
+Local Storage/file__0.localstorage
+GPUCache/data_1
+Cache/data_0
+Cache/data_1
+Cache/data_3
+Cache/index
+GPUCache/data_1
+GPUCache/index
+Local Storage/file__0.localstorage
