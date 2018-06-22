@@ -128,7 +128,7 @@ class Centerpanel extends Component {
                                 {timess} 
                             </small>                     
                         </th>
-                        <th style={{textAlign: 'left', width:'40%'}} >{y.name}</th>
+                        <th style={{textAlign: 'left', width:'35%'}} >{y.name}</th>
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
                  </tr>
                 );
@@ -143,9 +143,12 @@ class Centerpanel extends Component {
                             <th className='text-center'>1</th>
                             <th className='text-center'>X</th>
                             <th className='text-center'>2</th>
-
-                            <th className='text-center'>Under</th>
-                            <th className='text-center'>Over</th>
+                            <th className='text-center'>1X</th>
+                            <th className='text-center'>12</th>
+                            <th className='text-center'>2X</th>
+                            <th className='text-center'>T</th>
+                            <th className='text-center'>UN</th>
+                            <th className='text-center'>OV</th>
                         </tr>
 
                     </thead>
