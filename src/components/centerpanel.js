@@ -121,15 +121,15 @@ class Centerpanel extends Component {
                     
                 <tr key= {y.idmatch} >
                         <th style={{width:70}} >
-                            <div>
+                            <div style={{color:'#C0C11A'}} >
                                 {hours   + ":"+ minutes + pmam}
                             </div>
                             <small>
                                 {timess} 
                             </small>                     
                         </th>
-                    <th style={{width:'40%'}} >{y.name}</th>
-                    <th>Age</th>
+                        <th style={{textAlign: 'left', width:'40%'}} >{y.name}</th>
+                        <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
                  </tr>
                 );
             })
@@ -139,7 +139,7 @@ class Centerpanel extends Component {
                 <table key={idliga} id={idliga} className="table table-sm table-bordered bg-light">
                     <thead className="table-primary">
                         <tr >
-                            <th colSpan='3' >{l[idliga].sportName + " " + l[idliga].name}</th>
+                            <th colSpan='3' style={{ textAlign: 'left', fontSize: 13 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
                             <th className='text-center'>1</th>
                             <th className='text-center'>X</th>
                             <th className='text-center'>2</th>

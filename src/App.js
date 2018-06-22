@@ -62,7 +62,7 @@ class App extends Component {
 
           <div className="header-menu">
 
-            <a className="menu-item btn active" href="index-2.html"><i className="proximos"></i>Proximos</a>            
+            <a className="menu-item btn active" href="index-2.html"><i className="proximos "></i>Proximos</a>            
             <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link>
             <a className="menu-item btn" href="index.html"><i className="envivo"></i>En vivo</a>
