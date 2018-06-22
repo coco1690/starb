@@ -84,7 +84,15 @@ class Centerpanel extends Component {
         let ligasId = Object.keys(l);
         let liga = ligasId.map(index=> {
             return(
-                l[index].name
+                < table >
+                    < tr >
+                   
+                        < th > {l[index].name}</ th >
+                        < th > others </ th >
+                    </ tr > 
+                     
+                    </table>
+          
             )
                
         });
@@ -95,16 +103,13 @@ class Centerpanel extends Component {
        
         return (
 
+            
+            
             <div className="panels">
-                < table >
-                    < tr >
-                        < th > hora </ th >
-                        < th >  {liga} </ th >
-                        < th > others </ th >
-                    </ tr > 
-                     
-                    </table>
-          
+              {liga}
+
+
+               
              {/* {salida}  */}
 
                 {/* {this.state.data === 1 ? "Cargando..." : this.generarTabla(this.state.data)}
