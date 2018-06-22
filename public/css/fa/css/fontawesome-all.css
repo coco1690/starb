@@ -2539,6 +2539,9 @@ readers do not read off random characters that represent icons */
 .fa-youtube:before {
   content: "\f167"; }
 
+.far-fa-basketball-hoop{
+  content: "\f435";}
+
 .sr-only {
   border: 0;
   clip: rect(0, 0, 0, 0);
