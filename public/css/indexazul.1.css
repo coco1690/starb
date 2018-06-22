@@ -1,9 +1,12 @@
- @font-face {
+ @import url('https://fonts.googleapis.com/css?family=Play');
+ 
+ 
+ /* @font-face {
   font-family: Gotham;
   src: url(GothamRounded-Book.otf);       
-}   
+}    */
 html, body{
-  font-family: Gotham; 
+  font-family:play; 
   margin:0px;
   padding:0px;
   height:100%;
@@ -271,15 +274,18 @@ a:link {
   padding: 5px;
   margin-bottom: 10px;
 }
-
 .contenedor-deportes{
+background: rgba(255,255,255,0.1);
+}
+
+.contenedor-deportes2{
   display:table;
   width: 100%;
   
 }
-#contenedor-deportes{
+/* #contenedor-deportes{
   background:#ff1307;
-}
+} */
 
 #contenedorsub-deportes{
   display:table-cell;
@@ -699,12 +705,12 @@ li.dropdown {
   display: inline-block;
   font-size: 10px;
   font-style: normal;
-  font-family: Gotham; 
+  font-family: play; 
   position: absolute;
 }
 
 .horas, .minutos{
-  font-family: Gotham; 
+  font-family: play; 
   font-style: normal;
 }
 
@@ -712,7 +718,7 @@ li.dropdown {
   display: inline-block;
   font-size: 10px;
   font-style: normal;
-  font-family: Gotham; 
+  font-family: play; 
   position: absolute;
    margin-left: 15px;  
   margin-top: 0px;

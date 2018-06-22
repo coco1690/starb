@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Leftpanel from './components/leftpanel';
 import './App.css';
- 
 import Centerpanel from "./components/centerpanel"; 
 import Carusel from "./components/carusel";
 import Perfil from "./components/perfil";
@@ -56,7 +55,7 @@ class App extends Component {
 
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="/img/venbet04.png"/> </Link>
+              <Link to="/"> <img className="img-logo" alt="" src="/img/logo.png"/> </Link>
               <Login />
             </div>
           </div>
