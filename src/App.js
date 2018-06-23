@@ -54,7 +54,7 @@ class App extends Component {
 
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="/img/logo.png"/> </Link>
+              <Link to="/"> <img className="img-logo" alt="" src="/img/venbet04.png"/> </Link>
               <Login />
             </div>
           </div>
