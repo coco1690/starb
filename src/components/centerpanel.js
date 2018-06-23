@@ -115,7 +115,23 @@ class Centerpanel extends Component {
                 dd = dd < 10 ? '0' + dd : dd;
                 var today = months[timess.getMonth()] + " " + dd;
                 timess = today;
+                let cuotas = y.data;
+            //   let cuota=  Object.keys(cuotas).map(idlogro=>{
+            //       let nn = cuotas[idlogro];
 
+            //         nn.idtlogro
+
+
+            //         return(
+                        
+            //             <th>
+            //                 {cuotas[idlogro].o1}<br/>
+            //                 {cuotas[idlogro].o2}<br />
+            //                 {cuotas[idlogro].o3}<br />
+            //             </th>
+            //         )
+            //     })
+               
                 
                 return (
                     
@@ -130,6 +146,10 @@ class Centerpanel extends Component {
                         </th>
                         <th style={{textAlign: 'left', width:'35%'}} >{y.name}</th>
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
+                        <th>{y.data[0] ? y.data[0].o1 + " | " + y.data[0].o2 + " | " + y.data[0].o3 :"-"}</th>
+                        <th>{y.data[1] ? y.data[1].o1 + " | " + y.data[1].o2 + " | " + y.data[1].o3 : "-"}</th>
+                        <th>{y.data[2] ? y.data[2].o1 + " | " + y.data[2].o2 + " | " + y.data[2].o3 : "-"}</th>
+                        
                  </tr>
                 );
             })
@@ -140,15 +160,9 @@ class Centerpanel extends Component {
                     <thead className="table-primary">
                         <tr >
                             <th colSpan='3' style={{ textAlign: 'left', fontSize: 13 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
-                            <th className='text-center'>1</th>
-                            <th className='text-center'>X</th>
-                            <th className='text-center'>2</th>
-                            <th className='text-center'>1X</th>
-                            <th className='text-center'>12</th>
-                            <th className='text-center'>2X</th>
-                            <th className='text-center'>T</th>
-                            <th className='text-center'>UN</th>
-                            <th className='text-center'>OV</th>
+                            <th className='text-center'>1 X 2 </th>
+                            <th className='text-center'>1X 12 2X</th>
+                            <th className='text-center'>UN | OV | T</th>
                         </tr>
 
                     </thead>

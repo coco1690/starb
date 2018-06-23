@@ -1,23 +1,24 @@
  @import url('https://fonts.googleapis.com/css?family=Play');
- 
- 
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
  @font-face {
   font-family: Gotham;
   src: url(GothamRounded-Book.otf);       
 }   
 html, body{
-  font-family:Gotham; 
+  font-family: 'Open Sans', sans-serif;
   margin:0px;
   padding:0px;
   height:100%;
   color: #FFF;
  
-  font-size: 12px;
+  font-size: 13px;
   background: #0c0d11; /* Old browsers */
   background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   background: linear-gradient(to bottom, #1c2d38 0%,#044065 80%);
+   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
@@ -167,12 +168,13 @@ a:link {
 .header-menu{
   float:left;
   position: relative;
-  height:40px;
+  height:30px;
   width:100%;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
+  background-color: #310202;
 }
 .contenedor-login{
 
@@ -405,7 +407,7 @@ background: rgba(255,255,255,0.1);
   display:inline-block;padding:11px;padding-left:15px;padding-right:15px;font-size:13px;
   box-sizing: border-box;
   cursor: pointer;
-  padding-top: 12px;
+  padding-top: 6px;
   color: rgba(255,255,255,0.2);
 }
 .header-menu .menu-item.active{
