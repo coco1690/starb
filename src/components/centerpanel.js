@@ -146,9 +146,11 @@ class Centerpanel extends Component {
                         </th>
                         <th style={{textAlign: 'left', width:'35%'}} >{y.name}</th>
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
-                        <th>{y.data[0] ? y.data[0].o1 + " | " + y.data[0].o2 + " | " + y.data[0].o3 :"-"}</th>
-                        <th>{y.data[1] ? y.data[1].o1 + " | " + y.data[1].o2 + " | " + y.data[1].o3 : "-"}</th>
-                        <th>{y.data[2] ? y.data[2].o1 + " | " + y.data[2].o2 + " | " + y.data[2].o3 : "-"}</th>
+                        <th>{y.data[19992] ? y.data[19992].o1 + " | " + y.data[19992].o2 + " | " + y.data[19992].o3 :"-"}
+                        {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
+                        </th>
+                        <th>{y.data[49992] ? y.data[49992].o1 + " | " + y.data[49992].o2 + " | " + y.data[49992].o3 : "-"}</th>
+                        <th>{y.data[29992] ? y.data[29992].o1 + " | " + y.data[29992].o2 + " | " + y.data[29992].o3 : "-"}</th>
                         
                  </tr>
                 );
