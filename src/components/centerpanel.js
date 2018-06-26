@@ -130,18 +130,106 @@ class Centerpanel extends Component {
             //             </th>
             //         )
             //     })
-               
-                let data={
+                let datalocal1 = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[19992] ? y.data[19992].o1: "",
+                    option: y.home,
+                    price: y.data[19992] ? y.data[19992].o1 : "",
+                    time: hours + ":" + minutes + pmam +" - "+ timess,
+                    type: y.data[19992] ? y.data[19992].type : "",
+                    version: y.data[19992] ? y.data[19992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let dataempatex = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[19992] ? y.data[19992].o2 : "",
+                    option: "Empate",
+                    price: y.data[19992] ? y.data[19992].o2 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[19992] ? y.data[19992].type : "",
+                    version: y.data[19992] ? y.data[19992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let datavisitante2 = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[19992] ? y.data[19992].o3 : "",
+                    option: y.away,
+                    price: y.data[19992] ? y.data[19992].o3 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[19992] ? y.data[19992].type : "",
+                    version: y.data[19992] ? y.data[19992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let data1x = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[49992] ? y.data[49992].o1 : "",
+                    option: "1X",
+                    price: y.data[49992] ? y.data[49992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[49992] ? y.data[49992].type : "",
+                    version: y.data[49992] ? y.data[49992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let data12 = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[49992] ? y.data[49992].o2 : "",
+                    option: "12",
+                    price: y.data[49992] ? y.data[49992].o2 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[49992] ? y.data[49992].type : "",
+                    version: y.data[49992] ? y.data[49992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let data2x = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[49992] ? y.data[49992].o3 : "",
+                    option: "2X",
+                    price: y.data[49992] ? y.data[49992].o3 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[49992] ? y.data[49992].type : "",
+                    version: y.data[49992] ? y.data[49992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+
+                let dataunder={
                     choose: 1, 
                     id: y, 
                     name: y.name, 
-                    odd: "2 ( > 2,5)", 
-                    option: "Over", 
-                    price: "2", 
-                    time: "01-06-2018 12:45", 
-                    type: 4, 
-                    version: 0,
+                    odd: y.data[29992]? y.data[29992].o1 + '(<' + y.data[29992].o3 + ')':"", 
+                    option: "Under", 
+                    price: y.data[29992] ? y.data[29992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess, 
+                    type: y.data[29992]?y.data[29992].type:"", 
+                    version: y.data[29992]? y.data[29992].version:"",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
                   };
+                let dataover = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[29992] ? y.data[29992].o2 + '(<' + y.data[29992].o3 + ')' : "",
+                    option: "Over",
+                    price: y.data[29992]? y.data[29992].o2:"",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[29992] ? y.data[29992].type : "",
+                    version: y.data[29992] ? y.data[29992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+
+
+               
                 return (
                     
                 <tr key= {y.idmatch} >
@@ -157,24 +245,24 @@ class Centerpanel extends Component {
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
 
                         <th>
-                            <th className="botn btn" style={{}} onClick={ this.props.addTocart.bind(this, y.idmatch,data)}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
+                            <th className="botn btn" style={{}} onClick={ this.props.addTocart.bind(this, y.idmatch,datalocal1)}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
                             {/* onClick={ this.props.addTocart.bind(this, z) } */}
                             {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
                            
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataempatex)}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datavisitante2)}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
                         </th>
 
                         <th>
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[49992] ? y.data[49992].o1  : "-"}</th>
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[49992] ? y.data[49992].o2 : "-"}</th>
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[49992] ? y.data[49992].o3 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data1x)}>{y.data[49992] ? y.data[49992].o1  : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data12)}>{y.data[49992] ? y.data[49992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data2x)}>{y.data[49992] ? y.data[49992].o3 : "-"}</th>
                         </th>
 
                         <th>
 
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[29992] ? y.data[29992].o1  : "-"}</th>
-                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[29992] ? y.data[29992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataunder)}>{y.data[29992] ? y.data[29992].o1  : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataover)}>{y.data[29992] ? y.data[29992].o2 : "-"}</th>
                             <th className="botnn"style={{ color: '#C0C11A'}}>{y.data[29992] ? y.data[29992].o3 : ""}</th>
 
                         </th>
