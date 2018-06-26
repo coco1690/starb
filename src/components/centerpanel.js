@@ -16,8 +16,7 @@ class Centerpanel extends Component {
     constructor() {
         super()
         this.state = {
-            data: [],
-           
+            data: [],           
         }
         context = this;
         console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
@@ -132,7 +131,17 @@ class Centerpanel extends Component {
             //         )
             //     })
                
-                
+                let data={
+                    choose: 1, 
+                    id: 3225157, 
+                    name: y.name, 
+                    odd: "2 ( > 2,5)", 
+                    option: "Over", 
+                    price: "2", 
+                    time: "01-06-2018 12:45", 
+                    type: 4, 
+                    version: 0,
+                  };
                 return (
                     
                 <tr key= {y.idmatch} >
@@ -148,7 +157,8 @@ class Centerpanel extends Component {
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
 
                         <th>
-                            <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
+                            <th className="botn btn" style={{}} onClick={ this.props.addTocart.bind(this, y.idmatch,data)}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
+                            {/* onClick={ this.props.addTocart.bind(this, z) } */}
                             {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
                            
                             <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
