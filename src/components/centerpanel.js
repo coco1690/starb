@@ -148,9 +148,9 @@ class Centerpanel extends Component {
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
 
                         <th>
-                            <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o1  :"-"}
+                            <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
                             {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
-                            </th>
+                           
                             <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
                             <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
                         </th>
