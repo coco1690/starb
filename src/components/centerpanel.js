@@ -133,7 +133,7 @@ class Centerpanel extends Component {
                
                 let data={
                     choose: 1, 
-                    id: 3225157, 
+                    id: y, 
                     name: y.name, 
                     odd: "2 ( > 2,5)", 
                     option: "Over", 
@@ -161,20 +161,20 @@ class Centerpanel extends Component {
                             {/* onClick={ this.props.addTocart.bind(this, z) } */}
                             {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
                            
-                            <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
-                            <th className="botn btn" style={{}}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
                         </th>
 
                         <th>
-                            <th className="botn btn" style={{}}>{y.data[49992] ? y.data[49992].o1  : "-"}</th>
-                            <th className="botn btn" style={{}}>{y.data[49992] ? y.data[49992].o2 : "-"}</th>
-                            <th className="botn btn" style={{}}>{y.data[49992] ? y.data[49992].o3 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[49992] ? y.data[49992].o1  : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[49992] ? y.data[49992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[49992] ? y.data[49992].o3 : "-"}</th>
                         </th>
 
                         <th>
 
-                            <th className="botn btn" style={{ }}>{y.data[29992] ? y.data[29992].o1  : "-"}</th>
-                            <th className="botn btn" style={{}}>{y.data[29992] ? y.data[29992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[29992] ? y.data[29992].o1  : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data)}>{y.data[29992] ? y.data[29992].o2 : "-"}</th>
                             <th className="botnn"style={{ color: '#C0C11A'}}>{y.data[29992] ? y.data[29992].o3 : ""}</th>
 
                         </th>
