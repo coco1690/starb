@@ -28,14 +28,14 @@ class Centerpanel extends Component {
             return results.json();
         }).then(data => {
             context.setState({
-                data: data,
-             
+                data: data,             
             })
-            console.table(data)
-           
-
+            console.table(data)           
         });
 
+    }
+    componentWillUnmount(){
+        this.setState({data:[]})
     }
 
     // static getDerivedStateFromProps(props, current_state) {

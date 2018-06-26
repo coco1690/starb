@@ -22,7 +22,9 @@ class Leftpanel extends Component {
             console.table(data);
         });
     }
-
+    componentWillUnmount(){
+        this.setState({menu:{}})
+    }
     openCity(event, y) {
         var i, tabcontent, tablinks;
         //		    console.log(event.target);
