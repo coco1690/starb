@@ -294,7 +294,7 @@ class Centerpanel extends Component {
 
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
-                            {/* <th className="botnn" style={{ color: '#C0C11A' }}>{y.data[139992]] ? y.data[139992]].o3 : ""}</th> */}
+                            <th className="botn btn" style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
 
                         </th>
                        
