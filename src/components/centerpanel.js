@@ -227,7 +227,31 @@ class Centerpanel extends Component {
                     version: y.data[29992] ? y.data[29992].version : "",
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
-
+                let datagg = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[139992] ? y.data[139992].o1 : "",
+                    option: "GG",
+                    price: y.data[139992] ? y.data[139992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[139992] ? y.data[139992].type : "",
+                    version: y.data[139992] ? y.data[139992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let datang = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[139992] ? y.data[139992].o1 : "",
+                    option: "NG",
+                    price: y.data[139992] ? y.data[139992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[139992] ? y.data[139992].type : "",
+                    version: y.data[139992] ? y.data[139992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+             
 
                
                 return (
@@ -241,7 +265,7 @@ class Centerpanel extends Component {
                                 {timess} 
                             </small>                     
                         </th>
-                        <th style={{textAlign: 'left', width:'35%'}} >{y.name}</th>
+                        <th style={{textAlign: 'left', width:'28%'}} >{y.name}</th>
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
 
                         <th>
@@ -266,6 +290,14 @@ class Centerpanel extends Component {
                             <th className="botnn"style={{ color: '#C0C11A'}}>{y.data[29992] ? y.data[29992].o3 : ""}</th>
 
                         </th>
+                        <th>
+
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
+                            {/* <th className="botnn" style={{ color: '#C0C11A' }}>{y.data[139992]] ? y.data[139992]].o3 : ""}</th> */}
+
+                        </th>
+                       
                  </tr>
                 );
             })
@@ -275,10 +307,12 @@ class Centerpanel extends Component {
                 <table key={idliga} id={idliga} className="table table-sm table-bordered bg-light">
                     <thead className="table-primary">
                         <tr >
-                            <th colSpan='3' style={{ textAlign: 'left', fontSize: 13 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
-                            <th className='text-center' style={{wordSpacing: '20pt'}}>1 X 2 </th>
-                            <th className='text-center' style={{ wordSpacing: '15pt' }}>1X 12 2X</th>
-                            <th className='text-center' style={{ wordSpacing: '15pt' }}>UN  OV  T</th>
+                            <th colSpan='3' style={{ textAlign: 'left', fontSize: 12 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
+                            <th className='text-center' style={{wordSpacing: '20pt',fontSize: 10}}>1 X 2 </th>
+                            <th className='text-center' style={{ wordSpacing: '15pt',fontSize: 10 }}>1X 12 2X</th>
+                            <th className='text-center' style={{ wordSpacing: '15pt',fontSize: 10 }}>UN  OV  T</th>
+                            <th className='text-center' style={{ wordSpacing: '15pt',fontSize: 10 }}>GG NG +</th>
+                          
                         </tr>
 
                     </thead>
