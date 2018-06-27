@@ -51,7 +51,7 @@ class Rightpanel extends React.Component {
            
                 <div className="right-panel">
                 <Sticky stickyStyle={{ right: 35, width: 280 }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)' }}>
+                    <div style={{ background: '#1b4b01' }}>
                         <div style={{ padding: 10, fontWeight: 'bold', color: '#FEE064' }}>
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 14 }}></i>
                             <span className="ticket-title">Cupón</span>
