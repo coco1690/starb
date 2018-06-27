@@ -34,14 +34,14 @@ class Rightpanel extends React.Component {
             return(
                 <div key={idApuesta} className="panelright">
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
-                        <span style={{ display: "block", fontSize: 13, paddingBottom: 10, color: "rgb(254, 224, 100)" }}>
+                        <span style={{ display: "block", fontSize: 15, paddingBottom: 10, color: "rgb(237, 134, 9)" }}>
                             {items[idApuesta].liga}
                         </span>
-                        <span style={{ display: "block", fontSize: 13, paddingBottom: 10, color: "rgb(254, 224, 100)"}}>
+                        <span style={{ display: "block", fontSize: 14, paddingBottom: 10, color: "rgb(254, 224, 100)"}}>
                             {items[idApuesta].name}
                         </span>
-                        <div style={{ display: "inline", paddingTop: 10, fontSize: 9}}>{items[idApuesta].time}</div> <br/>
-                        <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 11 }}>
+                        <div style={{ display: "inline", paddingTop: 10, fontSize: 12}}>{items[idApuesta].time}</div> <br/>
+                        <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 12 }}>
                             <div style={{ display: "table-cell" }}><span>{items[idApuesta].option + " " + items[idApuesta].odd}</span></div>
                             <div style={{ display: "table-cell", right: 1, color: 'white', float: "right"}}><div to="#" className="btn botn" style={{marginTop:-50}} onClick={ this.props.removeFromCupon.bind(this, idApuesta)}>-</div></div>
                         </div>
