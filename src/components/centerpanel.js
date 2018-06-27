@@ -9,7 +9,7 @@ import data from '../data';
 
 // const p = "5%";
 let timestamp = new Date();
-const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(timestamp.getTime() / 1000);
+// const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(timestamp.getTime() / 1000);
 let filtro, context;
 class Centerpanel extends Component {
 
@@ -23,7 +23,7 @@ class Centerpanel extends Component {
     }
 
     componentDidMount() {
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/next').then(results => {
+        fetch('http://kingdeportes.com/oddsMaster/api/list/model/next',{cache:"no-cache"}).then(results => {
             return results.json();
         }).then(data => {
             context.setState({

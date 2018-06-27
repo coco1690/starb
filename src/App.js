@@ -24,6 +24,7 @@ class App extends Component {
           id: 3225157, 
           name: "France U2/Switzerla", 
           odd: "Alta y.data[29992].o1+'(<'+o3+')'", 
+          liga:"Soccer Superliga",
           // odd: "y.data[19992].o1",
           option: "Alta", 
           price: "y.data[29992].o1", 
@@ -32,7 +33,7 @@ class App extends Component {
           version: "y.data[29992].version",
         },
         32251584: {
-          choose: 1, id: 3225158, name: "Netherlan/Bolivia U", odd: "1.5 ( > 2,5)", option: "Over", price: "1.5", time: "05-06-2018 16:00", type: 4, version: 0,
+          choose: 1, id: 3225158, name: "Netherlan/Bolivia U",  liga:"Soccer Superliga",odd: "1.5 ( > 2,5)", option: "Over", price: "1.5", time: "05-06-2018 16:00", type: 4, version: 0,
         },       
       }
     };
