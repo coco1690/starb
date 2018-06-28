@@ -20,17 +20,28 @@ class App extends Component {
     this.state = {
       items: {
         3225175: {
-          choose: 1, id: 3225157, name: "France U2/Switzerla", odd: "2 ( > 2,5)", option: "Over", price: "2", time: "01-06-2018 12:45", type: 4, version: 0,
+          choose: 1, 
+          id: 3225157, 
+          name: "France U2/Switzerla", 
+          odd: "Alta y.data[29992].o1+'(<'+o3+')'", 
+          liga:"Soccer Superliga",
+          // odd: "y.data[19992].o1",
+          option: "Alta", 
+          price: "y.data[29992].o1", 
+          time: "01-06-2018 12:45", 
+          type: "y.data[29992].type", 
+          version: "y.data[29992].version",
         },
         32251584: {
-          choose: 1, id: 3225158, name: "Netherlan/Bolivia U", odd: "1.5 ( > 2,5)", option: "Over", price: "1.5", time: "05-06-2018 16:00", type: 4, version: 0,
-        }
+          choose: 1, id: 3225158, name: "Netherlan/Bolivia U",  liga:"Soccer Superliga",odd: "1.5 ( > 2,5)", option: "Over", price: "1.5", time: "05-06-2018 16:00", type: 4, version: 0,
+        },       
       }
     };
   }
-  removeFromCupon = (x) => { 
+  removeFromCupon = (id) => { 
+    // console.log(x);
     let temporal = this.state.items;
-    delete temporal[x];
+    delete temporal[id];
     this.setState({
       items:temporal
     })  
@@ -38,9 +49,11 @@ class App extends Component {
   
   };
   save = (x) => { return alert('save it!') };
-  addTocart=(x,data)=>{
+
+  addTocart=(id,data)=>{
+    console.log(id,data);
     let temporal = this.state.items;
-    temporal[x]=data;
+    temporal[id]=data;
     this.setState({
       items:temporal
     })  
@@ -54,8 +67,13 @@ class App extends Component {
 
           <div className="header">
             <div className="contenedor-login">
+<<<<<<< HEAD
               <Link to="/"> <img className="img-logo" alt="" src="/img/logo8ab.png"/> </Link>
               <Login />
+=======
+              <Link to="/"> <img className="img-logo" alt="" src="/img/venbet04.png"/> </Link>
+              <Login />              
+>>>>>>> d5c363d13a3db75492c08ff85dcb78e1684171a8
             </div>
           </div>
 

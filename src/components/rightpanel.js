@@ -14,6 +14,7 @@ class Rightpanel extends React.Component {
             items: this.props.items,
             total: this.props.total
         };
+        
 
     }
 
@@ -27,19 +28,22 @@ class Rightpanel extends React.Component {
         console.table(this.state.items);
         let items = this.state.items
         let itemsid = Object.keys(items)
-        let obj = itemsid.map((z)=>{
-            p = p * items[z].price;
+        let obj = itemsid.map((idApuesta)=>{
+            p = p * items[idApuesta].price;
             p = p.toFixed(2);
             return(
-                <div key={z} className="panelright">
+                <div key={idApuesta} className="panelright">
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
-                        <span style={{ display: "block", fontSize: 13, paddingBottom: 10, color: "rgb(254, 224, 100)"}}>
-                            {items[z].name}
+                        <span style={{ display: "block", fontSize: 15, paddingBottom: 10, color: "rgb(237, 134, 9)" }}>
+                            {items[idApuesta].liga}
                         </span>
-                        <div style={{ display: "inline", paddingTop: 10, fontSize: 9}}>{items[z].time}</div> <br/>
-                        <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 11 }}>
-                            <div style={{ display: "table-cell" }}><span>{items[z].option + " " + items[z].odd}</span></div>
-                            <div style={{ display: "table-cell", right: 1, color: 'white', float: "right"}}><div to="#" className="btn botn" style={{marginTop:-50}} onClick={ this.props.removeFromCupon.bind(this, z)}>-</div></div>
+                        <span style={{ display: "block", fontSize: 14, paddingBottom: 10, color: "rgb(254, 224, 100)"}}>
+                            {items[idApuesta].name}
+                        </span>
+                        <div style={{ display: "inline", paddingTop: 10, fontSize: 12}}>{items[idApuesta].time}</div> <br/>
+                        <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 12 }}>
+                            <div style={{ display: "table-cell" }}><span>{items[idApuesta].option + " " + items[idApuesta].odd}</span></div>
+                            <div style={{ display: "table-cell", right: 1, color: 'white', float: "right"}}><div to="#" className="btn botn" style={{marginTop:-50}} onClick={ this.props.removeFromCupon.bind(this, idApuesta)}>-</div></div>
                         </div>
                     </div> 
                 </div>

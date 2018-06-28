@@ -9,33 +9,32 @@ import data from '../data';
 
 // const p = "5%";
 let timestamp = new Date();
-const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(timestamp.getTime() / 1000);
+// const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(timestamp.getTime() / 1000);
 let filtro, context;
 class Centerpanel extends Component {
 
     constructor() {
         super()
         this.state = {
-            data: [],
-           
+            data: [],           
         }
         context = this;
         console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
     }
 
     componentDidMount() {
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/next').then(results => {
+        fetch('http://kingdeportes.com/oddsMaster/api/list/model/next',{cache:"no-cache"}).then(results => {
             return results.json();
         }).then(data => {
             context.setState({
-                data: data,
-             
+                data: data,             
             })
-            console.table(data)
-           
-
+            console.table(data)           
         });
 
+    }
+    componentWillUnmount(){
+        this.setState({data:[]})
     }
 
     // static getDerivedStateFromProps(props, current_state) {
@@ -115,8 +114,146 @@ class Centerpanel extends Component {
                 dd = dd < 10 ? '0' + dd : dd;
                 var today = months[timess.getMonth()] + " " + dd;
                 timess = today;
+                let cuotas = y.data;
+            //   let cuota=  Object.keys(cuotas).map(idlogro=>{
+            //       let nn = cuotas[idlogro];
 
-                
+            //         nn.idtlogro
+
+
+            //         return(
+                        
+            //             <th>
+            //                 {cuotas[idlogro].o1}<br/>
+            //                 {cuotas[idlogro].o2}<br />
+            //                 {cuotas[idlogro].o3}<br />
+            //             </th>
+            //         )
+            //     })
+                let datalocal1 = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[19992] ? y.data[19992].o1: "",
+                    option: y.home,
+                    price: y.data[19992] ? y.data[19992].o1 : "",
+                    time: hours + ":" + minutes + pmam +" - "+ timess,
+                    type: y.data[19992] ? y.data[19992].type : "",
+                    version: y.data[19992] ? y.data[19992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let dataempatex = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[19992] ? y.data[19992].o2 : "",
+                    option: "Empate",
+                    price: y.data[19992] ? y.data[19992].o2 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[19992] ? y.data[19992].type : "",
+                    version: y.data[19992] ? y.data[19992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let datavisitante2 = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[19992] ? y.data[19992].o3 : "",
+                    option: y.away,
+                    price: y.data[19992] ? y.data[19992].o3 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[19992] ? y.data[19992].type : "",
+                    version: y.data[19992] ? y.data[19992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let data1x = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[49992] ? y.data[49992].o1 : "",
+                    option: "1X",
+                    price: y.data[49992] ? y.data[49992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[49992] ? y.data[49992].type : "",
+                    version: y.data[49992] ? y.data[49992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let data12 = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[49992] ? y.data[49992].o2 : "",
+                    option: "12",
+                    price: y.data[49992] ? y.data[49992].o2 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[49992] ? y.data[49992].type : "",
+                    version: y.data[49992] ? y.data[49992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let data2x = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[49992] ? y.data[49992].o3 : "",
+                    option: "2X",
+                    price: y.data[49992] ? y.data[49992].o3 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[49992] ? y.data[49992].type : "",
+                    version: y.data[49992] ? y.data[49992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+
+                let dataunder={
+                    choose: 1, 
+                    id: y, 
+                    name: y.name, 
+                    odd: y.data[29992]? y.data[29992].o1 + '(<' + y.data[29992].o3 + ')':"", 
+                    option: "Under", 
+                    price: y.data[29992] ? y.data[29992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess, 
+                    type: y.data[29992]?y.data[29992].type:"", 
+                    version: y.data[29992]? y.data[29992].version:"",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                  };
+                let dataover = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[29992] ? y.data[29992].o2 + '(<' + y.data[29992].o3 + ')' : "",
+                    option: "Over",
+                    price: y.data[29992]? y.data[29992].o2:"",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[29992] ? y.data[29992].type : "",
+                    version: y.data[29992] ? y.data[29992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let datagg = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[139992] ? y.data[139992].o1 : "",
+                    option: "GG",
+                    price: y.data[139992] ? y.data[139992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[139992] ? y.data[139992].type : "",
+                    version: y.data[139992] ? y.data[139992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+                let datang = {
+                    choose: 1,
+                    id: y,
+                    name: y.name,
+                    odd: y.data[139992] ? y.data[139992].o1 : "",
+                    option: "NG",
+                    price: y.data[139992] ? y.data[139992].o1 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[139992] ? y.data[139992].type : "",
+                    version: y.data[139992] ? y.data[139992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
+             
+
+               
                 return (
                     
                 <tr key= {y.idmatch} >
@@ -128,8 +265,39 @@ class Centerpanel extends Component {
                                 {timess} 
                             </small>                     
                         </th>
-                        <th style={{textAlign: 'left', width:'35%'}} >{y.name}</th>
+                        <th style={{textAlign: 'left', width:'28%'}} >{y.name}</th>
                         <th style={{width:40}} ><i className='ion-stats-bars'></i></th>
+
+                        <th>
+                            <th className="botn btn" style={{}} onClick={ this.props.addTocart.bind(this, y.idmatch,datalocal1)}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
+                            {/* onClick={ this.props.addTocart.bind(this, z) } */}
+                            {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
+                           
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataempatex)}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datavisitante2)}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
+                        </th>
+
+                        <th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data1x)}>{y.data[49992] ? y.data[49992].o1  : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data12)}>{y.data[49992] ? y.data[49992].o2 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, data2x)}>{y.data[49992] ? y.data[49992].o3 : "-"}</th>
+                        </th>
+
+                        <th>
+
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataunder)}>{y.data[29992] ? y.data[29992].o1  : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataover)}>{y.data[29992] ? y.data[29992].o2 : "-"}</th>
+                            <th className="botnn"style={{ color: '#C0C11A'}}>{y.data[29992] ? y.data[29992].o3 : ""}</th>
+
+                        </th>
+                        <th>
+
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
+                            <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
+                            <th className="botn btn" style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+
+                        </th>
+                       
                  </tr>
                 );
             })
@@ -139,16 +307,12 @@ class Centerpanel extends Component {
                 <table key={idliga} id={idliga} className="table table-sm table-bordered bg-light">
                     <thead className="table-primary">
                         <tr >
-                            <th colSpan='3' style={{ textAlign: 'left', fontSize: 13 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
-                            <th className='text-center'>1</th>
-                            <th className='text-center'>X</th>
-                            <th className='text-center'>2</th>
-                            <th className='text-center'>1X</th>
-                            <th className='text-center'>12</th>
-                            <th className='text-center'>2X</th>
-                            <th className='text-center'>T</th>
-                            <th className='text-center'>UN</th>
-                            <th className='text-center'>OV</th>
+                            <th colSpan='3' style={{ textAlign: 'left', fontSize: 12 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
+                            <th className='text-center' style={{wordSpacing: '20pt',fontSize: 10}}>1 X 2 </th>
+                            <th className='text-center' style={{ wordSpacing: '15pt',fontSize: 10 }}>1X 12 2X</th>
+                            <th className='text-center' style={{ wordSpacing: '15pt',fontSize: 10 }}>UN  OV  T</th>
+                            <th className='text-center' style={{ wordSpacing: '15pt',fontSize: 10 }}>GG NG +</th>
+                          
                         </tr>
 
                     </thead>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 
-let api= 'http://kingdeportes.com/oddsMaster/api/list/model/menu/'
+// let api= 'http://kingdeportes.com/oddsMaster/api/list/model/menu/'
 class Leftpanel extends Component {
 
     constructor() {
@@ -14,7 +14,7 @@ class Leftpanel extends Component {
     }
     componentDidMount() {
         var context = this;
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/menu/'
+        fetch('http://kingdeportes.com/oddsMaster/api/list/model/menu/',{cache:"no-cache"}
         ).then(results => {
             return results.json();
         }).then(data => {
@@ -22,7 +22,9 @@ class Leftpanel extends Component {
             console.table(data);
         });
     }
-
+    componentWillUnmount(){
+        this.setState({menu:{}})
+    }
     openCity(event, y) {
         var i, tabcontent, tablinks;
         //		    console.log(event.target);

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Tabs, Tab } from 'react-bootstrap-tabs';
 
-
-
-
-
 class Perfil extends Component {
     constructor(){
         super();
