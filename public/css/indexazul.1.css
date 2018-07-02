@@ -18,7 +18,8 @@ html, body{
   background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%);
+   /* background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%); */
+   background: linear-gradient(to bottom, #1c2d38 0%,#044065 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
@@ -39,11 +40,28 @@ html, body{
 .noborder-left{
   border-left: 0px;
 }
+#table-central{
+ border-collapse: collapse;
+ width: 100%;
+ text-align: center;
+ background: #044065;
+
+}
+#thead-central{
+ border-collapse: collapse;
+ width: 100%;
+ text-align: center;
+/* background: linear-gradient(#1c2d38 0%,#044065 80%); */
+background: rgba(255, 255, 255, 0.1);  
+
+}
 table {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
-    background: #320605;
+    /* background: #320605; */
+    background: #044065;
+    
       
 }
 thead{
@@ -69,7 +87,17 @@ input{
   height:30px;
 }
 /* -------------------------------botones tabla */
-.botn{
+ .botn{
+    height: 19px; 
+    margin:2px;
+    width: 30px;
+    padding-top: 7px;
+    display: inline-block;
+    background: rgba(245, 241, 241, 0.37);
+    text-align: center;
+    font-size: 10px;
+ }
+/* .botn{
   height: 19px; 
   margin:2px;
   width: 27px;
@@ -81,7 +109,7 @@ input{
   border-radius: 3px;
   color: #000000;
 
-}
+} */
 
 .botnn{
   height: 19px; 
@@ -189,7 +217,7 @@ a:link {
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
-  background-color: #310202;
+  /* background-color: #310202; */
 }
 .contenedor-login{
 
@@ -747,3 +775,9 @@ li.dropdown {
    margin-left: 15px;  
   margin-top: 0px;
 }
+/* .modal-content{
+  width: 150%;
+ 
+  
+
+} */

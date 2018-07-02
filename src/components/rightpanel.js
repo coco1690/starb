@@ -34,7 +34,7 @@ class Rightpanel extends React.Component {
             return(
                 <div key={idApuesta} className="panelright">
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
-                        <span style={{ display: "block", fontSize: 15, paddingBottom: 10, color: "rgb(237, 134, 9)" }}>
+                        <span style={{ display: "block", fontSize: 15, paddingBottom: 10, color: "rgb(255, 255, 255)" }}>
                             {items[idApuesta].liga}
                         </span>
                         <span style={{ display: "block", fontSize: 14, paddingBottom: 10, color: "rgb(254, 224, 100)"}}>
@@ -55,7 +55,7 @@ class Rightpanel extends React.Component {
            
                 <div className="right-panel">
                 <Sticky stickyStyle={{ right: 35, width: 280 }}>
-                    <div style={{ background: '#1b4b01' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)' }}>
                         <div style={{ padding: 10, fontWeight: 'bold', color: '#FEE064' }}>
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 14 }}></i>
                             <span className="ticket-title">Cupón</span>

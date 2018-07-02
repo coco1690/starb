@@ -14,18 +14,20 @@ class Centerpanel extends Component {
         this.state = {
             data: [],  
             open: false, 
-            modal:[],       
+            modal:[], 
+            entrada:"",     
         }
         context = this;
         console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
     }
         closeModal = () => this.setState({ open: false })
-        getdata(id){
-            fetch('http://kingdeportes.com/oddsMaster/api/view/model/cuotas/id/3261369', { cache: "no-cache" }).then(results => {
+        getdata(id,entrada){
+            fetch('http://kingdeportes.com/oddsMaster/api/list/model/odds/id/3261369', { cache: "no-cache" }).then(results => {
                 return results.json();
-            }).then(Modal => {
+            }).then(modal => {
                 context.setState({
-                    modal: Modal,
+                    modal,
+                    entrada,
                 }) 
                
             });
@@ -54,12 +56,13 @@ class Centerpanel extends Component {
         /**
         Obtengo las cabezeras de la tabla
         **/
+        let liganombre = "";
         let l = this.state.data;
         let ligasId = Object.keys(l);
         let liga = ligasId.map(idliga=> {
             let o = l[idliga].matches
 
-            
+            liganombre = l[idliga].sportName + " " + l[idliga].name;
             let listaeventos = Object.keys(o).map(idevent=>{
                 let y = o[idevent];
                 let min = 1, max = 4.5;
@@ -213,7 +216,7 @@ class Centerpanel extends Component {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
              
-
+              
                
                 return (
                     
@@ -252,7 +255,7 @@ class Centerpanel extends Component {
 
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
-                            <th className="botn btn" onClick={this.getdata.bind(this, y.idmatch)} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                            <th className="botn btn" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours   + ":" + minutes + pmam, liga:liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
 
                         </th>
                        
@@ -262,8 +265,8 @@ class Centerpanel extends Component {
             
             return(
 
-                <table key={idliga} id={idliga} className="table table-sm table-bordered bg-light">
-                    <thead className="table-primary">
+                <table key={idliga} id={idliga} id="table-central">
+                    <thead id="thead-central">
                         <tr >
                             <th colSpan='3' style={{ textAlign: 'left', fontSize: 12 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
                             <th className='text-center' style={{wordSpacing: '20pt',fontSize: 10}}>1 X 2 </th>
@@ -289,6 +292,79 @@ class Centerpanel extends Component {
         // console.log(c)
         console.log(liga)
        
+        let m = this.state.modal;
+        let ids = Object.keys(m);
+        let idss = ids.map(mo => {
+let body = m[mo].data;
+            let yy = Object.keys(body).map(yo=>{
+                let jj = body[yo];
+                let c1 = jj.o1;
+                let c2 = jj.o2;
+                let c3 = jj.o3;
+
+               
+                   switch (m[mo].id) {
+                       case 1:
+                           return (
+                           <tr>
+                             
+                               <td> {c1} </td>
+                               <td> {c2} </td>
+                               <td> {c3} </td>
+
+                           </tr>
+                           )
+                           break;
+                       case "29992":
+                           return (
+                               <tr>
+                                 
+                                   <td> {"OV ("+c3+")            "+c1} </td>
+                                   <td> {"UN (" + c3 + ")        " + c2} </td>
+                                 
+
+                               </tr>
+                           )
+                           break;
+                       default:
+                           return (
+                               <tr>
+                                 
+                                   <td> {c1} </td>
+                                   <td> {c2} </td>
+                                   <td> {c3} </td>
+
+                               </tr>
+                           )
+                           break;
+                   } 
+
+            
+
+
+                
+            })
+            return(
+                <div key={mo}>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td colSpan="3">{m[mo].name}</td> 
+                             
+                            </tr>
+                           
+                        </thead>
+                        <tbody> 
+                            {yy}
+                        </tbody>
+                    </table>
+                
+                </div>
+                
+            )
+
+        })
+
         return (
 
             
@@ -296,16 +372,25 @@ class Centerpanel extends Component {
             <div className="panels">
               {liga}
 
-                <Modal
+                <Modal 
                     show={this.state.open}
                     onHide={this.closeModal.bind()}
                     aria-labelledby="ModalHeader"
                 >
+                
                     <Modal.Header closeButton>
-                        <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
+                        <Modal.Title id='ModalHeader' style={{ color: '#000000', textAlign:"center" }}>
+                        
+                            <div> {this.state.entrada.liga}<br /></div>
+                            <div style={{ color: "#1e90ff", fontSize: 15 }} >{this.state.entrada.name}<br/> </div>
+                            <div> <small>{this.state.entrada.time} - {this.state.entrada.hora}</small></div>
+                           
+                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
-                        <p>Some Content here</p>
+                    <Modal.Body> 
+                       
+                        {idss} 
+                       
                     </Modal.Body>
                     <Modal.Footer>
                        
@@ -316,6 +401,7 @@ class Centerpanel extends Component {
                             Save
             </button>
                     </Modal.Footer>
+                   
                 </Modal>
                
        
