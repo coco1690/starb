@@ -1,26 +1,37 @@
 import React, { Component } from "react";
-// import { Link } from 'react-router-dom';
 import data from '../data';
-// import Moment from 'react-moment';
+import Modal from 'react-bootstrap-modal'
+import css from "react-bootstrap-modal/lib/css/rbm-complete.css";
 
-// import 'moment-timezone';
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-// import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
-// const p = "5%";
 let timestamp = new Date();
-// const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(timestamp.getTime() / 1000);
+
 let filtro, context;
 class Centerpanel extends Component {
 
     constructor() {
         super()
         this.state = {
-            data: [],           
+            data: [],  
+            open: false, 
+            modal:[],       
         }
         context = this;
         console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
     }
+        closeModal = () => this.setState({ open: false })
+        getdata(id){
+            fetch('http://kingdeportes.com/oddsMaster/api/view/model/cuotas/id/3261369', { cache: "no-cache" }).then(results => {
+                return results.json();
+            }).then(Modal => {
+                context.setState({
+                    modal: Modal,
+                }) 
+               
+            });
+            this.setState({open:true})   
+            }
+
 
     componentDidMount() {
         fetch('http://kingdeportes.com/oddsMaster/api/list/model/next',{cache:"no-cache"}).then(results => {
@@ -37,45 +48,9 @@ class Centerpanel extends Component {
         this.setState({data:[]})
     }
 
-    // static getDerivedStateFromProps(props, current_state) {
-    //     if (current_state.index2 !== props.match.params.index2) {
-    //         context.setState({
-    //             resultados: 1
-    //         })
-
-    //         console.log("Buscando pais en el deporte seleccionado: " + props.match.params.index2);
-    //         filtro = data.database().ref('matchesAll').orderByChild('countryId').equalTo(props.match.params.index2);
-
-    //         filtro.on("value", snapshot => {
-
-    //             console.log("Busqueda finalizada..");
-    //             // console.table(snapshot.val());
-
-    //             if (snapshot.val()) {
-
-    //                 context.setState({
-    //                     resultados: snapshot.val()
-    //                 });
-    //             } else {
-    //                 context.setState({
-    //                     resultados: 0
-    //                 })
-    //             }
-    //         });
-    //         return null;
-
-    //     }
-    //     return null;
-
-    // }
-   
+ 
     render() {
         
-        // let liga=  Object.keys (this.state.data).map(i=>{
-        //     return(
-                
-        //     )
-        // })
         /**
         Obtengo las cabezeras de la tabla
         **/
@@ -115,21 +90,7 @@ class Centerpanel extends Component {
                 var today = months[timess.getMonth()] + " " + dd;
                 timess = today;
                 let cuotas = y.data;
-            //   let cuota=  Object.keys(cuotas).map(idlogro=>{
-            //       let nn = cuotas[idlogro];
-
-            //         nn.idtlogro
-
-
-            //         return(
-                        
-            //             <th>
-            //                 {cuotas[idlogro].o1}<br/>
-            //                 {cuotas[idlogro].o2}<br />
-            //                 {cuotas[idlogro].o3}<br />
-            //             </th>
-            //         )
-            //     })
+           
                 let datalocal1 = {
                     choose: 1,
                     id: y,
@@ -243,9 +204,9 @@ class Centerpanel extends Component {
                     choose: 1,
                     id: y,
                     name: y.name,
-                    odd: y.data[139992] ? y.data[139992].o1 : "",
+                    odd: y.data[139992] ? y.data[139992].o2 : "",
                     option: "NG",
-                    price: y.data[139992] ? y.data[139992].o1 : "",
+                    price: y.data[139992] ? y.data[139992].o2 : "",
                     time: hours + ":" + minutes + pmam + " - " + timess,
                     type: y.data[139992] ? y.data[139992].type : "",
                     version: y.data[139992] ? y.data[139992].version : "",
@@ -270,9 +231,6 @@ class Centerpanel extends Component {
 
                         <th>
                             <th className="botn btn" style={{}} onClick={ this.props.addTocart.bind(this, y.idmatch,datalocal1)}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
-                            {/* onClick={ this.props.addTocart.bind(this, z) } */}
-                            {/* <button class="btn confirm" style="width: 100%; height: 40px; color: rgb(0, 0, 0); background: rgb(255, 247, 0); font-size: 14px; border: hidden;">Confirmar</button> */}
-                           
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, dataempatex)}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datavisitante2)}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
                         </th>
@@ -294,7 +252,7 @@ class Centerpanel extends Component {
 
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
-                            <th className="botn btn" style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                            <th className="botn btn" onClick={this.getdata.bind(this, y.idmatch)} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
 
                         </th>
                        
@@ -338,13 +296,29 @@ class Centerpanel extends Component {
             <div className="panels">
               {liga}
 
+                <Modal
+                    show={this.state.open}
+                    onHide={this.closeModal.bind()}
+                    aria-labelledby="ModalHeader"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Some Content here</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                       
+                        <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
 
+                      
+                        <button className='btn btn-primary' onClick={this.closeModal.bind()}>
+                            Save
+            </button>
+                    </Modal.Footer>
+                </Modal>
                
-             {/* {salida}  */}
-
-                {/* {this.state.data === 1 ? "Cargando..." : this.generarTabla(this.state.data)}
-                {this.generarTabla(this.state.matchesAlternative)}
-                {this.generarTabla(this.state.matches)} */}
+       
             </div >
 
         );
