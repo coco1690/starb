@@ -222,7 +222,7 @@ class Centerpanel extends Component {
                     
                 <tr key= {y.idmatch} >
                         <th style={{width:70}} >
-                            <div style={{color:'#C0C11A'}} >
+                            <div style={{color:'#C0C11A',fontSize:13}} >
                                 {hours   + ":"+ minutes + pmam}
                             </div>
                             <small>
@@ -255,7 +255,7 @@ class Centerpanel extends Component {
 
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
                             <th className="botn btn" style={{}} onClick={this.props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
-                            <th className="botn btn" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours   + ":" + minutes + pmam, liga:liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                            <th className="botn btn" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
 
                         </th>
                        
@@ -378,7 +378,7 @@ let body = m[mo].data;
                     aria-labelledby="ModalHeader"
                 >
                 
-                    <Modal.Header closeButton>
+                    <Modal.Header closeButton style={{ background: "rgba(255, 247, 0)" }}>
                         <Modal.Title id='ModalHeader' style={{ color: '#000000', textAlign:"center" }}>
                         
                             <div> {this.state.entrada.liga}<br /></div>
@@ -387,7 +387,7 @@ let body = m[mo].data;
                            
                          </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body> 
+                    <Modal.Body style={{ background: "rgba(255, 247, 0)" }}> 
                        
                         {idss} 
                        

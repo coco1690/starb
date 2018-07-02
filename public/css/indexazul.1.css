@@ -7,7 +7,7 @@
   src: url(GothamRounded-Book.otf);       
 }   
 html, body{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Gotham', sans-serif;
   margin:0px;
   padding:0px;
   height:100%;
@@ -65,7 +65,7 @@ table {
       
 }
 thead{
-  background: rgba(255, 255, 255, 0.1);  
+  background: rgba(255, 255, 255, 0.336);  
 }
 tr{
   height: 40px;
