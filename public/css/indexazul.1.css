@@ -395,6 +395,8 @@ background: rgba(255,255,255,0.1);
   margin-top: 10px;
   /* font-weight: bold;  */
   background: rgba(255, 247, 0, 0.85);
+    /* background: #320605; */
+    /* background: #1f2122; */
   text-transform: uppercase;
 }
 #panel-usuario{

@@ -166,9 +166,13 @@ const Tableselect = (props)=>{
 
 
         return (
-
+           
+          
+            
             <tr key={y.idmatch} >
+              
                 <th style={{ width: 70 }} >
+                
                     <div style={{ color: '#C0C11A', fontSize: 13 }} >
                         {hours + ":" + minutes + pmam}
                     </div>
@@ -215,14 +219,20 @@ const Tableselect = (props)=>{
                 </th>
 
             </tr>
+            
         );
+            
     })
 
     return (
-
-        <table key={idliga} id={idliga} id="table-central">
-            <thead id="thead-central">
+       
+        <table key={idliga} id={idliga} id="table-central">   
+            <thead id="thead-central">  
+                {/* <tr>
+                    <td id="proximos" colSpan='7' style={{ textAlign: 'left', fontSize: 14 }}>{liganombre}</td>
+                </tr>   */}
                 <tr >
+                    
                     <th colSpan='3' style={{ textAlign: 'left', fontSize: 12 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
                     <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 10 }}>1 X 2 </th>
                     <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>1X 12 2X</th>
@@ -237,12 +247,13 @@ const Tableselect = (props)=>{
                 {listaeventos}
             </tbody>
         </table>
-
+        
 
     )
 
 });
 
 return liga;
+    
 }
 export default Tableselect;
