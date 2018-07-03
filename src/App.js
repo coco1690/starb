@@ -94,7 +94,7 @@ class App extends Component {
                       <div>
                         <Switch>
                           <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />}/>
-                          <Route exact path="/perfil/:iduser" component={Perfil} />
+                          <Route exact path="/perfil/:iduser?" component={Perfil} />
                           <Route exact path="/login" component={Login} />
                           <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                           <Redirect to="/" />
