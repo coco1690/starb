@@ -18,24 +18,7 @@ class App extends Component {
     super()
     this.save = this.save.bind(this);
     this.state = {
-      items: {
-        3225175: {
-          choose: 1, 
-          id: 3225157, 
-          name: "France U2/Switzerla", 
-          odd: "Alta y.data[29992].o1+'(<'+o3+')'", 
-          liga:"Soccer Superliga",
-          // odd: "y.data[19992].o1",
-          option: "Alta", 
-          price: "y.data[29992].o1", 
-          time: "01-06-2018 12:45", 
-          type: "y.data[29992].type", 
-          version: "y.data[29992].version",
-        },
-        32251584: {
-          choose: 1, id: 3225158, name: "Netherlan/Bolivia U",  liga:"Soccer Superliga",odd: "1.5 ( > 2,5)", option: "Over", price: "1.5", time: "05-06-2018 16:00", type: 4, version: 0,
-        },       
-      }
+      items: { }
     };
   }
   removeFromCupon = (id) => { 
@@ -43,20 +26,14 @@ class App extends Component {
     let temporal = this.state.items;
     delete temporal[id];
     this.setState({
-<<<<<<< HEAD
       items: temporal
     })
     localStorage.setItem('tickets', JSON.stringify(temporal));
   
   };
-=======
-      items:temporal
-    })  
-    return alert("Eliminado..") 
->>>>>>> d6f06490ef13ecce97fa3c3b843c4c7c85be9f7f
   
   };
-  save = (x) => { return alert('save it!') };
+  
 
   addTocart=(id,data)=>{
     console.log(id,data);
@@ -65,7 +42,7 @@ class App extends Component {
     this.setState({
       items:temporal
     })  
-    // return alert("Agregado"); 
+    localStorage.setItem('tickets', JSON.stringify(temporal));
   }
   render() {
  
