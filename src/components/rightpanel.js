@@ -29,7 +29,7 @@ class Rightpanel extends React.Component {
 
     }
     handleChange(event) {
-        this.setState({stake: event.target.value});
+        context.setState({stake: event.target.value});
       }
     render() {        
         let p= 1;  let q=1;    
