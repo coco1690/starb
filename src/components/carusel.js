@@ -21,13 +21,13 @@ class Carusel extends React.Component {
             
             <Carousel showThumbs={false} showStatus={false}  stopOnHover autoPlay interval={5000} infiniteLoop dynamicHeight  >
                 <div>
-                    <img id="1" alt="" style={{ marginTop: -100}} src="/img/icons/wall1.jpg" />                                    
+                    <img id="1" alt="" style={{ marginTop: 0}} src="/img/icons/slid1.png" />                                    
                 </div>
                 <div>
-                    <img id="2" alt="" style={{ marginTop: -100 }} src="/img/icons/wall2.jpg" />
+                    <img id="2" alt="" style={{ marginTop: 0 }} src="/img/icons/slid2.png" />
                 </div>
                 <div>
-                    <img id="3" alt="" style={{ marginTop: -40 }}src="/img/icons/wall3.jpg" />
+                    <img id="3" alt="" style={{ marginTop: 0}}src="/img/icons/slid3.png" />
 
                 </div>
                
