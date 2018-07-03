@@ -4,8 +4,13 @@ import Sticky from 'react-sticky-el';
 
 
 // import { Components } from 'react-bootstrap-navbar';
+<<<<<<< HEAD
   
 let context;
+=======
+
+
+>>>>>>> d6f06490ef13ecce97fa3c3b843c4c7c85be9f7f
 class Rightpanel extends React.Component {
     constructor(props) {
         super(props)
@@ -13,23 +18,17 @@ class Rightpanel extends React.Component {
             stake: this.props.stake,
             items: this.props.items,
             total: this.props.total
-        };     
-        context=this;   
-    }
-    static getDerivedStateFromProps(props, current_state) {
-        if (current_state.items !== props.items) {
-           
-                context.setState({
-                    items:props.items
-                })
-                
-
-        }
-        return null;
+        };
+        
 
     }
-    render() {        
-        let p= 1;      
+
+    render() {
+        
+        let p= 1;
+      
+
+
         console.log("****  Items del Cupon **********");
         console.table(this.state.items);
         let items = this.state.items

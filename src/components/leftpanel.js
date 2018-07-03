@@ -18,7 +18,7 @@ class Leftpanel extends Component {
             return results.json();
         }).then(data => {
             context.setState({ menu: data })
-            // console.table(data);
+            console.table(data);
         });
     }
     componentWillUnmount(){

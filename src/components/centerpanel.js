@@ -415,9 +415,11 @@ class Centerpanel extends Component {
 
             <div className="panels">
                 <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} raw={this.state.select ? this.state.select.leagues : []}/> 
-
-fghhhhhhhhhhhhhhhhhhh
-                {liga}
+                     <div id="proximos">
+                        Proximos Eventos
+                    </div>
+                        
+                        {liga}
 
                 <Modal
                     show={this.state.open}
