@@ -296,7 +296,7 @@ class Centerpanel extends Component {
 
                             <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang):""}>{y.data[139992] ? y.data[139992].o2 : ""}</th>
 
-                            <th className= "botn btn btn:active btn:hover" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                            <th className="botn btn btn:active btn:hover" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#ef092c' }}>{y.more ? y.more : ""}</th>
 
                         </th>
 

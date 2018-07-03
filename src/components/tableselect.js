@@ -214,7 +214,7 @@ const Tableselect = (props)=>{
 
                     <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datang):"javascript:void(0)"}>{y.data[139992] ? y.data[139992].o2 : ""}</th>
 
-                    <th className= "botn btn btn:active btn:hover"  onClick={props.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                    <th className="botn btn btn:active btn:hover" onClick={props.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#ef092c' }}>{y.more ? y.more : ""}</th>
 
                 </th>
 
