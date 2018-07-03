@@ -178,31 +178,38 @@ const Tableselect = (props)=>{
                 </th>
                 <th style={{ textAlign: 'left', width: '28%' }} >{y.name}</th>
                 <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
-
                 <th>
-                    <th className="botn btn btn:active btn:hover" style={{}} onClick={props.addTocart.bind(this, y.idmatch, datalocal1)}>{y.data[19992] ? y.data[19992].o1 : "-"} </th>
-                    <th className="botn btn btn:active btn:hover" style={{}} onClick={props.addTocart.bind(this, y.idmatch, dataempatex)}>{y.data[19992] ? y.data[19992].o2 : "-"}</th>
-                    <th className="botn btn btn:active btn:hover" style={{}} onClick={props.addTocart.bind(this, y.idmatch, datavisitante2)}>{y.data[19992] ? y.data[19992].o3 : "-"}</th>
+                    <th className={y.data[19992] ? "botn btn btn:active btn:hover" : ""}style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datalocal1) : ''}>{y.data[19992] ? y.data[19992].o1 : ""} </th>
+
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, dataempatex) : ""}>{y.data[19992] ? y.data[19992].o2 : ""}</th>
+
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datavisitante2) : ""}>{y.data[19992] ? y.data[19992].o3 : ""}</th>
                 </th>
 
                 <th>
-                    <th className="botn btn btn:active btn:hover" style={{}} onClick={props.addTocart.bind(this, y.idmatch, data1x)}>{y.data[49992] ? y.data[49992].o1 : "-"}</th>
-                    <th className="botn btn btn:active btn:hover" style={{}} onClick={props.addTocart.bind(this, y.idmatch, data12)}>{y.data[49992] ? y.data[49992].o2 : "-"}</th>
-                    <th className="botn btn btn:active btn:hover" style={{}} onClick={props.addTocart.bind(this, y.idmatch, data2x)}>{y.data[49992] ? y.data[49992].o3 : "-"}</th>
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data1x) : ""}>{y.data[49992] ? y.data[49992].o1 : ""}</th>
+
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data12) : ""}>{y.data[49992] ? y.data[49992].o2 : ""}</th>
+
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data2x) : ""}>{y.data[49992] ? y.data[49992].o3 : ""}</th>
                 </th>
 
                 <th>
 
-                    <th className="botn btn btn:active" style={{}} onClick={props.addTocart.bind(this, y.idmatch, dataunder)}>{y.data[29992] ? y.data[29992].o1 : "-"}</th>
-                    <th className="botn btn btn:active" style={{}} onClick={props.addTocart.bind(this, y.idmatch, dataover)}>{y.data[29992] ? y.data[29992].o2 : "-"}</th>
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[29992] ? this.props.addTocart.bind(this, y.idmatch, dataunder) : ""}>{y.data[29992] ? y.data[29992].o1 : ""}</th>
+
+                    <th className="botn btn btn:active btn:hover" style={{}} onClick={y.data[29992] ? this.props.addTocart.bind(this, y.idmatch, dataover) : ""}>{y.data[29992] ? y.data[29992].o2 : ""}</th>
+
                     <th className="botnn btn:active" style={{ color: '#C0C11A' }}>{y.data[29992] ? y.data[29992].o3 : ""}</th>
 
                 </th>
                 <th>
 
-                    <th className="botn btn" style={{}} onClick={props.addTocart.bind(this, y.idmatch, datagg)}>{y.data[139992] ? y.data[139992].o1 : "-"}</th>
-                    <th className="botn btn" style={{}} onClick={props.addTocart.bind(this, y.idmatch, datang)}>{y.data[139992] ? y.data[139992].o2 : "-"}</th>
-                    <th className="botn btn" onClick={props.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                    <th className="botn btn" style={{}} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datagg) : ""}>{y.data[139992] ? y.data[139992].o1 : ""}</th>
+
+                    <th className="botn btn" onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang) : ""}>{y.data[139992] ? y.data[139992].o2 : ""}</th>
+
+                    <th className="botn btn" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
 
                 </th>
 
