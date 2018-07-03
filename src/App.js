@@ -30,7 +30,7 @@ class App extends Component {
       items: temporal
     })
     localStorage.setItem('tickets', JSON.stringify(temporal));
-
+  
   };
   
 

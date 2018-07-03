@@ -4,8 +4,8 @@ import Sticky from 'react-sticky-el';
 
 
 // import { Components } from 'react-bootstrap-navbar';
-
-let context
+  
+let context;
 class Rightpanel extends React.Component {
     constructor(props) {
         super(props)
