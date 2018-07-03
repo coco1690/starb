@@ -24,9 +24,9 @@ html, body{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
 }
-.bold{
+/* .bold{
   font-weight: bold;
-}
+} */
 .color-yellow{
   color: #FEE064;
 }
@@ -58,6 +58,7 @@ background: rgba(255, 255, 255, 0.1);
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 10px;
     text-align: center;
     /* background: #320605; */
     /* background: #1f2122; */
@@ -374,6 +375,14 @@ background: rgba(255,255,255,0.1);
   height: 480px;
   margin-top: 0px;
   padding: 20px;
+}
+#proximos{
+  padding: 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  /* font-weight: bold;  */
+  background: rgba(255, 247, 0, 0.85);
+  text-transform: uppercase;
 }
 #panel-usuario{
   padding: 20px;
