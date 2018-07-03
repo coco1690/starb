@@ -28,8 +28,11 @@ class Rightpanel extends React.Component {
         return null;
 
     }
+    handleChange(event) {
+        this.setState({stake: event.target.value});
+      }
     render() {        
-        let p= 1;      
+        let p= 1;  let q=1;    
         console.log("****  Items del Cupon **********");
         console.table(this.state.items);
         let items = this.state.items
@@ -37,6 +40,7 @@ class Rightpanel extends React.Component {
         let obj = itemsid.map((idApuesta)=>{
             p = p * items[idApuesta].price;
             p = p.toFixed(2);
+            q=p*this.state.stake;
             return(
                 <div key={idApuesta} className="panelright">
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
@@ -73,13 +77,14 @@ class Rightpanel extends React.Component {
                             <div style={{ marginTop: 20, margin: 10}}>
                                 Cantidad:
                                 <div >
-                                    <input id="amount" placeholder="Ej: 2000" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} defaultValue={this.state.stake} type="text" /></div>
+                                    <input id="amount" placeholder="Ej: 2000" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.state.stake}   onChange={this.handleChange} type="text" /></div>
                             </div>
                             <div style={{ marginTop: 20, margin: 10 }}>Cuota:
                                 <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{p}</span>
                             </div>
                             <div style={{ marginTop: 10, margin: 10 }}>Pago Total:
-                                <span style={{ float: 'right', fontWeight: 'bold' }}><span className="currency-symbol">$</span> <span className="totalwin">0</span></span>
+                                <span style={{ float: 'right', fontWeight: 'bold' }}><span className="currency-symbol">$</span> 
+                                <span className="totalwin">{q}</span></span>
                             </div>
                             <div style={{ marginTop: 20 }}>
                                 <button className="btn confirm" onClick={this.props.save} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
