@@ -17,7 +17,8 @@ class Centerpanel extends Component {
             modal: [],
             select: [],
             entrada: "",
-            raw: this.props.select ? this.props.select.leagues : ""
+            raw: this.props.select ? this.props.select.leagues : "",
+           
         
         }
         context = this;
@@ -124,6 +125,7 @@ class Centerpanel extends Component {
                 var today = months[timess.getMonth()] + " " + dd;
                 timess = today;
                 let cuotas = y.data;
+            
 
                 let datalocal1 = {
                     choose: 1,
@@ -250,7 +252,7 @@ class Centerpanel extends Component {
 
 
                 return (
-
+                    
                     <tr key={y.idmatch} >
                         <th style={{ width: 70 }} >
                             <div style={{ color: '#C0C11A', fontSize: 13 }} >
@@ -294,7 +296,7 @@ class Centerpanel extends Component {
 
                             <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang):""}>{y.data[139992] ? y.data[139992].o2 : ""}</th>
 
-                            <th className= "botn btn btn:active btn:hover" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#C0C11A' }}>{y.more ? y.more : ""}</th>
+                            <th className="botn btn btn:active btn:hover" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#ef092c' }}>{y.more ? y.more : ""}</th>
 
                         </th>
 
@@ -412,9 +414,10 @@ class Centerpanel extends Component {
         return (
 
 
-
+          
             <div className="panels">
-                <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} raw={this.state.select ? this.state.select.leagues : []}/> 
+                <div id="proximos">{this.state.select.name }</div>
+                <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name :""} raw={this.state.select ? this.state.select.leagues : []}/> 
                      <div id="proximos">
                         Proximos Eventos
                     </div>
