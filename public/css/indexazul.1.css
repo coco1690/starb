@@ -60,12 +60,13 @@ table {
     width: 100%;
     text-align: center;
     /* background: #320605; */
-    background: #044065;
+    /* background: #1f2122; */
+    background: linear-gradient(#4a4a4b 5%,#212122d8 80%);
     
       
 }
 thead{
-  background: rgba(255, 255, 255, 0.336);  
+  background: rgba(255, 255, 255, 0.082);  
 }
 tr{
   height: 40px;
@@ -418,6 +419,23 @@ background: rgba(255,255,255,0.1);
   border-radius: 10px;
   opacity: 0.6;
   font-size: 13px;
+}
+#contenedor-form{
+  width: 96%;
+  height: 250px;
+  margin-top: 45px;
+  margin-left: 12px;
+}
+#form{
+  float: left;
+  width: 48%;
+  height: 250px;  
+}
+#form2{
+  float: right;
+  width: 48%;
+  height: 250px;
+  margin-left: 10px; 
 }
 .iconuser{
   height: 30%;

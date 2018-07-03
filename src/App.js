@@ -57,7 +57,7 @@ class App extends Component {
     this.setState({
       items:temporal
     })  
-    return alert("Agregado"); 
+    // return alert("Agregado"); 
   }
   render() {
  
@@ -94,9 +94,9 @@ class App extends Component {
                       <div>
                         <Switch>
                           <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />}/>
-                          <Route exact path="/perfil" component={Perfil} />
-                          <Route exact path="/login/:perfil" component={Login} />
-                          <Route exact path="/sport/:index/pais/:index2" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+                          <Route exact path="/perfil/:iduser" component={Perfil} />
+                          <Route exact path="/login" component={Login} />
+                          <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                           <Redirect to="/" />
                         </Switch>
                       </div>
