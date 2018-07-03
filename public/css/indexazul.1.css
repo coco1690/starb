@@ -89,14 +89,17 @@ input{
 }
 /* -------------------------------botones tabla */
  .botn{
-    height: 19px; 
+    height: 15px; 
     margin:2px;
-    width: 27px;
-    padding-top: 7px;
+    width: 28px;
+    padding-top: 4px;
     display: inline-block;
-    background: rgba(245, 241, 241, 0.37);
+    background: #ffffff;
     text-align: center;
     font-size: 10px;
+    border-radius: 4px;
+    color: #000;
+
  }
 /* .botn{
   height: 19px; 
