@@ -34,7 +34,7 @@ class Rightpanel extends React.Component {
             return(
                 <div key={idApuesta} className="panelright">
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
-                        <span style={{ display: "block", fontSize: 15, paddingBottom: 10, color: "rgb(237, 134, 9)" }}>
+                        <span style={{ display: "block", fontSize: 15, paddingBottom: 10, color: "rgb(255, 255, 255)" }}>
                             {items[idApuesta].liga}
                         </span>
                         <span style={{ display: "block", fontSize: 14, paddingBottom: 10, color: "rgb(254, 224, 100)"}}>

@@ -23,9 +23,9 @@ class Perfil extends Component {
                             <div className="iconuser"><img id="imagen-perfil" alt="" src="img/icons/user.png" /></div>
                                 
                                 {/* <div className="formulario"> */}
-                                <Tabs className="formulario" onSelect={(index, label) => console.log(label + ' selected')}>
+                                <Tabs className="formulario btn btn:hover btn:active" onSelect={(index, label) => console.log(label + ' selected')}>
                                     
-                                        <Tab  label="PERFIL"> 
+                                    <Tab className="btn btn:hover btn:active" label="PERFIL"> 
                                        
                                         <div id="contenedor-form" ><hr></hr>
                                             
