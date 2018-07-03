@@ -29,7 +29,7 @@ class App extends Component {
     this.setState({
       items: temporal
     })
-    localStorage.setItem('ticket', JSON.stringify(temporal));
+    localStorage.setItem('tickets', JSON.stringify(temporal));
 
   };
   
@@ -43,14 +43,14 @@ class App extends Component {
       items: temporal
     })
     
-    localStorage.setItem('ticket', JSON.stringify(temporal));
+    localStorage.setItem('tickets', JSON.stringify(temporal));
  
   }
 
   componentDidMount() {
-    if (localStorage.getItem('ticket') != null) {      
+    if (localStorage.getItem('tickets') != null) {      
       console.log("App mounting....");
-      let temporal = JSON.parse(localStorage.getItem('ticket'));
+      let temporal = JSON.parse(localStorage.getItem('tickets'));
       console.log(temporal);
       this.setState({items:temporal});
     }
