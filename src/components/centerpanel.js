@@ -40,7 +40,7 @@ class Centerpanel extends Component {
 
 
     componentDidMount() {
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/buscar/id/' + this.props.match.params.idsport+""+ this.props.match.params.idpais,{ cache: "no-cache" }).then(results => {
+        fetch('http://kingdeportes.com/geek/api/list/model/buscar/id/' + this.props.match.params.idsport+""+ this.props.match.params.idpais,{ cache: "no-cache" }).then(results => {
             return results.json();
         }).then(select => {
             context.setState({
@@ -49,7 +49,7 @@ class Centerpanel extends Component {
             // console.table(data)
         });
 
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/siguiente', { cache: "no-cache" }).then(results => {
+        fetch('http://kingdeportes.com/geek/api/list/model/siguiente', { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(data => {
             context.setState({
@@ -66,7 +66,7 @@ class Centerpanel extends Component {
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.idpais !== props.match.params.idpais) {
             console.log("Se actualizo la prop a " + props.match.params.index2);
-            fetch('http://kingdeportes.com/oddsMaster/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" }).then(results => {
+            fetch('http://kingdeportes.com/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" }).then(results => {
                 return results.json();
             }).then(select => {
                 context.setState({

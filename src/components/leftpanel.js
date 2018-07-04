@@ -13,7 +13,7 @@ class Leftpanel extends Component {
     }
     componentDidMount() {
         var context = this;
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/leftpanel/',{cache:"no-cache"}
+        fetch('http://kingdeportes.com/geek/api/list/model/leftpanel/',{cache:"no-cache"}
         ).then(results => {
             return results.json();
         }).then(data => {
