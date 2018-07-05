@@ -26,7 +26,7 @@ class Centerpanel extends Component {
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
-        fetch('http://kingdeportes.com/oddsMaster/api/list/model/odds/id/' + id, { cache: "no-cache" }).then(results => {
+        fetch('http://kingdeportes.com/geek/api/list/model/odds/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
@@ -444,14 +444,10 @@ class Centerpanel extends Component {
                         {idss}
 
                     </Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
 
-                        <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
+                        <Modal.Dismiss className='btn btn-default' onClick={this.closeModal.bind()}>Cancel</Modal.Dismiss>
 
-
-                        <button className='btn btn-primary' onClick={this.closeModal.bind()}>
-                            Save
-            </button>
                     </Modal.Footer>
 
                 </Modal>

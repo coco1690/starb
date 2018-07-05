@@ -7,18 +7,55 @@ import 'moment-timezone';
 
 let canvas;
 class Login extends React.Component {
-    constructor() {
-        super()
-        this.state = { login: true }
+    constructor(props) {
+        super(props)
+        this.state = { 
+            login: false,
+            user:"",
+            pass:""
+            
+        }
+
+        this.usuario = this.usuario.bind(this);
+        this.password = this.password.bind(this);
+        this.ingresar= this.ingresar.bind(this);
     }
+            usuario(objuser) {
+                console.log(objuser.target.value)
+                this.setState({ user: objuser.target.value });
+            }
+            password(objpass) {
+                console.log(objpass.target.value)
+                this.setState({ pass: objpass.target.value });
+            }
+            ingresar(event) {
+                
+                // console.log(event.target);
+                // console.log(this.state.pass)
+                // console.log(this.state.pass)
+                let value = [this.state.pass, this.state.user];
+                // alert('A name was submitted: ' + this.state.value);
+                fetch('http://kingdeportes.com/gecko/api/login/m', {  mode: "cors", method: "POST", cache: "no-cache", body: JSON.stringify(value) }).then(results => {
+                    // console.log(results)    
+                return results;
+                }).then(data => {
+                    
+                    console.log(data.json())
+                });
+                event.preventDefault();
+            }
+
+
     render() {
 
         if (!this.state.login) {
             canvas = <div className="headcont">
-                <button className="btn" id="btnLogin">Ingresar </button>
-                <input id="pass" placeholder="Contraseña"type="password"/>
-                <input id="email" placeholder="Usuario"type="text"/>
-            </div>
+                        <form onSubmit={this.ingresar}>
+                            <button className="btn" id="btnLogin">Ingresar </button>
+                            <input id="pass" placeholder="Contraseña" type="password" value={this.state.pass} onChange={this.password}/>
+                            <input id="email" placeholder="Usuario" type="text" value={this.state.user} onChange={this.usuario}/>
+                        </form>
+                    </div>
 
         } else {
             return (

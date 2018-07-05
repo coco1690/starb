@@ -27,6 +27,10 @@ html, body{
 /* .bold{
   font-weight: bold;
 } */
+
+video{
+  width: 100%;
+}
 .color-yellow{
   color: #FEE064;
 }
@@ -55,6 +59,9 @@ html, body{
 background: rgba(255, 255, 255, 0.1);  
 
 }
+/* button{
+  font-family: 'Gotham', sans-serif;
+} */
 table {
     border-collapse: collapse;
     width: 100%;

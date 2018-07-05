@@ -56,14 +56,14 @@ class App extends Component {
     }
   }
   render() {
-
+    <video src="../public/video/intro.mp4" autoplay loop ></video>
     return (
       <Router>
         <div className="App">
 
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="/img/venbet04.png" /> </Link>
+              <Link to="/"> <img className="img-logo" alt="" src="/img/logobet3.png" /> </Link>
               <Login />
             </div>
           </div>
