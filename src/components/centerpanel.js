@@ -22,7 +22,7 @@ class Centerpanel extends Component {
         
         }
         context = this;
-        console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
+        // console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
@@ -55,7 +55,7 @@ class Centerpanel extends Component {
             context.setState({
                 data: data,
             })
-            console.table(data)
+            // console.table(data)
         });
 
     }
@@ -65,7 +65,7 @@ class Centerpanel extends Component {
     }
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.idpais !== props.match.params.idpais) {
-            console.log("Se actualizo la prop a " + props.match.params.index2);
+            // console.log("Se actualizo la prop a " + props.match.params.index2);
             fetch('http://kingdeportes.com/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" }).then(results => {
                 return results.json();
             }).then(select => {
