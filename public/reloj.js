@@ -11,6 +11,7 @@ var actualizarHora = function () {
         pMinutos = document.getElementById("minutos"),
         pSegundos = document.getElementById("segundos");
 
+   
     if (horas => 12) {
         horas = horas -! 12;
         ampm = 'AM';
@@ -22,7 +23,7 @@ var actualizarHora = function () {
         horas = 12;
     };
 
-    pHoras.textContent = horas;
+    pHoras.textContent  = horas;
     pAmpm.textContent = ampm;
 
     if (minutos < 10) { minutos = "0" + minutos };
@@ -31,7 +32,10 @@ var actualizarHora = function () {
 // console.log(segundos);
     pMinutos.textContent = minutos;
     pSegundos.textContent = segundos;
+
+   
 };
 
 var intervalo = setInterval(actualizarHora, 1000);
+
 

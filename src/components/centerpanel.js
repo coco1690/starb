@@ -22,7 +22,7 @@ class Centerpanel extends Component {
         
         }
         context = this;
-        console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
+        // console.log("Hora actual del Cliente " + timestamp.getTime() + ": " + timestamp);
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
@@ -55,7 +55,7 @@ class Centerpanel extends Component {
             context.setState({
                 data: data,
             })
-            console.table(data)
+            // console.table(data)
         });
 
     }
@@ -65,7 +65,7 @@ class Centerpanel extends Component {
     }
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.idpais !== props.match.params.idpais) {
-            console.log("Se actualizo la prop a " + props.match.params.index2);
+            // console.log("Se actualizo la prop a " + props.match.params.index2);
             fetch('http://kingdeportes.com/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" }).then(results => {
                 return results.json();
             }).then(select => {
@@ -266,35 +266,35 @@ class Centerpanel extends Component {
                         <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
 
                         <th>
-                            <th className= {y.data[19992] ? "botn btn btn:active btn:hover" :"botnone"} style={{}} onClick={y.data[19992] ?this.props.addTocart.bind(this, y.idmatch, datalocal1):''}>{y.data[19992] ? y.data[19992].o1 : ""} </th>
+                            <th className= {y.data[19992] ? "botn btn btn:active btn:hover" :"botnone"} style={{}} onClick={y.data[19992] ?this.props.addTocart.bind(this, y.idmatch, datalocal1): void(0)}>{y.data[19992] ? y.data[19992].o1 : ""} </th>
 
-                            <th className={y.data[19992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[19992] ?this.props.addTocart.bind(this, y.idmatch, dataempatex):""}>{y.data[19992] ? y.data[19992].o2 : ""}</th>
+                            <th className={y.data[19992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[19992] ?this.props.addTocart.bind(this, y.idmatch, dataempatex): void(0)}>{y.data[19992] ? y.data[19992].o2 : ""}</th>
 
-                            <th className={y.data[19992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[19992] ?this.props.addTocart.bind(this, y.idmatch, datavisitante2):""}>{y.data[19992] ? y.data[19992].o3 : ""}</th>
+                            <th className={y.data[19992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[19992] ?this.props.addTocart.bind(this, y.idmatch, datavisitante2): void(0)}>{y.data[19992] ? y.data[19992].o3 : ""}</th>
                         </th>
 
                         <th>
-                            <th className={y.data[49992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[49992] ?this.props.addTocart.bind(this, y.idmatch, data1x):""}>{y.data[49992] ? y.data[49992].o1 : ""}</th>
+                            <th className={y.data[49992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[49992] ?this.props.addTocart.bind(this, y.idmatch, data1x): void(0)}>{y.data[49992] ? y.data[49992].o1 : ""}</th>
 
-                            <th className={y.data[49992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[49992] ?this.props.addTocart.bind(this, y.idmatch, data12):""}>{y.data[49992] ? y.data[49992].o2 : ""}</th>
+                            <th className={y.data[49992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[49992] ?this.props.addTocart.bind(this, y.idmatch, data12): void(0)}>{y.data[49992] ? y.data[49992].o2 : ""}</th>
 
-                            <th className={y.data[49992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[49992] ?this.props.addTocart.bind(this, y.idmatch, data2x):""}>{y.data[49992] ? y.data[49992].o3 : ""}</th>
+                            <th className={y.data[49992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[49992] ?this.props.addTocart.bind(this, y.idmatch, data2x): void(0)}>{y.data[49992] ? y.data[49992].o3 : ""}</th>
                         </th>
 
                         <th>
 
-                            <th className={y.data[29992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[29992] ?this.props.addTocart.bind(this, y.idmatch, dataunder):""}>{y.data[29992] ? y.data[29992].o1 : ""}</th>
+                            <th className={y.data[29992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[29992] ?this.props.addTocart.bind(this, y.idmatch, dataunder): void(0)}>{y.data[29992] ? y.data[29992].o1 : ""}</th>
 
-                            <th className={y.data[29992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[29992] ?this.props.addTocart.bind(this, y.idmatch, dataover):""}>{y.data[29992] ? y.data[29992].o2 : ""}</th>
+                            <th className={y.data[29992] ? "botn btn btn:active btn:hover" :"botnone"}  style={{}} onClick={y.data[29992] ?this.props.addTocart.bind(this, y.idmatch, dataover): void(0)}>{y.data[29992] ? y.data[29992].o2 : ""}</th>
 
                             <th className="botnn btn:active" style={{ color: '#C0C11A' }}>{y.data[29992] ? y.data[29992].o3 : ""}</th>
 
                         </th>
                         <th>
 
-                            <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"} style={{}} onClick={y.data[139992] ?this.props.addTocart.bind(this, y.idmatch, datagg):""}>{y.data[139992] ? y.data[139992].o1 : ""}</th>
+                            <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"} style={{}} onClick={y.data[139992] ?this.props.addTocart.bind(this, y.idmatch, datagg): void(0)}>{y.data[139992] ? y.data[139992].o1 : ""}</th>
 
-                            <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang):""}>{y.data[139992] ? y.data[139992].o2 : ""}</th>
+                            <th className={y.data[139992] ? "botn btn btn:active btn:hover" :"botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang): void(0)}>{y.data[139992] ? y.data[139992].o2 : ""}</th>
 
                             <th className="botn btn btn:active btn:hover" onClick={this.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })} style={{ color: '#ef092c' }}>{y.more ? y.more : ""}</th>
 

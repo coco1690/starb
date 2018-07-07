@@ -75,10 +75,10 @@ class Rightpanel extends React.Component {
                         </div>
                         <div >
                             <div style={{ marginTop: 20, margin: 10}}>
-                                Cantidad:
-                                <div >
+                               <div style={{ width:70}}> Cantidad: </div>
+                               
                                     <input id="amount" placeholder="Ej: 2000" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.state.stake}   onChange={this.handleChange} type="text" /></div>
-                            </div>
+                           
                             <div style={{ marginTop: 20, margin: 10 }}>Cuota:
                                 <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{p}</span>
                             </div>
