@@ -75,7 +75,7 @@ class Login extends React.Component {
         }).join('&');
 
 
-        postData('http://localhost/gecko/api/login/m', searchParams)
+        postData('http://kingdeportes.com/gecko/api/login/m', searchParams)
             .then(data =>{
                 console.log(data);
                 console.log(data.GCCN_Nombre);
