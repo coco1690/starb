@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 // import Moment from 'react-moment';
 import 'moment-timezone';
+var md5 = require('md5');
 
 // import { Components } from 'react-bootstrap-navbar';
 
@@ -33,7 +34,7 @@ class Login extends React.Component {
         // console.log(event.target);
         // console.log(this.state.pass)
         // console.log(this.state.pass)
-        let value = { pass: this.state.pass, user: this.state.user };
+        let value = { pass: md5(this.state.pass), user: this.state.user };
         // alert('A name was submitted: ' + this.state.value);
         // fetch('http://localhost/gecko/api/login/m', 
         // { method: "POST"                
@@ -53,18 +54,27 @@ class Login extends React.Component {
                 // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
                 // credentials: "same-origin", // include, same-origin, *omit
                 headers: {
-                    // "Content-Type": "application/x-www-form-urlencoded",
-                    "Content-Type": "text/html",
+                    // "Content-Type": 'application/json; charset=utf-8',
+                    // "Content-Type": "text/html",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    // 'content-type': 'multipart/form-data',
+                    'Accept': 'application/json; charset=utf-8'
                 },
                 // redirect: "follow", // manual, *follow, error
                 // referrer: "no-referrer", // no-referrer, *client
-                body: JSON.stringify({'data':data}), // body data type must match "Content-Type" header
+                body: data, // body data type must match "Content-Type" header
             })
                 .then(response => response.json()) // parses response to JSON
                 .catch(error => console.error(`Fetch Error =\n`, error));
         };
 
-        postData('http://localhost/gecko/api/login/m', { username: this.state.user , pass:this.state.pass })
+        const searchParams = Object.keys(value).map((key) => {
+            return encodeURIComponent(key) + '=' + encodeURIComponent(value[key]);
+        }).join('&');
+
+
+        postData('http://localhost/gecko/api/login/m', searchParams)
             .then(data => console.log(data)) // JSON from `response.json()` call
             .catch(error => console.error(error));
 
