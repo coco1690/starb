@@ -12,6 +12,7 @@ class Login extends React.Component {
         super(props)
         this.state = {
             login: false,
+            name:"Invitado",
             user: "",
             pass: ""
 
@@ -75,7 +76,14 @@ class Login extends React.Component {
 
 
         postData('http://localhost/gecko/api/login/m', searchParams)
-            .then(data => console.log(data)) // JSON from `response.json()` call
+            .then(data =>{
+                console.log(data);
+                console.log(data.GCCN_Nombre);
+                if(data.GCCN_Cod){
+                    this.setState({login:true})
+                    this.setState({name:data.GCCN_Nombre})
+                }
+            }) // JSON from `response.json()` call
             .catch(error => console.error(error));
 
 
@@ -133,7 +141,7 @@ class Login extends React.Component {
                             </div>
                         </li>
                         <li className="dropdown">
-                            <Link to='#' className="dropbtn" id="usuario">USUARIO<i className='ion-android-arrow-dropdown'></i> </Link>
+                            <Link to='#' className="dropbtn" id="usuario">{this.state.name}<i className='ion-android-arrow-dropdown'></i> </Link>
                             <div className="dropdown-content">
                                 <Link to="/perfil">Perfil</Link>
                                 <Link to="/">Balance</Link>
