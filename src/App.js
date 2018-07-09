@@ -17,10 +17,13 @@ class App extends Component {
     super()
     // this.save = this.save.bind(this);
     this.state = {
-      items: {}
+      items: {},
+      user:{}
     };
 
-
+    this.addTouser = this.addTouser.bind(this)
+    this.removeFromuser = this.removeFromuser.bind(this)
+  
   }
   removeFromCupon = (id) => {
     // console.log(x);
@@ -47,6 +50,36 @@ class App extends Component {
  
   }
 
+  // +++++++++++++++++++++++++++++++user++++++++++++++++++++++++++++++++++++++++++
+
+  removeFromuser = (event) => {
+    // console.log(event);
+    let usertem = this.state.user;
+    delete usertem[event];
+    this.setState({
+     user: usertem
+    })
+    localStorage.setItem('user', JSON.stringify(usertem));
+
+  };
+
+
+  addTouser= (event, data) => {
+
+    let  usertem= this.state.user;
+    usertem[event] = data;
+
+    this.setState({
+     user:usertem
+    })
+
+    localStorage.setItem('user', JSON.stringify(usertem));
+
+  }
+
+
+  // fin+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
   componentDidMount() {
     if (localStorage.getItem('tickets') != null) {      
       console.log("App mounting....");
@@ -54,9 +87,15 @@ class App extends Component {
       console.log(temporal);
       this.setState({items:temporal});
     }
+    if (localStorage.getItem('user') != null) {
+      // console.log("App mounting....");
+      let usertem = JSON.parse(localStorage.getItem('user'));
+      // console.log(temporal);
+      this.setState({ user: usertem });
+    }
   }
   render() {
-    <video src="../public/video/intro.mp4" autoplay loop ></video>
+    // <video src="../public/video/intro.mp4" autoplay loop ></video>
     return (
       <Router>
         <div className="App">
@@ -90,8 +129,11 @@ class App extends Component {
                     <div>
                       <Switch>
                         <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+
                         <Route exact path="/perfil/:iduser?" component={Perfil} />
-                        <Route exact path="/login" component={Login} />
+
+                        <Route exact path="/login/:login" render={(props) => <Login {...props} user={this.state.user} removeFromuser={this.removeFromuser} addTouser={this.addTouser} component={Login}/>}  />
+
                         <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                         <Redirect to="/" />
                       </Switch>

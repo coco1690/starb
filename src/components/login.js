@@ -12,7 +12,12 @@ class Login extends React.Component {
         super(props)
         this.state = {
             login: false,
-            name:"Invitado",
+            userdata:{
+               
+            },
+            users:this.props.user,
+          
+
             user: "",
             pass: ""
 
@@ -21,7 +26,14 @@ class Login extends React.Component {
         this.usuario = this.usuario.bind(this);
         this.password = this.password.bind(this);
         this.ingresar = this.ingresar.bind(this);
+        this.salir = this.salir.bind(this);
+        // this.props.addTouser = this.props.addTouser.bind(this);
+        // this.props.aremoveFromuser = this.props.removeFromuser.bind(this)
+
+
+        
     }
+    
     usuario(objuser) {
         console.log(objuser.target.value)
         this.setState({ user: objuser.target.value });
@@ -32,19 +44,8 @@ class Login extends React.Component {
     }
     ingresar(event) {
 
-        // console.log(event.target);
-        // console.log(this.state.pass)
-        // console.log(this.state.pass)
         let value = { pass: md5(this.state.pass), user: this.state.user };
-        // alert('A name was submitted: ' + this.state.value);
-        // fetch('http://localhost/gecko/api/login/m', 
-        // { method: "POST"                
-        // }).then(results => {
-        //     console.log(results)    
-        //     return results;
-        // }).then(data => {                    
-        //     console.log(data);
-        // });
+        
 
 
         const postData = (url = '', data = {}) => {
@@ -80,8 +81,9 @@ class Login extends React.Component {
                 console.log(data);
                 console.log(data.GCCN_Nombre);
                 if(data.GCCN_Cod){
-                    this.setState({login:true})
-                    this.setState({name:data.GCCN_Nombre})
+                    localStorage.setItem('user', JSON.stringify(data));
+                    this.props.addTouser({ userdata: data, login: true, pass:"",user:""})
+                    
                 }
             }) // JSON from `response.json()` call
             .catch(error => console.error(error));
@@ -89,21 +91,40 @@ class Login extends React.Component {
 
         event.preventDefault();   
     }
- 
+    salir(event){
+        this.props.removeFromuser({login:false, userdata:null})
+        localStorage.removeItem('user');
+        event.preventDefault(); 
+    }
+    
+    componentDidMount(){
 
+        if (localStorage.getItem('user') != null) {
+            let usertem = JSON.parse(localStorage.getItem('user'));
+            console.log(usertem);
+            this.setState({userdata: usertem, login:true });
+        }
+        
+        
+    }
+    
+ 
+      
     render() {
 
         if (!this.state.login) {
             canvas = <div className="headcont">
                         <form onSubmit={this.ingresar}>
-                    <button className="btn" tabindex="3" id="btnLogin">Ingresar </button>
-                    <input id="pass" placeholder="Contraseña" type="password" tabindex="2" value={this.state.pass} onChange={this.password}/>
-                            <input id="email" placeholder="Usuario" type="text" tabindex="1" value={this.state.user} onChange={this.usuario}/>
+                    <button className="btn" tabIndex="3" id="btnLogin">Ingresar </button>
+                    <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password}/>
+                            <input id="email" placeholder="Usuario" type="text" tabIndex="1" value={this.state.user} onChange={this.usuario}/>
                         </form>
                     </div>
 
         } else {
-            return (
+             
+            
+
                 canvas = <div className='navbar'>
                     <ul>
                         <li><a href="#news" id="deposito">Deposito<i className='ion-social-usd'></i></a></li>
@@ -141,24 +162,23 @@ class Login extends React.Component {
                             </div>
                         </li>
                         <li className="dropdown">
-                            <Link to='#' className="dropbtn" id="usuario">{this.state.name}<i className='ion-android-arrow-dropdown'></i> </Link>
+                            <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.GCCN_Nombre}<i className='ion-android-arrow-dropdown'></i> </Link>
                             <div className="dropdown-content">
                                 <Link to="/perfil">Perfil</Link>
                                 <Link to="/">Balance</Link>
                                 <Link to="/">Apuestas</Link>
                                 {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
-                                <Link to="/" id="salir">salir<i className='ion-power'></i></Link>
+                                <Link to="/" id="salir" onClick={this.salir} >salir<i className='ion-power'></i></Link>
                             </div>
                         </li>
                     </ul>
 
                 </div>
-            );
+    
         }
-        return (
-            canvas
-
-        )
+        
+        
+        return (canvas)
 
     }
 }
