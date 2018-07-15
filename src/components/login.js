@@ -7,33 +7,25 @@ var md5 = require('md5');
 // import { Components } from 'react-bootstrap-navbar';
 
 let canvas;
+let content;
 class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            login: false,
-            userdata:{
-               
-            },
-            users:this.props.user,
-          
-
+            login: this.props.user.login,
             user: "",
             pass: ""
-
         }
+        
 
         this.usuario = this.usuario.bind(this);
         this.password = this.password.bind(this);
         this.ingresar = this.ingresar.bind(this);
         this.salir = this.salir.bind(this);
-        // this.props.addTouser = this.props.addTouser.bind(this);
-        // this.props.aremoveFromuser = this.props.removeFromuser.bind(this)
-
-
-        
+       
+         content = this;
     }
-    
+
     usuario(objuser) {
         console.log(objuser.target.value)
         this.setState({ user: objuser.target.value });
@@ -45,8 +37,6 @@ class Login extends React.Component {
     ingresar(event) {
 
         let value = { pass: md5(this.state.pass), user: this.state.user };
-        
-
 
         const postData = (url = '', data = {}) => {
             // Default options are marked with *
@@ -77,107 +67,116 @@ class Login extends React.Component {
 
 
         postData('http://kingdeportes.com/gecko/api/login/m', searchParams)
-            .then(data =>{
+            .then(data => {
                 console.log(data);
                 console.log(data.GCCN_Nombre);
-                if(data.GCCN_Cod){
-                    localStorage.setItem('user', JSON.stringify(data));
-                    this.props.addTouser({ userdata: data, login: true, pass:"",user:""})
-                    
+                if (data.GCCN_Cod) {
+
+                    this.props.addToUser({ userdata: data, login: true })
+                    this.setState({ login: true })
+
                 }
             }) // JSON from `response.json()` call
             .catch(error => console.error(error));
 
 
-        event.preventDefault();   
+        event.preventDefault();
     }
-    salir(event){
-        this.props.removeFromuser({login:false, userdata:null})
-        localStorage.removeItem('user');
-        event.preventDefault(); 
-    }
-    
-    componentDidMount(){
+    salir(event) {
+        this.props.removeFromUser();
+        this.setState({ login: false })
+        this.setState({user:"",pass:""})
 
-        if (localStorage.getItem('user') != null) {
-            let usertem = JSON.parse(localStorage.getItem('user'));
-            console.log(usertem);
-            this.setState({userdata: usertem, login:true });
-        }
-        
-        
+        event.preventDefault();
     }
-    
- 
-      
+
+    componentDidMount() {
+        // this.setState({
+        //     login: this.props.user.login,
+        //     user: this.props.user.userdata
+        // })
+        console.log(this.props);
+    }
+    static getDerivedStateFromProps(props, current_state) {
+        if (current_state.user !== props.user) {     
+            if(props.user)      
+            content.setState({
+                    login:props.user.login,
+                    userdata:props.user.userdata
+                })                
+        }
+        return null;
+
+    }
+
     render() {
 
         if (!this.state.login) {
             canvas = <div className="headcont">
-                        <form onSubmit={this.ingresar}>
+                <form onSubmit={this.ingresar}>
                     <button className="btn" tabIndex="3" id="btnLogin">Ingresar </button>
-                    <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password}/>
-                            <input id="email" placeholder="Usuario" type="text" tabIndex="1" value={this.state.user} onChange={this.usuario}/>
-                        </form>
-                    </div>
+                    <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password} />
+                    <input id="email" placeholder="Usuario" type="text" tabIndex="1" value={this.state.user} onChange={this.usuario} />
+                </form>
+            </div>
 
         } else {
-             
-            
-
-                canvas = <div className='navbar'>
-                    <ul>
-                        <li><a href="#news" id="deposito">Deposito<i className='ion-social-usd'></i></a></li>
-                        <li className="dropdown">
-                            <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
-                            <div className="dropdown-content">
-                                <Link to="/">Historial</Link>
-                                <Link to="/">Deposito</Link>
-                                <Link to="/">Retiros</Link>
-
-                            </div>
-                        </li>
-                        {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
 
 
-                        <li className="reloj">
-                            <i className='ion-ios-alarm'></i>&nbsp;
+
+            canvas = <div className='navbar'>
+                <ul>
+                    <li><a href="#news" id="deposito">Deposito<i className='ion-social-usd'></i></a></li>
+                    <li className="dropdown">
+                        <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
+                        <div className="dropdown-content">
+                            <Link to="/">Historial</Link>
+                            <Link to="/">Deposito</Link>
+                            <Link to="/">Retiros</Link>
+
+                        </div>
+                    </li>
+                    {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
+
+
+                    <li className="reloj">
+                        <i className='ion-ios-alarm'></i>&nbsp;
                             <i id="horas" className="horas"> : </i> :
                             <i id="minutos" className="minutos"> : </i>&nbsp;
                             <i id="segundos" className="segundos"> 0 </i>
-                            <i id="ampm" className="ampm"> 0 </i>
-                        </li>
-                        <li>
+                        <i id="ampm" className="ampm"> 0 </i>
+                    </li>
+                    <li>
+                        <Link to="/">Historial</Link>
+
+                    </li>
+                    <li><Link to="/">Cupones</Link></li>
+                    <li className="dropdown">
+                        <Link to="#" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown'></i></Link>
+                        <div className="dropdown-content">
                             <Link to="/">Historial</Link>
+                            <Link to="/">Deposito</Link>
+                            <Link to="/">Retiros</Link>
 
-                        </li>
-                        <li><Link to="/">Cupones</Link></li>
-                        <li className="dropdown">
-                            <Link to="#" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown'></i></Link>
-                            <div className="dropdown-content">
-                                <Link to="/">Historial</Link>
-                                <Link to="/">Deposito</Link>
-                                <Link to="/">Retiros</Link>
+                        </div>
+                    </li>
+                    <li className="dropdown">
+                        <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.GCCN_Nombre}<i className='ion-android-arrow-dropdown'></i> </Link>
+                        <div className="dropdown-content">
+                            <Link to="/perfil">Perfil</Link>
+                            <Link to="/">Balance</Link>
+                            <Link to="/">Apuestas</Link>
+                            {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
+                            <Link to="/" id="salir" onClick={this.salir} >salir<i className='ion-power'></i></Link>
+                        </div>
+                    </li>
+                </ul>
 
-                            </div>
-                        </li>
-                        <li className="dropdown">
-                            <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.GCCN_Nombre}<i className='ion-android-arrow-dropdown'></i> </Link>
-                            <div className="dropdown-content">
-                                <Link to="/perfil">Perfil</Link>
-                                <Link to="/">Balance</Link>
-                                <Link to="/">Apuestas</Link>
-                                {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
-                                <Link to="/" id="salir" onClick={this.salir} >salir<i className='ion-power'></i></Link>
-                            </div>
-                        </li>
-                    </ul>
+            </div>
 
-                </div>
-    
         }
-        
-        
+
+
         return (canvas)
 
     }

@@ -11,18 +11,18 @@ import {
   Route, Switch
 } from 'react-router-dom';
 
-let items = [];
+const parseString = require('react-native-xml2js').parseString;
+
+// let items = [];
 class App extends Component {
   constructor() {
     super()
     // this.save = this.save.bind(this);
     this.state = {
       items: {},
-      user:{}
+      user:{},
+      data:{}
     };
-
-    this.addTouser = this.addTouser.bind(this)
-    this.removeFromuser = this.removeFromuser.bind(this)
   
   }
   removeFromCupon = (id) => {
@@ -52,28 +52,22 @@ class App extends Component {
 
   // +++++++++++++++++++++++++++++++user++++++++++++++++++++++++++++++++++++++++++
 
-  removeFromuser = (event) => {
-    // console.log(event);
-    let usertem = this.state.user;
-    delete usertem[event];
+  removeFromUser = () => {      
     this.setState({
-     user: usertem
+     user: null
     })
-    localStorage.setItem('user', JSON.stringify(usertem));
+    localStorage.removeItem('user');
 
   };
 
 
-  addTouser= (event, data) => {
-
-    let  usertem= this.state.user;
-    usertem[event] = data;
+  addToUser= (data) => {
 
     this.setState({
-     user:usertem
+     user:data
     })
 
-    localStorage.setItem('user', JSON.stringify(usertem));
+    localStorage.setItem('user', JSON.stringify(data));
 
   }
 
@@ -93,6 +87,23 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ user: usertem });
     }
+
+    //test
+    
+      let context = this;
+      fetch('http://www.goalserve.com/getfeed/b4dcc16be938418895ac88547d2d9e25/football/nfl-shedule?showodds=1')
+          .then(response => response.text())
+          .then((response) => {
+              parseString(response, function (err, result) {
+                  context.setState({ data: result })
+                  console.log(Object.keys(result.shedules))
+              });
+          }).catch((err) => {
+              console.log('Errores: ', err)
+          })
+
+
+  
   }
   render() {
     // <video src="../public/video/intro.mp4" autoplay loop ></video>
@@ -103,7 +114,7 @@ class App extends Component {
           <div className="header">
             <div className="contenedor-login">
               <Link to="/"> <img className="img-logo" alt="" src="/img/logobet3.png" /> </Link>
-              <Login />
+              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} />
             </div>
           </div>
 
@@ -132,7 +143,7 @@ class App extends Component {
 
                         <Route exact path="/perfil/:iduser?" component={Perfil} />
 
-                        <Route exact path="/login/:login" render={(props) => <Login {...props} user={this.state.user} removeFromuser={this.removeFromuser} addTouser={this.addTouser} component={Login}/>}  />
+                        <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />}  />
 
                         <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                         <Redirect to="/" />
