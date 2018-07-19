@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import data from '../data';
+// import data from '../data';
 import Modal from 'react-bootstrap-modal'
-import css from "react-bootstrap-modal/lib/css/rbm-complete.css";
+import css from "react-bootstrap-modal/lib/css/rbm-complete.css"; //no eliminar
 import Tableselect from "./tableselect";
 
-let timestamp = new Date();
+// let timestamp = new Date();
 
-let filtro, context;
+// let filtro, 
+let context;
 class Centerpanel extends Component {
 
     constructor(props) {
@@ -97,7 +98,7 @@ class Centerpanel extends Component {
             liganombre = l[idliga].sportName + " " + l[idliga].name;
             let listaeventos = Object.keys(o).map(idevent => {
                 let y = o[idevent];
-                let min = 1, max = 4.5;
+                // let min = 1, max = 4.5;
                 let timess = new Date(y.timestamp * 1000);
                 let pmam = 'AM';
                 var hours = timess.getHours();
@@ -124,8 +125,8 @@ class Centerpanel extends Component {
                 dd = dd < 10 ? '0' + dd : dd;
                 var today = months[timess.getMonth()] + " " + dd;
                 timess = today;
-                let cuotas = y.data;
-
+                // let cuotas = y.data;
+            
 
                 let datalocal1 = {
                     choose: 1,
@@ -317,7 +318,7 @@ class Centerpanel extends Component {
 
             return (
 
-                <table key={idliga} id={idliga} id="table-central">
+                <table key={idliga} idl={idliga} id="table-central">
                     <thead id="thead-central">
                         <tr >
                             <th colSpan='3' style={{ textAlign: 'left', fontSize: 12 }}  ><i className='ion-android-stopwatch'></i>
@@ -388,18 +389,7 @@ class Centerpanel extends Component {
                 }
 
                 switch (m[mo].type) {
-                    case 1:
-                        return (
-                            <tr>
-
-                                <td> {c1} </td>
-                                <td> {c2} </td>
-                                <td> {c3} </td>
-
-                            </tr>
-                        )
-                        break;
-
+                   
                     case "1":
                         return (
                             <tr>
@@ -593,7 +583,7 @@ class Centerpanel extends Component {
 
                             </tr>
                         )
-                        break;
+                        // break;
                 }
 
                 //     })

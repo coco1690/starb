@@ -22,17 +22,19 @@ var actualizarHora = function () {
     if (horas == 0) {
         horas = 12;
     };
+if(document.getElementById("horas")!==null){
 
     pHoras.textContent  = horas;
     pAmpm.textContent = ampm;
-
+    
     if (minutos < 10) { minutos = "0" + minutos };
     if (segundos < 10) { segundos = "0" + segundos };
-
-// console.log(segundos);
+    
+    // console.log(segundos);
     pMinutos.textContent = minutos;
     pSegundos.textContent = segundos;
-
+    
+}
    
 };
 

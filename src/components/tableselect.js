@@ -12,7 +12,7 @@ const Tableselect = (props)=>{
         liganombre = l[idliga].sportName + " " + l[idliga].name;
         let listaeventos = Object.keys(o).map(idevent => {
         let y = o[idevent];
-        let min = 1, max = 4.5;
+        // let min = 1, max = 4.5;
         let timess = new Date(y.timestamp * 1000);
         let pmam = 'AM';
         var hours = timess.getHours();
@@ -39,7 +39,7 @@ const Tableselect = (props)=>{
         dd = dd < 10 ? '0' + dd : dd;
         var today = months[timess.getMonth()] + " " + dd;
         timess = today;
-        let cuotas = y.data;
+        // let cuotas = y.data;
 
         let datalocal1 = {
             choose: 1,
@@ -226,7 +226,7 @@ const Tableselect = (props)=>{
 
     return (
        
-        <table key={idliga} id={idliga} id="table-central">   
+        <table key={idliga} idl={idliga} id="table-central">   
             <thead id="thead-central">  
                 {/* <tr>
                     <td id="proximos" colSpan='7' style={{ textAlign: 'left', fontSize: 14 }}>{liganombre}</td>
