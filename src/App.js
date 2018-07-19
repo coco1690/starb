@@ -11,7 +11,6 @@ import {
   Route, Switch
 } from 'react-router-dom';
 
-const parseString = require('react-native-xml2js').parseString;
 
 // let items = [];
 class App extends Component {
