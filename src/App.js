@@ -87,20 +87,6 @@ class App extends Component {
       this.setState({ user: usertem });
     }
 
-    //test
-    
-      let context = this;
-      fetch('http://www.goalserve.com/getfeed/b4dcc16be938418895ac88547d2d9e25/football/nfl-shedule?showodds=1')
-          .then(response => response.text())
-          .then((response) => {
-              parseString(response, function (err, result) {
-                  context.setState({ data: result })
-                  console.log(Object.keys(result.shedules))
-              });
-          }).catch((err) => {
-              console.log('Errores: ', err)
-          })
-
 
   
   }
