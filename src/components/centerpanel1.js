@@ -167,7 +167,7 @@ class Centerpanel extends Component {
         function bandera(cell, row) {
             return (
                 <div>
-                    &nbsp;&nbsp;   <i className={"ficon-inline f-" + row.pais}></i>&nbsp;&nbsp;
+                    &nbsp;&nbsp;   <i className={"ficon-inline f-" + row.pais}></i>&nbsp;&nbsp;   
                 {cell}
                 </div>);
         }
