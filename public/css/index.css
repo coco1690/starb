@@ -1,24 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous');
+ @import url('https://fonts.googleapis.com/css?family=Play');
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+ @import url('https://fonts.googleapis.com/css?family=Markazi+Text');
+ @import url('https://fonts.googleapis.com/css?family=Oswald');
+ @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 
 
-
-/* @font-face {
-  font-family: 'Play', sans-serif;
+ @font-face {
+  font-family: 'Ubuntu Mono', monospace;
   src: url(GothamRounded-Book.otf);       
-}    */
+}   
 html, body{
-  font-family: 'Righteous', cursive;
+  font-family: 'Ubuntu Mono', monospace;
   margin:0px;
   padding:0px;
   height:100%;
-  color: #ffffff;
+  color: #f7ff00;
  
-  font-size: 12px;
+  font-size: 15px;
   background: #0c0d11; /* Old browsers */
   background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%);
+   background: linear-gradient(to bottom, #000000 20%,#0e8000 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
@@ -116,7 +119,14 @@ a:link {
   margin-right: 5px;
 
 }
-
+.ion-android-stopwatch{
+     margin-left: 30px;
+      margin-right: 35px;
+    font-size: 20px;
+}
+.ion-stats-bars{
+  font-size: 20px;
+}
 .ion-social-usd, .ion-android-arrow-dropdown, .ion-power, .ion-android-add-circle{
   margin-left: 10px;
 }
@@ -125,13 +135,11 @@ a:link {
 }
 
 #deposito{
-  background:rgb(255, 0, 0);
+  background:orange;
 }
 #usuario{
-    background: rgba(88, 1, 1, 0);
-    color: #ffffff;
-    }
- 
+  background: rgba(227, 231, 6, 0.411);
+}
 
 #salir{
   background: rgba(146, 1, 1, 0.98);
@@ -149,6 +157,21 @@ a:link {
   position: relative;
   text-align: left;
 }
+
+.footer{
+  float:left;
+  position: relative;
+  height:80px;
+  width:100%;
+  box-sizing: border-box;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  text-align: center;
+  background-color: #1b4b01;
+}
+
+
 .header{
   float:left;
   position: relative;
@@ -159,20 +182,7 @@ a:link {
   background-repeat: no-repeat;
   background-size: 90%;
   text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-color: #180202;
-}
-.footer{
-  float:left;
-  position: relative;
-  height:150px;
-  width:100%;
-  box-sizing: border-box;
-  background-size: cover;
-  background-position: center;
-  background-color:#d18f0087;
-
+  background: linear-gradient(to left, #008609 40%,#fff700 90%);
 }
 .header-menu{
   float:left;
@@ -183,24 +193,24 @@ a:link {
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: center;
-  background-color:#811b02fa;
+  background-color: #1b4b01;
 }
-
 .contenedor-login{
 
   display:inline-block;
   width: 95%;
-  height: 120%; 
+  height: 100%; 
   position:relative;
 
 }
 
 .img-logo{
 
-  height: 50%; 
+  height: 90%; 
   position: absolute;
-  top: 19px;
-  left: 5px;
+  top: 5px;
+  left: 0;
+
 }
 
 .proximos, .perfil, .envivo, .resultados{
@@ -208,6 +218,7 @@ a:link {
   margin-right: 10px;
 }
 .panelright{
+  height:px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   display: block;
@@ -291,15 +302,18 @@ a:link {
   padding: 5px;
   margin-bottom: 10px;
 }
-
 .contenedor-deportes{
+background: #094b00;
+}
+
+.contenedor-deportes2{
   display:table;
   width: 100%;
   
 }
-#contenedor-deportes{
-  background:#ffffff17;
-}
+/* #contenedor-deportes{
+  background:#ff1307;
+} */
 
 #contenedorsub-deportes{
   display:table-cell;
@@ -319,11 +333,14 @@ a:link {
   overflow: auto;
   min-width: 650px;
   padding-top: 10px;
+  background-color: #475d3b;
 }
+
+
 .center-panel2,  .carousel-slider
 {
- height: 250px;
-
+  height: 250px;
+  background-color: #475d3b;
  
 }
 
@@ -348,7 +365,7 @@ a:link {
   opacity:0.3;
   margin: 10px;
   border-radius: 5px;
-  width: 80%;
+  width: 40%;
   background: rgba(255,255,255,0.1);
 }
 #telefono{
@@ -390,33 +407,14 @@ a:link {
   margin:10px;
   border-radius: 10px;
 }
-#contenedor-form{
-  width: 96%;
-  height: 250px;
-  margin-top: 45px;
-  margin-left: 12px;
-}
-#form{
-  float: left;
-  width: 48%;
-  height: 250px;  
-}
-#form2{
-  float: right;
-  width: 48%;
-  height: 250px;
-  margin-left: 10px; 
-}
-/* .lineavertical{ 
+.lineavertical{ 
   width: 50%;
   height: 96%;
   margin-left: 50%;
   margin-top: -269px;
   border-top-right-radius: 10px;
-  border-left: 1px solid; 
-  display: inline-block; 
-} */
-
+  border-left: 1px solid;  
+}
 .right-panel{
   margin-top: 0px;
   float:right;
@@ -431,11 +429,11 @@ a:link {
   display:inline-block;padding:11px;padding-left:15px;padding-right:15px;font-size:13px;
   box-sizing: border-box;
   cursor: pointer;
-  padding-top: 7px;
+  padding-top: 6px;
   color: rgba(255,255,255,0.2);
 }
 .header-menu .menu-item.active{
-  color:#ffffff;
+  color:#FFF;
 }
 /* 
 .matchbox{
@@ -630,11 +628,10 @@ overflow: auto;
 } */
 
 .sportbutton{
-  position:relative;height:60px;border-right: 1px solid rgba(255,255,255,0.5);
+  position:relative;height:60px;border-right: 1px solid #ffffff;
   background-position: center 10px;
   background-size: 40%;
-  background-repeat: no-repeat;
-  opacity:0.3;
+  background-repeat: no-repeat;  
 }
 .sportbutton.active{
   opacity:1;
@@ -646,7 +643,7 @@ overflow: auto;
   height: 40px;
   border-right: 1px solid rgba(255,255,255,0.5);
   vertical-align: middle;
-  opacity:0.3;
+ 
 }
 .country.active{
   border-right: 2px solid #FEE064;
@@ -702,7 +699,7 @@ li.dropdown {
     display: none;
     position: absolute;
      /* background:rgba(90, 7, 4, 0.877); */
-    background:rgba(58, 58, 58, 0.89);
+    background:rgba(27, 45, 58, 0.89);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.596);
     z-index: 1;
@@ -738,12 +735,12 @@ li.dropdown {
   display: inline-block;
   font-size: 10px;
   font-style: normal;
-  font-family: Gotham; 
+  font-family: play; 
   position: absolute;
 }
 
 .horas, .minutos{
-  font-family: 'Righteous', cursive; 
+  font-family: play; 
   font-style: normal;
 }
 
@@ -751,7 +748,7 @@ li.dropdown {
   display: inline-block;
   font-size: 10px;
   font-style: normal;
-  font-family: 'Righteous', cursive;
+  font-family: play; 
   position: absolute;
    margin-left: 15px;  
   margin-top: 0px;
