@@ -1,5 +1,6 @@
 import React from "react";
 import Sticky from 'react-sticky-el';
+import { Scrollbars } from 'react-custom-scrollbars';
 // import { Link } from 'react-router-dom';
 
 
@@ -53,7 +54,8 @@ class Rightpanel extends React.Component {
                         <div style={{ display: "inline", paddingTop: 10, fontSize: 12}}>{items[idApuesta].time}</div> <br/>
                         <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 12 }}>
                             <div style={{ display: "table-cell" }}><span>{items[idApuesta].option + " " + items[idApuesta].odd}</span></div>
-                            <div style={{ display: "table-cell", right: 1, color: 'white', float: "right"}}><div to="#" className="btn botn" style={{marginTop:-50}} onClick={ this.props.removeFromCupon.bind(this, idApuesta)}>-</div></div>
+                            <div style={{ display: "table-cell", right: 1, color: 'white', float: "right"}}>
+                                <div to="#" className="btn botn" style={{marginTop:-50}} onClick={ this.props.removeFromCupon.bind(this, idApuesta)}>-</div></div>
                         </div>
                     </div> 
                 </div>
@@ -62,17 +64,28 @@ class Rightpanel extends React.Component {
         return (
             
                 
-           
+            
+
                 <div className="right-panel">
+                
+                
                 <Sticky stickyStyle={{ right: 35, width: 280 }}>
+                   
+        
+                   
                     <div style={{ background: 'rgba(255,255,255,0.1)' }}>
                         <div style={{ padding: 10, fontWeight: 'bold', color: '#FEE064' }}>
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 14 }}></i>
                             <span className="ticket-title">Cupón</span>
                         </div>
-                        <div className="bets">
+                        {/* <Scrollbars style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}> */}
+                        <div>
+                      
                       {obj}
+                     
                         </div>
+                        {/* </Scrollbars> */}
+                        
                         <div >
                             <div style={{ marginTop: 20, margin: 10}}>
                                <div style={{ width:70}}> Cantidad: </div>
@@ -91,8 +104,12 @@ class Rightpanel extends React.Component {
                             </div>
                         </div>
                     </div>
+                             
                     </Sticky>
+                    
+                        
                 </div>
+              
             
            
         );
