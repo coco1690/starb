@@ -98,7 +98,7 @@ class App extends Component {
 
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="/img/logobet3.png" /> </Link>
+              <Link to="/"> <img className="img-logo" alt="" src="/img/logo8abet.png" /> </Link>
               <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} />
             </div>
           </div>
