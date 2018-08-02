@@ -1,6 +1,6 @@
 import React from "react";
 import Sticky from 'react-sticky-el';
-import { Scrollbars } from 'react-custom-scrollbars';
+// import { Scrollbars } from 'react-custom-scrollbars';
 // import { Link } from 'react-router-dom';
 
 
@@ -34,8 +34,8 @@ class Rightpanel extends React.Component {
       }
     render() {        
         let p= 1;  let q=1;    
-        console.log("****  Items del Cupon **********");
-        console.table(this.state.items);
+        // console.log("****  Items del Cupon **********");
+        // console.table(this.state.items);
         let items = this.state.items
         let itemsid = Object.keys(items)
         let obj = itemsid.map((idApuesta)=>{

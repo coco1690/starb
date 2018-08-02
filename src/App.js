@@ -1,8 +1,10 @@
+//https://sweetalert.js.org/guides/
+
 import React, { Component } from 'react';
 import Leftpanel from './components/leftpanel';
 import './App.css';
 import Centerpanel from "./components/centerpanel";
-import Carusel from "./components/carusel";
+
 import Perfil from "./components/perfil";
 import Login from "./components/login";
 import Rightpanel from "./components/rightpanel";
@@ -75,9 +77,9 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.getItem('tickets') != null) {      
-      console.log("App mounting....");
+      // console.log("App mounting....");
       let temporal = JSON.parse(localStorage.getItem('tickets'));
-      console.log(temporal);
+      // console.log(temporal);
       this.setState({items:temporal});
     }
     if (localStorage.getItem('user') != null) {
@@ -105,11 +107,12 @@ class App extends Component {
 
           <div className="header-menu">
 
-            <a className="menu-item btn active" href="index-2.html"><i className="proximos "></i>Proximos</a>
+            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos</Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
-            <a className="menu-item btn" href="index.html"><i className="envivo"></i>En vivo</a>
-            <a className="menu-item btn" href="index.html"><i className="resultados"></i>Resultados</a>
+            <Link className="menu-item btn " to="/perfil"><i className=" "></i>En Vivo</Link>
+            <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link>
+            
           </div>
           <div className="contenedor-total">
             <div className="contenedor-sub">
@@ -119,14 +122,12 @@ class App extends Component {
                 </div>
                 <div className="center-panel">
                   <div >
-                    <div className='center-panel2' >
-                      <Carusel />
-                    </div>
+                   
                     <div>
                       <Switch>
                         <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
 
-                        <Route exact path="/perfil/:iduser?" component={Perfil} />
+                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user}/>} />
 
                         <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />}  />
 
