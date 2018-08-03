@@ -88,7 +88,7 @@ class Login extends React.Component {
                 let data = flow.info;
                 console.log(data);
                 console.log(data.GCCN_Nombre);
-                if (data.GCCN_Cod) {
+                if (data.CODE) {
 
                     this.props.addToUser({ userdata: data, login: true })
                     this.setState({ login: true })
@@ -197,7 +197,7 @@ class Login extends React.Component {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.GCCN_Nombre}<i className='ion-android-arrow-dropdown'></i> </Link>
+                        <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content">
                             <Link to="/perfil">Perfil</Link>
                             <Link to="/">Balance</Link>
