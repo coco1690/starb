@@ -32,6 +32,9 @@ class Rightpanel extends React.Component {
     handleChange(event) {
         context.setState({stake: event.target.value});
       }
+    //   save(){
+        //   this.props.save(this)
+    //   }
     render() {        
         let p= 1;  let q=1;    
         // console.log("****  Items del Cupon **********");

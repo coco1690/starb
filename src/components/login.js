@@ -17,23 +17,23 @@ class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            button:{
-                title:'Ingresar',
-                style:"",
-                state:false
+            button: {
+                title: 'Ingresar',
+                style: "",
+                state: false
             },
             login: this.props.user.login,
             user: "",
             pass: ""
         }
-        
+
 
         this.usuario = this.usuario.bind(this);
         this.password = this.password.bind(this);
         this.ingresar = this.ingresar.bind(this);
         this.salir = this.salir.bind(this);
-       
-         content = this;
+
+        content = this;
     }
 
     usuario(objuser) {
@@ -47,10 +47,10 @@ class Login extends React.Component {
     ingresar(event) {
         // $('#btnLogin').value("Cargando...")
         this.setState({
-            button:{
-                title:'Cargando...',
-                style:"lds-ellipsis",
-                state:true
+            button: {
+                title: 'Cargando...',
+                style: "lds-ellipsis",
+                state: true
             }
         })
         let value = { pass: md5(this.state.pass), user: this.state.user };
@@ -87,27 +87,38 @@ class Login extends React.Component {
             .then(flow => {
                 let data = flow.info;
                 console.log(data);
-                console.log(data.GCCN_Nombre);
-                if (data.CODE) {
+                if (data) {
+                    // console.log(data.GCCN_Nombre);
+                    if (data.CODE) {
 
-                    this.props.addToUser({ userdata: data, login: true })
-                    this.setState({ login: true })
-                    swal("Inicio de sesion", "Bienvenido de nuevo", 'success');
-                    this.setState({
-                        button:{
-                            title:'Ingresar',
-                            style:"",
-                            state:false
-                        }
-                    })
+                        this.props.addToUser({ userdata: data, login: true })
+                        this.setState({ login: true })
+                        swal("Inicio de sesion", "Bienvenido de nuevo", 'success');
+                        this.setState({
+                            button: {
+                                title: 'Ingresar',
+                                style: "",
+                                state: false
+                            }
+                        })
 
-                }else{
+                    } else {
+                        swal("Inicio de sesion", "No se encontro cuenta registrada", 'error');
+                        this.setState({
+                            button: {
+                                title: 'Ingresar',
+                                style: "",
+                                state: false
+                            }
+                        })
+                    }
+                } else {
                     swal("Inicio de sesion", "No se encontro cuenta registrada", 'error');
                     this.setState({
-                        button:{
-                            title:'Ingresar',
-                            style:"",
-                            state:false
+                        button: {
+                            title: 'Ingresar',
+                            style: "",
+                            state: false
                         }
                     })
                 }
@@ -120,7 +131,7 @@ class Login extends React.Component {
     salir(event) {
         this.props.removeFromUser();
         this.setState({ login: false })
-        this.setState({user:"",pass:""})
+        this.setState({ user: "", pass: "" })
 
         event.preventDefault();
     }
@@ -133,12 +144,12 @@ class Login extends React.Component {
         // console.log(this.props);
     }
     static getDerivedStateFromProps(props, current_state) {
-        if (current_state.user !== props.user) {     
-            if(props.user)      
-            content.setState({
-                    login:props.user.login,
-                    userdata:props.user.userdata
-                })                
+        if (current_state.user !== props.user) {
+            if (props.user)
+                content.setState({
+                    login: props.user.login,
+                    userdata: props.user.userdata
+                })
         }
         return null;
 
@@ -149,7 +160,7 @@ class Login extends React.Component {
         if (!this.state.login) {
             canvas = <div className="headcont">
                 <form onSubmit={this.ingresar}>
-               
+
                     <button className="btn" disabled={this.state.button.state} tabIndex="3" id="btnLogin">{this.state.button.title} <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div></button>
                     <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password} />
                     <input id="email" placeholder="Usuario" type="text" tabIndex="1" value={this.state.user} onChange={this.usuario} />

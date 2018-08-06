@@ -21,10 +21,11 @@ class App extends Component {
     // this.save = this.save.bind(this);
     this.state = {
       items: {},
-      user:{},
-      data:{}
+      lastItem:{},
+      user: {},
+      data: {}
     };
-  
+
   }
   removeFromCupon = (id) => {
     // console.log(x);
@@ -36,36 +37,49 @@ class App extends Component {
     localStorage.setItem('tickets', JSON.stringify(temporal));
 
   };
-  
 
+  saveCupon = (flows) => {    
+
+    fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
+      method: 'post',      
+      body: JSON.stringify(this.state.items)
+    }).then(res=>res.json())
+      .then(res =>{ 
+        this.setState({
+          lastItem:res
+        });
+
+        localStorage.setItem('ultimoTicket', JSON.stringify(res));
+        console.log(res)});
+  }
   addTocart = (id, data) => {
-   
+
     let temporal = this.state.items;
     temporal[id] = data;
 
     this.setState({
       items: temporal
     })
-    
+
     localStorage.setItem('tickets', JSON.stringify(temporal));
- 
+
   }
 
   // +++++++++++++++++++++++++++++++user++++++++++++++++++++++++++++++++++++++++++
 
-  removeFromUser = () => {      
+  removeFromUser = () => {
     this.setState({
-     user: null
+      user: null
     })
     localStorage.removeItem('user');
 
   };
 
 
-  addToUser= (data) => {
+  addToUser = (data) => {
 
     this.setState({
-     user:data
+      user: data
     })
 
     localStorage.setItem('user', JSON.stringify(data));
@@ -76,11 +90,11 @@ class App extends Component {
   // fin+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   componentDidMount() {
-    if (localStorage.getItem('tickets') != null) {      
+    if (localStorage.getItem('tickets') != null) {
       // console.log("App mounting....");
       let temporal = JSON.parse(localStorage.getItem('tickets'));
       // console.log(temporal);
-      this.setState({items:temporal});
+      this.setState({ items: temporal });
     }
     if (localStorage.getItem('user') != null) {
       // console.log("App mounting....");
@@ -88,9 +102,14 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ user: usertem });
     }
+    if(localStorage.getItem('ultimoTicket')!=null){
+      let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
+      // console.log(temporal);
+      this.setState({ lastItem });
+    }
 
 
-  
+
   }
   render() {
     // <video src="../public/video/intro.mp4" autoplay loop ></video>
@@ -106,15 +125,16 @@ class App extends Component {
           </div>
 
           <div className="header-menu">
-
+          {JSON.stringify(this.state.lastItem)}
             <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos</Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
             <Link className="menu-item btn " to="/perfil"><i className=" "></i>En Vivo</Link>
             <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link>
-            
+
           </div>
           <div className="contenedor-total">
+          
             <div className="contenedor-sub">
               <div className="contenedor">
                 <div className="left-panel">
@@ -122,14 +142,14 @@ class App extends Component {
                 </div>
                 <div className="center-panel">
                   <div >
-                   
+
                     <div>
                       <Switch>
                         <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
 
-                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user}/>} />
+                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} />} />
 
-                        <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />}  />
+                        <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
 
                         <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                         <Redirect to="/" />
@@ -137,13 +157,15 @@ class App extends Component {
                     </div>
                   </div>
                 </div>
-                <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.save} />
+                <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} />
               </div>
 
             </div>
 
           </div>
           <div className="footer">   </div>
+        
+          {/* <lastItem lastItem={this.state.lastItem} /> */}
         </div>
       </Router>
     );
