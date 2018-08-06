@@ -26,7 +26,7 @@ class Centerpanel extends Component {
     }
 
     componentDidMount() {
-        // fetch('http://kingdeportes.com/oddsMaster/api/list/model/next').then(results => {
+        // fetch('http://91.121.116.131/oddsMaster/api/list/model/next').then(results => {
         //     return results.json();
         // }).then(data => {
         //     context.setState({

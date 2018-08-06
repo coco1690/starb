@@ -5,8 +5,9 @@ class Perfil extends Component {
     constructor(){
         super();
         this.state={
-            name:""
+            name:''
         }
+       
     }
 
  
@@ -15,10 +16,12 @@ class Perfil extends Component {
         return (
             <div>
             <div className="panels">
+                        <pre>{JSON.stringify(this.props.user)}</pre>
                 <div id="panel-usuario" className="title-text"> Perfil del usuario </div>
                   
                  <div>
                         <div className="perfil">
+
                             <div className="foto">
                             <div className="iconuser"><img id="imagen-perfil" alt="" src="img/icons/user.png" /></div>
                                 
@@ -50,6 +53,7 @@ class Perfil extends Component {
                                         </Tab>
                                         <Tab label="Tab2">
                                         aca se guarda la informacion del deposito
+                                     
                                         </Tab>
                                     
                                     </Tabs>

@@ -1,5 +1,10 @@
+//Cuando se envian los formularios, dependiendo de la conexion a internet siempre puede demorar, entonces
+//Bloquear el boton "Ingresar" al darle click y cambiar el estilo o el texto a "Cargando..."
+
 import React from "react";
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+
 // import Moment from 'react-moment';
 import 'moment-timezone';
 var md5 = require('md5');
@@ -12,6 +17,11 @@ class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            button:{
+                title:'Ingresar',
+                style:"",
+                state:false
+            },
             login: this.props.user.login,
             user: "",
             pass: ""
@@ -35,7 +45,14 @@ class Login extends React.Component {
         this.setState({ pass: objpass.target.value });
     }
     ingresar(event) {
-
+        // $('#btnLogin').value("Cargando...")
+        this.setState({
+            button:{
+                title:'Cargando...',
+                style:"lds-ellipsis",
+                state:true
+            }
+        })
         let value = { pass: md5(this.state.pass), user: this.state.user };
 
         const postData = (url = '', data = {}) => {
@@ -66,15 +83,33 @@ class Login extends React.Component {
         }).join('&');
 
 
-        postData('http://kingdeportes.com/gecko/api/login/m', searchParams)
-            .then(data => {
+        postData('http://91.121.116.131/gecko/api/login/m', searchParams)
+            .then(flow => {
+                let data = flow.info;
                 console.log(data);
                 console.log(data.GCCN_Nombre);
-                if (data.GCCN_Cod) {
+                if (data.CODE) {
 
                     this.props.addToUser({ userdata: data, login: true })
                     this.setState({ login: true })
+                    swal("Inicio de sesion", "Bienvenido de nuevo", 'success');
+                    this.setState({
+                        button:{
+                            title:'Ingresar',
+                            style:"",
+                            state:false
+                        }
+                    })
 
+                }else{
+                    swal("Inicio de sesion", "No se encontro cuenta registrada", 'error');
+                    this.setState({
+                        button:{
+                            title:'Ingresar',
+                            style:"",
+                            state:false
+                        }
+                    })
                 }
             }) // JSON from `response.json()` call
             .catch(error => console.error(error));
@@ -95,7 +130,7 @@ class Login extends React.Component {
         //     login: this.props.user.login,
         //     user: this.props.user.userdata
         // })
-        console.log(this.props);
+        // console.log(this.props);
     }
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.user !== props.user) {     
@@ -114,7 +149,8 @@ class Login extends React.Component {
         if (!this.state.login) {
             canvas = <div className="headcont">
                 <form onSubmit={this.ingresar}>
-                    <button className="btn" tabIndex="3" id="btnLogin">Ingresar </button>
+               
+                    <button className="btn" disabled={this.state.button.state} tabIndex="3" id="btnLogin">{this.state.button.title} <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div></button>
                     <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password} />
                     <input id="email" placeholder="Usuario" type="text" tabIndex="1" value={this.state.user} onChange={this.usuario} />
                 </form>
@@ -126,7 +162,7 @@ class Login extends React.Component {
 
             canvas = <div className='navbar'>
                 <ul>
-                    <li><a href="#news" id="deposito">Deposito<i className='ion-social-usd'></i></a></li>
+                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i> 1000</a></li>
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
                         <div className="dropdown-content">
@@ -161,7 +197,7 @@ class Login extends React.Component {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.GCCN_Nombre}<i className='ion-android-arrow-dropdown'></i> </Link>
+                        <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content">
                             <Link to="/perfil">Perfil</Link>
                             <Link to="/">Balance</Link>
