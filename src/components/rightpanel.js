@@ -1,7 +1,7 @@
 import React from "react";
 import Sticky from 'react-sticky-el';
 import { Scrollbars } from 'react-custom-scrollbars';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 // import { Components } from 'react-bootstrap-navbar';
@@ -64,12 +64,12 @@ class Rightpanel extends React.Component {
         return (
             
                 
-            
+            <Sticky className="mierda">
 
                 <div className="right-panel">
                 
                 
-                <Sticky stickyStyle={{ right: 35, width: 280 }}>
+               
                    
         
                    
@@ -79,14 +79,14 @@ class Rightpanel extends React.Component {
                             <span className="ticket-title">Cupón</span>
                         </div>
                         {/* <Scrollbars style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}> */}
-                        <div>
+                        <div className="part">
                       
                       {obj}
                      
                         </div>
                         {/* </Scrollbars> */}
                         
-                        <div >
+                        <div className="mm" >
                             <div style={{ marginTop: 20, margin: 10}}>
                                <div style={{ width:70}}> Cantidad: </div>
                                
@@ -100,16 +100,17 @@ class Rightpanel extends React.Component {
                                 <span className="totalwin">{q}</span></span>
                             </div>
                             <div style={{ marginTop: 20 }}>
-                                <button className="btn confirm" onClick={this.props.save} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+
+                                <button className="btn confirm" onClick={this.props.save}  style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
                             </div>
                         </div>
                     </div>
                              
-                    </Sticky>
+                  
                     
                         
                 </div>
-              
+            </Sticky>
             
            
         );

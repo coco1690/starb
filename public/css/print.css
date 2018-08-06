@@ -1,0 +1,25 @@
+
+.navbar, .headcont, .left-panel, .header-menu, .center-panel, .confirm{
+    display: none;
+}
+
+.img-logo{
+
+  height: 40%;
+  width: 70%; 
+  /* position: absolute; */
+  top: 15px;
+  left: 0;
+
+}
+
+ .mierda{
+
+ 
+    float: left;
+
+}
+
+.mm{
+    text-align: left;
+}
