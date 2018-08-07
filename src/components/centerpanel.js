@@ -654,8 +654,8 @@ class Centerpanel extends Component {
                     </Modal>
 
 
-                </div >
-            </div >
+                </div>
+            </div>
 
         );
     }

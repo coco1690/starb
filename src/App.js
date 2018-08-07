@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Leftpanel from './components/leftpanel';
 import './App.css';
 import Centerpanel from "./components/centerpanel";
-
+import Imprimir from "./components/imprimir";
 import Perfil from "./components/perfil";
 import Login from "./components/login";
 import Rightpanel from "./components/rightpanel";
@@ -125,7 +125,7 @@ class App extends Component {
           </div>
 
           <div className="header-menu">
-          {JSON.stringify(this.state.lastItem)}
+          {/* {JSON.stringify(this.state.lastItem)} */}
             <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos</Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
@@ -139,6 +139,7 @@ class App extends Component {
               <div className="contenedor">
                 <div className="left-panel">
                   <Leftpanel />
+                  <Imprimir item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/>
                 </div>
                 <div className="center-panel">
                   <div >
@@ -148,6 +149,8 @@ class App extends Component {
                         <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
 
                         <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} />} />
+
+                        {/* <Route exact path="/imprimir" render={(props) => <Imprimir {...props} lastItem={this.state.lastItem} />} /> */}
 
                         <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
 
