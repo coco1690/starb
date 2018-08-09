@@ -1,5 +1,5 @@
 .f {
-    background: url('http://rb.oddsportal.com/x/oddsportal180430131925/img/flags/flags.png') no-repeat scroll -4px -621px;
+    background: url('../img/flags.png') no-repeat scroll -4px -621px;
     height: 11px;
     line-height: 11px;
     width: 16px;
@@ -9,7 +9,7 @@
 }
 
 .ficon {
-    background: url('http://rb.oddsportal.com/x/oddsportal180430131925/img/flags/flags.png') no-repeat scroll -4px -621px;
+    background: url('../img/flags.png') no-repeat scroll -4px -621px;
     height: 11px;
     line-height: 11px;
     width: 16px;
@@ -22,7 +22,7 @@
 }
 
 .ficon-pure {
-    background: url('http://rb.oddsportal.com/x/oddsportal180430131925/img/flags/flags.png') no-repeat scroll -4px -621px;
+    background: url('../img/flags.png') no-repeat scroll -4px -621px;
     height: 11px;
     line-height: 11px;
     width: 16px;
@@ -30,7 +30,7 @@
 }
 
 .ficon-inline {
-    background: url('http://rb.oddsportal.com/x/oddsportal180430131925/img/flags/flags.png') no-repeat scroll -4px -621px;
+    background: url('../img/flags.png') no-repeat scroll -4px -621px;
     height: 11px;
     line-height: 18px;
     width: 16px;
@@ -1017,7 +1017,7 @@
 }
 
 .f-popular2 {
-    background: url('http://rb.oddsportal.com/x/oddsportal180430131925/img/flags/ico-popular.png') no-repeat
+    background: url('./ico-pflags.pngopular.png') no-repeat
 }
 
 .f-1 {

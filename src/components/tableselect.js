@@ -173,14 +173,14 @@ const Tableselect = (props)=>{
               
                 <th style={{ width: 70 }} >
                 
-                    <div style={{ color: '#C0C11A', fontSize: 13 }} >
+                    <div style={{ color: '#C0C11A', fontSize: 13, fontWeight: 100  }} >
                         {hours + ":" + minutes + pmam}
                     </div>
-                    <small>
+                    <small style={{fontWeight: 100 }}>
                         {timess}
                     </small>
                 </th>
-                <th style={{ textAlign: 'left', width: '28%' }} >{y.name}</th>
+                <th style={{ textAlign: 'left', width: '28%', fontSize: 13, fontWeight: 100 }} >{y.name}</th>
                 <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
 
                 <th>
@@ -233,7 +233,7 @@ const Tableselect = (props)=>{
                 </tr>   */}
                 <tr >
                     
-                    <th colSpan='3' style={{ textAlign: 'left', fontSize: 12 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
+                    <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
                     <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 10 }}>1 X 2 </th>
                     <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>1X 12 2X</th>
                     <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>UN  OV  T</th>

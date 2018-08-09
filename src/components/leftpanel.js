@@ -66,11 +66,11 @@ class Leftpanel extends Component {
                         <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600,  }} className="countriesfav">
                             <div style={{ display: 'table-row' }}>
                             <div>
-                                    <Link  className={"country btn "+c[index2].class}style={{width: '140px', color: 'white', display: 'table-cell' }} to={"/sport/"+index+"/pais/" + index2} >
-                                    
+                                    <Link className={"country btn btn:active .sportbutton.active "+c[index2].class}style={{width: '140px', color: 'white', display: 'table-cell' }} to={"/sport/"+index+"/pais/" + index2} >
+                                        &nbsp;&nbsp;   <i className={"ficon-inline f-" + index2}></i>&nbsp;&nbsp; 
                                     {c[index2].name}
                                    
-                                    
+                                       
                                     </Link> 
                                     </div>
                             </div>
@@ -92,6 +92,7 @@ class Leftpanel extends Component {
             return (
                 <div key={index} className={"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
                     <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
+                       
                     </div>
                 </div>
             )
@@ -141,7 +142,9 @@ class Leftpanel extends Component {
 
                         <Scrollbars
                             style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
-                            <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
+                            <div className="country.active " style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
+                                 
+                                
                                 {paises}
                             </div>
 
