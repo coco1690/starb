@@ -683,9 +683,10 @@ li.dropdown {
 @media screen{
 .tick{
      
-  border: 2px solid rgb(10, 10, 10);
+  border: 1px solid rgb(10, 10, 10);
   width:auto;
-  color: black;
+  color: white;
+  font-weight: 100;
   /* margin-top: -90px; */
   /* display: none; */
   /* position: absolute; */
@@ -706,20 +707,20 @@ li.dropdown {
 }
 
 #cliente-print{
-   border: 1px solid rgb(10, 10, 10);
+   border: 1px solid rgb(255, 62, 62);
    margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
     font-size: 14px;
 }
 #cuota-print{
-  border: 1px solid rgb(10, 10, 10);
+  border: 1px solid rgb(255, 62, 62);
     margin-left: 10px;
     margin-right: 10px;
     font-size: 14px;
 }
 #ganancia-print{
-border: 1px solid rgb(10, 10, 10);
+border: 1px solid rgb(255, 62, 62);
     margin-left: 10px;
     margin-right: 10px;
         margin-bottom: 10px;
@@ -745,11 +746,12 @@ border: 1px solid rgb(10, 10, 10);
 .tot{
     width: 54rem;
     border-collapse: collapse;
-    border: 1px solid rgb(10, 10, 10);
+    border: 1px solid rgb(255, 62, 62);
     /* display: block; */
     font-size: 14px;
     /* float: left; */
     text-align: left;
+    font-weight: 100;
       /* display: block; */
 }
    /* .tick{
@@ -826,6 +828,7 @@ border: 1px solid rgb(10, 10, 10);
 }
 .tot{
        width: 36rem;
+       font-weight: 100;
       border-collapse: collapse;
       border: 1px solid rgb(10, 10, 10);
       /* display: block; */

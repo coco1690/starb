@@ -146,7 +146,7 @@ class Rightpanel extends React.Component {
                             <span className="ticket-title">Cupón</span>
                         </div>
                         {/* <Scrollbars style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}> */}
-                        <div className="part">
+                        <div className="part" style={{ fontWeight: 100 }}>
                       
                       {obj}
                      
@@ -179,10 +179,10 @@ class Rightpanel extends React.Component {
                                     aria-labelledby="ModalHeader"
                                 
                                 >
-                                    <Modal.Header closeButton  >
-                                        <Modal.Title id='ModalHeader' style={{ color: '#000000', textAlign: "center" }}>TICKET</Modal.Title>
+                                    <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }} >
+                                        <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center", fontSize:18 }}>TICKET</Modal.Title>
                                     </Modal.Header>
-                                    <Modal.Body >
+                                    <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
                                         <div>
                                             <div className="tick" >
 
@@ -223,7 +223,7 @@ class Rightpanel extends React.Component {
 
 
                                     </Modal.Body>
-                                    <Modal.Footer>
+                                    <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
                             
                                         <Modal.Dismiss className='btn btn-default' onClick={closeModal}>Cancel</Modal.Dismiss>
 
