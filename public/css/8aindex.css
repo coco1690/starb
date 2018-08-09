@@ -26,84 +26,7 @@ html, body{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
 }
-/* .bold{
-  font-weight: bold;
-} */
 
-/* -------------------------------------------------------------------------- */
-
-/* .modal {
-	width: 100%;
-	height: 100vh;
-	background: rgba(0,0,0,0.8);
-	
-	position: absolute;
-	top: 0;
-	left: 0;
-	
-	display: flex;
-	
-	animation: modal 2s 3s forwards;
-	visibility: hidden;
-	opacity: 0;
-}
-
-.contenido {
-	margin: auto;
-	width: 40%;
-	height: 40%;
-	background: white;
-	border-radius: 10px;
-}
-
-#cerrar {
-	display: none;
-}
-
-#cerrar + label {
-	position: fixed;
-	color: #fff;
-	font-size: 25px;
-	z-index: 50;
-	background: darkred;
-	height: 40px;
-	width: 40px;
-	line-height: 40px;
-	border-radius: 50%;
-	right: 150px;
-	top: 150px;
-	cursor: pointer;
-	
-	animation: modal 2s 3s forwards;
-	visibility: hidden;
-	opacity: 0;
-}
-
-#cerrar:checked + label, #cerrar:checked ~ .modal {
-	display: none;
-}
-
-@keyframes modal {
-	100% {
-		visibility: visible;
-		opacity: 1;
-	}
-} */
-
-
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-/* 
-video{
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: -1;
-}
-*/
 
 
 .color-yellow{
@@ -586,197 +509,13 @@ background: rgba(255,255,255,0.1);
 .header-menu .menu-item.active{
   color:#FFF;
 }
-/* 
-.matchbox{
-  background:rgba(0,0,0,0.01);font-size:11px;height:60px;position:relative;overflow:hidden;
-}
-.matchbox:nth-child(even){
-  background:rgba(0,0,0,0.1);
-}
-.matchbox .home{
-  position:absolute;top:8px;left:5px;
-  width:120px;
-  text-align: right;
-}
-.matchbox .away{
-  position:absolute;top:8px;left:205px;
-  width:120px;
-  text-align: left;
-}
-.matchbox .homeimg{
-  position:absolute;height:20px;left:130px;top:5px;
-}
-.matchbox .awayimg{
-  position:absolute;height:20px;left:180px;top:5px;
-}
-.matchbox .vs{
-  position:absolute;left:158px;top:9px;
-  font-size: 10px;
-  color:#666;
-}
-.matchbox .oddsbox{
-  position:absolute;right:10px;top:17px;width:465px;height:25px;
-}
-.matchbox .datetime{
-  position:absolute;left:10px;bottom:10px;
-  text-align: center;
-  font-size: 11px;
-  color: #666;
-  width:320px;
-}
-.matchbox .oddsbox .odd{
-  float:right;height:25px;width:40px;background:rgba(0,0,0,0.05);
-  box-sizing:border-box;text-align:center;font-size:10px;
-  padding-top:6px;margin-right:2px;
-  cursor: pointer;
-  border: 1px solid #AAA;
-}
-.matchbox .oddsbox .odd.active{
-  background: #450050;
-  color: white;
-}
 
-.matchbox .timeleft{
-  position:absolute;left:5px;bottom:5px;
-  text-align: center;
-  font-size: 8px;
-  color: #096C47;
-  font-weight: bold;
-}
-
-.matchodd{
-  position: relative;
-  padding:15px;
-  background: rgba(0,0,0,0.03);
-}
-.matchodd:nth-child(odd){
-  background: rgba(0,0,0,0.07);
-}
-.matchodd .odd2{
-  position:absolute;height:25px;width:50px;background:rgba(0,0,0,0.05);
-  box-sizing:border-box;text-align:center;font-size:12px;
-  padding-top:5px;margin-right:2px;
-  cursor: pointer;
-  right:10px;
-  top:10px;
-  border: 1px solid #AAA;
-}
-.matchodd .odd2.active{
-  background: #FEE064;
-  color: #333;
-  border: 1px solid #FEE064;
-}
-
-.bets .line{
-  font-size:10px;padding:1px;
-  background: rgba(255,255,255,0.2);
-}
-.bets .line:nth-child(odd){
-  background: rgba(255,255,255,0.07);
-} */
 
 .matches-panel{
   margin-top: -1px;
 
 }
 
-/* .matches-panel .close-x{
-  color:black;
-  position: absolute;
-  font-size: 20px;
-  right:5px;
-  top:5px;
-  cursor: pointer;
-} */
-
-/* .matchbox-live{
-  position:relative;height:70px;background:#EEE;
-}
-.matchbox-live:nth-child(odd){
-  position:relative;height:70px;background:#CCC;
-}
-.matchbox-live .home-img{
-  position:absolute;top:12px;left:10px;height:20px;
-}
-.matchbox-live .away-img{
-  position:absolute;bottom:12px;left:10px;height:20px;
-}
-.matchbox-live .home{
-  position:absolute;top:15px;left:40px;height:14px;width: calc(100% - 80px);overflow:hidden;
-}
-.matchbox-live .away{
-  position:absolute;bottom:15px;left:40px;height:14px;width: calc(100% - 80px);overflow:hidden;
-}
-.matchbox-live .score{
-  position:absolute;top:0px;right:0px;padding:3px;padding-left:6px;padding-right:6px;
-  background:#b20000;color:white;font-weight:bold;font-size:10px;
-}
-.matchbox-live .times{
-  position:absolute;top:18px;right:0px;padding:3px;padding-left:6px;padding-right:6px;
-  background:#222;color:white;font-weight:bold;font-size:10px;
-}
-
-.matchodd-live{
-  position: relative;
-  display: inline-block;
-  padding:10px;
-  background: rgba(0,0,0,0.03);
-  box-sizing: border-box;
-  border: 1px solid #CCC;
-  cursor: pointer;
-}
-
-.matchodd-live .odd{
-  position:absolute;height:25px;width:50px;background:rgba(0,0,0,0.05);
-  box-sizing:border-box;text-align:center;font-size:12px;
-  padding-top:5px;margin-right:2px;
-  cursor: pointer;
-  right:5px;
-  top:5px;
-  border: 1px solid #AAA;
-}
-.matchodd-live .odd.active{
-  background: #450050;
-  color: white;
-}
-
-.w33{
-  width: 33.33%;
-}
-
-.searchbox{
- 
--moz-box-shadow: 2px 2px 10px -4px rgba(0,0,0,0.75);
-box-shadow: 2px 2px 10px -4px rgba(0,0,0,0.75);
-position:absolute;top:190px;left:5px;height:calc(50% - 190px);width:300px;background:#FFF;
-overflow: auto;
-}
-
-.list-match{
-  float:left; position:relative;width:100%;height:60px;
-  background:rgba(0,0,0,0.02);box-sizing:border-box;margin-bottom:2px;
-}
-.list-match:nth-child(even){
-  float:left; position:relative;width:100%;height:60px;
-  background:rgba(0,0,0,0.06);box-sizing:border-box;margin-bottom:2px;
-}
-
-.odd2{
-  display:inline-block;
-  padding:5px;box-sizing:border-box;
-  background:rgba(255,255,255,0.3);text-align:center;width:35px;
-}
-.odd2.active{
-  background:#FEE064;
-  color: #333;
-}
-
-.match{
-  background:rgba(0,0,0,0);
-}
-.match:nth-child(even){
-  background:rgba(255,255,255,0.03);
-} */
 
 .sportbutton{
   position:relative;height:60px;border-right: 1px solid rgba(255,255,255,0.5);
@@ -913,11 +652,43 @@ li.dropdown {
 
 } */
 
-/* ==========================================ticketprint================================== */
+/* ================================================Modal========================================================= */
+ .Modal {
+    top : 50%;
+    left : 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* background:rgba(255, 255, 0, 0.23); */
+    background: rgb(253, 253, 237);
+    position: absolute;
+    color: black;
+    
+    /* top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px; */
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rebeccapurple; */
+  }
+
+@media screen{
 .tick{
      
-  border: 1px solid rgba(245, 247, 248, 0.527);
-  width:100%;
+  border: 2px solid rgb(10, 10, 10);
+  width:auto;
+  color: black;
+  /* margin-top: -90px; */
+  /* display: none; */
+  /* position: absolute; */
   /* height: 400px; */
   
 }
@@ -935,18 +706,102 @@ li.dropdown {
 }
 
 #cliente-print{
-   border: 1px solid rgba(245, 247, 248, 0.527);
+   border: 1px solid rgb(10, 10, 10);
+   margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+#cuota-print{
+  border: 1px solid rgb(10, 10, 10);
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+#ganancia-print{
+border: 1px solid rgb(10, 10, 10);
+    margin-left: 10px;
+    margin-right: 10px;
+        margin-bottom: 10px;
+    
+
+}
+.ga-imprimir{
+
+ 
+    text-align: center;
+    margin-top: 7px;
+    font-size: 35px;
+
+
+}
+.tk-imprimir{
+
+
+  margin-right: 5px;
+  
+
+}
+.tot{
+    width: 54rem;
+    border-collapse: collapse;
+    border: 1px solid rgb(10, 10, 10);
+    /* display: block; */
+    font-size: 14px;
+    /* float: left; */
+    text-align: left;
+      /* display: block; */
+}
+   /* .tick{
+    display:none;
+   }  */
+}
+     
+  
+/* ==========================================ticketprint================================== */
+@media print {
+
+  .navbar, .headcont, .header-menu, .center-panel, .confirm, .img-logo, .panelright, .mierda, .right-panel, .countriesfav, .tabcontent, .contenedor-deportes, #buscar, .reloj, .dropdown, .country, .btn{
+    display: none;
+}
+
+.tick{
+     
+  border: 2px solid rgb(10, 10, 10);
+  width:100%;
+  color: black;
+  margin-top: -90px;
+  /* display: none; */
+  position: absolute;
+  /* height: 400px; */
+  
+}
+#logoprint{
+      /* border: 1px solid rgba(245, 247, 248, 0.527); */
+    /* width: 208px; */
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#logo-print{
+
+      width: 100%;
+}
+
+#cliente-print{
+   border: 1px solid rgb(10, 10, 10);
    margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
 }
 #cuota-print{
-  border: 1px solid rgba(245, 247, 248, 0.527);
+  border: 1px solid rgb(10, 10, 10);
     margin-left: 10px;
     margin-right: 10px;
 }
 #ganancia-print{
-border: 1px solid rgba(245, 247, 248, 0.527);
+border: 1px solid rgb(10, 10, 10);
     margin-left: 10px;
     margin-right: 10px;
         margin-bottom: 10px;
@@ -970,6 +825,9 @@ border: 1px solid rgba(245, 247, 248, 0.527);
 
 }
 .tot{
-      width: 20rem;
+       width: 36rem;
       border-collapse: collapse;
+      border: 1px solid rgb(10, 10, 10);
+      /* display: block; */
+}
 }

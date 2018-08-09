@@ -15,6 +15,7 @@
     "react-bootstrap-tabs": "^1.0.2",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.3.2",
+    "react-modal": "^3.5.1",
     "react-moment": "^0.7.0",
     "react-native-xml2js": "^1.0.3",
     "react-responsive-carousel": "^3.1.39",

@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 
-const iniciologin = (props) => {
+// const iniciologin = (props) => {
 
-    let video = props.row? props.row :[];
+//     let video = props.row? props.row :[];
 
-    // <video src="../public/video/intro.mp4" autoplay loop muted></video>
+//     <video src="../public/video/intro.mp4" autoplay loop muted></video>
 
 
-}
-export default iniciologin;
+// }
+// export default iniciologin;

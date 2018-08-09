@@ -139,7 +139,7 @@ class App extends Component {
               <div className="contenedor">
                 <div className="left-panel">
                   <Leftpanel />
-                  <Imprimir item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/>
+                  {/* <Imprimir item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/> */}
                 </div>
                 <div className="center-panel">
                   <div >
@@ -160,7 +160,7 @@ class App extends Component {
                     </div>
                   </div>
                 </div>
-                <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} />
+                <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/>
               </div>
 
             </div>

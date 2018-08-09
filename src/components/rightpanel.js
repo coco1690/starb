@@ -1,10 +1,25 @@
 import React from "react";
 import Sticky from 'react-sticky-el';
+// import ReactModal from 'react-modal';
+import Modal from 'react-bootstrap-modal'
+// import Modal from 'react-modal';
+// import Imprimir from "./imprimir";
 // import { Scrollbars } from 'react-custom-scrollbars';
 // import { Link } from 'react-router-dom';
 
 
 // import { Components } from 'react-bootstrap-navbar';
+
+// const customStyles = {
+//     content: {
+//         top: '50%',
+//         left: '50%',
+//         right: 'auto',
+//         bottom: 'auto',
+//         marginRight: '-50%',
+//         transform: 'translate(-50%, -50%)'
+//     }
+// };
 
 let context
 class Rightpanel extends React.Component {
@@ -13,10 +28,21 @@ class Rightpanel extends React.Component {
         this.state = {
             stake: this.props.stake,
             items: this.props.items,
-            total: this.props.total
-        };     
+            total: this.props.total,
+            open: false,
+            lastItem: {},
+        };   
+        this.handleOpenModal = this.handleOpenModal.bind(this);
         context=this;   
+
+  
     }
+    handleOpenModal() {
+        this.setState({ open: true });
+    }
+  
+    
+
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.items !== props.items) {
            
@@ -35,7 +61,8 @@ class Rightpanel extends React.Component {
     //   save(){
         //   this.props.save(this)
     //   }
-    render() {        
+    render() {  
+        let closeModal = () => this.setState({ open: false })
         let p= 1;  let q=1;    
         // console.log("****  Items del Cupon **********");
         // console.table(this.state.items);
@@ -64,6 +91,43 @@ class Rightpanel extends React.Component {
                 </div>
             )
         } )
+
+
+
+
+        let o = this.props.item.data ? this.props.item.data : {};
+        let d = this.props.item.info ? this.props.item.info : { Agencia: "", Usuario: "", ID: "", Fecha: "", Monto: "", Cuota: "", Ganancia: "" }
+        console.log(d);
+        let oo = Object.keys(o);
+
+        let tk = oo.map(ticket => {
+            let f = o[ticket]
+            console.log(f)
+
+
+            return (
+
+                <div>
+                    <th className="tot">
+                        <div style={{ width: "100%" }}>   &nbsp; {f.liga} </div>
+
+                        <div>    &nbsp; {f.time} </div> <br />
+
+                        <div>   &nbsp; {f.name} </div>
+
+                        <div>   &nbsp; {f.option}
+
+                            <div className="tk-imprimir" style={{ float: "right" }}>CUOTA : {f.odd}</div>
+
+                        </div>
+
+
+                    </th>
+                </div>
+
+            );
+
+        })
         return (
             
                 
@@ -104,7 +168,72 @@ class Rightpanel extends React.Component {
                             </div>
                             <div style={{ marginTop: 20 }}>
 
-                                <button className="btn confirm" onClick={this.props.save}  style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+                                <button className="btn confirm" onClick={this.props.save} onClickCapture={this.handleOpenModal} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+
+                                
+
+                                <Modal
+                                    
+                                    show={this.state.open}
+                                    onHide={closeModal}
+                                    aria-labelledby="ModalHeader"
+                                
+                                >
+                                    <Modal.Header closeButton  >
+                                        <Modal.Title id='ModalHeader' style={{ color: '#000000', textAlign: "center" }}>TICKET</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body >
+                                        <div>
+                                            <div className="tick" >
+
+
+                                                <div id="logoprint">
+                                                    <img id="logo-print" alt="" src="../img/logo8abet.png" />
+                                                </div>
+
+                                                <div id="cliente-print">
+                                                    &nbsp; AGENCIA   <div className="tk-imprimir" style={{ float: "right" }}>{d.Agencia}</div> <br />
+                                                    &nbsp; USUARIO   <div className="tk-imprimir" style={{ float: "right" }}>{d.Usuario}</div> <br />
+                                                    &nbsp; ID        <div className="tk-imprimir" style={{ float: "right" }}>{d.ID}</div> <br />
+                                                    &nbsp; FECHA        <div className="tk-imprimir" style={{ float: "right" }}>{d.Fecha}</div> <br />
+
+                                                </div>
+
+                                                <div id="cliente-print">
+                                                    <th>
+                                                        {tk}
+                                                    </th>
+                                                </div>
+
+                                                <div id="cliente-print">
+                                                    &nbsp; APUESTA  <div className="tk-imprimir" style={{ float: "right" }}>COP &nbsp; &nbsp;{d.Monto}</div> <br />
+                                                </div>
+
+
+                                                <div id="cuota-print">
+                                                    &nbsp; CUOTA <div className="tk-imprimir" style={{ float: "right" }}>{d.Cuota}</div> <br />
+                                                </div>
+
+                                                <div id="ganancia-print">
+                                                    <div className="ga-imprimir">COP &nbsp; &nbsp;{d.Ganancia}</div> <br />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                            
+                                        <Modal.Dismiss className='btn btn-default' onClick={closeModal}>Cancel</Modal.Dismiss>
+
+                                        
+       
+                                    </Modal.Footer>
+                                </Modal>
+                             
+                      
+                                
                             </div>
                         </div>
                     </div>
