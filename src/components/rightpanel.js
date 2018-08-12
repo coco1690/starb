@@ -184,9 +184,10 @@ class Rightpanel extends React.Component {
                                     </Modal.Header>
                                     <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
                                         <div>
+
+                                            
                                             <div className="tick" >
-
-
+                                                
                                                 <div id="logoprint">
                                                     <img id="logo-print" alt="" src="../img/logo8abet.png" />
                                                 </div>
