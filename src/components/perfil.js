@@ -21,8 +21,8 @@ class Perfil extends Component {
                         <td>{obj.ID}</td>
                         <td>{obj.Fecha}</td>
                         <td>{obj.GCUA_Id==0?"Recarga":(obj.GCUA_Id==1?"Pago":"Ajuste")}</td>
-                        <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
                         <td>{obj.Monto}</td>
+                        <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
                     </tr>
                 )
             })
@@ -44,7 +44,7 @@ class Perfil extends Component {
 
 
                         {/* <td>{ob.GCUA_Id == 0 ? "Recarga" : (ob.GCUA_Id == 1 ? "Pago" : "Ajuste")}</td> */}
-                        <td className={ob.Estado < 1 ? "cerrado" : "abierto"}>{ob.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
+                        <td >{ob.Estado}</td>
                     </tr>
                 )
             })
@@ -107,9 +107,11 @@ class Perfil extends Component {
                             <Tab label="Movimientos">
                                
                                    
-                                <div className="tabla-mov">
-                                            <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                             
                                        
+                                            <div id="encabezado"> MOVIMIENTOS</div>
+                                          
+                                            <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
                                     <table id="t01">
       
                                         <thead>
@@ -117,8 +119,8 @@ class Perfil extends Component {
                                                 <th>ID</th>
                                                 <th>FECHA</th>
                                                 <th>TIPO</th>
-                                                <th>ESTADO</th>
                                                 <th>MONTO</th>
+                                                <th>ESTADO</th>
                                             </tr>
                                         </thead>
         
@@ -130,11 +132,12 @@ class Perfil extends Component {
                                             </Scrollbars>
 
                                    
-                                </div>
+                                
                                
                             </Tab>
                             <Tab label="Tickets"> 
                                 <div className="tabla-mov">
+                                      <div id="encabezado"> TIKETS</div>
                                     <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
                                     <table id="t01">
                                         <thead>

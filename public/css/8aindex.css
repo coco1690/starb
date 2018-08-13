@@ -159,8 +159,15 @@ a:link {
   right: 0;
   width: auto;
 }
-.tabla-mov{
 
+#encabezado{
+
+    width: 100%;
+    background: darkred;
+    height: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 38px;
 }
 #btnLogin{
   float:right;
@@ -451,7 +458,7 @@ background: rgba(255,255,255,0.1);
     border-radius: 10px;
 }
 .formulario{
-  height: 65%;
+  height: 70%;
   width: 99%;
   border: 1px solid rgba(245, 247, 248, 0.527);
   /* margin: 10px; */
@@ -462,7 +469,7 @@ background: rgba(255,255,255,0.1);
 #contenedor-form{
   width: 97%;
   height: 250px;
-  margin-top: 46px;
+  margin-top: 38px;
   margin-left: 12px;
 }
 #form{
@@ -579,12 +586,13 @@ li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 20px;
     text-decoration: none;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
     background:rgba(249, 250, 249, 0.247);
+    cursor: pointer;
  
 }
 
