@@ -86,7 +86,7 @@ class Login extends React.Component {
         postData('http://91.121.116.131/gecko/api/login/m', searchParams)
             .then(flow => {
                 let data = flow.info;
-                console.log(flow);
+                // console.log(flow);
                 if (data) {
                     // console.log(data.GCCN_Nombre);
                     if (data.CODE) {
