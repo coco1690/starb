@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Tabs, Tab } from 'react-bootstrap-tabs';
+import { Scrollbars } from 'react-custom-scrollbars';
+import Sticky from 'react-sticky-el';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 
@@ -21,6 +23,28 @@ class Perfil extends Component {
                         <td>{obj.GCUA_Id==0?"Recarga":(obj.GCUA_Id==1?"Pago":"Ajuste")}</td>
                         <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
                         <td>{obj.Monto}</td>
+                    </tr>
+                )
+            })
+
+        }
+
+        let tk = this.props.user.login ? this.props.user.userdata : { Tickets: [] };
+        let ultimostikets = {}
+        if (this.props.user.login) {
+           ultimostikets = tk.Tickets.map(ob => {
+                // console.log(i)
+                return (
+                    <tr>
+                        <td>{ob.id}</td>
+                        <td>{ob.Fecha}</td>
+                        <td>{ob.Apuestas}</td>
+                        <td>{ob.Monto}</td>
+                        <td>{ob.Ganancia}</td>
+
+
+                        {/* <td>{ob.GCUA_Id == 0 ? "Recarga" : (ob.GCUA_Id == 1 ? "Pago" : "Ajuste")}</td> */}
+                        <td className={ob.Estado < 1 ? "cerrado" : "abierto"}>{ob.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
                     </tr>
                 )
             })
@@ -81,9 +105,13 @@ class Perfil extends Component {
 
                             </Tab>
                             <Tab label="Movimientos">
+                               
+                                   
                                 <div className="tabla-mov">
-
+                                            <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                                       
                                     <table id="t01">
+      
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -93,15 +121,40 @@ class Perfil extends Component {
                                                 <th>MONTO</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+        
+                                            <tbody>
                                             {movimientos}
                                         </tbody>
+                                       
                                     </table>
+                                            </Scrollbars>
 
+                                   
+                                </div>
+                               
+                            </Tab>
+                            <Tab label="Tickets"> 
+                                <div className="tabla-mov">
+                                    <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                                    <table id="t01">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>FECHA</th>
+                                                <th>APUESTAS</th>
+                                                <th>MONTO</th>
+                                                <th>GANACIAS</th>
+                                                <th>ESTADO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {ultimostikets}
+                                        </tbody>
+                                    </table>
+                                    </Scrollbars>
 
                                 </div>
                             </Tab>
-                            <Tab label="Tickets">  </Tab>
 
                         </Tabs>
                     </div>
