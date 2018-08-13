@@ -159,6 +159,9 @@ a:link {
   right: 0;
   width: auto;
 }
+.tabla-mov{
+
+}
 #btnLogin{
   float:right;
   box-sizing:border-box;
@@ -265,6 +268,8 @@ a:link {
 
   margin-right: 10px;
 }
+
+/* ====================ojo==================== */
 .panelright{
   height:px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -418,46 +423,46 @@ background: rgba(255,255,255,0.1);
   margin-top: 17px;
 }
 #nombre, #apellido, #direccion, #pais{
-  opacity:0.3;
+  
   margin: 10px;
   border-radius: 5px;
   width: 40%;
   background: rgba(255,255,255,0.1);
 }
 #telefono{
-  opacity:0.3;
+ 
   margin: 10px;
   border-radius: 5px;
   width: 60%;
   background: rgba(255,255,255,0.1);
 }
 #email2{
- opacity:0.3;
+
   margin: 10px;
   border-radius: 5px;
   width: 80%;
   background: rgba(255,255,255,0.1);
 }
 .foto{
-  height: 100%;
-  width: 84%;
-  margin-top: 15px;
-  margin-left: 10%;
-  border-radius: 10px;
+      height: 100%;
+    width: 103%;
+    /* margin-top: 15px; */
+    /* margin-left: 10%; */
+    border-radius: 10px;
 }
 .formulario{
   height: 65%;
-  width: 96%;
+  width: 99%;
   border: 1px solid rgba(245, 247, 248, 0.527);
-  margin: 10px;
+  /* margin: 10px; */
   border-radius: 10px;
-  opacity: 0.6;
   font-size: 13px;
+  margin-top: 10px;
 }
 #contenedor-form{
-  width: 96%;
+  width: 97%;
   height: 250px;
-  margin-top: 45px;
+  margin-top: 46px;
   margin-left: 12px;
 }
 #form{
@@ -473,11 +478,11 @@ background: rgba(255,255,255,0.1);
 }
 .iconuser{
   height: 30%;
-  width: 95%;
+  width: 99%;
   background:rgba(250, 250, 248, 0.151);
   border: 3px solid rgba(198, 241, 7, 0.534);
   text-align: center;
-  margin:10px;
+  /* margin:10px; */
   border-radius: 10px;
 }
 .lineavertical{ 
@@ -644,6 +649,24 @@ li.dropdown {
   position: absolute;
    margin-left: 15px;  
   margin-top: 0px;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+        color: black;
+}
+table#t01 tr:nth-child(odd) {
+    background-color: #fff;
+        color: black;
+}
+table#t01 th {
+    color: white;
+    background-color: black;
+}
+.abierto{
+      background: #fff700;
+}
+.cerrado{
+      background: #dca7a7;
 }
 /* .modal-content{
   width: 150%;
