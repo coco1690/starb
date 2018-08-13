@@ -2,9 +2,9 @@ import React from "react";
 import Sticky from 'react-sticky-el';
 // import ReactModal from 'react-modal';
 import Modal from 'react-bootstrap-modal'
+import { Scrollbars } from 'react-custom-scrollbars';
 // import Modal from 'react-modal';
 // import Imprimir from "./imprimir";
-// import { Scrollbars } from 'react-custom-scrollbars';
 // import { Link } from 'react-router-dom';
 
 
@@ -140,13 +140,17 @@ class Rightpanel extends React.Component {
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 14 }}></i>
                             <span className="ticket-title">Cupón</span>
                         </div>
-                        {/* <Scrollbars style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}> */}
+                    
+
+                        <Scrollbars style={{ display: 'inline-block', height: 320, width: '100%' }}>
+
                         <div className="part" style={{ fontWeight: 100 }}>
                       
-                      {obj}
+                            {obj}
                      
                         </div>
-                        {/* </Scrollbars> */}
+
+                        </Scrollbars>
                         
                         <div className="mm" >
                             <div style={{ marginTop: 20, margin: 10}}>

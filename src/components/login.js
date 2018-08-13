@@ -197,11 +197,8 @@ class Login extends React.Component {
                             <i id="segundos" className="segundos"> 0 </i>
                         <i id="ampm" className="ampm"> 0 </i>
                     </li>
-                    <li>
-                        <Link to="/">Historial</Link>
-
-                    </li>
-                    <li><Link to="/">Cupones</Link></li>
+                    
+                   
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown'></i></Link>
                         <div className="dropdown-content">
@@ -215,8 +212,7 @@ class Login extends React.Component {
                         <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content">
                             <Link to="/perfil">Perfil</Link>
-                            <Link to="/">Balance</Link>
-                            <Link to="/">Apuestas</Link>
+                         
                             {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
                             <Link to="/" id="salir" onClick={this.salir} >salir<i className='ion-power'></i></Link>
                         </div>

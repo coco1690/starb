@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Tabs, Tab } from 'react-bootstrap-tabs';
+import { Scrollbars } from 'react-custom-scrollbars';
+import Sticky from 'react-sticky-el';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 
@@ -19,8 +21,30 @@ class Perfil extends Component {
                         <td>{obj.ID}</td>
                         <td>{obj.Fecha}</td>
                         <td>{obj.GCUA_Id==0?"Recarga":(obj.GCUA_Id==1?"Pago":"Ajuste")}</td>
-                        <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
                         <td>{obj.Monto}</td>
+                        <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
+                    </tr>
+                )
+            })
+
+        }
+
+        let tk = this.props.user.login ? this.props.user.userdata : { Tickets: [] };
+        let ultimostikets = {}
+        if (this.props.user.login) {
+           ultimostikets = tk.Tickets.map(ob => {
+                // console.log(i)
+                return (
+                    <tr>
+                        <td>{ob.id}</td>
+                        <td>{ob.Fecha}</td>
+                        <td>{ob.Apuestas}</td>
+                        <td>{ob.Monto}</td>
+                        <td>{ob.Ganancia}</td>
+
+
+                        {/* <td>{ob.GCUA_Id == 0 ? "Recarga" : (ob.GCUA_Id == 1 ? "Pago" : "Ajuste")}</td> */}
+                        <td >{ob.Estado}</td>
                     </tr>
                 )
             })
@@ -81,27 +105,59 @@ class Perfil extends Component {
 
                             </Tab>
                             <Tab label="Movimientos">
-                                <div className="tabla-mov">
-
+                               
+                                   
+                             
+                                       
+                                            <div id="encabezado"> MOVIMIENTOS</div>
+                                          
+                                            <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
                                     <table id="t01">
+      
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>FECHA</th>
                                                 <th>TIPO</th>
-                                                <th>ESTADO</th>
                                                 <th>MONTO</th>
+                                                <th>ESTADO</th>
+                                            </tr>
+                                        </thead>
+        
+                                            <tbody>
+                                            {movimientos}
+                                        </tbody>
+                                       
+                                    </table>
+                                            </Scrollbars>
+
+                                   
+                                
+                               
+                            </Tab>
+                            <Tab label="Tickets"> 
+                                <div className="tabla-mov">
+                                      <div id="encabezado"> TIKETS</div>
+                                    <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                                    <table id="t01">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>FECHA</th>
+                                                <th>APUESTAS</th>
+                                                <th>MONTO</th>
+                                                <th>GANACIAS</th>
+                                                <th>ESTADO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {movimientos}
+                                            {ultimostikets}
                                         </tbody>
                                     </table>
-
+                                    </Scrollbars>
 
                                 </div>
                             </Tab>
-                            <Tab label="Tickets">  </Tab>
 
                         </Tabs>
                     </div>
