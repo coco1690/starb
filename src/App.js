@@ -8,6 +8,7 @@ import Imprimir from "./components/imprimir";
 import Perfil from "./components/perfil";
 import Login from "./components/login";
 import Rightpanel from "./components/rightpanel";
+import swal from 'sweetalert';
 import {
   BrowserRouter as Router, Link, Redirect,
   Route, Switch
@@ -18,14 +19,20 @@ import {
 class App extends Component {
   constructor() {
     super()
-    // this.save = this.save.bind(this);
+    this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
       lastItem:{},
-      user: {},
-      data: {}
+      user: {
+        login:false
+      },
+      data: {},
+      stake:"",
     };
 
+  }
+  changeStake(stake){
+    this.setState({stake:stake.target.value})
   }
   removeFromCupon = (id) => {
     // console.log(x);
@@ -39,10 +46,22 @@ class App extends Component {
   };
 
   saveCupon = (flows) => {    
-
+    if(this.state.stake=="" || this.state.stake==" " || this.state.stake<=0){
+      swal({
+        title: "Ticket no permitido",
+        text:"Coloque su apuesta",
+        icon: "error",
+      })
+    }else if(this.state.user.login==false){
+      swal({
+        title: "Ticket no permitido",
+        text:"Inicie sesion",
+        icon: "error",
+      })
+    }else
     fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
       method: 'post',      
-      body: JSON.stringify(this.state.items)
+      body: JSON.stringify({user:this.state.user.userdata, items:this.state.items, stake:this.state.stake})
     }).then(res=>res.json())
       .then(res =>{ 
         this.setState({
@@ -50,7 +69,8 @@ class App extends Component {
         });
 
         localStorage.setItem('ultimoTicket', JSON.stringify(res));
-        console.log(res)});
+        // console.log(res)
+      });
   }
   addTocart = (id, data) => {
 
@@ -69,7 +89,7 @@ class App extends Component {
 
   removeFromUser = () => {
     this.setState({
-      user: null
+      user: {login:false}  
     })
     localStorage.removeItem('user');
 
@@ -160,7 +180,7 @@ class App extends Component {
                     </div>
                   </div>
                 </div>
-                <Rightpanel stake='0' items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/>
+                <Rightpanel stake={this.state.stake} changeStake={this.changeStake} items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/>
               </div>
 
             </div>

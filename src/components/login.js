@@ -86,14 +86,18 @@ class Login extends React.Component {
         postData('http://91.121.116.131/gecko/api/login/m', searchParams)
             .then(flow => {
                 let data = flow.info;
-                console.log(data);
+                console.log(flow);
                 if (data) {
                     // console.log(data.GCCN_Nombre);
                     if (data.CODE) {
 
                         this.props.addToUser({ userdata: data, login: true })
                         this.setState({ login: true })
-                        swal("Inicio de sesion", "Bienvenido de nuevo", 'success');
+                        swal({
+                            title:"Inicio de sesion",
+                            text:"Bienvenido de nuevo",
+                            icon:"success"
+                        });
                         this.setState({
                             button: {
                                 title: 'Ingresar',

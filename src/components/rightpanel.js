@@ -55,12 +55,7 @@ class Rightpanel extends React.Component {
         return null;
 
     }
-    handleChange(event) {
-        context.setState({stake: event.target.value});
-      }
-    //   save(){
-        //   this.props.save(this)
-    //   }
+   
     render() {  
         let closeModal = () => this.setState({ open: false })
         let p= 1;  let q=1;    
@@ -97,17 +92,17 @@ class Rightpanel extends React.Component {
 
         let o = this.props.item.data ? this.props.item.data : {};
         let d = this.props.item.info ? this.props.item.info : { Agencia: "", Usuario: "", ID: "", Fecha: "", Monto: "", Cuota: "", Ganancia: "" }
-        console.log(d);
+        // console.log(d);
         let oo = Object.keys(o);
 
         let tk = oo.map(ticket => {
             let f = o[ticket]
-            console.log(f)
+            // console.log(f)
 
 
             return (
 
-                <div>
+                <div key={ticket}>
                     <th className="tot">
                         <div style={{ width: "100%" }}>   &nbsp; {f.liga} </div>
 
@@ -157,7 +152,7 @@ class Rightpanel extends React.Component {
                             <div style={{ marginTop: 20, margin: 10}}>
                                <div style={{ width:70}}> Cantidad: </div>
                                
-                                    <input id="amount" placeholder="Ej: 2000" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.state.stake}   onChange={this.handleChange} type="text" /></div>
+                                    <input id="amount" placeholder="Ej: 2000" type="number" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.props.stake}   onChange={this.props.changeStake} /></div>
                            
                             <div style={{ marginTop: 20, margin: 10 }}>Cuota:
                                 <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{p}</span>
@@ -168,7 +163,7 @@ class Rightpanel extends React.Component {
                             </div>
                             <div style={{ marginTop: 20 }}>
 
-                                <button className="btn confirm" onClick={this.props.save} onClickCapture={this.handleOpenModal} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+                                <button className="btn confirm" onClick={this.props.save} /*onClickCapture={this.handleOpenModal}*/ style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
 
                                 
 

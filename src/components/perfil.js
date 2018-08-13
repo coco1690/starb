@@ -17,7 +17,7 @@ class Perfil extends Component {
        
         let usu = uu.map(idusu=>{
             let d = u[idusu]
-            let userdata = u[idusu].username
+            // let userdata = u[idusu].username
             let fullname = d.fullname
          
        
