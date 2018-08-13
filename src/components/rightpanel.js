@@ -97,7 +97,7 @@ class Rightpanel extends React.Component {
 
         let o = this.props.item.data ? this.props.item.data : {};
         let d = this.props.item.info ? this.props.item.info : { Agencia: "", Usuario: "", ID: "", Fecha: "", Monto: "", Cuota: "", Ganancia: "" }
-        console.log(d);
+        // console.log(d);
         let oo = Object.keys(o);
 
         let tk = oo.map(ticket => {
