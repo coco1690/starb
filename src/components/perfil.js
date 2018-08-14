@@ -1,14 +1,52 @@
 import React, { Component } from "react";
 import { Tabs, Tab } from 'react-bootstrap-tabs';
 import { Scrollbars } from 'react-custom-scrollbars';
+import Modal from 'react-bootstrap-modal'
 // import Sticky from 'react-sticky-el';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
-
+let context;
 class Perfil extends Component {
    
+    constructor(props) {
+        super(props);
+        this.state = {
+         
+            open: false,
+            vertiket: [],
+            // entrada: "",
+        }
+        this.openModal = this.openModal.bind(this);
+        context = this;
+    }
+
+    openModal() {
+        this.setState({ open: true });
+    }
+
+    getdata(id, entrada) {
+        fetch('http://91.121.116.131/gecko/api/view/model/pccu/id/380/' + id, { cache: "no-cache" }).then(results => {
+            return results.json();
+        }).then(vertiket => {
+            context.setState({
+               vertiket,
+                // entrada,
+            })
+
+        });
+        context.setState({ open: true })
+    }
+
+
+
+
+
+
+
+
 
     render() {
+        let closeModal = () => this.setState({ open: false })
         let usuario = this.props.user.login ? this.props.user.userdata : { Movimientos: [] };
         let movimientos = {}
         if (this.props.user.login) {
@@ -21,6 +59,7 @@ class Perfil extends Component {
                         <td>{obj.GCUA_Id==0?"Recarga":(obj.GCUA_Id==1?"Pago":"Ajuste")}</td>
                         <td>{obj.Monto}</td>
                         <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
+                       
                     </tr>
                 )
             })
@@ -39,15 +78,19 @@ class Perfil extends Component {
                         <td>{ob.Apuestas}</td>
                         <td>{ob.Monto}</td>
                         <td>{ob.Ganancia}</td>
-
-
-                        {/* <td>{ob.GCUA_Id == 0 ? "Recarga" : (ob.GCUA_Id == 1 ? "Pago" : "Ajuste")}</td> */}
-                        <td >{ob.Estado}</td>
+                        <td className={ob.Estado == 1 ? "abierto" : ob.Estado == 2 ? "ganador" : ob.Estado == 3 ? "perdedor" : ob.Estado == 5 ? "sin-efecto" : ob.Estado == 8 ? "ganador-cobrado" : ""}>{ob.Estado == 1 ? "Abierto" : ob.Estado == 2 ? "Ganador" : ob.Estado == 3 ? "Perdedor" : ob.Estado == 5 ? "Sin Efecto" : ob.Estado == 8 ? "Ganador-Cobrado" :"" }</td>
+                        <td className='btn' ><img src="/img/icons/ticket.png" alt="" onClick={this.openModal} /></td>
                     </tr>
+
+
+
                 )
             })
 
         }
+
+        let k = this.state.vertiket
+        console.log(k)
         return (
             <div className="panels">
                 <div id="panel-usuario" className="title-text"> Perfil del usuario </div>
@@ -119,6 +162,7 @@ class Perfil extends Component {
                                                 <th>TIPO</th>
                                                 <th>MONTO</th>
                                                 <th>ESTADO</th>
+                                             
                                             </tr>
                                         </thead>
         
@@ -146,6 +190,7 @@ class Perfil extends Component {
                                                 <th>MONTO</th>
                                                 <th>GANACIAS</th>
                                                 <th>ESTADO</th>
+                                                <th>VER</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -160,10 +205,38 @@ class Perfil extends Component {
                         </Tabs>
                     </div>
                 </div>
+
+                <Modal
+                    show={this.state.open}
+                    onHide={closeModal}
+                    aria-labelledby="ModalHeader"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Some Content here</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        // If you don't have anything fancy to do you can use
+                        // the convenient `Dismiss` component, it will
+                        // trigger `onHide` when clicked
+                        <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
+
+                        // Or you can create your own dismiss buttons
+                        <button className='btn btn-primary' onClick={closeModal}>
+                            Save
+            </button>
+                    </Modal.Footer>
+                </Modal>
+
             </div>
+
         );
     }
-}
+ }
+
+ 
 
 const style = {
     input: { color: 'white', width: "85%" }

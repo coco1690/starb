@@ -27,7 +27,7 @@ class Centerpanel extends Component {
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
-        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/380/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
