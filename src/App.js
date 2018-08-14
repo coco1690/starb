@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Leftpanel from './components/leftpanel';
 import './App.css';
 import ReactDOM from 'react-dom';
+import Modal from 'react-bootstrap-modal'
 
 import Centerpanel from "./components/centerpanel";
 import Imprimir from "./components/imprimir";
@@ -25,6 +26,7 @@ class App extends Component {
     this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
+      open: false,
       lastItem: {},
       user: {
         login: false
@@ -33,6 +35,10 @@ class App extends Component {
       stake: "1000",
     };
 
+  }
+
+  handleOpenModal() {
+    this.setState({ open: true });
   }
   changeStake(stake) {
     this.setState({ stake: stake.target.value })
@@ -79,7 +85,7 @@ class App extends Component {
             q = p * this.state.stake;
             return (
               <div key={idApuesta}>
-                <div style={{ display: "table-cell", right: 1, color: "rgb(254, 224, 100)", fontSize: 28, float: "right" }}>
+                <div style={{ display: "table-cell", right: 1, color: "rgb(254, 224, 100)", fontSize: 22, float: "right" }}>
                   <span>{temporal[idApuesta].option + " | " + temporal[idApuesta].odd}</span>
                 </div>
                 <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
@@ -102,10 +108,13 @@ class App extends Component {
           return (
             <div>
               <div>
-                Apuesta
+                Apuesta: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" + this.state.stake.replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
               </div>
-              {"Apuesta: " + this.state.stake + " Posible Premio:" + q}
+
               {obj}
+              <div>
+                Posible Ganancia: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" + parseFloat(q).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
+              </div>
             </div>
           )
 
@@ -116,26 +125,52 @@ class App extends Component {
         swal(
           {
             title: "Esta seguro?",
-            // text: ,
-            // text: '<div class="row"><div class="col s3"><p class="strong">Total Due</p><p class="header">$ 3,600.00</p></div><div class="col s3"><p class="strong">Invoice No</p><p class="header">MT_A_124563</p></div><div class="col s3"><p class="strong">Due Date</p><p class="header">22.05.2015</p></div></div>',
-            // text: text,
+
             content: el,
-            // type: "warning",
-            // showCancelButton: true,
-            // confirmButtonColor: "#ff9800",
-            // cancelButtonColor: "#ffe0b2",
-            // confirmButtonText: "Yes",
-            // cancelButtonText: "No",
-            // closeOnConfirm: false,
+            type: "warning",
+            buttons: {
+              cancel: true,
+              confirm: true,
+            },
             closeOnEsc: false,
             closeOnClickOutside: false,
-            // closeOnCancel: false,
-            // html: true,
-            // showLoaderOnConfirm: true
+
           }).then(isConfirm => {
             if (isConfirm) {
-              // UserAction.register(ab);
-              // FluxCartActions.save(props);
+              fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
+                method: 'post',
+                body: JSON.stringify({ user: this.state.user.userdata, items: this.state.items, stake: this.state.stake })
+              }).then(res => res.json())
+                .then(res => {
+                  swal({
+                    title: "Operacion Exitosa!",
+                    text: "Los datos se enviaron correctamente",
+                    icon: "success"
+                  }).then(next => {
+                    swal({
+                      title: "Imprimir?",
+                      icon: "info",
+                      text: "Desea imprimir este cupon?",
+                      buttons: {
+                        cancel: true,
+                        confirm: true,
+                      }
+
+                    }).then(resp => {
+                      if (resp) {
+                        console.log("Impirmir aqui");
+                        this.setState({open:true})
+                        // swal("Se imprimio exitosamente")
+                      }
+                    })
+                  })
+                  this.setState({
+                    lastItem: res
+                  });
+
+                  localStorage.setItem('ultimoTicket', JSON.stringify(res));
+                  // console.log(res)
+                });
               console.log(products);
             }
             else {
@@ -152,18 +187,8 @@ class App extends Component {
       }
 
     }
-    fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
-      method: 'post',
-      body: JSON.stringify({ user: this.state.user.userdata, items: this.state.items, stake: this.state.stake })
-    }).then(res => res.json())
-      .then(res => {
-        this.setState({
-          lastItem: res
-        });
 
-        localStorage.setItem('ultimoTicket', JSON.stringify(res));
-        // console.log(res)
-      });
+
   }
   addTocart = (id, data) => {
 
@@ -177,9 +202,6 @@ class App extends Component {
     localStorage.setItem('tickets', JSON.stringify(temporal));
 
   }
-
-  // +++++++++++++++++++++++++++++++user++++++++++++++++++++++++++++++++++++++++++
-
   removeFromUser = () => {
     this.setState({
       user: { login: false }
@@ -187,8 +209,6 @@ class App extends Component {
     localStorage.removeItem('user');
 
   };
-
-
   addToUser = (data) => {
 
     this.setState({
@@ -198,10 +218,6 @@ class App extends Component {
     localStorage.setItem('user', JSON.stringify(data));
 
   }
-
-
-  // fin+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
   componentDidMount() {
     if (localStorage.getItem('tickets') != null) {
       // console.log("App mounting....");
@@ -225,7 +241,45 @@ class App extends Component {
 
   }
   render() {
-    // <video src="../public/video/intro.mp4" autoplay loop ></video>
+    let closeModal = () => this.setState({ open: false })
+    let d = this.state.user.userdata?this.state.user.userdata:{};
+    let o = this.state.items.data ? this.state.items.data : {};
+
+    let oo = Object.keys(o);
+    let tk = [];
+    if (this.state.user.login) {
+      tk = oo.map(ticket => {
+        let f = o[ticket]
+        // console.log(f)
+
+
+        return (
+
+          <div key={ticket}>
+            <th className="tot">
+              <div style={{ width: "100%" }}>   &nbsp; {f.liga} </div>
+
+              <div>    &nbsp; {f.time} </div> <br />
+
+              <div>   &nbsp; {f.name} </div>
+
+              <div>   &nbsp; {f.option}
+
+                <div className="tk-imprimir" style={{ float: "right" }}>CUOTA : {f.odd}</div>
+
+              </div>
+
+
+            </th>
+          </div>
+
+        );
+
+      })
+    }
+
+    
+
     return (
       <Router>
         <div className="App">
@@ -281,7 +335,69 @@ class App extends Component {
           </div>
           <div className="footer">   </div>
 
-          {/* <lastItem lastItem={this.state.lastItem} /> */}
+          
+        
+       
+        <Modal
+
+          show={this.state.open}
+          onHide={closeModal}
+          aria-labelledby="ModalHeader"
+
+        >
+          <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }} >
+            <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center", fontSize: 18 }}>TICKET</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
+            <div>
+
+
+              <div className="tick" >
+
+                <div id="logoprint">
+                  <img id="logo-print" alt="" src="../img/logo8abet.png" />
+                </div>
+
+                <div id="cliente-print">
+                  &nbsp; AGENCIA   <div className="tk-imprimir" style={{ float: "right" }}>{d.Agencia}</div> <br />
+                  &nbsp; USUARIO   <div className="tk-imprimir" style={{ float: "right" }}>{d.Usuario}</div> <br />
+                  &nbsp; ID        <div className="tk-imprimir" style={{ float: "right" }}>{d.ID}</div> <br />
+                  &nbsp; FECHA        <div className="tk-imprimir" style={{ float: "right" }}>{d.Fecha}</div> <br />
+
+                </div>
+
+                <div id="cliente-print">
+                  <th>
+                    {tk}
+                  </th>
+                </div>
+
+                <div id="cliente-print">
+                  &nbsp; APUESTA  <div className="tk-imprimir" style={{ float: "right" }}>COP &nbsp; &nbsp;{d.Monto}</div> <br />
+                </div>
+
+
+                <div id="cuota-print">
+                  &nbsp; CUOTA <div className="tk-imprimir" style={{ float: "right" }}>{d.Cuota}</div> <br />
+                </div>
+
+                <div id="ganancia-print">
+                  <div className="ga-imprimir">COP &nbsp; &nbsp;{d.Ganancia}</div> <br />
+                </div>
+              </div>
+
+            </div>
+
+
+          </Modal.Body>
+          <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
+
+            <Modal.Dismiss className='btn btn-default' onClick={closeModal}>Cancel</Modal.Dismiss>
+
+
+
+          </Modal.Footer>
+        </Modal>
         </div>
       </Router>
     );

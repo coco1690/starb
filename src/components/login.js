@@ -188,8 +188,8 @@ class Login extends React.Component {
                         </div>
                     </li>
                     {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
-
-
+                   
+    
                     <li className="reloj">
                         <i className='ion-ios-alarm'></i>&nbsp;
                             <i id="horas" className="horas"> : </i> :

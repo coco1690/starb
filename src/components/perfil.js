@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { Tabs, Tab } from 'react-bootstrap-tabs';
 import { Scrollbars } from 'react-custom-scrollbars';
-import Sticky from 'react-sticky-el';
+// import Sticky from 'react-sticky-el';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 
 class Perfil extends Component {
-    constructor(props) {
-        super(props);
-    }
+   
 
     render() {
         let usuario = this.props.user.login ? this.props.user.userdata : { Movimientos: [] };
