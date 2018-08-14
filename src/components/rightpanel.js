@@ -77,7 +77,7 @@ class Rightpanel extends React.Component {
                         <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 12 }}>
                             <div style={{ display: "table-cell" }}><span>{items[idApuesta].option + " " + items[idApuesta].odd}</span></div>
                             <div style={{ display: "table-cell", right: 1, color: 'white', float: "right" }}>
-                                <div to="#" className="btn botn" style={{ marginTop: -50 }} onClick={this.props.removeFromCupon.bind(this, idApuesta)}>-</div></div>
+                                <div to="#" className="btn botn" style={{ marginTop: -50, padding:6 }} onClick={this.props.removeFromCupon.bind(this, idApuesta)}><span style={{fontSize:16}} className="ion-ios-trash"></span></div></div>
                         </div>
                     </div>
                 </div>
