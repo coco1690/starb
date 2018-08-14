@@ -26,7 +26,7 @@ class App extends Component {
     this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
-      open: false,
+      open: true,
       lastItem: {},
       user: {
         login: false
@@ -137,9 +137,16 @@ class App extends Component {
 
           }).then(isConfirm => {
             if (isConfirm) {
+              let prettyUser = {
+                "N_id":this.state.user.userdata.N_id,
+                "A_id":this.state.user.userdata.A_id,
+                "D_id": this.state.user.userdata.D_id,
+              }
+              let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: this.state.stake });
+              console.log(x)
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
-                body: JSON.stringify({ user: this.state.user.userdata, items: this.state.items, stake: this.state.stake })
+                body: JSON.stringify({ user: prettyUser, items: this.state.items, stake: this.state.stake })
               }).then(res => res.json())
                 .then(res => {
                   swal({
@@ -159,7 +166,9 @@ class App extends Component {
                     }).then(resp => {
                       if (resp) {
                         console.log("Impirmir aqui");
-                        this.setState({open:true})
+                        this.setState({ open: true })
+                        window.print();
+                        // windows.print().;
                         // swal("Se imprimio exitosamente")
                       }
                     })
@@ -171,7 +180,7 @@ class App extends Component {
                   localStorage.setItem('ultimoTicket', JSON.stringify(res));
                   // console.log(res)
                 });
-              console.log(products);
+              // console.log(products);
             }
             else {
               swal("Operacion cancelada", "No se envio ningun dato al servidor", "error");
@@ -242,8 +251,8 @@ class App extends Component {
   }
   render() {
     let closeModal = () => this.setState({ open: false })
-    let d = this.state.user.userdata?this.state.user.userdata:{};
-    let o = this.state.items.data ? this.state.items.data : {};
+    let d = this.state.lastItem.info ? this.state.lastItem.info : {};
+    let o = this.state.lastItem.data ? this.state.lastItem.data.items : {};
 
     let oo = Object.keys(o);
     let tk = [];
@@ -278,7 +287,7 @@ class App extends Component {
       })
     }
 
-    
+
 
     return (
       <Router>
@@ -335,69 +344,69 @@ class App extends Component {
           </div>
           <div className="footer">   </div>
 
-          
-        
-       
-        <Modal
-
-          show={this.state.open}
-          onHide={closeModal}
-          aria-labelledby="ModalHeader"
-
-        >
-          <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }} >
-            <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center", fontSize: 18 }}>TICKET</Modal.Title>
-          </Modal.Header>
-          <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
-            <div>
 
 
-              <div className="tick" >
 
-                <div id="logoprint">
-                  <img id="logo-print" alt="" src="../img/logo8abet.png" />
+          <Modal
+
+            show={this.state.open}
+            onHide={closeModal}
+            aria-labelledby="ModalHeader"
+
+          >
+            <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }} >
+              <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center", fontSize: 18 }}>TICKET</Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
+              <div>
+
+
+                <div className="tick" >
+
+                  <div id="logoprint">
+                    <img id="logo-print" alt="" src="../img/logo8abet.png" />
+                  </div>
+
+                  <div id="cliente-print">
+                    &nbsp; AGENCIA   <div className="tk-imprimir" style={{ float: "right" }}>{d.Agencia}</div> <br />
+                    &nbsp; USUARIO   <div className="tk-imprimir" style={{ float: "right" }}>{d.Usuario}</div> <br />
+                    &nbsp; ID        <div className="tk-imprimir" style={{ float: "right" }}>{d.ID}</div> <br />
+                    &nbsp; FECHA        <div className="tk-imprimir" style={{ float: "right" }}>{d.Fecha}</div> <br />
+
+                  </div>
+
+                  <div id="cliente-print">
+                    <th>
+                      {tk}
+                    </th>
+                  </div>
+
+                  <div id="cliente-print">
+                    &nbsp; APUESTA  <div className="tk-imprimir" style={{ float: "right" }}>COP &nbsp; &nbsp;{d.Monto}</div> <br />
+                  </div>
+
+
+                  <div id="cuota-print">
+                    &nbsp; CUOTA <div className="tk-imprimir" style={{ float: "right" }}>{d.Cuota}</div> <br />
+                  </div>
+
+                  <div id="ganancia-print">
+                    <div className="ga-imprimir">COP &nbsp; &nbsp;{d.Ganancia}</div> <br />
+                  </div>
                 </div>
 
-                <div id="cliente-print">
-                  &nbsp; AGENCIA   <div className="tk-imprimir" style={{ float: "right" }}>{d.Agencia}</div> <br />
-                  &nbsp; USUARIO   <div className="tk-imprimir" style={{ float: "right" }}>{d.Usuario}</div> <br />
-                  &nbsp; ID        <div className="tk-imprimir" style={{ float: "right" }}>{d.ID}</div> <br />
-                  &nbsp; FECHA        <div className="tk-imprimir" style={{ float: "right" }}>{d.Fecha}</div> <br />
-
-                </div>
-
-                <div id="cliente-print">
-                  <th>
-                    {tk}
-                  </th>
-                </div>
-
-                <div id="cliente-print">
-                  &nbsp; APUESTA  <div className="tk-imprimir" style={{ float: "right" }}>COP &nbsp; &nbsp;{d.Monto}</div> <br />
-                </div>
-
-
-                <div id="cuota-print">
-                  &nbsp; CUOTA <div className="tk-imprimir" style={{ float: "right" }}>{d.Cuota}</div> <br />
-                </div>
-
-                <div id="ganancia-print">
-                  <div className="ga-imprimir">COP &nbsp; &nbsp;{d.Ganancia}</div> <br />
-                </div>
               </div>
 
-            </div>
 
+            </Modal.Body>
+            <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
 
-          </Modal.Body>
-          <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
-
-            <Modal.Dismiss className='btn btn-default' onClick={closeModal}>Cancel</Modal.Dismiss>
+              <Modal.Dismiss className='btn btn-default' onClick={closeModal}>Cancel</Modal.Dismiss>
 
 
 
-          </Modal.Footer>
-        </Modal>
+            </Modal.Footer>
+          </Modal>
         </div>
       </Router>
     );
