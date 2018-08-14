@@ -16,25 +16,23 @@ class Perfil extends Component {
             vertiket: [],
             // entrada: "",
         }
-        this.openModal = this.openModal.bind(this);
+        // this.openModal = this.openModal.bind(this);
         context = this;
     }
 
-    openModal() {
-        this.setState({ open: true });
-    }
 
-    getdata(id, entrada) {
-        fetch('http://91.121.116.131/gecko/api/view/model/pccu/id/380/' + id, { cache: "no-cache" }).then(results => {
+    getdata(id) {
+        fetch('http://91.121.116.131/gecko/api/view/model/pccu/id/'+id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(vertiket => {
             context.setState({
                vertiket,
                 // entrada,
             })
+            context.setState({ open: true });
 
         });
-        context.setState({ open: true })
+        // context.setState({ open: true })
     }
 
 
@@ -79,7 +77,8 @@ class Perfil extends Component {
                         <td>{ob.Monto}</td>
                         <td>{ob.Ganancia}</td>
                         <td className={ob.Estado == 1 ? "abierto" : ob.Estado == 2 ? "ganador" : ob.Estado == 3 ? "perdedor" : ob.Estado == 5 ? "sin-efecto" : ob.Estado == 8 ? "ganador-cobrado" : ""}>{ob.Estado == 1 ? "Abierto" : ob.Estado == 2 ? "Ganador" : ob.Estado == 3 ? "Perdedor" : ob.Estado == 5 ? "Sin Efecto" : ob.Estado == 8 ? "Ganador-Cobrado" :"" }</td>
-                        <td className='btn' ><img src="/img/icons/ticket.png" alt="" onClick={this.openModal} /></td>
+                        <td className='btn' >
+                            <img src="/img/icons/ticket.png" alt="" onClick={this.getdata.bind(this,ob.id)} /></td>
                     </tr>
 
 
