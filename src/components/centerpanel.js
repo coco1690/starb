@@ -130,7 +130,7 @@ class Centerpanel extends Component {
 
                 let datalocal1 = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[19992] ? y.data[19992].o1 : "",
                     option: y.home,
@@ -142,7 +142,7 @@ class Centerpanel extends Component {
                 };
                 let dataempatex = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[19992] ? y.data[19992].o2 : "",
                     option: "Empate",
@@ -154,7 +154,7 @@ class Centerpanel extends Component {
                 };
                 let datavisitante2 = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[19992] ? y.data[19992].o3 : "",
                     option: y.away,
@@ -166,7 +166,7 @@ class Centerpanel extends Component {
                 };
                 let data1x = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[49992] ? y.data[49992].o1 : "",
                     option: "1X",
@@ -178,7 +178,7 @@ class Centerpanel extends Component {
                 };
                 let data12 = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[49992] ? y.data[49992].o2 : "",
                     option: "12",
@@ -190,7 +190,7 @@ class Centerpanel extends Component {
                 };
                 let data2x = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[49992] ? y.data[49992].o3 : "",
                     option: "2X",
@@ -203,7 +203,7 @@ class Centerpanel extends Component {
 
                 let dataunder = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[29992] ? y.data[29992].o1 + '(<' + y.data[29992].o3 + ')' : "",
                     option: "Under",
@@ -215,7 +215,7 @@ class Centerpanel extends Component {
                 };
                 let dataover = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[29992] ? y.data[29992].o2 + '(<' + y.data[29992].o3 + ')' : "",
                     option: "Over",
@@ -227,7 +227,7 @@ class Centerpanel extends Component {
                 };
                 let datagg = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[139992] ? y.data[139992].o1 : "",
                     option: "GG",
@@ -239,7 +239,7 @@ class Centerpanel extends Component {
                 };
                 let datang = {
                     choose: 1,
-                    id: y,
+                    id: y.idmatch,
                     name: y.name,
                     odd: y.data[139992] ? y.data[139992].o2 : "",
                     option: "NG",

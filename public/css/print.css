@@ -21,12 +21,19 @@
     margin-left: 10px;
     margin-right: 10px;
 }
-
+#modal{
+    background-color: white;
+}
 #logo-print{
 
       width: 100%;
 }
-
+.modal-body, .modal-header{
+    background-color: transparent !important;
+}
+.close{
+    visibility: hidden;
+}
 #cliente-print{
    border: 1px solid rgb(10, 10, 10);
    margin-top: 20px;
