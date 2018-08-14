@@ -674,8 +674,21 @@ table#t01 th {
       background: #fff700;
 }
 .cerrado{
-      background: #dca7a7;
+      background-color: red;
 }
+.ganador{
+      background-color: green;
+}
+.perdedor{
+    background-color: red;
+}
+.ganador-cobrado{
+    background-color: #15f1be;
+}
+.sin-efecto{
+    background: gray;
+}
+
 /* .modal-content{
   width: 150%;
  
@@ -792,7 +805,17 @@ border: 1px solid rgb(255, 62, 62);
 .mierda{
   display: inline-flex;
 }
-  
+.mm{
+      background: #0c0c0cd6;
+      
+}
+  .cuponrigth{
+     padding: 10px;
+     font-weight: bold; 
+     color: #FEE064;
+     background: black;
+     border: 1px solid darkred; 
+  }
 /* ==========================================ticketprint================================== */
 @media print {
 

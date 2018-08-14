@@ -44,7 +44,7 @@ class Perfil extends Component {
 
 
                         {/* <td>{ob.GCUA_Id == 0 ? "Recarga" : (ob.GCUA_Id == 1 ? "Pago" : "Ajuste")}</td> */}
-                        <td >{ob.Estado}</td>
+                        <td className={ob.Estado == 1 ? "abierto" : ob.Estado == 2 ? "ganador" : ob.Estado == 3 ? "perdedor" : ob.Estado == 5 ? "sin-efecto" : ob.Estado == 8 ? "ganador-cobrado" : ""}>{ob.Estado == 1 ? "Abierto" : ob.Estado == 2 ? "Ganador" : ob.Estado == 3 ? "Perdedor" : ob.Estado == 5 ? "Sin Efecto" : ob.Estado == 8 ? "Ganador-Cobrado" :"" }</td>
                     </tr>
                 )
             })

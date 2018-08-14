@@ -136,7 +136,7 @@ class Rightpanel extends React.Component {
         
                    
                     <div style={{ background: 'rgba(255,255,255,0.1)' }}>
-                        <div style={{ padding: 10, fontWeight: 'bold', color: '#FEE064' }}>
+                        <div className="cuponrigth">
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 14 }}></i>
                             <span className="ticket-title">Cupón</span>
                         </div>
@@ -153,8 +153,8 @@ class Rightpanel extends React.Component {
                         </Scrollbars>
                         
                         <div className="mm" >
-                            <div style={{ marginTop: 20, margin: 10}}>
-                               <div style={{ width:70}}> Cantidad: </div>
+                            <div style={{ marginTop: 20, margin:0}}>
+                                <div style={{ width: 70, marginLeft: 10}}> Cantidad: </div>
                                
                                     <input id="amount" placeholder="Ej: 2000" type="number" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.props.stake}   onChange={this.props.changeStake} /></div>
                            
