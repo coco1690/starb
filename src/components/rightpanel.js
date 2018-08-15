@@ -133,11 +133,11 @@ class Rightpanel extends React.Component {
                                
                                     <input id="amount" placeholder="Ej: 2000" type="number" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.props.stake}   onChange={this.props.changeStake} /></div>
                            
-                            <div style={{ marginTop: 20, margin: 10 }}>Cuota:
-                                <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{p}</span>
+                            <div style={{ marginTop: 20, margin: 10, fontSize: 15 }}>Cuota:
+                                <span style={{ float: 'right' }} className="totalodd">{p}</span>
                             </div>
                             <div style={{ marginTop: 10, margin: 10 }}>Pago Total:
-                                <span style={{ float: 'right', fontWeight: 'bold' }}>
+                                <span style={{ float: 'right'}}>
                                     <span className="currency-symbol">$</span>
                                     <span className="totalwin">{q.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
                                 </span>
