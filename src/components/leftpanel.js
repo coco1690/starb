@@ -66,7 +66,7 @@ let deportes;
                         <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600,  }} className="countriesfav">
                             <div style={{ display: 'table-row' }}>
                             <div>
-                                    <Link className={"country btn btn:active .sportbutton.active "+c[index2].class}style={{width: '140px', color: 'white', display: 'table-cell' }} to={"/sport/"+index+"/pais/" + index2} >
+                                    <Link className={"country:active country:focus country:hover country " + c[index2].class}  style={{ width: 126, color: 'white', display: 'table-cell', fontSize: 14 }} to={"/sport/"+index+"/pais/" + index2} >
                                         &nbsp;&nbsp;   <i className={"ficon-inline f-" + index2}></i>&nbsp;&nbsp; 
                                     {c[index2].name}
                                    
@@ -118,7 +118,7 @@ let deportes;
 
                         <Scrollbars
                             style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
-                            <div className="country.active " style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
+                            <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
                                  
                                 
                                 {paises}
