@@ -108,7 +108,12 @@ class Rightpanel extends React.Component {
                     <div style={{ background: 'rgba(255,255,255,0.1)' }}>
                         <div className="cuponrigth">
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 14 }}></i>
-                            <span className="ticket-title">Cupón</span>
+                            <span className="ticket-title ">Cupón  </span>
+                            <div className="speech-bubble">
+                                <div className="cup">{itemsid.length}</div>
+                               
+                            </div>
+                           
                         </div>
 
 

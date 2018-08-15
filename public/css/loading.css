@@ -200,3 +200,34 @@
     height: 26px;
   }
 }
+.speech-bubble {
+	position: relative;
+	background: #fff700;
+  border-radius: .4em;
+  width: 30px;
+  height: 22px;
+  float: right;
+  margin-top: -7px;
+
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top-color: #fff700;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -3.5px;
+	margin-bottom: -7px;
+}
+.cup{
+    font-size: 17px;
+    text-align: center;
+    color: rgb(19, 18, 18);
+    
+}
