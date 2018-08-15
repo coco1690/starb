@@ -1,16 +1,64 @@
+/* Reset */
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* Reset */
+body {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
 .navbar, .headcont, .header-menu, .center-panel, .confirm, .img-logo, .panelright, .mierda, .right-panel, .countriesfav, .tabcontent, .contenedor-deportes, #buscar, .reloj, .dropdown, .country, .btn,.swal-overlay,.swal-modal {
     display: none;
 }
-@media print {
 .tick{
      
   border: 2px solid rgb(10, 10, 10);
   width:auto;
   color: black;
-  margin-top: -36px;
+  text-align: left;
+  /* margin-top: -36px; */
   position: absolute;
-      margin-left: -23px;
+      /* margin-left: -23px; */
   /* z-index: 100; */
   /* height: 400px; */
   
@@ -26,7 +74,7 @@
     background-color: white;
 }
 #logo-print{
-
+    padding-bottom: 15px;
       width: 100%;
 }
 .modal-body, .modal-header{
@@ -35,12 +83,15 @@
 .close{
     visibility: hidden;
 }
-#cliente-print{
+.cliente-print{
    border: 1px solid rgb(10, 10, 10);
-   margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 12px;
+   /* margin-top: 20px; */
+   margin-left: 10px;
+   margin-right: 10px;
+   font-size: 12px;
+   padding: 10px;
+   border-bottom: none;
+   padding-bottom: 5px;
 }
 #cuota-print{
   border: 1px solid rgb(10, 10, 10);
@@ -70,13 +121,4 @@ border: 1px solid rgb(10, 10, 10);
   margin-right: 5px;
   
 
-}
-.tot{
-      width: 36rem;
-        font-weight: 100;
-      border-collapse: collapse;
-      border: 1px solid rgb(10, 10, 10);
-      text-align: left;
-      /* display: block; */
-}
 }

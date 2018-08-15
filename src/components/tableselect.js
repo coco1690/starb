@@ -263,7 +263,7 @@ const Tableselect = (props) => {
 
     }else{
         liga=
-            <div class="lds-facebook"><div></div><div></div><div></div></div>
+            <div className="lds-facebook"><div></div><div></div><div></div></div>
     }
 
         return liga;

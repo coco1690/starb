@@ -7,11 +7,11 @@ import Modal from 'react-bootstrap-modal'
 
 let context;
 class Perfil extends Component {
-   
+
     constructor(props) {
         super(props);
         this.state = {
-         
+
             open: false,
             vertiket: [],
             // entrada: "",
@@ -22,11 +22,11 @@ class Perfil extends Component {
 
 
     getdata(id) {
-        fetch('http://91.121.116.131/gecko/api/view/model/pccu/id/'+id, { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/gecko/api/view/model/pccu/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(vertiket => {
             context.setState({
-               vertiket,
+                vertiket,
                 // entrada,
             })
             context.setState({ open: true });
@@ -34,14 +34,6 @@ class Perfil extends Component {
         });
         // context.setState({ open: true })
     }
-
-
-
-
-
-
-
-
 
     render() {
         let closeModal = () => this.setState({ open: false })
@@ -54,10 +46,10 @@ class Perfil extends Component {
                     <tr>
                         <td>{obj.ID}</td>
                         <td>{obj.Fecha}</td>
-                        <td>{obj.GCUA_Id==0?"Recarga":(obj.GCUA_Id==1?"Pago":"Ajuste")}</td>
+                        <td>{obj.GCUA_Id === 0 ? "Recarga" : (obj.GCUA_Id === 1 ? "Pago" : "Ajuste")}</td>
                         <td>{obj.Monto}</td>
                         <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
-                       
+
                     </tr>
                 )
             })
@@ -67,7 +59,7 @@ class Perfil extends Component {
         let tk = this.props.user.login ? this.props.user.userdata : { Tickets: [] };
         let ultimostikets = {}
         if (this.props.user.login) {
-           ultimostikets = tk.Tickets.map(ob => {
+            ultimostikets = tk.Tickets.map(ob => {
                 // console.log(i)
                 return (
                     <tr>
@@ -76,9 +68,9 @@ class Perfil extends Component {
                         <td>{ob.Apuestas}</td>
                         <td>{ob.Monto}</td>
                         <td>{ob.Ganancia}</td>
-                        <td className={ob.Estado == 1 ? "abierto" : ob.Estado == 2 ? "ganador" : ob.Estado == 3 ? "perdedor" : ob.Estado == 5 ? "sin-efecto" : ob.Estado == 8 ? "ganador-cobrado" : ""}>{ob.Estado == 1 ? "Abierto" : ob.Estado == 2 ? "Ganador" : ob.Estado == 3 ? "Perdedor" : ob.Estado == 5 ? "Sin Efecto" : ob.Estado == 8 ? "Ganador-Cobrado" :"" }</td>
+                        <td className={ob.Estado === 1 ? "abierto" : ob.Estado === 2 ? "ganador" : ob.Estado === 3 ? "perdedor" : ob.Estado === 5 ? "sin-efecto" : ob.Estado === 8 ? "ganador-cobrado" : ""}>{ob.Estado === 1 ? "Abierto" : ob.Estado === 2 ? "Ganador" : ob.Estado === 3 ? "Perdedor" : ob.Estado === 5 ? "Sin Efecto" : ob.Estado === 8 ? "Ganador-Cobrado" : ""}</td>
                         <td className='btn' >
-                            <img src="/img/icons/ticket.png" alt="" onClick={this.getdata.bind(this,ob.id)} /></td>
+                            <img src="/img/icons/ticket.png" alt="" onClick={this.getdata.bind(this, ob.id)} /></td>
                     </tr>
 
 
@@ -89,41 +81,39 @@ class Perfil extends Component {
         }
 
         let k = this.state.vertiket.cabezera
-        let view=[]
-        if(k){
-            console.log(k.GCCA_Id)
-            view =<div> 
-            <Modal
-                show={this.state.open}
-                onHide={closeModal}
-                aria-labelledby="ModalHeader"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id='ModalHeader' style={{color:"black"}}><div>{k.GCCA_Id}</div></Modal.Title>
-                    <div>
-{k.GCCA_Id}
-                    </div>
-                </Modal.Header>
-                <Modal.Body>
-                  dfghjk
+        let view = []
+        if (k) {
+            // console.log(k.GCCA_Id)
+            view = <div>
+                <Modal
+                    show={this.state.open}
+                    onHide={closeModal}
+                    aria-labelledby="ModalHeader"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id='ModalHeader' style={{ color: "black" }}><div>{k.GCCA_Id}</div></Modal.Title>
+                        <div>
+                            {k.GCCA_Id}
+                        </div>
+                    </Modal.Header>
+                    <Modal.Body>
+                        dfghjk
                 </Modal.Body>
-                <Modal.Footer>
-                    // If you don't have anything fancy to do you can use
-                    // the convenient `Dismiss` component, it will
-                    // trigger `onHide` when clicked
-                    <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
+                    <Modal.Footer>
 
-                    // Or you can create your own dismiss buttons
-                    <button className='btn btn-primary' onClick={closeModal}>
-                        Save
+                        <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
+
+
+                        <button className='btn btn-primary' onClick={closeModal}>
+                            Save
             </button>
-                </Modal.Footer>
-            </Modal>
+                    </Modal.Footer>
+                </Modal>
             </div>
             // console.log(k)
         }
-      
-      
+
+
         return (
             <div className="panels">
                 <div id="panel-usuario" className="title-text"> Perfil del usuario </div>
@@ -179,15 +169,15 @@ class Perfil extends Component {
 
                             </Tab>
                             <Tab label="Movimientos">
-                               
-                                   
-                             
-                                       
-                                            <div id="encabezado"> MOVIMIENTOS</div>
-                                          
-                                            <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+
+
+
+
+                                <div id="encabezado"> MOVIMIENTOS</div>
+
+                                <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
                                     <table id="t01">
-      
+
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -195,41 +185,41 @@ class Perfil extends Component {
                                                 <th>TIPO</th>
                                                 <th>MONTO</th>
                                                 <th>ESTADO</th>
-                                             
+
                                             </tr>
                                         </thead>
-        
-                                            <tbody>
+
+                                        <tbody>
                                             {movimientos}
                                         </tbody>
-                                       
-                                    </table>
-                                            </Scrollbars>
 
-                                   
-                                
-                               
-                            </Tab>
-                            <Tab label="Tickets"> 
-                                <div className="tabla-mov">
-                                      <div id="encabezado"> TIKETS</div>
-                                    <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
-                                    <table id="t01">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>FECHA</th>
-                                                <th>APUESTAS</th>
-                                                <th>MONTO</th>
-                                                <th>GANACIAS</th>
-                                                <th>ESTADO</th>
-                                                <th>VER</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {ultimostikets}
-                                        </tbody>
                                     </table>
+                                </Scrollbars>
+
+
+
+
+                            </Tab>
+                            <Tab label="Tickets">
+                                <div className="tabla-mov">
+                                    <div id="encabezado"> TIKETS</div>
+                                    <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                                        <table id="t01">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>FECHA</th>
+                                                    <th>APUESTAS</th>
+                                                    <th>MONTO</th>
+                                                    <th>GANACIAS</th>
+                                                    <th>ESTADO</th>
+                                                    <th>VER</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {ultimostikets}
+                                            </tbody>
+                                        </table>
                                     </Scrollbars>
 
                                 </div>
@@ -239,15 +229,15 @@ class Perfil extends Component {
                     </div>
                 </div>
 
-               {view}
+                {view}
 
             </div>
 
         );
     }
- }
+}
 
- 
+
 
 const style = {
     input: { color: 'white', width: "85%" }
