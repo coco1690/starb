@@ -26,7 +26,7 @@ class App extends Component {
     this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
-      open: true,
+      open: false,
       lastItem: {},
       user: {
         login: false

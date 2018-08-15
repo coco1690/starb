@@ -97,7 +97,7 @@ let deportes;
                 </div>
             )
         })}else{
-            deportes= <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            deportes= <div className="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         }
 
         return (

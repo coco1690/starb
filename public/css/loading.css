@@ -166,7 +166,8 @@
   position: relative;
   width: 64px;
   height: 64px;
-   margin-top: 150px;
+   margin-top: 20px;
+   margin-bottom: 20px;
   margin-left: 370px;
 }
 .lds-facebook div {
