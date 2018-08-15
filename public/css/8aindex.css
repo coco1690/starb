@@ -833,10 +833,11 @@ border: 1px solid rgb(255, 62, 62);
 }
   .cuponrigth{
      padding: 10px;
-     font-weight: bold; 
+     /* font-weight: bold;  */
      color: #FEE064;
      background: black;
      border: 1px solid darkred; 
+     font-size: 16px;
   }
 /* ==========================================ticketprint================================== */
 @media print {
