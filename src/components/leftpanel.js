@@ -53,9 +53,9 @@ class Leftpanel extends Component {
         let paises = [], aux;
         let b = this.state.menu;
         let deportesId = Object.keys(b);
-
-
-        let deportes = deportesId.map(index => {
+let deportes;
+        if (deportesId.length>0){
+        deportes = deportesId.map(index => {
             if (b[index].countries) {
 
                 let paisId = Object.keys(b[index].countries)
@@ -96,36 +96,12 @@ class Leftpanel extends Component {
                     </div>
                 </div>
             )
-        })
-
-        // return (
-        //     <div>
-        //         <div id="buscar">
-        //             <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
-        //         </div>
-
-        //         <div id="contenedor-deportes">
-        //             <div className="contenedor-deportes">
-        //                 <div id="contenedorsub-deportes">
-        //                     {deportes}
-        //                 </div>
-
-        //                 <Scrollbars style={{ height: 500, display: 'table-cell', verticalAlign: 'top' }}>
-        //                     <div id="contendor-paises">
-        //                         {paises}
-        //                     </div>
-
-        //                 </Scrollbars>
-        //             </div>
-        //         </div>
-        //     </div>
+        })}else{
+            deportes= <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        }
 
         return (
-            // <div>
-            //     <div style={{ background: 'rgba(255,255,255,0.1)', padding: 5, marginBottom: 10 }}>
-            //         <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
-            //     </div>
-
+           
             <div>
             <div id="buscar">
                 <input placeholder="Buscar" style={{ width: '100%' }} type="text" />

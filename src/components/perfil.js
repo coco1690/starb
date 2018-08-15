@@ -88,8 +88,40 @@ class Perfil extends Component {
 
         }
 
-        let k = this.state.vertiket.cabezera ? this.state.vertiket.cabezera:{ }
-        console.log(k)
+        let k = this.state.vertiket.cabezera
+        let view=[]
+        if(k){
+            console.log(k.GCCA_Id)
+            view =<div> 
+            <Modal
+                show={this.state.open}
+                onHide={closeModal}
+                aria-labelledby="ModalHeader"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id='ModalHeader' style={{color:"black"}}><div>{k.GCCA_Id}</div></Modal.Title>
+                    <div>
+{k.GCCA_Id}
+                    </div>
+                </Modal.Header>
+                <Modal.Body>
+                  dfghjk
+                </Modal.Body>
+                <Modal.Footer>
+                    // If you don't have anything fancy to do you can use
+                    // the convenient `Dismiss` component, it will
+                    // trigger `onHide` when clicked
+                    <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
+
+                    // Or you can create your own dismiss buttons
+                    <button className='btn btn-primary' onClick={closeModal}>
+                        Save
+            </button>
+                </Modal.Footer>
+            </Modal>
+            </div>
+            // console.log(k)
+        }
       
       
         return (
@@ -207,32 +239,7 @@ class Perfil extends Component {
                     </div>
                 </div>
 
-                <Modal
-                    show={this.state.open}
-                    onHide={closeModal}
-                    aria-labelledby="ModalHeader"
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
-                        <div>
-                         
-                        </div>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <p>Some Content here</p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        // If you don't have anything fancy to do you can use
-                        // the convenient `Dismiss` component, it will
-                        // trigger `onHide` when clicked
-                        <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
-
-                        // Or you can create your own dismiss buttons
-                        <button className='btn btn-primary' onClick={closeModal}>
-                            Save
-            </button>
-                    </Modal.Footer>
-                </Modal>
+               {view}
 
             </div>
 

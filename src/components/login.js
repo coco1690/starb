@@ -165,7 +165,9 @@ class Login extends React.Component {
             canvas = <div className="headcont">
                 <form onSubmit={this.ingresar}>
 
-                    <button className="btn" disabled={this.state.button.state} tabIndex="3" id="btnLogin">{this.state.button.title} <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div></button>
+                    <button className="btn" disabled={this.state.button.state} tabIndex="3" id="btnLogin">{this.state.button.title} 
+                        <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div>
+                    </button>
                     <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password} />
                     <input id="email" placeholder="Usuario" type="text" tabIndex="1" value={this.state.user} onChange={this.usuario} />
                 </form>

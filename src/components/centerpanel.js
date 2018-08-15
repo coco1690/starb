@@ -89,10 +89,11 @@ class Centerpanel extends Component {
         **/
         let liganombre = "";
         let l = this.state.data;
-
-
         let ligasId = Object.keys(l);
-        let liga = ligasId.map(idliga => {
+        let liga;
+        if (ligasId.length > 0) {
+            liga = ligasId.map(idliga => {
+        // let liga = ligasId.map(idliga => {
             let o = l[idliga].matches
 
             liganombre = l[idliga].sportName + " " + l[idliga].name;
@@ -334,7 +335,11 @@ class Centerpanel extends Component {
 
             )
 
-        });
+            })
+        } else {
+            liga = 
+                <div class="lds-facebook"><div></div><div></div><div></div></div>
+        }
 
 
         // console.log(c)
