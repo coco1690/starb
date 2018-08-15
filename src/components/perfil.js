@@ -88,8 +88,10 @@ class Perfil extends Component {
 
         }
 
-        let k = this.state.vertiket
+        let k = this.state.vertiket.cabezera ? this.state.vertiket.cabezera:{ }
         console.log(k)
+      
+      
         return (
             <div className="panels">
                 <div id="panel-usuario" className="title-text"> Perfil del usuario </div>
@@ -212,6 +214,9 @@ class Perfil extends Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
+                        <div>
+                         
+                        </div>
                     </Modal.Header>
                     <Modal.Body>
                         <p>Some Content here</p>

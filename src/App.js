@@ -355,7 +355,7 @@ class App extends Component {
 
           >
             <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }} >
-              <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center", fontSize: 18 }}>TICKET</Modal.Title>
+              <Modal.Title id='ModalHeader' style={{ color: '#ffffff'}}></Modal.Title>
             </Modal.Header>
             <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
               <div>
@@ -364,7 +364,7 @@ class App extends Component {
                 <div className="tick" >
 
                   <div id="logoprint">
-                    <img id="logo-print" alt="" src="../img/logo8abet.png" />
+                    <img id="logo-print" alt="" src="/img/logo8abet.png" />
                   </div>
 
                   <div id="cliente-print">
