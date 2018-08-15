@@ -28,11 +28,11 @@ class Perfil extends Component {
             console.log(vertiket)
             context.setState({
                 vertiket,
-                open: true 
-               
+                open: true
+
             })
         });
-        
+
     }
 
     render() {
@@ -83,29 +83,29 @@ class Perfil extends Component {
         let d = this.state.vertiket.info
         let o = this.state.vertiket.items ? this.state.vertiket.items : {};
 
-    let oo = Object.keys(o);
-    let tk = [];
-    if (this.props.user.login) {
-      tk = oo.map(ticket => {
-        let f = o[ticket]
+        let oo = Object.keys(o);
+        let tk = [];
+        if (this.props.user.login) {
+            tk = oo.map(ticket => {
+                let f = o[ticket]
 
-        return (
+                return (
 
-          <div key={ticket} className="cliente-print">
-            <div>► Juego: {f.id} | {f.time}</div>
-            <div style={{ width: "100%" }}>  {f.liga} </div>
-            <div> </div>
-            <div>{f.name} </div>
-            <div>Apuesta: {f.option}
-              <div style={{ float: "right" }}>Cuota:
+                    <div key={ticket} className="cliente-print">
+                        <div>► Juego: {f.id} | {f.time}</div>
+                        <div style={{ width: "100%" }}>  {f.liga} </div>
+                        <div> </div>
+                        <div>{f.name} </div>
+                        <div>Apuesta: {f.option}
+                            <div style={{ float: "right" }}>Cuota:
               <span style={{ fontWeight: "bolder", fontSize: 14 }}>{f.odd}</span></div>
-            </div>
-          </div>
+                        </div>
+                    </div>
 
-        );
+                );
 
-      })
-    }
+            })
+        }
 
         let view = []
         if (d) {
@@ -117,13 +117,13 @@ class Perfil extends Component {
                     aria-labelledby="ModalHeader"
                 >
                     <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }}>
-                        <Modal.Title id='ModalHeader' style={{ color: "black" }}>Ticket Virtual</Modal.Title>                       
+                        <Modal.Title id='ModalHeader' style={{ color: "black" }}>Ticket Virtual</Modal.Title>
                     </Modal.Header>
                     <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
                         <div>
-                            <div className="ticsk" >                               
+                            <div className="ticsk" >
 
-                                <div className="cliente-print" style={{fontSize:14, paddingBottom:10}}>
+                                <div className="cliente-print" style={{ fontSize: 14, paddingBottom: 10 }}>
                                     <div>Agencia: {d.Agencia}</div>
                                     <div>Fecha: {d.Fecha}</div>
                                     <div>Ticket: {d.ID} </div>
@@ -132,21 +132,21 @@ class Perfil extends Component {
                                     <div> Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span> </div>
                                 </div>
                                 {tk}
-                                
-                              
+
+
 
                                 <div id="ganancia-print">
                                     <div className="ga-imprimir">COP {d.Ganancia}</div>
                                 </div>
-                               
+
                             </div>
                         </div>
 
                     </Modal.Body>
                     <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
-                        <Modal.Dismiss className='btn confirm' 
-                        style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>
-                        Cerrar</Modal.Dismiss>
+                        <Modal.Dismiss className='btn confirm'
+                            style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>
+                            Cerrar</Modal.Dismiss>
                     </Modal.Footer>
                 </Modal>
             </div >
@@ -155,7 +155,7 @@ class Perfil extends Component {
 
 
         return (
-            <div className="panels">
+            <div className="panels" style={{ height: 800 }}>
                 <div id="panel-usuario" className="title-text"> Perfil del usuario </div>
                 <div>
                     <div className="perfil">
@@ -163,9 +163,10 @@ class Perfil extends Component {
                         <div className="iconuser">
                             <img id="imagen-perfil" alt="" src="img/icons/user.png" />
                         </div>
-                        <Tabs className="formulario" onSelect={(index, label) => console.log(label + ' selected')}>
+                        <Tabs className="formulario" onSelect={(index, label) => console.log(label + ' selected')} style={{ height: 400 }}>
                             <Tab label="Perfil">
-                                <div id="contenedor-form" ><hr></hr>
+                                <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10, marginBottom: 15 }} > Datos Personales</div>
+                                <div id="contenedor-form" >
 
                                     <div id="form">
                                         <div>
@@ -210,12 +211,9 @@ class Perfil extends Component {
                             </Tab>
                             <Tab label="Movimientos">
 
+                                <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10 }} > Movimientos</div>
 
-
-
-                                <div id="encabezado"> MOVIMIENTOS</div>
-
-                                <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                                <Scrollbars style={{ display: 'inline-block', height: 450, width: '100%' }}>
                                     <table id="t01">
 
                                         <thead>
@@ -242,8 +240,8 @@ class Perfil extends Component {
                             </Tab>
                             <Tab label="Tickets">
                                 <div className="tabla-mov">
-                                    <div id="encabezado"> TIKETS</div>
-                                    <Scrollbars style={{ display: 'inline-block', height: 279, width: '100%' }}>
+                                    <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10 }}> Tickets</div>
+                                    <Scrollbars style={{ display: 'inline-block', height: 450, width: '100%' }}>
                                         <table id="t01">
                                             <thead>
                                                 <tr>

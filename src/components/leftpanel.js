@@ -13,7 +13,7 @@ class Leftpanel extends Component {
     }
     componentDidMount() {
         var context = this;
-        fetch('http://91.121.116.131/geek/api/list/model/leftpanel/',{cache:"no-cache"}
+        fetch('http://91.121.116.131/geek/api/list/model/leftpanel/', { cache: "no-cache" }
         ).then(results => {
             return results.json();
         }).then(data => {
@@ -21,8 +21,8 @@ class Leftpanel extends Component {
             // console.table(data);
         });
     }
-    componentWillUnmount(){
-        this.setState({menu:{}})
+    componentWillUnmount() {
+        this.setState({ menu: {} })
     }
     openCity(event, y) {
         var i, tabcontent, tablinks;
@@ -53,83 +53,84 @@ class Leftpanel extends Component {
         let paises = [], aux;
         let b = this.state.menu;
         let deportesId = Object.keys(b);
-let deportes;
-        if (deportesId.length>0){
-        deportes = deportesId.map(index => {
-            if (b[index].countries) {
+        let deportes;
+        if (deportesId.length > 0) {
+            deportes = deportesId.map(index => {
+                if (b[index].countries) {
 
-                let paisId = Object.keys(b[index].countries)
-                let c = b[index].countries;
+                    let paisId = Object.keys(b[index].countries)
+                    let c = b[index].countries;
 
-                aux = paisId.map(index2 => {
-                    return (
-                        <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600,  }} className="countriesfav">
-                            <div style={{ display: 'table-row' }}>
-                            <div>
-                                    <Link className={"country:active country:focus country:hover country " + c[index2].class}  style={{ width: 126, color: 'white', display: 'table-cell', fontSize: 14 }} to={"/sport/"+index+"/pais/" + index2} >
-                                        &nbsp;&nbsp;   <i className={"ficon-inline f-" + index2}></i>&nbsp;&nbsp; 
+                    aux = paisId.map(index2 => {
+                        return (
+                            <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600, }} className="countriesfav">
+                                <div style={{ display: 'table-row' }}>
+                                    <div>
+                                        <Link className={"country:active country:focus country:hover country " + c[index2].class} style={{ width: 126, color: 'white', display: 'table-cell', fontSize: 14 }} to={"/sport/" + index + "/pais/" + index2} >
+                                            &nbsp;&nbsp;   <i className={"ficon-inline f-" + index2}></i>&nbsp;&nbsp;
                                     {c[index2].name}
-                                   
-                                       
-                                    </Link> 
+
+
+                                        </Link>
                                     </div>
+                                </div>
                             </div>
-                        </div>
-                    )
-                })
-            } else {
-                return null;
-            }
+                        )
+                    })
+                } else {
+                    return null;
+                }
 
 
-            //  ---------------------MUESTRA PAISES-------------------------------
-            aux = <div key={index} className="tabcontent" id={index}>
-                {aux}
-            </div>
-            paises.push(aux);
-            // if(b[index].class=="active")
-            // this.openCity(null, index)
-            return (
-                <div key={index} className={"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
-                    <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
-                       
-                    </div>
+                //  ---------------------MUESTRA PAISES-------------------------------
+                aux = <div key={index} className="tabcontent" id={index}>
+                    {aux}
                 </div>
-            )
-        })}else{
-            deportes= <div className="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                paises.push(aux);
+                // if(b[index].class=="active")
+                // this.openCity(null, index)
+                return (
+                    <div key={index} className={"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
+                        <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
+
+                        </div>
+                    </div>
+                )
+            })
+        } else {
+            deportes = <div className="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         }
 
         return (
-           
+
             <div>
-            <div id="buscar">
-                <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
-            </div>
-                
+                <div id="buscar">
+                    <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
+                </div>
+
                 <div className="contenedor-deportes">
-                    
+
                     <div className="contenedor-deportes2">
-                       
-                        <div style={{ width: 70, margin:1 }}>
+
+                        <div style={{ width: 70, margin: 1 }}>
                             {deportes}
                         </div>
-                        
+
 
                         <Scrollbars
                             style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
                             <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
-                                 
-                                
+
+
                                 {paises}
                             </div>
 
                         </Scrollbars>
-                       
+
                     </div>
-                   
+
                 </div>
-                  
+
             </div>
 
 

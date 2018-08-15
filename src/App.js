@@ -23,7 +23,7 @@ import {
 class App extends Component {
   constructor() {
     super()
-    this.changeStake = this.changeStake.bind(this);
+    // this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
       open: true,
@@ -32,7 +32,7 @@ class App extends Component {
         login: false
       },
       data: {},
-      stake: "1000",
+      
       price: 1,
     };
 
@@ -41,28 +41,35 @@ class App extends Component {
   handleOpenModal() {
     this.setState({ open: true });
   }
-  changeStake(stake) {
-    this.setState({ stake: stake.target.value })
-  }
+  
   removeFromCupon = (id) => {
     // console.log(x);
-    let temporal = this.state.items;
-    let p = 1;
-    delete temporal[id];
-    Object.keys(temporal).map(idApuesta => {
-      p = p * temporal[idApuesta].price;
-      return null;
-    })
-    this.setState({
-      items: temporal,
-      price: p.toFixed(2)
-    })
-    localStorage.setItem('tickets', JSON.stringify(temporal));
+    if (id) {
+      let temporal = this.state.items;
+      let p = 1;
+      delete temporal[id];
+      Object.keys(temporal).map(idApuesta => {
+        p = p * temporal[idApuesta].price;
+        return null;
+      })
+      this.setState({
+        items: temporal,
+        price: p.toFixed(2)
+      })
+      localStorage.setItem('tickets', JSON.stringify(temporal));
+    } else {
+      this.setState({
+        items: {},
+        price: 1
+      })
+      localStorage.setItem('tickets', JSON.stringify({}));
+    }
+
 
   };
 
   saveCupon = (flows) => {
-    if (this.state.stake === "" || this.state.stake === " " || this.state.stake <= 0) {
+    if (flows === "" || flows === " " || flows <= 0) {
       swal({
         title: "Ticket no permitido",
         text: "Coloque su apuesta",
@@ -75,7 +82,7 @@ class App extends Component {
         icon: "error",
       })
     } else {
-     
+
       let temporal = this.state.items;
       let products = Object.keys(temporal);
 
@@ -112,12 +119,12 @@ class App extends Component {
           return (
             <div>
               <div>
-                Apuesta: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" + this.state.stake.replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
+                Apuesta: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" +flows.replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
               </div>
 
               {obj}
               <div>
-                Posible Ganancia: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" + parseFloat(this.state.stake * this.state.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
+                Posible Ganancia: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" + parseFloat(flows * this.state.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
               </div>
             </div>
           )
@@ -145,52 +152,62 @@ class App extends Component {
                 "A_id": this.state.user.userdata.A_id,
                 "D_id": this.state.user.userdata.D_id,
               }
-              let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: this.state.stake, price: this.state.price, counter: Object.keys(this.state.items).length });
+              let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
               console.log(x)
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
               }).then(res => res.json())
                 .then(res => {
-                  if(res.status===200){
-                  swal({
-                    title: "Operacion Exitosa!",
-                    text: "Los datos se enviaron correctamente",
-                    icon: "success"
-                  }).then(next => {
-                    swal({
-                      title: "Imprimir?",
-                      icon: "info",
-                      text: "Desea imprimir este cupon?",
-                      buttons: {
-                        cancel: true,
-                        confirm: true,
-                      }
-
-                    }).then(resp => {
-                      if (resp) {
-                        // console.log("Impirmir aqui");
-                        this.setState({ open: true })
-                        window.print();
-                        // windows.print().;
-                        // swal("Se imprimio exitosamente")
-                      }
+                  if (res.status === 200) {
+                    let user = this.state.user;
+                    user['userdata']['balance'] = user['userdata']['balance'] - this.state.stake;
+                    this.setState({
+                      user
                     })
-                  })
-                  this.setState({
-                    lastItem: res
-                  });
+                    localStorage.setItem('user', JSON.stringify(user));
+                    this.setState({
+                      lastItem: res
+                    });
 
-                  localStorage.setItem('ultimoTicket', JSON.stringify(res));
-                }else{
-                  swal({
-                    title: "Atencion!",
-                    text: res.status,
-                    icon: "warning",
-                  })
-                }
-                  
-                }).catch(err=>{
+                    swal({
+                      title: "Operacion Exitosa!",
+                      text: "Los datos se enviaron correctamente",
+                      icon: "success"
+                    }).then(next => {
+                      swal({
+                        title: "Imprimir?",
+                        icon: "info",
+                        text: "Desea imprimir este cupon?",
+                        buttons: {
+                          cancel: { text: "NO" },
+                          confirm: { text: "SI", value: true },
+                        }
+
+                      }).then(resp => {
+                        if (resp) {
+                          // console.log("Impirmir aqui");
+                          this.setState({ open: true })
+                          window.print();
+                          // windows.print().;
+                          // swal("Se imprimio exitosamente")
+                        }
+
+                        this.removeFromCupon();
+                      })
+                    })
+
+
+                    localStorage.setItem('ultimoTicket', JSON.stringify(res));
+                  } else {
+                    swal({
+                      title: "Atencion!",
+                      text: res.status,
+                      icon: "warning",
+                    })
+                  }
+
+                }).catch(err => {
                   swal({
                     title: "Error conectando al servidor",
                     text: "Ops, ha ocurrido un error, intente de nuevo",
@@ -267,15 +284,16 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ user: usertem });
     }
-    if (localStorage.getItem('ultimoTicket') != null) {
-      let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
-      // console.log(temporal);
-      this.setState({ lastItem });
-    }
+    // if (localStorage.getItem('ultimoTicket') != null) {
+    //   let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
+    //   // console.log(temporal);
+    //   this.setState({ lastItem });
+    // }
 
   }
   render() {
-    
+    console.log("Rendering APP...");
+
     let d = this.state.lastItem.info ? this.state.lastItem.info : {};
     let o = this.state.lastItem.items ? this.state.lastItem.items : {};
 
@@ -287,7 +305,7 @@ class App extends Component {
 
         return (
 
-          <div key={ticket} className="cliente-print">
+          <div key={f.id} className="cliente-print">
             <div>► Juego: {f.id} | {f.time}</div>
             <div style={{ width: "100%" }}>  {f.liga} </div>
             <div> </div>
@@ -346,7 +364,7 @@ class App extends Component {
 
                         <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
 
-                        <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+                        {/* <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} /> */}
                         <Redirect to="/" />
                       </Switch>
                     </div>

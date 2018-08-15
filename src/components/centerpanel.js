@@ -17,6 +17,7 @@ class Centerpanel extends Component {
             open: false,
             modal: [],
             select: [],
+            idpais: "",
             loading: true,
             entrada: "",
             raw: this.props.select ? this.props.select.leagues : "",
@@ -39,8 +40,6 @@ class Centerpanel extends Component {
         });
         context.setState({ open: true })
     }
-
-
     componentDidMount() {
         fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
             return results.json();
@@ -50,10 +49,10 @@ class Centerpanel extends Component {
                 loading: true
             })
             // console.table(data)
-            }).catch(function (error) {
-                console.log('Hubo un problema con la petición Fetch:' + error.message);
-                context.setState({ loading: false })
-            });
+        }).catch(function (error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+            context.setState({ loading: false })
+        });
 
         fetch('http://91.121.116.131/geek/api/list/model/siguiente', { cache: "no-cache" }).then(results => {
             return results.json();
@@ -69,36 +68,37 @@ class Centerpanel extends Component {
         this.setState({ data: [] })
         // this.setState({ props: [] })
     }
-    static getDerivedStateFromProps(props, current_state) {
-        if (current_state.idpais !== props.match.params.idpais) {
-            context.setState({
-                select:{},
-                loading: true
-            })
+    // static getDerivedStateFromProps(props, current_state) {
+    //     if (current_state.idpais !== props.match.params.idpais) {
+    //         context.setState({
+    //             select: {},
+    //             loading: true,
+    //             idpais: props.match.params.idpais
+    //         })
 
-            // console.log("Se actualizo la prop a " + props.match.params.index2);
-            fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
-                .then(results => {
-                    return results.json();
-                }).then(select => {
-                    context.setState({
-                        select,
-                        loading: true
-                    })
-                    // console.table(data)
-                }).catch(function (error) {
-                    console.log('Hubo un problema con la petición Fetch:' + error.message);
-                    context.setState({ loading: false })
-                });
+    //         console.log("Se actualizo la prop ", current_state.idpais, props.match.params.idpais);
+    //         fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
+    //             .then(results => {
+    //                 return results.json();
+    //             }).then(select => {
+    //                 context.setState({
+    //                     select,
+    //                     loading: true
+    //                 })
+    //                 // console.table(data)
+    //             }).catch(function (error) {
+    //                 console.log('Hubo un problema con la petición Fetch:' + error.message);
+    //                 context.setState({ loading: false })
+    //             });
 
-        }
-        return null;
+    //     }
+    //     return null;
 
-    }
+    // }
 
 
     render() {
-
+        console.log("Rendering Center...");
         /**
         Obtengo las cabezeras de la tabla
         **/
@@ -307,7 +307,11 @@ class Centerpanel extends Component {
 
                                 <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[139992] ? y.data[139992].o1 : ""}</div>
                                 <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[139992] ? y.data[139992].o2 : ""}</div>
+
+                            </th>
+                            <th>
                                 <div className="botn btn btn:active btn:hover"
+                                    style={{ color: 'black', backgroundColor: "orange", borderRadius: 10 }}
                                     onClick={
                                         this.getdata.bind(this, y.idmatch,
                                             {
@@ -318,8 +322,9 @@ class Centerpanel extends Component {
                                                 liga: liganombre,
                                                 home: y.home,
                                                 away: y.away
-                                            })} style={{ color: '#ef092c' }}>{y.more ? y.more : ""}</div>
-
+                                            })}>
+                                    {y.more ? y.more : ""}
+                                </div>
                             </th>
                         </tr>
                     );
@@ -336,7 +341,8 @@ class Centerpanel extends Component {
                                 <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 10 }}>1 X 2 </th>
                                 <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>1X 12 2X</th>
                                 <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>UN  OV  T</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>GG NG +</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>GG NG</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>Mas</th>
 
                             </tr>
 
@@ -639,7 +645,7 @@ class Centerpanel extends Component {
                     <Carusel />
                 </div>
                 <div className="panels">
-                    <div id="proximos">{this.state.select.name}</div>
+                    {/* <div id="proximos">{this.state.select.name}</div> */}
 
                     <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
 
