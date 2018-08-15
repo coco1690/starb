@@ -104,18 +104,6 @@ class Rightpanel extends React.Component {
                         </Scrollbars>
 
                         <div className="mm" >
-<<<<<<< HEAD
-                            <div style={{ marginTop: 20, margin:0}}>
-                                <div style={{ width: 70, marginLeft: 10}}> Cantidad: </div>
-                               
-                                    <input id="amount" placeholder="Ej: 2000" type="number" style={{ boxSizing: 'border-box', height: 30, width: 140, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right', marginLeft:109 }} value={this.props.stake}   onChange={this.props.changeStake} /></div>
-                           
-                            <div style={{ marginTop: 20, margin: 10, fontSize: 15 }}>Cuota:
-                                <span style={{ float: 'right' }} className="totalodd">{p}</span>
-                            </div>
-                            <div style={{ marginTop: 10, margin: 10 }}>Pago Total:
-                                <span style={{ float: 'right'}}>
-=======
                             <div style={{ marginTop: 20, margin: 0, display: "inline" }}>
                                 <div style={{ width: 70, marginLeft: 10, display:"inline" }}> Apuesta: </div>
  
@@ -126,11 +114,10 @@ class Rightpanel extends React.Component {
                                 onChange={this.changeStake} /></div>
 
                             <div style={{ margin: 10, marginTop:10 }}>Cuota:
-                                <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{this.props.price}</span>
+                                <span style={{ float: 'right' }} className="totalodd">{this.props.price}</span>
                             </div>
                             <div style={{ margin: 10, marginTop:15 }}>Pago Total:
-                                <span style={{ float: 'right', fontWeight: 'bold' }}>
->>>>>>> 29c47cdb7151b3f49b7cbb27c64455562977aac5
+                                <span style={{ float: 'right'}}>
                                     <span className="currency-symbol">$</span>
                                     <span className="totalwin">{(this.props.price*this.state.stake).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
                                 </span>
