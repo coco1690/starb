@@ -95,10 +95,10 @@ class Rightpanel extends React.Component {
         
         return (
 
-
+            <div className="right-panel">
             <Sticky className="mierda">
 
-                <div className="right-panel">
+                
 
 
 
@@ -142,8 +142,9 @@ class Rightpanel extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </Sticky>
+            </div>
         );
     }
 }

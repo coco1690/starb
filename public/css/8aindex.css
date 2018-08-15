@@ -800,8 +800,15 @@ border: 1px solid rgb(255, 62, 62);
 }
    /* .tick{
     display:none;
-   }  */
+  }  */
+/* 
+  .modal,.fade,.in{
+         z-index: 0;
+    padding-left: 1px;
+  } */
+
 }
+
 .mierda{
   display: inline-flex;
 }
@@ -819,7 +826,7 @@ border: 1px solid rgb(255, 62, 62);
 /* ==========================================ticketprint================================== */
 @media print {
 
-  .navbar, .headcont, .header-menu, .center-panel, .confirm, .img-logo, .panelright, .mierda, .right-panel, .countriesfav, .tabcontent, .contenedor-deportes, #buscar, .reloj, .dropdown, .country, .btn{
+  .navbar, .headcont, .header-menu, .center-panel, .confirm, .img-logo, .panelright, .mierda, .right-panel, .countriesfav, .tabcontent, .contenedor-deportes, #buscar, .reloj, .dropdown, .country, .btn,.swal-overlay{
     display: none;
 }
 
@@ -829,6 +836,7 @@ border: 1px solid rgb(255, 62, 62);
   width:100%;
   color: black;
   margin-top: -36px;
+      margin-left: -23px;
   /* display: none; */
   position: relative;
   /* height: 400px; */

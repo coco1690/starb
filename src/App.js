@@ -347,11 +347,11 @@ class App extends Component {
 
 
 
-          <Modal
+          <Modal 
 
             show={this.state.open}
             onHide={closeModal}
-            aria-labelledby="ModalHeader"
+        
 
           >
             <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }} >
