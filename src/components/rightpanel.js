@@ -25,26 +25,24 @@ let context
 class Rightpanel extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            stake: this.props.stake,
-            items: this.props.items,
-            total: this.props.total,
-           
-            lastItem: {},
+        this.state = {          
+            items: this.props.items,     
+            stake:""      
         };
-        // this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.changeStake = this.changeStake.bind(this);
         context = this;
 
 
     }
-  
+    changeStake(stake) {
+        this.setState({ stake: stake.target.value })
+      }
 
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.items !== props.items) {
 
             context.setState({
-                items: props.items,
-                stake: props.stake
+                items: props.items,               
             })
 
 
@@ -54,16 +52,11 @@ class Rightpanel extends React.Component {
     }
 
     render() {
-        // let closeModal = () => this.setState({ open: false })
-        let p = 1; let q = 1;
-        // console.log("****  Items del Cupon **********");
-        // console.table(this.state.items);
+        
         let items = this.state.items
         let itemsid = Object.keys(items)
         let obj = itemsid.map((idApuesta) => {
-            p = p * items[idApuesta].price;
-            p = p.toFixed(2);
-            q = p * this.props.stake;
+           
             return (
                 <div key={idApuesta} className="panelright">
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
@@ -77,43 +70,26 @@ class Rightpanel extends React.Component {
                         <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 12 }}>
                             <div style={{ display: "table-cell" }}><span>{items[idApuesta].option + " " + items[idApuesta].odd}</span></div>
                             <div style={{ display: "table-cell", right: 1, color: 'white', float: "right" }}>
-                                <div to="#" className="btn botn" style={{ marginTop: -50, padding:6 }} onClick={this.props.removeFromCupon.bind(this, idApuesta)}><span style={{fontSize:16}} className="ion-ios-trash"></span></div></div>
+                                <div to="#" className="btn botn" style={{ marginTop: -50, padding: 6 }} onClick={this.props.removeFromCupon.bind(this, idApuesta)}><span style={{ fontSize: 16 }} className="ion-ios-trash"></span></div></div>
                         </div>
                     </div>
                 </div>
             )
         })
 
-
-
-
-        // let o = this.props.item.data ? this.props.item.data : {};
-        // let d = this.props.item.info ? this.props.item.info : { Agencia: "", Usuario: "", ID: "", Fecha: "", Monto: "", Cuota: "", Ganancia: "" }
-        // console.log(d);
-        // let oo = Object.keys(o);
-
-        
         return (
 
             <div className="right-panel">
-            <Sticky className="mierda">
-
-                
-
-
-
-
-
-
-                    <div style={{ background: 'rgba(255,255,255,0.1)' }}>
+                <Sticky className="mierda">
+                    <div style={{ background: 'rgba(255,255,255,0.1)', border: "1px solid orange"  }}>
                         <div className="cuponrigth">
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
                             <span className="ticket-title ">Cupón  </span>
                             <div className="speech-bubble">
                                 <div className="cup">{itemsid.length}</div>
-                               
+
                             </div>
-                           
+
                         </div>
 
 
@@ -128,6 +104,7 @@ class Rightpanel extends React.Component {
                         </Scrollbars>
 
                         <div className="mm" >
+<<<<<<< HEAD
                             <div style={{ marginTop: 20, margin:0}}>
                                 <div style={{ width: 70, marginLeft: 10}}> Cantidad: </div>
                                
@@ -138,17 +115,33 @@ class Rightpanel extends React.Component {
                             </div>
                             <div style={{ marginTop: 10, margin: 10 }}>Pago Total:
                                 <span style={{ float: 'right'}}>
+=======
+                            <div style={{ marginTop: 20, margin: 0, display: "inline" }}>
+                                <div style={{ width: 70, marginLeft: 10, display:"inline" }}> Apuesta: </div>
+ 
+                                <input id="amount" placeholder="Ej: 2000" type="number" 
+                                style={{backgroundColor:"#c7c7c7", boxSizing: 'border-box',
+                                 height: 30, width: 140, border: 'hidden', outline: 'none', textAlign: 'right', marginLeft:60}} 
+                                 value={this.state.stake} 
+                                onChange={this.changeStake} /></div>
+
+                            <div style={{ margin: 10, marginTop:10 }}>Cuota:
+                                <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{this.props.price}</span>
+                            </div>
+                            <div style={{ margin: 10, marginTop:15 }}>Pago Total:
+                                <span style={{ float: 'right', fontWeight: 'bold' }}>
+>>>>>>> 29c47cdb7151b3f49b7cbb27c64455562977aac5
                                     <span className="currency-symbol">$</span>
-                                    <span className="totalwin">{q.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
+                                    <span className="totalwin">{(this.props.price*this.state.stake).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
                                 </span>
                             </div>
                             <div style={{ marginTop: 20 }}>
-                                <button className="btn confirm" onClick={this.props.save} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#000', background: '#fff700', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+                                <button className="btn confirm" onClick={this.props.save.bind(this,this.state.stake)} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>Confirmar</button>
                             </div>
                         </div>
                     </div>
-                
-            </Sticky>
+
+                </Sticky>
             </div>
         );
     }

@@ -148,11 +148,10 @@ class Login extends React.Component {
         // console.log(this.props);
     }
     static getDerivedStateFromProps(props, current_state) {
-        if (current_state.user !== props.user) {
+        if (current_state.login !== props.login) {
             if (props.user)
                 content.setState({
-                    login: props.user.login,
-                    userdata: props.user.userdata
+                    login: props.user.login,                   
                 })
         }
         return null;
@@ -179,7 +178,7 @@ class Login extends React.Component {
 
             canvas = <div className='navbar'>
                 <ul>
-                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i> 1000</a></li>
+                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>  {this.props.user?this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'):""}</a></li>
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
                         <div className="dropdown-content">
@@ -211,7 +210,7 @@ class Login extends React.Component {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <Link to='#' className="dropbtn" id="usuario">{this.state.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
+                        <Link to='#' className="dropbtn" id="usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content">
                             <Link to="/perfil">Perfil</Link>
                          
