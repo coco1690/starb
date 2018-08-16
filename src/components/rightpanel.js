@@ -109,7 +109,7 @@ class Rightpanel extends React.Component {
  
                                 <input id="amount" placeholder="Ej: 2000" type="number" 
                                 style={{backgroundColor:"#c7c7c7", boxSizing: 'border-box',
-                                 height: 30, width: 140, border: 'hidden', outline: 'none', textAlign: 'right', marginLeft:60}} 
+                                 height: 30, width: 140, border: 'hidden', outline: 'none', textAlign: 'right', marginLeft:59}} 
                                  value={this.state.stake} 
                                 onChange={this.changeStake} /></div>
 
