@@ -20,7 +20,7 @@ html, body{
   /*background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
   /*background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%); */
+   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%);
    /*background: linear-gradient(to bottom, #000000 0%,#1f1f1f 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
@@ -226,7 +226,7 @@ a:link {
 }
 .contenedor-sub{
   display:inline-block;
-  width: 95%;
+  width: 98%;
   height: 100%;
   position: relative;
   text-align: left;
@@ -234,7 +234,7 @@ a:link {
 .header{
   float:left;
   position: relative;
-  height:80px;
+  height:100px;
   width:100%;
   box-sizing: border-box;
   background-position: right center;
@@ -246,11 +246,11 @@ a:link {
 .header-menu{
   float:left;
   position: relative;
-  height:25px;
+  height:30px;
   width:100%;
   box-sizing: border-box;  
   text-align: center;
-  background: linear-gradient(to bottom, #ff4600 50%,#0d0d0d 100%);
+  background: linear-gradient(to bottom, #ff4600 50%,#a82d00 100%);
 }
 .contenedor-login{
 
@@ -360,6 +360,7 @@ a:link {
   background:rgba(255,255,255,0.1);
   padding: 5px;
   margin-bottom: 10px;
+  border: 1px solid #ff4600;
 }
 .contenedor-deportes{
 background: rgba(255,255,255,0.1);
@@ -368,8 +369,9 @@ background: rgba(255,255,255,0.1);
 .contenedor-deportes2{
   display:table;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1)
-  border: 1px solid rgb(255, 70, 0);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ff4600;
+
   
 }
 /* #contenedor-deportes{
@@ -520,11 +522,12 @@ background: rgba(255,255,255,0.1);
   font-size:16px;
   box-sizing: border-box;
   cursor: pointer;
-  padding-top: 0px;
+  padding-top: 4px;
   color: #ffff00;
 }
 .header-menu .menu-item.active{
   color:#FFF;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 
@@ -536,11 +539,11 @@ background: rgba(255,255,255,0.1);
 
 .sportbutton{
   position:relative;height:60px;
-  border-right: 2px solid rgba(255,255,255,0.5);
+  border-right: 3px solid #ff4600;
   background-position: center 10px;
   background-size: 25%;
   background-repeat: no-repeat;
-  opacity:0.3;
+  opacity:0.7;
 }
 .sportbutton.active{
   opacity:1;
@@ -552,7 +555,7 @@ background: rgba(255,255,255,0.1);
   height: 40px;
   border-right: 2px solid rgba(255,255,255,0.5);
   vertical-align: middle;
-  opacity:0.3;
+  opacity:0.6;
   
 }
 .country.active{
