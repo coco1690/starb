@@ -29,7 +29,7 @@ class Centerpanel extends Component {
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
-        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/380/' + id, { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
@@ -678,7 +678,7 @@ class Centerpanel extends Component {
                         </Modal.Body>
                         <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
 
-                            <Modal.Dismiss className='btn btn-default' onClick={this.closeModal.bind()}>Cancel</Modal.Dismiss>
+                            <Modal.Dismiss className='btn btn-confirm' style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }} onClick={this.closeModal.bind()}>Cerrar</Modal.Dismiss>
 
                         </Modal.Footer>
 
