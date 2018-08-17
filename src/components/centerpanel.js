@@ -54,7 +54,7 @@ class Centerpanel extends Component {
             context.setState({ loading: false })
         });
 
-        fetch('http://91.121.116.131/geek/api/list/model/siguiente', { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/gecko/api/match', { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(data => {
             context.setState({
@@ -68,33 +68,34 @@ class Centerpanel extends Component {
         this.setState({ data: [] })
         // this.setState({ props: [] })
     }
-    // static getDerivedStateFromProps(props, current_state) {
-    //     if (current_state.idpais !== props.match.params.idpais) {
-    //         context.setState({
-    //             select: {},
-    //             loading: true,
-    //             idpais: props.match.params.idpais
-    //         })
+    static getDerivedStateFromProps(props, current_state) {
+        if (current_state.idpais !== props.match.params.idpais || current_state.idsport !== props.match.params.idsport) {
+            context.setState({
+                select: {},
+                loading: true,
+                idpais: props.match.params.idpais,
+                idsport:props.match.params.idsport
+            })
 
-    //         console.log("Se actualizo la prop ", current_state.idpais, props.match.params.idpais);
-    //         fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
-    //             .then(results => {
-    //                 return results.json();
-    //             }).then(select => {
-    //                 context.setState({
-    //                     select,
-    //                     loading: true
-    //                 })
-    //                 // console.table(data)
-    //             }).catch(function (error) {
-    //                 console.log('Hubo un problema con la petición Fetch:' + error.message);
-    //                 context.setState({ loading: false })
-    //             });
+            console.log("Se actualizo la prop ", props.match.params.idsport, props.match.params.idpais);
+            fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
+                .then(results => {
+                    return results.json();
+                }).then(select => {
+                    context.setState({
+                        select,
+                        loading: true
+                    })
+                    // console.table(data)
+                }).catch(function (error) {
+                    console.log('Hubo un problema con la petición Fetch:' + error.message);
+                    context.setState({ loading: false })
+                });
 
-    //     }
-    //     return null;
+        }
+        return null;
 
-    // }
+    }
 
 
     render() {
@@ -338,11 +339,11 @@ class Centerpanel extends Component {
                                 <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100 }}  ><i className='ion-android-stopwatch'></i>
                                     {l[idliga].sportName + " " + l[idliga].name}
                                 </th>
-                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 10 }}>1 X 2 </th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>1X 12 2X</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>UN  OV  T</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>GG NG</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>Mas</th>
+                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight:'normal' }}>1 X 2 </th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>1X 12 2X</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>UN  OV  T</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>GG NG</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>Mas</th>
 
                             </tr>
 
