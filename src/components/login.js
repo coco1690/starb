@@ -178,7 +178,9 @@ class Login extends React.Component {
 
             canvas = <div className='navbar'>
                 <ul>
-                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>  {this.props.user?this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'):""}</a></li>
+                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>  
+                    {this.props.user.userdata.balance?this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'):""}
+                    </a></li>
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
                         <div className="dropdown-content">

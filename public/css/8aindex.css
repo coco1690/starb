@@ -95,10 +95,10 @@ input{
 }
 /* -------------------------------botones tabla */
  .botn{
-    height: 15px; 
+   
     margin:2px;
-    width: 28px;
-    padding-top: 4px;
+    
+    padding: 4px;
     display: inline-block;
     background: #ffff00;
     text-align: center;
@@ -149,8 +149,16 @@ a:link {
     text-decoration: none;
 }
 
-.btn{opacity:1; cursor: pointer;}
-.btn:hover{opacity:1;color: white;}
+.btn{
+  opacity:1; 
+  cursor: pointer;}
+.btn:hover{
+  opacity:1;
+  }
+  .botn:hover{
+    opacity:1;
+    color: #ffa500;
+    background: #3a3a3a;}
 .btn:active{opacity:1;}
 .headcont{
   height: 35px;
@@ -415,7 +423,7 @@ background: rgba(255,255,255,0.1);
   font-size: 15px;
   margin-top: 10px;
   /* font-weight: bold;  */
-  background: black;
+  background: grey;
   border: #262626 solid 1px;
     /* background: #320605; */
     /* background: #1f2122; */
@@ -837,6 +845,8 @@ border: 1px solid rgb(255, 62, 62);
 }
 .mm{
       background: #0c0c0cd6;
+      font-size: 16px;
+    
       
 }
   .cuponrigth{
