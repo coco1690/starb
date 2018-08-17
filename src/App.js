@@ -41,7 +41,6 @@ class App extends Component {
   handleOpenModal() {
     this.setState({ open: true });
   }
-  
   removeFromCupon = (id) => {
     // console.log(x);
     if (id) {
@@ -67,7 +66,6 @@ class App extends Component {
 
 
   };
-
   saveCupon = (flows) => {
     if (flows === "" || flows === " " || flows <= 0) {
       swal({
@@ -153,7 +151,7 @@ class App extends Component {
                 "D_id": this.state.user.userdata.D_id,
               }
               let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
-              console.log(x)
+              // console.log(x);
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
@@ -161,7 +159,7 @@ class App extends Component {
                 .then(res => {
                   if (res.status === 200) {
                     let user = this.state.user;
-                    user['userdata']['balance'] = user['userdata']['balance'] - this.state.stake;
+                    user['userdata']['balance'] = user['userdata']['balance'] - flows;
                     this.setState({
                       user
                     })
@@ -292,7 +290,7 @@ class App extends Component {
 
   }
   render() {
-    console.log("Rendering APP...");
+    // console.log("Rendering APP...");
 
     let d = this.state.lastItem.info ? this.state.lastItem.info : {};
     let o = this.state.lastItem.items ? this.state.lastItem.items : {};

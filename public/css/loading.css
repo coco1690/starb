@@ -2,6 +2,7 @@
   display: inline-block;
   position: relative;
   width: 64px;
+  left:251px;
   height: 64px;
 }
 .lds-ripple div {

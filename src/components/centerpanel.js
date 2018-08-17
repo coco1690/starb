@@ -19,6 +19,7 @@ class Centerpanel extends Component {
             select: [],
             idpais: "",
             loading: true,
+            loadingmodal:true,
             entrada: "",
             raw: this.props.select ? this.props.select.leagues : "",
 
@@ -29,18 +30,21 @@ class Centerpanel extends Component {
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
+        context.setState({ loadingmodal: true })
         fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
                 modal,
                 entrada,
+                loadingmodal:false
             })
 
         });
         context.setState({ open: true })
     }
     componentDidMount() {
+        if(this.props.match.params.idsport){
         fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(select => {
@@ -50,9 +54,12 @@ class Centerpanel extends Component {
             })
             // console.table(data)
         }).catch(function (error) {
-            console.log('Hubo un problema con la petición Fetch:' + error.message);
+            // console.log('Hubo un problema con la petición Fetch:' + error.message);
             context.setState({ loading: false })
         });
+    }else{
+        context.setState({ loading: false })
+    }
 
         fetch('http://91.121.116.131/gecko/api/match', { cache: "no-cache" }).then(results => {
             return results.json();
@@ -77,7 +84,8 @@ class Centerpanel extends Component {
                 idsport:props.match.params.idsport
             })
 
-            console.log("Se actualizo la prop ", props.match.params.idsport, props.match.params.idpais);
+            // console.log("Se actualizo la prop ", props.match.params.idsport, props.match.params.idpais);
+            if(props.match.params.idsport)
             fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
                 .then(results => {
                     return results.json();
@@ -88,7 +96,7 @@ class Centerpanel extends Component {
                     })
                     // console.table(data)
                 }).catch(function (error) {
-                    console.log('Hubo un problema con la petición Fetch:' + error.message);
+                    // console.log('Hubo un problema con la petición Fetch:' + error.message);
                     context.setState({ loading: false })
                 });
 
@@ -99,7 +107,7 @@ class Centerpanel extends Component {
 
 
     render() {
-        console.log("Rendering Center...");
+        // console.log("Rendering Center...");
         /**
         Obtengo las cabezeras de la tabla
         **/
@@ -673,7 +681,7 @@ class Centerpanel extends Component {
                         </Modal.Header>
                         <Modal.Body style={{ background: "rgb(5, 5, 5)" }}>
 
-                            {idss}
+                            {this.state.loadingmodal?<div class="lds-ripple"><div></div><div></div></div>:idss}
 
                         </Modal.Body>
                         <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
