@@ -31,7 +31,7 @@ class Centerpanel extends Component {
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
         context.setState({ loadingmodal: true })
-        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/gecko/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
@@ -44,8 +44,9 @@ class Centerpanel extends Component {
         context.setState({ open: true })
     }
     componentDidMount() {
+       
         if(this.props.match.params.idsport){
-        fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/gecko/api/view/model/pcci/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(select => {
             context.setState({
@@ -58,7 +59,8 @@ class Centerpanel extends Component {
             context.setState({ loading: false })
         });
     }else{
-        context.setState({ loading: false })
+        context.setState({ loading: false });
+        
     }
 
         fetch('http://91.121.116.131/gecko/api/match', { cache: "no-cache" }).then(results => {
@@ -72,10 +74,13 @@ class Centerpanel extends Component {
 
     }
     componentWillUnmount() {
+        // console.log("index its you?")
         this.setState({ data: [] })
         // this.setState({ props: [] })
     }
     static getDerivedStateFromProps(props, current_state) {
+      
+      
         if (current_state.idpais !== props.match.params.idpais || current_state.idsport !== props.match.params.idsport) {
             context.setState({
                 select: {},
@@ -86,7 +91,7 @@ class Centerpanel extends Component {
 
             // console.log("Se actualizo la prop ", props.match.params.idsport, props.match.params.idpais);
             if(props.match.params.idsport)
-            fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
+            fetch('http://91.121.116.131/gecko/api/view/model/pcci/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
                 .then(results => {
                     return results.json();
                 }).then(select => {
@@ -101,6 +106,7 @@ class Centerpanel extends Component {
                 });
 
         }
+        if(!props.match.params.idpais){ context.setState({ loading: false })}
         return null;
 
     }
