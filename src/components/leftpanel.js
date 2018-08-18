@@ -56,12 +56,14 @@ class Leftpanel extends Component {
         let deportes;
         if (deportesId.length > 0) {
             deportes = deportesId.map(index => {
+                console.log(index)
                 if (b[index].countries) {
 
                     let paisId = Object.keys(b[index].countries)
                     let c = b[index].countries;
 
                     aux = paisId.map(index2 => {
+                        // console.log(index2)
                         return (
                             <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600, }} className="countriesfav">
                                 <div style={{ display: 'table-row' }}>
@@ -112,7 +114,7 @@ class Leftpanel extends Component {
 
                     <div className="contenedor-deportes2">
 
-                        <div style={{ width: 70, margin: 1 }}>
+                        <div style={{ width: 70, margin: 1, background:"#000"}}>
                             {deportes}
                         </div>
 
