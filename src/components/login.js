@@ -37,11 +37,11 @@ class Login extends React.Component {
     }
 
     usuario(objuser) {
-        console.log(objuser.target.value)
+        // console.log(objuser.target.value)
         this.setState({ user: objuser.target.value });
     }
     password(objpass) {
-        console.log(objpass.target.value)
+        // console.log(objpass.target.value)
         this.setState({ pass: objpass.target.value });
     }
     ingresar(event) {

@@ -31,7 +31,7 @@ class Centerpanel extends Component {
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
         context.setState({ loadingmodal: true })
-        fetch('http://91.121.116.131/gecko/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/gecko/api/view/model/pcuc/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
@@ -379,11 +379,11 @@ class Centerpanel extends Component {
 
 
         // console.log(c)
-        // console.log(liga)
         let w = -1;
-
+        
         let m = this.state.modal;
-
+        
+        console.log(m)
 
 
         let ids = Object.keys(m);
@@ -687,7 +687,7 @@ class Centerpanel extends Component {
                         </Modal.Header>
                         <Modal.Body style={{ background: "rgb(5, 5, 5)" }}>
 
-                            {this.state.loadingmodal?<div class="lds-ripple"><div></div><div></div></div>:idss}
+                            {this.state.loadingmodal?<div className="lds-ripple"><div></div><div></div></div>:idss}
 
                         </Modal.Body>
                         <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>

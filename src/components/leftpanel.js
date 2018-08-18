@@ -56,7 +56,7 @@ class Leftpanel extends Component {
         let deportes;
         if (deportesId.length > 0) {
             deportes = deportesId.map(index => {
-                console.log(index)
+                // console.log(index)
                 if (b[index].countries) {
 
                     let paisId = Object.keys(b[index].countries)
@@ -85,7 +85,7 @@ class Leftpanel extends Component {
 
 
                 //  ---------------------MUESTRA PAISES-------------------------------
-                aux = <div key={index} className="tabcontent" style={index==1?{display:'table'}:{}} id={index}>
+                aux = <div key={index} className="tabcontent" style={index===1?{display:'table'}:{}} id={index}>
                     {aux}
                 </div>
                 paises.push(aux);
