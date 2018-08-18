@@ -13,7 +13,7 @@ class Leftpanel extends Component {
     }
     componentDidMount() {
         var context = this;
-        fetch('http://91.121.116.131/geek/api/list/model/leftpanel/', { cache: "no-cache" }
+        fetch('http://91.121.116.131/gecko/api/menu', { cache: "no-cache" }
         ).then(results => {
             return results.json();
         }).then(data => {
@@ -83,7 +83,7 @@ class Leftpanel extends Component {
 
 
                 //  ---------------------MUESTRA PAISES-------------------------------
-                aux = <div key={index} className="tabcontent" id={index}>
+                aux = <div key={index} className="tabcontent" style={index==1?{display:'table'}:{}} id={index}>
                     {aux}
                 </div>
                 paises.push(aux);
@@ -120,8 +120,6 @@ class Leftpanel extends Component {
                         <Scrollbars
                             style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
                             <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
-
-
                                 {paises}
                             </div>
 
