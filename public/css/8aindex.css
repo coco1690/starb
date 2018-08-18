@@ -423,12 +423,13 @@ background: rgba(255,255,255,0.1);
   font-size: 15px;
   margin-top: 10px;
   /* font-weight: bold;  */
-  background: #808080;
+  background: #ffff00;
   border: #262626 solid 1px;
     /* background: #320605; */
     /* background: #1f2122; */
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  
 }
 #panel-usuario{
   padding: 12px;
