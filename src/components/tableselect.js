@@ -271,7 +271,7 @@ const Tableselect = (props) => {
         liga =
             <div className="lds-facebook"><div></div><div></div><div></div></div>
     }
-    return <div>   <div id="proximos" style={{backgroundColor:"grey"}}>{props.tableheader}</div>{liga}</div>;
+    return <div>   <div id="proximos" >{props.tableheader}</div>{liga}</div>;
 
 }
 export default Tableselect;
