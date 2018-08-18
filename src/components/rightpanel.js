@@ -81,7 +81,7 @@ class Rightpanel extends React.Component {
 
             <div className="right-panel">
                 <Sticky className="mierda">
-                    <div style={{ background: 'rgba(255,255,255,0.1)', border: "1px solid orange"  }}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)', border: "1px solid #ff4600"  }}>
                         <div className="cuponrigth">
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
                             <span className="ticket-title ">Cupón  </span>
@@ -123,7 +123,7 @@ class Rightpanel extends React.Component {
                                 </span>
                             </div>
                             <div style={{ marginTop: 20 }}>
-                                <button className="btn confirm" onClick={this.props.save.bind(this,this.state.stake)} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+                                <button className="btn confirm" onClick={this.props.save.bind(this,this.state.stake)} style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>Confirmar</button>
                             </div>
                         </div>
                     </div>

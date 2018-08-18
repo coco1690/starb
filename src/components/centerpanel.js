@@ -19,6 +19,7 @@ class Centerpanel extends Component {
             select: [],
             idpais: "",
             loading: true,
+            loadingmodal:true,
             entrada: "",
             raw: this.props.select ? this.props.select.leagues : "",
 
@@ -29,18 +30,21 @@ class Centerpanel extends Component {
     }
     closeModal = () => this.setState({ open: false })
     getdata(id, entrada) {
-        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/380/' + id, { cache: "no-cache" }).then(results => {
+        context.setState({ loadingmodal: true })
+        fetch('http://91.121.116.131/geek/api/list/model/cuotas/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(modal => {
             context.setState({
                 modal,
                 entrada,
+                loadingmodal:false
             })
 
         });
         context.setState({ open: true })
     }
     componentDidMount() {
+        if(this.props.match.params.idsport){
         fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(select => {
@@ -50,11 +54,14 @@ class Centerpanel extends Component {
             })
             // console.table(data)
         }).catch(function (error) {
-            console.log('Hubo un problema con la petición Fetch:' + error.message);
+            // console.log('Hubo un problema con la petición Fetch:' + error.message);
             context.setState({ loading: false })
         });
+    }else{
+        context.setState({ loading: false })
+    }
 
-        fetch('http://91.121.116.131/geek/api/list/model/siguiente', { cache: "no-cache" }).then(results => {
+        fetch('http://91.121.116.131/gecko/api/match', { cache: "no-cache" }).then(results => {
             return results.json();
         }).then(data => {
             context.setState({
@@ -68,37 +75,39 @@ class Centerpanel extends Component {
         this.setState({ data: [] })
         // this.setState({ props: [] })
     }
-    // static getDerivedStateFromProps(props, current_state) {
-    //     if (current_state.idpais !== props.match.params.idpais) {
-    //         context.setState({
-    //             select: {},
-    //             loading: true,
-    //             idpais: props.match.params.idpais
-    //         })
+    static getDerivedStateFromProps(props, current_state) {
+        if (current_state.idpais !== props.match.params.idpais || current_state.idsport !== props.match.params.idsport) {
+            context.setState({
+                select: {},
+                loading: true,
+                idpais: props.match.params.idpais,
+                idsport:props.match.params.idsport
+            })
 
-    //         console.log("Se actualizo la prop ", current_state.idpais, props.match.params.idpais);
-    //         fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
-    //             .then(results => {
-    //                 return results.json();
-    //             }).then(select => {
-    //                 context.setState({
-    //                     select,
-    //                     loading: true
-    //                 })
-    //                 // console.table(data)
-    //             }).catch(function (error) {
-    //                 console.log('Hubo un problema con la petición Fetch:' + error.message);
-    //                 context.setState({ loading: false })
-    //             });
+            // console.log("Se actualizo la prop ", props.match.params.idsport, props.match.params.idpais);
+            if(props.match.params.idsport)
+            fetch('http://91.121.116.131/geek/api/list/model/buscar/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
+                .then(results => {
+                    return results.json();
+                }).then(select => {
+                    context.setState({
+                        select,
+                        loading: true
+                    })
+                    // console.table(data)
+                }).catch(function (error) {
+                    // console.log('Hubo un problema con la petición Fetch:' + error.message);
+                    context.setState({ loading: false })
+                });
 
-    //     }
-    //     return null;
+        }
+        return null;
 
-    // }
+    }
 
 
     render() {
-        console.log("Rendering Center...");
+        // console.log("Rendering Center...");
         /**
         Obtengo las cabezeras de la tabla
         **/
@@ -338,11 +347,11 @@ class Centerpanel extends Component {
                                 <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100 }}  ><i className='ion-android-stopwatch'></i>
                                     {l[idliga].sportName + " " + l[idliga].name}
                                 </th>
-                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 10 }}>1 X 2 </th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>1X 12 2X</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>UN  OV  T</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>GG NG</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>Mas</th>
+                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight:'normal' }}>1 X 2 </th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>1X 12 2X</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>UN  OV  T</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>GG NG</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>Mas</th>
 
                             </tr>
 
@@ -672,12 +681,12 @@ class Centerpanel extends Component {
                         </Modal.Header>
                         <Modal.Body style={{ background: "rgb(5, 5, 5)" }}>
 
-                            {idss}
+                            {this.state.loadingmodal?<div class="lds-ripple"><div></div><div></div></div>:idss}
 
                         </Modal.Body>
                         <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
 
-                            <Modal.Dismiss className='btn btn-default' onClick={this.closeModal.bind()}>Cancel</Modal.Dismiss>
+                            <Modal.Dismiss className='btn btn-confirm' style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }} onClick={this.closeModal.bind()}>Cerrar</Modal.Dismiss>
 
                         </Modal.Footer>
 

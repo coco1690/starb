@@ -16,12 +16,12 @@ html, body{
   height:100%;
   color: #FFF; 
   font-size: 12px;
-  background: #0c0d11; /* Old browsers */
-  background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
+  /*background: #0c0d11; /* Old browsers */
+  /*background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
+  /*background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   /* background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%); */
-   background: linear-gradient(to bottom, #000000 0%,#1f1f1f 80%);
+   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%);
+   /*background: linear-gradient(to bottom, #000000 0%,#1f1f1f 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
@@ -54,7 +54,7 @@ html, body{
  width: 100%;
  text-align: center;
 /* background: linear-gradient(#1c2d38 0%,#044065 80%); */
-background: #ffffff1a;  
+background:#ff4600;  
 
 }
 /* button{
@@ -95,15 +95,15 @@ input{
 }
 /* -------------------------------botones tabla */
  .botn{
-    height: 15px; 
+   
     margin:2px;
-    width: 28px;
-    padding-top: 4px;
+    
+    padding: 4px;
     display: inline-block;
-    background: #c7c7c7;
+    background: #ffff00;
     text-align: center;
     font-size: 10px;
-    border-radius: 2px;
+    border-radius: 5px;
     color: #000;
 
  }
@@ -149,8 +149,16 @@ a:link {
     text-decoration: none;
 }
 
-.btn{opacity:1; cursor: pointer;}
-.btn:hover{opacity:1;color: white;}
+.btn{
+  opacity:1; 
+  cursor: pointer;}
+.btn:hover{
+  opacity:1;
+  }
+  .botn:hover{
+    opacity:1;
+    color: #ffa500;
+    background: #3a3a3a;}
 .btn:active{opacity:1;}
 .headcont{
   height: 35px;
@@ -176,9 +184,10 @@ a:link {
   height: 30px;
   text-align: center;
   color: rgb(255, 255, 255);
-  background: #ff0000;
+  background: #d95422;
   font-size: 14px;
   border: hidden; 
+  border-radius: 20px;
 }
 #pass, #email{
 
@@ -225,7 +234,7 @@ a:link {
 }
 .contenedor-sub{
   display:inline-block;
-  width: 95%;
+  width: 98%;
   height: 100%;
   position: relative;
   text-align: left;
@@ -233,25 +242,23 @@ a:link {
 .header{
   float:left;
   position: relative;
-  height:80px;
+  height:100px;
   width:100%;
   box-sizing: border-box;
   background-position: right center;
   background-repeat: no-repeat;
-  background-size: 90%;
+  background-size: 100%;
   text-align: center;
-  background-color: #000;
+  background-image: url("/img/fond001.jpg");
 }
 .header-menu{
   float:left;
   position: relative;
   height:30px;
   width:100%;
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
+  box-sizing: border-box;  
   text-align: center;
-  background-color: #262626;
+  background: linear-gradient(to bottom, #ff4600 50%,#a82d00 100%);
 }
 .contenedor-login{
 
@@ -264,15 +271,15 @@ a:link {
 
 .img-logo{
 
-  height: 60%; 
+  height: 90%; 
   position: absolute;
-  top: 16px;
+  top: 11px;
   left: 10px;
 
 }
 
 .proximos, .perfil, .envivo, .resultados{
-
+  
   margin-right: 10px;
 }
 
@@ -361,6 +368,7 @@ a:link {
   background:rgba(255,255,255,0.1);
   padding: 5px;
   margin-bottom: 10px;
+  border: 1px solid #ff4600;
 }
 .contenedor-deportes{
 background: rgba(255,255,255,0.1);
@@ -369,7 +377,9 @@ background: rgba(255,255,255,0.1);
 .contenedor-deportes2{
   display:table;
   width: 100%;
-  background-color: #313131;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ff4600;
+
   
 }
 /* #contenedor-deportes{
@@ -409,21 +419,22 @@ background: rgba(255,255,255,0.1);
   padding: 20px;
 }
 #proximos{
-  padding: 15px;
+  padding: 5px;
   font-size: 15px;
   margin-top: 10px;
   /* font-weight: bold;  */
-  background: black;
+  background: #808080;
   border: #262626 solid 1px;
     /* background: #320605; */
     /* background: #1f2122; */
   text-transform: uppercase;
+  color: rgb(255, 255, 255);
 }
 #panel-usuario{
-  padding: 20px;
+  padding: 12px;
   font-size: 16px;
-  font-weight: bold; 
-  background: rgba(255,255,255,0.1);
+  font-weight: bold;
+  background: rgba(255, 70, 0, 0.52);
   text-transform: uppercase;
 }
 #imagen-perfil{
@@ -461,9 +472,9 @@ background: rgba(255,255,255,0.1);
 .formulario{
   height: 70%;
   width: 99%;
-  border: 1px solid rgba(245, 247, 248, 0.527);
+  border: 1px solid rgba(255, 70, 0);
   /* margin: 10px; */
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 13px;
   margin-top: 10px;
 }
@@ -485,13 +496,17 @@ background: rgba(255,255,255,0.1);
   margin-left: 10px; 
 }
 .iconuser{
-  height: 30%;
-  width: 99%;
-  background:rgba(250, 250, 248, 0.151);
-  border: 3px solid rgba(198, 241, 7, 0.534);
+  height: 71px;
+  width: 80px;
+  /* background: rgba(250, 250, 248, 0.151); */
+  /* border: 1px solid rgba(255, 70, 0); */
   text-align: center;
-  /* margin:10px; */
-  border-radius: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  position: absolute;
+  /* align-content: center; */
+  padding: -21px;
+  margin-top: 19px;
 }
 .lineavertical{ 
   width: 50%;
@@ -513,14 +528,19 @@ background: rgba(255,255,255,0.1);
 }
 
 .header-menu .menu-item{
-  display:inline-block;padding:11px;padding-left:15px;padding-right:15px;font-size:13px;
+  display:inline-block;
+  padding:11px;
+  padding-left:15px;
+  padding-right:15px;
+  font-size:16px;
   box-sizing: border-box;
   cursor: pointer;
-  padding-top: 6px;
-  color: rgba(255,255,255,0.2);
+  padding-top: 4px;
+  color: #ffff00;
 }
 .header-menu .menu-item.active{
   color:#FFF;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 
@@ -532,11 +552,11 @@ background: rgba(255,255,255,0.1);
 
 .sportbutton{
   position:relative;height:60px;
-  border-right: 2px solid rgba(255,255,255,0.5);
+  border-right: 3px solid #ff4600;
   background-position: center 10px;
   background-size: 25%;
   background-repeat: no-repeat;
-  opacity:0.3;
+  opacity:0.7;
 }
 .sportbutton.active{
   opacity:1;
@@ -548,7 +568,7 @@ background: rgba(255,255,255,0.1);
   height: 40px;
   border-right: 2px solid rgba(255,255,255,0.5);
   vertical-align: middle;
-  opacity:0.3;
+  opacity:0.6;
   
 }
 .country.active{
