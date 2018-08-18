@@ -383,7 +383,7 @@ class Centerpanel extends Component {
         
         let m = this.state.modal;
         
-        console.log(m)
+        // console.log(m)
 
 
         let ids = Object.keys(m);
@@ -392,35 +392,11 @@ class Centerpanel extends Component {
             let body = m[mo].data;
             let yy = Object.keys(body).map(yo => {
                 let jj = body[yo];
+               
                 let c1 = jj.o1;
                 let c2 = jj.o2;
                 let c3 = jj.o3;
 
-                // let k = this.state.data;
-                // let ah = Object.keys(k);
-                // let ahs = ah.map(aho => {
-                //     let mat = k[aho].matches;
-                //     console.log(mat);
-                //     let kk = Object.keys(mat).map(awayhome => {
-                //         let xx = mat[awayhome];
-                //         let awy = xx.away;
-                //         let hmo = xx.home;
-
-                // let tic = {
-
-                // choose: 1,
-                // id: y,
-                // name: y.name,
-                // odd: y.data[139992] ? y.data[139992].o2 : "",
-                // option: "xx",
-                // price: y.data[139992] ? y.data[139992].o2 : "",
-                // time: hours + ":" + minutes + pmam + " - " + timess,
-                // type: y.data[139992] ? y.data[139992].type : "",
-                // version: y.data[139992] ? y.data[139992].version : "",
-                // liga: l[idliga].sportName + " " + l[idliga].name,
-
-
-                // }
 
                 switch (m[mo].type) {
 
@@ -490,21 +466,21 @@ class Centerpanel extends Component {
                                                 option: this.state.entrada.home,
                                                 price: c1
 
-                                            })}> >{c1}</td>
+                                            })}>{c1}</td>
                                 </th>
 
                                 <th> 2 <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
-                                                odd: c3,
+                                                odd: c2,
                                                 name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
                                                 option: this.state.entrada.away,
-                                                price: c3
+                                                price: c2
 
-                                            })}> >{c3}</td>
+                                            })}>{c2}</td>
                                 </th>
                             </tr>
 
@@ -617,12 +593,7 @@ class Centerpanel extends Component {
 
                             </tr>
                         )
-                    // break;
                 }
-
-                //     })
-                // })
-
             })
 
             return (
@@ -639,18 +610,9 @@ class Centerpanel extends Component {
                             {yy}
                         </tbody>
                     </table>
-
                 </div>
-
             )
-
-
-
         })
-
-
-
-        // let s = this.state.select;
 
 
         return (
@@ -660,7 +622,6 @@ class Centerpanel extends Component {
                     <Carusel />
                 </div>
                 <div className="panels">
-                    {/* <div id="proximos">{this.state.select.name}</div> */}
 
                     <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
 
@@ -670,12 +631,7 @@ class Centerpanel extends Component {
 
                     {liga}
 
-                    <Modal
-                        show={this.state.open}
-                        onHide={this.closeModal.bind()}
-                        aria-labelledby="ModalHeader"
-                    >
-
+                    <Modal show={this.state.open} onHide={this.closeModal.bind()} aria-labelledby="ModalHeader">
                         <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }}>
                             <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center" }}>
 
@@ -691,13 +647,9 @@ class Centerpanel extends Component {
 
                         </Modal.Body>
                         <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
-
                             <Modal.Dismiss className='btn btn-confirm' style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }} onClick={this.closeModal.bind()}>Cerrar</Modal.Dismiss>
-
                         </Modal.Footer>
-
                     </Modal>
-
 
                 </div>
             </div>

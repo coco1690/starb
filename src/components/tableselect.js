@@ -8,7 +8,7 @@ const Tableselect = (props) => {
     let ligasId = Object.keys(l);
     let liga;
     if (!props.loading) {
-        liga = [];        
+        liga = [];
     } else if (ligasId.length > 0) {
         liga = ligasId.map(idliga => {
 
@@ -226,7 +226,15 @@ const Tableselect = (props) => {
                         </th>
                         <th>
                             <div className="botn btn btn:active btn:hover"
-                                onClick={props.getdata.bind(this, y.idmatch, { name: y.name, time: timess, hora: hours + ":" + minutes + pmam, liga: liganombre })}
+                                onClick={props.getdata.bind(this, y.idmatch, {
+                                    id: y.idmatch,
+                                    name: y.name,
+                                    time: timess,
+                                    hora: hours + ":" + minutes + pmam,
+                                    liga: liganombre,
+                                    home: y.home,
+                                    away: y.away
+                                })}
                                 style={{ color: 'black', backgroundColor: "orange", borderRadius: 10 }}>
                                 {y.more ? y.more : ""}
                             </div>
@@ -238,8 +246,8 @@ const Tableselect = (props) => {
 
             return (
                 <div key={idliga} idl={idliga}>
-                 
-                    <table  id="table-central">
+
+                    <table id="table-central">
                         <thead id="thead-central">
                             {/* <tr>
                     <td id="proximos" colSpan='7' style={{ textAlign: 'left', fontSize: 14 }}>{liganombre}</td>
@@ -267,7 +275,7 @@ const Tableselect = (props) => {
 
         });
 
-    } else  {        
+    } else {
         liga =
             <div className="lds-facebook"><div></div><div></div><div></div></div>
     }
