@@ -350,7 +350,7 @@ class Centerpanel extends Component {
                     <table key={idliga} idl={idliga} id="table-central">
                         <thead id="thead-central">
                             <tr >
-                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100 }}  ><i className='ion-android-stopwatch'></i>
+                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100,textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
                                     {l[idliga].sportName + " " + l[idliga].name}
                                 </th>
                                 <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight:'normal' }}>1 X 2 </th>

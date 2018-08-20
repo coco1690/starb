@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Tabs, Tab } from 'react-bootstrap-tabs';
+// import { Tabs, Tab } from 'react-bootstrap-tabs';
 import { Scrollbars } from 'react-custom-scrollbars';
 import Modal from 'react-bootstrap-modal'
+import 'react-tabs/style/react-tabs.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 // import Sticky from 'react-sticky-el';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
@@ -10,17 +13,24 @@ class Perfil extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
 
+        this.state = {
+            key: 0,
             open: false,
             vertiket: [],
-            // entrada: "",
+            usuario:this.props.user.login ? this.props.user.userdata : { Movimientos: [] }
+
         }
-        // this.openModal = this.openModal.bind(this);
         context = this;
+
     }
 
-
+    static getDerivedStateFromProps(props, current_state) {
+        console.log("cambuo")
+        return({
+            usuario:props.user.login ? props.user.userdata : { Movimientos: [] }
+        })
+    }
     getdata(id) {
         fetch('http://91.121.116.131/gecko/api/view/model/pccu/id/' + id, { cache: "no-cache" }).then(results => {
             return results.json();
@@ -35,12 +45,13 @@ class Perfil extends Component {
 
     }
 
+
     render() {
         let closeModal = () => this.setState({ open: false })
-        let usuario = this.props.user.login ? this.props.user.userdata : { Movimientos: [] };
-        let movimientos = {}
+        // let usuario = this.props.user.login ? this.props.user.userdata : { Movimientos: [] };
+        let movimientos = []
         if (this.props.user.login) {
-            movimientos = usuario.Movimientos.map(obj => {
+            movimientos = this.state.usuario.Movimientos.map(obj => {
                 // console.log(i)
                 return (
                     <tr key={"MM" + obj.ID}>
@@ -57,7 +68,7 @@ class Perfil extends Component {
         }
 
         let tq = this.props.user.login ? this.props.user.userdata : { Tickets: [] };
-        let ultimostikets = {}
+        let ultimostikets = []
         if (this.props.user.login) {
             ultimostikets = tq.Tickets.map(ob => {
                 // console.log(i)
@@ -163,28 +174,34 @@ class Perfil extends Component {
                         <div className="iconuser">
                             <img id="imagen-perfil" alt="" src="img/icons/user.png" />
                         </div>
-                        <Tabs className="formulario" onSelect={(index, label) => console.log(label + ' selected')} style={{ height: 400 }}>
-                            <Tab label="Perfil">
+
+                        <Tabs className="formulario" selectedIndex={this.state.key} onSelect={key => this.setState({ key })} style={{ height: 400 }}>
+                            <TabList style={{float:'left'}}>
+                                <Tab style={{float:'left'}} >Perfil</Tab>
+                                <Tab style={{float:'left'}} >Movimientos</Tab>
+                                <Tab style={{float:'left'}} >Tickets</Tab>
+                            </TabList>
+                            <TabPanel >
                                 <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10, marginBottom: 15 }} > Datos Personales</div>
                                 <div id="contenedor-form" >
 
                                     <div id="form">
                                         <div>
                                             <div className="text"> Usuario</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.username} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.username} />
                                         </div>
 
                                         <div>
                                             <div className="text"> Correo</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.email} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.email} />
                                         </div>
                                         <div>
                                             <div className="text"> Telefono</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.Telefono} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.Telefono} />
                                         </div>
                                         <div>
                                             <div className="text"> Zona </div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.ZonaHora} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.ZonaHora} />
                                         </div>
 
 
@@ -194,22 +211,22 @@ class Perfil extends Component {
 
                                         <div>
                                             <div className="text"> Nombre Completo</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.fullname} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.fullname} />
                                         </div>
 
                                         <div>
                                             <div className="text"> Direccion</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.Direccion} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.Direccion} />
                                         </div>
                                         <div>
                                             <div className="text"> Pais</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={usuario.Pais} />
+                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.Pais} />
                                         </div>
                                     </div>
                                 </div>
 
-                            </Tab>
-                            <Tab label="Movimientos">
+                            </TabPanel>
+                            <TabPanel >
 
                                 <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10 }} > Movimientos</div>
 
@@ -234,11 +251,8 @@ class Perfil extends Component {
                                     </table>
                                 </Scrollbars>
 
-
-
-
-                            </Tab>
-                            <Tab label="Tickets">
+                            </TabPanel>
+                            <TabPanel >
                                 <div className="tabla-mov">
                                     <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10 }}> Tickets</div>
                                     <Scrollbars style={{ display: 'inline-block', height: 450, width: '100%' }}>
@@ -261,7 +275,7 @@ class Perfil extends Component {
                                     </Scrollbars>
 
                                 </div>
-                            </Tab>
+                            </TabPanel>
 
                         </Tabs>
                     </div>
