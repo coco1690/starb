@@ -373,8 +373,7 @@ class App extends Component {
 
             </div>
 
-          </div>
-          <div className="footer">   </div>
+          
 
           <div>
             <div className="tick" >
@@ -406,6 +405,8 @@ class App extends Component {
                     <br />en la pagina</span>
               </div>
             </div>
+            </div>
+          <div className="footer">   </div>
           </div>
         </div>
       </Router>

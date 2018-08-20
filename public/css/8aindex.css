@@ -63,11 +63,11 @@ background:#ff4600;
 table {
     border-collapse: collapse;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 4px;
     text-align: center;
     /* background: #320605; */
     /* background: #1f2122; */
-    background: linear-gradient(#4a4a4b 5%,#212122d8 80%);
+    background: linear-gradient(#ff5200 5%,#3c3c3c9c 38%);
     
       
 }
@@ -75,14 +75,15 @@ thead{
   background: rgba(255, 255, 255, 0.082);  
 }
 tr{
-  height: 40px;
+  height: 20px;
   
 }
 th, td {
-     border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
     border-collapse: collapse;
     overflow: hidden;
-    padding: 0px;      
+    padding: 0px;          
+    
 } 
 input{
   background: #FFF;
@@ -90,7 +91,7 @@ input{
   outline:none;
   border:hidden;
   box-sizing:border-box;
-  padding: 5px;
+  padding: 2px;
   height:30px;
 }
 /* -------------------------------botones tabla */
@@ -971,4 +972,17 @@ border: 1px solid rgb(10, 10, 10);
   font-size: 12px;
   border: 1px solid #3e549a;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+.footer{
+  float:left;
+  position: relative;
+  height:100px;
+  width:100%;
+  box-sizing: border-box;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
+  margin-top: 15px;
+  background: #000;
 }

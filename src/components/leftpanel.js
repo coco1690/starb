@@ -114,7 +114,7 @@ class Leftpanel extends Component {
 
                     <div className="contenedor-deportes2">
 
-                        <div style={{ width: 70, margin: 1, background:"#000"}}>
+                        <div style={{ width: 70, margin: 1, background:"#000" ,minHeight: 420,}}>
                             {deportes}
                         </div>
 
