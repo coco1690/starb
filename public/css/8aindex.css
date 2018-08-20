@@ -63,11 +63,11 @@ background:#ff4600;
 table {
     border-collapse: collapse;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 4px;
     text-align: center;
     /* background: #320605; */
     /* background: #1f2122; */
-    background: linear-gradient(#4a4a4b 5%,#212122d8 80%);
+    background: linear-gradient(#afafaf 5%,#585858d8 80%);
     
       
 }
