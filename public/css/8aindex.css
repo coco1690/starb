@@ -82,7 +82,9 @@ th, td {
      border: 1px solid rgba(255,255,255,0.1);
     border-collapse: collapse;
     overflow: hidden;
-    padding: 0px;      
+    padding: 0px;   
+    color: #000;
+    background: #fff;   
 } 
 input{
   background: #FFF;
@@ -90,7 +92,7 @@ input{
   outline:none;
   border:hidden;
   box-sizing:border-box;
-  padding: 5px;
+  padding: 2px;
   height:30px;
 }
 /* -------------------------------botones tabla */
