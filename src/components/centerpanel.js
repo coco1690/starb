@@ -601,7 +601,7 @@ class Centerpanel extends Component {
                     <table>
                         <thead>
                             <tr>
-                                <td colSpan="3">{m[mo].name}</td>
+                                <td colSpan="3">{m[mo].shortName}</td>
 
                             </tr>
 

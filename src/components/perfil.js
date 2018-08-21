@@ -18,7 +18,8 @@ class Perfil extends Component {
             key: 0,
             open: false,
             vertiket: [],
-            usuario:this.props.user.login ? this.props.user.userdata : { Movimientos: [] }
+            usuario: this.props.user.login ? this.props.user.userdata : { Movimientos: [] },
+            // usuario:this.props.user.login ? this.props.user.userdata : { Movimientos: [] }
 
         }
         context = this;
@@ -26,9 +27,8 @@ class Perfil extends Component {
     }
 
     static getDerivedStateFromProps(props, current_state) {
-        console.log("cambuo")
-        return({
-            usuario:props.user.login ? props.user.userdata : { Movimientos: [] }
+        return ({
+            usuario: props.user.login ? props.user.userdata : { Movimientos: [] }
         })
     }
     getdata(id) {
@@ -92,11 +92,11 @@ class Perfil extends Component {
         }
 
         let d = this.state.vertiket.info
-        let o = this.state.vertiket.items ? this.state.vertiket.items : {};
-
-        let oo = Object.keys(o);
         let tk = [];
         if (this.props.user.login) {
+            let o = this.state.vertiket.items ? this.state.vertiket.items : {};
+
+            let oo = Object.keys(o);
             tk = oo.map(ticket => {
                 let f = o[ticket]
 
@@ -176,10 +176,10 @@ class Perfil extends Component {
                         </div>
 
                         <Tabs className="formulario" selectedIndex={this.state.key} onSelect={key => this.setState({ key })} style={{ height: 400 }}>
-                            <TabList style={{float:'left'}}>
-                                <Tab style={{float:'left'}} >Perfil</Tab>
-                                <Tab style={{float:'left'}} >Movimientos</Tab>
-                                <Tab style={{float:'left'}} >Tickets</Tab>
+                            <TabList style={{ float: 'left' }}>
+                                <Tab style={{ float: 'left' }} >Perfil</Tab>
+                                <Tab style={{ float: 'left' }} >Movimientos</Tab>
+                                <Tab style={{ float: 'left' }} >Tickets</Tab>
                             </TabList>
                             <TabPanel >
                                 <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10, marginBottom: 15 }} > Datos Personales</div>
@@ -188,7 +188,10 @@ class Perfil extends Component {
                                     <div id="form">
                                         <div>
                                             <div className="text"> Usuario</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.username} />
+                                            <input style={style.input} id="nombre" onChange={this.change} defaultValue={this.state.usuario.username} />
+                                            {/* <input type="text" value={this.state.usuario.username} onChange={this.change} /> */}
+                                            {/* <input type="text" value={this.state.usuario.username} onChange={this.handleChange} /> */}
+
                                         </div>
 
                                         <div>
