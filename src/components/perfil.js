@@ -52,11 +52,40 @@ class Perfil extends Component {
         let movimientos = []
         if (this.props.user.login) {
             movimientos = this.state.usuario.Movimientos.map(obj => {
+
+                let timess = new Date(obj.Fecha*1000);
+                let pmam = 'AM';
+        
+                var hours = timess.getHours();
+                // correct for number over 24, and negatives
+                if (hours >= 24) { hours -= 24; }
+                if (hours <= 0) { hours += 12; }
+                if (hours > 12) { hours -= 12; pmam = 'PM' }
+
+
+                // add leading zero, first convert hours to string
+                hours = hours + "";
+                if (hours.length === 1) { hours = "0" + hours; }
+
+                // minutes are the same on every time zone
+                var minutes = timess.getMinutes();
+
+                // add leading zero, first convert hours to string
+                minutes = minutes + "";
+                if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+                var months = ["Ene/", "Feb/", "Mar/", "Abr/", "May/", "Jun/", "Jul/", "Ago/", "Sep/", "Oct/", "Nov/", "Dec/"];
+                var year = timess.getFullYear();
+                var dd = timess.getDate();
+                dd = dd < 10 ? '0' + dd : dd;
+                var today = months[timess.getMonth()] + " " + dd;
+                timess = today;
                 // console.log(i)
                 return (
                     <tr key={"MM" + obj.ID}>
                         <td>{obj.ID}</td>
-                        <td>{obj.Fecha}</td>
+                        <td>{timess + " /" + year + " - " + hours + ":" + minutes + " " + pmam}</td>
                         <td>{obj.GCUA_Id === 0 ? "Recarga" : (obj.GCUA_Id === 1 ? "Pago" : "Ajuste")}</td>
                         <td>{obj.Monto}</td>
                         <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
@@ -71,11 +100,42 @@ class Perfil extends Component {
         let ultimostikets = []
         if (this.props.user.login) {
             ultimostikets = tq.Tickets.map(ob => {
+                let timess = new Date(ob.Fecha*1000);
+                let pmam = 'AM';
+
+                var hours = timess.getHours();
+                // correct for number over 24, and negatives
+                if (hours >= 24) { hours -= 24; }
+                if (hours <= 0) { hours += 12; }
+                if (hours > 12) { hours -= 12; pmam = 'PM' }
+
+
+                // add leading zero, first convert hours to string
+                hours = hours + "";
+                if (hours.length === 1) { hours = "0" + hours; }
+
+                // minutes are the same on every time zone
+                var minutes = timess.getMinutes();
+
+                // add leading zero, first convert hours to string
+                minutes = minutes + "";
+                if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+                var months = ["Ene/", "Feb/", "Mar/", "Abr/", "May/", "Jun/", "Jul/", "Ago/", "Sep/", "Oct/", "Nov/", "Dec/"];
+                var year = timess.getFullYear();
+                var dd = timess.getDate();
+                dd = dd < 10 ? '0' + dd : dd;
+                var today = months[timess.getMonth()] + " " + dd;
+                timess = today;
+                // console.log(i)
+
+                
                 // console.log(i)
                 return (
                     <tr key={"Tk" + ob.Id}>
                         <td>{ob.Id}</td>
-                        <td>{ob.Fecha}</td>
+                        <td>{timess + " /" + year + " - " + hours + ":" + minutes + " " + pmam}</td>
                         <td>{ob.nEventos}</td>
                         <td>{ob.Monto}</td>
                         <td>{ob.Ganancia}</td>

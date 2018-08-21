@@ -26,6 +26,7 @@ class App extends Component {
     // this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
+      format:"DEC",
       open: true,
       lastItem: {},
       user: {
@@ -35,12 +36,49 @@ class App extends Component {
       
       price: 1,
     };
-
+    this.changeFormat = this.changeFormat.bind(this);
+    this.format = this.format.bind(this);
   }
 
   handleOpenModal() {
     this.setState({ open: true });
   }
+  changeFormat(event) {
+    console.log(event.target.value)
+    this.setState({ format: event.target.value });
+    
+
+  }
+  format(value) {
+    let into = parseFloat(value);
+    let outo = 0;
+
+    if (this.state.format == "US") {
+      if (into >= 2) {
+        outo = parseInt((into - 1) * 100);
+      } else if (into < 2) {
+        outo = parseInt((-100) / (into - 1));
+      }
+    }
+    // else
+    //   if (this.state.format == "UK") {
+
+    //     if (into > 0) {
+    //       var f = new Fraction((into - 1));
+    //       return (f.n + " / " + f.d + " ").toString()
+    //     }
+    //     else return 0
+
+
+
+    //   }
+      else
+        if (this.state.format == "DEC") {
+          outo = value;
+        }
+    return outo;
+  }
+
   removeFromCupon = (id) => {
     // console.log(x);
     if (id) {
@@ -328,7 +366,7 @@ class App extends Component {
           <div className="header">
             <div className="contenedor-login">
               <Link to="/"> <img className="img-logo" alt="" src="/img/logo8abet.png" /> </Link>
-              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} />
+              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} format={this.state.format} changeFormat={this.changeFormat}/>
             </div>
           </div>
 
@@ -354,7 +392,7 @@ class App extends Component {
 
                     <div>
                       <Switch>
-                        <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+                        <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
 
                         <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} />} />
 
@@ -362,7 +400,7 @@ class App extends Component {
 
                         <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
 
-                        <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+                        <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
                         <Redirect to="/" />
                       </Switch>
                     </div>

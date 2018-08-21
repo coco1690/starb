@@ -189,6 +189,11 @@ class Login extends React.Component {
                             <Link to="/">Retiros</Link>
 
                         </div>
+                        <select className="custom-select custom-select-sm" style={{ marginBottom: 0, width: 80 }} value={this.props.format} onChange={this.props.changeFormat}>
+                            <option value="DEC">DEC</option>
+                            {/* <option value="UK">UK</option> */}
+                            <option value="US">US</option>
+                        </select>
                     </li>
                     {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
                    
