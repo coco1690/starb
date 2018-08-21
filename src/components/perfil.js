@@ -6,7 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 // import Sticky from 'react-sticky-el';
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
+// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table' 
 
 let context;
 class Perfil extends Component {
@@ -18,7 +18,8 @@ class Perfil extends Component {
             key: 0,
             open: false,
             vertiket: [],
-            usuario:this.props.user.login ? this.props.user.userdata : { Movimientos: [] }
+            usuario: this.props.user.login ? this.props.user.userdata : { Movimientos: [] },
+            // usuario:this.props.user.login ? this.props.user.userdata : { Movimientos: [] }
 
         }
         context = this;
@@ -26,9 +27,8 @@ class Perfil extends Component {
     }
 
     static getDerivedStateFromProps(props, current_state) {
-        console.log("cambuo")
-        return({
-            usuario:props.user.login ? props.user.userdata : { Movimientos: [] }
+        return ({
+            usuario: props.user.login ? props.user.userdata : { Movimientos: [] }
         })
     }
     getdata(id) {
@@ -52,11 +52,40 @@ class Perfil extends Component {
         let movimientos = []
         if (this.props.user.login) {
             movimientos = this.state.usuario.Movimientos.map(obj => {
+
+                let timess = new Date(obj.Fecha*1000);
+                let pmam = 'AM';
+        
+                var hours = timess.getHours();
+                // correct for number over 24, and negatives
+                if (hours >= 24) { hours -= 24; }
+                if (hours <= 0) { hours += 12; }
+                if (hours > 12) { hours -= 12; pmam = 'PM' }
+
+
+                // add leading zero, first convert hours to string
+                hours = hours + "";
+                if (hours.length === 1) { hours = "0" + hours; }
+
+                // minutes are the same on every time zone
+                var minutes = timess.getMinutes();
+
+                // add leading zero, first convert hours to string
+                minutes = minutes + "";
+                if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+                var months = ["Ene/", "Feb/", "Mar/", "Abr/", "May/", "Jun/", "Jul/", "Ago/", "Sep/", "Oct/", "Nov/", "Dec/"];
+                var year = timess.getFullYear();
+                var dd = timess.getDate();
+                dd = dd < 10 ? '0' + dd : dd;
+                var today = months[timess.getMonth()] + " " + dd;
+                timess = today;
                 // console.log(i)
                 return (
                     <tr key={"MM" + obj.ID}>
                         <td>{obj.ID}</td>
-                        <td>{obj.Fecha}</td>
+                        <td>{timess + " /" + year + " - " + hours + ":" + minutes + " " + pmam}</td>
                         <td>{obj.GCUA_Id === 0 ? "Recarga" : (obj.GCUA_Id === 1 ? "Pago" : "Ajuste")}</td>
                         <td>{obj.Monto}</td>
                         <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
@@ -71,11 +100,42 @@ class Perfil extends Component {
         let ultimostikets = []
         if (this.props.user.login) {
             ultimostikets = tq.Tickets.map(ob => {
+                let timess = new Date(ob.Fecha*1000);
+                let pmam = 'AM';
+
+                var hours = timess.getHours();
+                // correct for number over 24, and negatives
+                if (hours >= 24) { hours -= 24; }
+                if (hours <= 0) { hours += 12; }
+                if (hours > 12) { hours -= 12; pmam = 'PM' }
+
+
+                // add leading zero, first convert hours to string
+                hours = hours + "";
+                if (hours.length === 1) { hours = "0" + hours; }
+
+                // minutes are the same on every time zone
+                var minutes = timess.getMinutes();
+
+                // add leading zero, first convert hours to string
+                minutes = minutes + "";
+                if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+                var months = ["Ene/", "Feb/", "Mar/", "Abr/", "May/", "Jun/", "Jul/", "Ago/", "Sep/", "Oct/", "Nov/", "Dec/"];
+                var year = timess.getFullYear();
+                var dd = timess.getDate();
+                dd = dd < 10 ? '0' + dd : dd;
+                var today = months[timess.getMonth()] + " " + dd;
+                timess = today;
+                // console.log(i)
+
+                
                 // console.log(i)
                 return (
                     <tr key={"Tk" + ob.Id}>
                         <td>{ob.Id}</td>
-                        <td>{ob.Fecha}</td>
+                        <td>{timess + " /" + year + " - " + hours + ":" + minutes + " " + pmam}</td>
                         <td>{ob.nEventos}</td>
                         <td>{ob.Monto}</td>
                         <td>{ob.Ganancia}</td>
@@ -92,11 +152,11 @@ class Perfil extends Component {
         }
 
         let d = this.state.vertiket.info
-        let o = this.state.vertiket.items ? this.state.vertiket.items : {};
-
-        let oo = Object.keys(o);
         let tk = [];
         if (this.props.user.login) {
+            let o = this.state.vertiket.items ? this.state.vertiket.items : {};
+
+            let oo = Object.keys(o);
             tk = oo.map(ticket => {
                 let f = o[ticket]
 
@@ -176,10 +236,10 @@ class Perfil extends Component {
                         </div>
 
                         <Tabs className="formulario" selectedIndex={this.state.key} onSelect={key => this.setState({ key })} style={{ height: 400 }}>
-                            <TabList style={{float:'left'}}>
-                                <Tab style={{float:'left'}} >Perfil</Tab>
-                                <Tab style={{float:'left'}} >Movimientos</Tab>
-                                <Tab style={{float:'left'}} >Tickets</Tab>
+                            <TabList style={{ float: 'left' }}>
+                                <Tab style={{ float: 'left' }} >Perfil</Tab>
+                                <Tab style={{ float: 'left' }} >Movimientos</Tab>
+                                <Tab style={{ float: 'left' }} >Tickets</Tab>
                             </TabList>
                             <TabPanel >
                                 <div id="encabezado" style={{ paddingTop: 10, paddingBottom: 10, marginBottom: 15 }} > Datos Personales</div>
@@ -188,7 +248,10 @@ class Perfil extends Component {
                                     <div id="form">
                                         <div>
                                             <div className="text"> Usuario</div>
-                                            <input disabled style={style.input} id="nombre" type="text" defaultValue={this.state.usuario.username} />
+                                            <input style={style.input} id="nombre" onChange={this.change} defaultValue={this.state.usuario.username} />
+                                            {/* <input type="text" value={this.state.usuario.username} onChange={this.change} /> */}
+                                            {/* <input type="text" value={this.state.usuario.username} onChange={this.handleChange} /> */}
+
                                         </div>
 
                                         <div>

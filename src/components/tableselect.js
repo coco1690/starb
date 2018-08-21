@@ -41,7 +41,7 @@ const Tableselect = (props) => {
                 if (minutes.length === 1) { minutes = "0" + minutes; }
 
 
-                var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
                 var dd = timess.getDate();
                 dd = dd < 10 ? '0' + dd : dd;
                 var today = months[timess.getMonth()] + " " + dd;
@@ -50,6 +50,7 @@ const Tableselect = (props) => {
 
                 let datalocal1 = {
                     choose: 1,
+                    logro: y.data[19992] ? y.data[19992].logro : "",
                     id: y.idmatch,
                     name: y.name,
                     odd: y.data[19992] ? y.data[19992].o1 : "",
@@ -61,7 +62,8 @@ const Tableselect = (props) => {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
                 let dataempatex = {
-                    choose: 1,
+                    choose: 2,
+                    logro: y.data[19992] ? y.data[19992].logro : "",
                     id: y.idmatch,
                     name: y.name,
                     odd: y.data[19992] ? y.data[19992].o2 : "",
@@ -73,7 +75,8 @@ const Tableselect = (props) => {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
                 let datavisitante2 = {
-                    choose: 1,
+                    choose: 3,
+                    logro: y.data[19992] ? y.data[19992].logro : "",
                     id: y.idmatch,
                     name: y.name,
                     odd: y.data[19992] ? y.data[19992].o3 : "",
@@ -86,6 +89,7 @@ const Tableselect = (props) => {
                 };
                 let data1x = {
                     choose: 1,
+                    logro: y.data[49992] ? y.data[49992].logro : "",
                     id: y.idmatch,
                     name: y.name,
                     odd: y.data[49992] ? y.data[49992].o1 : "",
@@ -97,7 +101,8 @@ const Tableselect = (props) => {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
                 let data12 = {
-                    choose: 1,
+                    choose: 2,
+                    logro: y.data[49992] ? y.data[49992].logro : "",
                     id: y.idmatch,
                     name: y.name,
                     odd: y.data[49992] ? y.data[49992].o2 : "",
@@ -109,7 +114,8 @@ const Tableselect = (props) => {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
                 let data2x = {
-                    choose: 1,
+                    choose: 3,
+                    logro: y.data[49992] ? y.data[49992].logro : "",
                     id: y.idmatch,
                     name: y.name,
                     odd: y.data[49992] ? y.data[49992].o3 : "",
@@ -121,12 +127,14 @@ const Tableselect = (props) => {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
 
+
                 let dataunder = {
                     choose: 1,
+                    logro: y.data[29992] ? y.data[29992].logro : "",
                     id: y.idmatch,
                     name: y.name,
-                    odd: y.data[29992] ? y.data[29992].o1 + '(<' + y.data[29992].o3 + ')' : "",
-                    option: "Under",
+                    odd: y.data[29992] ? y.data[29992].o1 : "",
+                    option: y.data[29992] ? "Mas de " + parseFloat(y.data[29992].o3) + " goles" : "",
                     price: y.data[29992] ? y.data[29992].o1 : "",
                     time: hours + ":" + minutes + pmam + " - " + timess,
                     type: y.data[29992] ? y.data[29992].type : "",
@@ -134,11 +142,12 @@ const Tableselect = (props) => {
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
                 let dataover = {
-                    choose: 1,
+                    choose: 2,
+                    logro: y.data[29992] ? y.data[29992].logro : "",
                     id: y.idmatch,
                     name: y.name,
-                    odd: y.data[29992] ? y.data[29992].o2 + '(<' + y.data[29992].o3 + ')' : "",
-                    option: "Over",
+                    odd: y.data[29992] ? y.data[29992].o2 : "",
+                    option: y.data[29992] ? "Menos de " + parseFloat(y.data[29992].o3) + " goles" : "",
                     price: y.data[29992] ? y.data[29992].o2 : "",
                     time: hours + ":" + minutes + pmam + " - " + timess,
                     type: y.data[29992] ? y.data[29992].type : "",
@@ -147,26 +156,28 @@ const Tableselect = (props) => {
                 };
                 let datagg = {
                     choose: 1,
+                    logro: y.data[109992] ? y.data[109992].logro : "",
                     id: y.idmatch,
                     name: y.name,
-                    odd: y.data[139992] ? y.data[139992].o1 : "",
-                    option: "GG",
-                    price: y.data[139992] ? y.data[139992].o1 : "",
+                    odd: y.data[109992] ? y.data[109992].o1 : "",
+                    option: "IMPAR",
+                    price: y.data[109992] ? y.data[109992].o1 : "",
                     time: hours + ":" + minutes + pmam + " - " + timess,
-                    type: y.data[139992] ? y.data[139992].type : "",
-                    version: y.data[139992] ? y.data[139992].version : "",
+                    type: y.data[109992] ? y.data[109992].type : "",
+                    version: y.data[109992] ? y.data[109992].version : "",
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
                 let datang = {
-                    choose: 1,
+                    choose: 2,
+                    logro: y.data[109992] ? y.data[109992].logro : "",
                     id: y.idmatch,
                     name: y.name,
-                    odd: y.data[139992] ? y.data[139992].o2 : "",
-                    option: "NG",
-                    price: y.data[139992] ? y.data[139992].o2 : "",
+                    odd: y.data[109992] ? y.data[109992].o2 : "",
+                    option: "PAR",
+                    price: y.data[109992] ? y.data[109992].o2 : "",
                     time: hours + ":" + minutes + pmam + " - " + timess,
-                    type: y.data[139992] ? y.data[139992].type : "",
-                    version: y.data[139992] ? y.data[139992].version : "",
+                    type: y.data[109992] ? y.data[109992].type : "",
+                    version: y.data[109992] ? y.data[109992].version : "",
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
 
@@ -217,9 +228,9 @@ const Tableselect = (props) => {
                         </th>
                         <th>
 
-                            <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[139992] ? y.data[139992].o1 : ""}</div>
+                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[109992] ? y.data[109992].o2 : ""}</div>
+                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[109992] ? y.data[109992].o1 : ""}</div>
 
-                            <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[139992] ? y.data[139992].o2 : ""}</div>
 
 
 
@@ -254,12 +265,15 @@ const Tableselect = (props) => {
                 </tr>   */}
                             <tr >
 
-                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100 }}  ><i className='ion-android-stopwatch'></i>{l[idliga].sportName + " " + l[idliga].name}</th>
-                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 10 }}>1 X 2 </th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>1X 12 2X</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>UN  OV  T</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>GG NG</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 10 }}>Mas</th>
+
+                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100, textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
+                                    {l[idliga].sportName + " " + l[idliga].name}
+                                </th>
+                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight: 'normal' }}>1 X 2 </th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>1X 12 2X</th>
+                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>MAS / MENOS</th>
+                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>PAR / IMPAR</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>Otros</th>
 
                             </tr>
 

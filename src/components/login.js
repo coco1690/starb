@@ -94,9 +94,9 @@ class Login extends React.Component {
                         this.props.addToUser({ userdata: data, login: true })
                         this.setState({ login: true })
                         swal({
-                            title:"Inicio de sesion",
-                            text:"Bienvenido de nuevo",
-                            icon:"success"
+                            title: "Inicio de sesion",
+                            text: "Bienvenido de nuevo",
+                            icon: "success"
                         });
                         this.setState({
                             button: {
@@ -151,7 +151,7 @@ class Login extends React.Component {
         if (current_state.login !== props.login) {
             if (props.user)
                 content.setState({
-                    login: props.user.login,                   
+                    login: props.user.login,
                 })
         }
         return null;
@@ -164,7 +164,7 @@ class Login extends React.Component {
             canvas = <div className="headcont">
                 <form onSubmit={this.ingresar}>
 
-                    <button className="btn" disabled={this.state.button.state} tabIndex="3" id="btnLogin">{this.state.button.title} 
+                    <button className="btn" disabled={this.state.button.state} tabIndex="3" id="btnLogin">{this.state.button.title}
                         <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div>
                     </button>
                     <input id="pass" placeholder="Contraseña" type="password" tabIndex="2" value={this.state.pass} onChange={this.password} />
@@ -178,21 +178,29 @@ class Login extends React.Component {
 
             canvas = <div className='navbar'>
                 <ul>
-                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>  
-                    {this.props.user.userdata.balance?this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'):""}
+                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>
+                        {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
                     </a></li>
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
                         <div className="dropdown-content">
-                            <Link to="/">Historial</Link>
-                            <Link to="/">Deposito</Link>
-                            <Link to="/">Retiros</Link>
+                            <Link value="US" to="/" onClick={this.props.changeFormat}>Historial</Link>
+                            <Link value="US" to="/" onClick={this.props.changeFormat}>Deposito</Link>
+                            <Link value="US" to="/" onClick={this.props.changeFormat}>Retiros</Link>
 
                         </div>
+
+                    </li>
+                    <li>
+                        <select className="custom-select custom-select-sm" style={{ marginBottom: 0, width: 80 }} value={this.props.format} onChange={this.props.changeFormat}>
+                            <option value="DEC">DEC</option>
+                            {/* <option value="UK">UK</option> */}
+                            <option value="US">US</option>
+                        </select>
                     </li>
                     {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
-                   
-    
+
+
                     <li className="reloj">
                         <i className='ion-ios-alarm'></i>&nbsp;
                             <i id="horas" className="horas"> : </i> :
@@ -200,8 +208,8 @@ class Login extends React.Component {
                             <i id="segundos" className="segundos"> 0 </i>
                         <i id="ampm" className="ampm"> 0 </i>
                     </li>
-                    
-                   
+
+
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown'></i></Link>
                         <div className="dropdown-content">
@@ -215,7 +223,7 @@ class Login extends React.Component {
                         <Link to='#' className="dropbtn" id="usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content">
                             <Link to="/perfil">Perfil</Link>
-                         
+
                             {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
                             <Link to="/" id="salir" onClick={this.salir} >salir<i className='ion-power'></i></Link>
                         </div>

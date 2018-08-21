@@ -26,6 +26,7 @@ class App extends Component {
     // this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
+      format:"DEC",
       open: true,
       lastItem: {},
       user: {
@@ -35,12 +36,50 @@ class App extends Component {
       
       price: 1,
     };
-
+    this.changeFormat = this.changeFormat.bind(this);
+    this.format = this.format.bind(this); 
   }
 
   handleOpenModal() {
     this.setState({ open: true });
   }
+  changeFormat(event) {
+    console.log(event)
+    console.log(event.target.value)
+    this.setState({ format: event.target.value });
+    
+
+  }
+  format(value) {
+    let into = parseFloat(value);
+    let outo = 0;
+
+    if (this.state.format == "US") {
+      if (into >= 2) {
+        outo = parseInt((into - 1) * 100);
+      } else if (into < 2) {
+        outo = parseInt((-100) / (into - 1));
+      }
+    }
+    // else
+    //   if (this.state.format == "UK") {
+
+    //     if (into > 0) {
+    //       var f = new Fraction((into - 1));
+    //       return (f.n + " / " + f.d + " ").toString()
+    //     }
+    //     else return 0
+
+
+
+    //   }
+      else
+        if (this.state.format == "DEC") {
+          outo = value;
+        }
+    return outo;
+  }
+
   removeFromCupon = (id) => {
     // console.log(x);
     if (id) {
@@ -151,7 +190,7 @@ class App extends Component {
                 "D_id": this.state.user.userdata.D_id,
               }
               let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
-              // console.log(x);
+              console.log(x);
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
@@ -173,12 +212,18 @@ class App extends Component {
                       text: "Los datos se enviaron correctamente",
                       icon: "success"
                     }).then(next => {
+                      this.removeFromCupon();
                       swal({
                         title: "Imprimir?",
                         icon: "info",
                         text: "Desea imprimir este cupon?",
                         buttons: {
-                          cancel: { text: "NO" },
+                          cancel: {
+                            text: "NO",
+                            value: null,
+                            visible: true,                           
+                            closeModal: true,
+                          },
                           confirm: { text: "SI", value: true },
                         }
 
@@ -203,6 +248,7 @@ class App extends Component {
                       text: res.status,
                       icon: "warning",
                     })
+                    console.log(res);
                   }
 
                 }).catch(err => {
@@ -282,11 +328,11 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ user: usertem });
     }
-    // if (localStorage.getItem('ultimoTicket') != null) {
-    //   let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
-    //   // console.log(temporal);
-    //   this.setState({ lastItem });
-    // }
+    if (localStorage.getItem('ultimoTicket') != null) {
+      let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
+      // console.log(temporal);
+      this.setState({ lastItem });
+    }
 
   }
   render() {
@@ -308,6 +354,7 @@ class App extends Component {
             <div style={{ width: "100%" }}>  {f.liga} </div>
             <div> </div>
             <div>{f.name} </div>
+            <div>{f.logro} </div>
             <div>Apuesta: {f.option}
               <div style={{ float: "right" }}>Cuota:
               <span style={{ fontWeight: "bolder", fontSize: 14 }}>{f.odd}</span></div>
@@ -328,17 +375,17 @@ class App extends Component {
           <div className="header">
             <div className="contenedor-login">
               <Link to="/"> <img className="img-logo" alt="" src="/img/logo8abet.png" /> </Link>
-              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} />
+              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} format={this.state.format} changeFormat={this.changeFormat}/>
             </div>
           </div>
 
           <div className="header-menu">
             {/* {JSON.stringify(this.state.lastItem)} */}
-            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos</Link>
+            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos Eventos Deportivos</Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
-            <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link>
-            <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link>
+            {/* <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link> */}
+            {/* <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link> */}
 
           </div>
           <div className="contenedor-total">
@@ -354,7 +401,7 @@ class App extends Component {
 
                     <div>
                       <Switch>
-                        <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+                        <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
 
                         <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} />} />
 
@@ -362,7 +409,7 @@ class App extends Component {
 
                         <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
 
-                        <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
+                        <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
                         <Redirect to="/" />
                       </Switch>
                     </div>
@@ -384,9 +431,8 @@ class App extends Component {
               <div className="cliente-print">
                 <div>Agencia: {d.Agencia}</div>
                 <div>Fecha: {d.Fecha}</div>
-                <div>Ticket: {d.ID} | Serial: {d.Serial}</div>
-                <div>Usuario: {d.Usuario}</div>
-                <div>Estado: {d.Usuario}</div>
+                <div>Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego</div>
+                <div>Usuario: {d.Usuario}</div>                
               </div>
               {tk}
               <div className="cliente-print" style={{ float: "right" }}>
@@ -397,7 +443,7 @@ class App extends Component {
               </div>
 
               <div id="ganancia-print">
-                <div className="ga-imprimir">COP {d.Ganancia}</div>
+                <div className="ga-imprimir">${d.Ganancia}</div>
               </div>
               <div className="cliente-print" style={{ marginBottom: 5, border: "1px solid" }}>
                 <span>Las Jugadas o apuestas validas estan sujetas segun
