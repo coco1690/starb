@@ -6,7 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 // import Sticky from 'react-sticky-el';
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
+// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table' 
 
 let context;
 class Perfil extends Component {

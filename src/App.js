@@ -37,7 +37,7 @@ class App extends Component {
       price: 1,
     };
     this.changeFormat = this.changeFormat.bind(this);
-    this.format = this.format.bind(this);
+    this.format = this.format.bind(this); 
   }
 
   handleOpenModal() {
