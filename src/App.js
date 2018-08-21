@@ -380,11 +380,11 @@ class App extends Component {
 
           <div className="header-menu">
             {/* {JSON.stringify(this.state.lastItem)} */}
-            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos</Link>
+            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos Eventos Deportivos</Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
-            <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link>
-            <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link>
+            {/* <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link> */}
+            {/* <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link> */}
 
           </div>
           <div className="contenedor-total">
