@@ -44,10 +44,9 @@ class App extends Component {
     this.setState({ open: true });
   }
   changeFormat(event) {
-    console.log(event)
-    console.log(event.target.value)
-    this.setState({ format: event.target.value });
     
+    this.setState({ format: event.target.value });
+    localStorage.setItem('format', JSON.stringify(event.target.value));
 
   }
   format(value) {
@@ -333,6 +332,11 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ lastItem });
     }
+    if (localStorage.getItem('format') != null) {
+      let format = JSON.parse(localStorage.getItem('format'));
+      // console.log(temporal);
+      this.setState({ format });
+    }
 
   }
   render() {
@@ -415,7 +419,7 @@ class App extends Component {
                     </div>
                   </div>
                 </div>
-                <Rightpanel stake={this.state.stake} quake={this.state.stake * this.state.price} price={this.state.price} changeStake={this.changeStake} items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem : { data: "", info: "" }} />
+                <Rightpanel stake={this.state.stake} format={this.format} quake={this.state.stake * this.state.price} price={this.state.price} changeStake={this.changeStake} items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem : { data: "", info: "" }} />
               </div>
 
             </div>

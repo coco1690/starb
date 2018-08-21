@@ -202,34 +202,34 @@ const Tableselect = (props) => {
                         <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
 
                         <th>
-                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datalocal1) : void (0)}>{y.data[19992] ? y.data[19992].o1 : ""} </div>
+                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datalocal1) : void (0)}>{y.data[19992] ? props.format(y.data[19992].o1) : ""} </div>
 
-                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, dataempatex) : void (0)}>{y.data[19992] ? y.data[19992].o2 : ""}</div>
+                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, dataempatex) : void (0)}>{y.data[19992] ? props.format(y.data[19992].o2) : ""}</div>
 
-                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datavisitante2) : void (0)}>{y.data[19992] ? y.data[19992].o3 : ""}</div>
+                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datavisitante2) : void (0)}>{y.data[19992] ? props.format(y.data[19992].o3) : ""}</div>
                         </th>
 
                         <th>
-                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data1x) : void (0)}>{y.data[49992] ? y.data[49992].o1 : ""}</div>
+                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data1x) : void (0)}>{y.data[49992] ? props.format(y.data[49992].o1) : ""}</div>
 
-                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data12) : void (0)}>{y.data[49992] ? y.data[49992].o2 : ""}</div>
+                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data12) : void (0)}>{y.data[49992] ? props.format(y.data[49992].o2) : ""}</div>
 
-                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data2x) : void (0)}>{y.data[49992] ? y.data[49992].o3 : ""}</div>
+                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data2x) : void (0)}>{y.data[49992] ? props.format(y.data[49992].o3) : ""}</div>
                         </th>
 
                         <th>
 
-                            <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataunder) : void (0)}>{y.data[29992] ? y.data[29992].o1 : ""}</div>
+                            <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataunder) : void (0)}>{y.data[29992] ? props.format(y.data[29992].o1) : ""}</div>
 
-                            <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataover) : void (0)}>{y.data[29992] ? y.data[29992].o2 : ""}</div>
+                            <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataover) : void (0)}>{y.data[29992] ? props.format(y.data[29992].o2) : ""}</div>
 
                             <div className="botnn btn:active" style={{ color: '#C0C11A' }}>{y.data[29992] ? y.data[29992].o3 : ""}</div>
 
                         </th>
                         <th>
 
-                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[109992] ? y.data[109992].o2 : ""}</div>
-                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[109992] ? y.data[109992].o1 : ""}</div>
+                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[109992] ? props.format(y.data[109992].o2) : ""}</div>
+                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[109992] ? props.format(y.data[109992].o1) : ""}</div>
 
 
 

@@ -75,7 +75,7 @@ class Rightpanel extends React.Component {
 
                         <div style={{ display: "inline", paddingTop: 10, fontSize: 12 }}>{items[idApuesta].time}</div>
                         <span style={{ display: "block", fontSize: 14, color: "rgb(254, 224, 100)" }}>
-                            <span style={{ fontSize: 18, color: 'white', float: 'right' }}> {items[idApuesta].odd}</span>
+                            <span style={{ fontSize: 18, color: 'white', float: 'right' }}> {this.props.format(items[idApuesta].odd)}</span>
                             {items[idApuesta].logro}
                         </span>
                         <div style={{ display: "inline", paddingTop: 10, color: "rgb(255, 165, 0)", fontSize: 12 }}>
@@ -126,7 +126,7 @@ class Rightpanel extends React.Component {
                                     onChange={this.changeStake} /></div>
 
                             <div style={{ margin: 10, marginTop: 10 }}>Cuota:
-                                <span style={{ float: 'right' }} className="totalodd">{this.props.price}</span>
+                                <span style={{ float: 'right' }} className="totalodd">{this.props.format(this.props.price)}</span>
                             </div>
                             <div style={{ margin: 10, marginTop: 15 }}>Pago Total:
                                 <span style={{ float: 'right' }}>

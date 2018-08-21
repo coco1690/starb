@@ -420,9 +420,10 @@ class Centerpanel extends Component {
                                             this.props.addTocart.bind(this, this.state.entrada.id,
                                                 {
                                                     choose: 1,
-                                                    odd: c1, id: this.state.entrada.id,
-
-                                                    logro: m[mo].shortName, name: this.state.entrada.name,
+                                                    odd: c1, 
+                                                    id: this.state.entrada.id,
+                                                    logro: m[mo].shortName, 
+                                                    name: this.state.entrada.name,
                                                     time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                     liga: this.state.entrada.liga,
                                                     option: this.state.entrada.home,
@@ -431,37 +432,45 @@ class Centerpanel extends Component {
                                                     price: c1
 
                                                 })}
-                                    >{c1}</td>
+                                    >{this.props.format(c1)}</td>
                                 </th>
 
                                 <th> X <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
-                                                choose: 2, id: this.state.entrada.id,
+                                                choose: 2, 
+                                                id: this.state.entrada.id,
                                                 odd: c2,
-                                                logro: m[mo].shortName, name: this.state.entrada.name,
+                                                logro: m[mo].shortName, 
+                                                name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
-                                                liga: this.state.entrada.liga, type: m[mo].id,
-                                                option: "Empate", version: jj.version,
+                                                liga: this.state.entrada.liga, 
+                                                type: m[mo].id,
+                                                option: "Empate",
+                                                 version: jj.version,
                                                 price: c2
 
-                                            })}> {c2}  </td>
+                                            })}> {this.props.format(c2)}  </td>
                                 </th>
 
                                 <th> 2 <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
-                                                choose: 3, id: this.state.entrada.id,
+                                                choose: 3, 
+                                                id: this.state.entrada.id,
                                                 odd: c3,
-                                                logro: m[mo].shortName, name: this.state.entrada.name,
+                                                logro: m[mo].shortName, 
+                                                name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
-                                                liga: this.state.entrada.liga, type: m[mo].id,
-                                                option: this.state.entrada.away, version: jj.version,
+                                                liga: this.state.entrada.liga, 
+                                                type: m[mo].id,
+                                                option: this.state.entrada.away, 
+                                                version: jj.version,
                                                 price: c3
 
-                                            })}> {c3}  </td>
+                                            })}> {this.props.format(c3)}  </td>
                                 </th>
 
                             </tr>
@@ -475,10 +484,11 @@ class Centerpanel extends Component {
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
-                                                choose: 1, id: this.state.entrada.id,
-
+                                                choose: 1, 
+                                                id: this.state.entrada.id,
                                                 odd: c1,
-                                                logro: m[mo].shortName, name: this.state.entrada.name,
+                                                logro: m[mo].shortName, 
+                                                name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
                                                 option: this.state.entrada.home,
@@ -486,7 +496,7 @@ class Centerpanel extends Component {
                                                 version: jj.version,
                                                 price: c1
 
-                                            })}>{c1}</td>
+                                            })}>{this.props.format(c1)}</td>
                                 </th>
 
                                 <th> 2 <br />
@@ -496,7 +506,8 @@ class Centerpanel extends Component {
                                                 choose: 2, 
                                                 id: this.state.entrada.id,
                                                 odd: c2,
-                                                logro: m[mo].shortName, name: this.state.entrada.name,
+                                                logro: m[mo].shortName, 
+                                                name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga, 
                                                 type: m[mo].id,
@@ -504,7 +515,7 @@ class Centerpanel extends Component {
                                                 version: jj.version,
                                                 price: c2
 
-                                            })}>{c2}</td>
+                                            })}>{this.props.format(c2)}</td>
                                 </th>
                             </tr>
 
@@ -532,7 +543,7 @@ class Centerpanel extends Component {
                                                     price: c1
 
                                                 })}
-                                    > {c1 + " (" + c3 + ") "} </td>
+                                    > {this.props.format(c1) + " (" + c3 + ") "} </td>
                                 </th>
 
                                 <th style={{ fontSize: 8 }}> VISITANTE <br />
@@ -542,7 +553,8 @@ class Centerpanel extends Component {
                                                 choose: 2,
                                                 id: this.state.entrada.id,
                                                 odd: c1 + " (" + w * c3 + ") ",
-                                                logro: m[mo].shortName, name: this.state.entrada.name,
+                                                logro: m[mo].shortName, 
+                                                name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
                                                 type: m[mo].id,
@@ -550,7 +562,7 @@ class Centerpanel extends Component {
                                                 version: jj.version,
                                                 price: c1
 
-                                            })}> {c2 + " (" + w * c3 + ") "} </td>
+                                            })}> {this.props.format(c2) + " (" + w * c3 + ") "} </td>
                                 </th>
 
 
@@ -578,7 +590,7 @@ class Centerpanel extends Component {
                                                     version: jj.version,
                                                     price: c1
                                                 })}
-                                    > {c1 + " (" + c3 + ") "} </td>
+                                    > {this.props.format(c1) + " (" + c3 + ") "} </td>
                                 </th>
 
                                 <th style={{ fontSize: 8 }}> Menos <br />
@@ -596,7 +608,7 @@ class Centerpanel extends Component {
                                                     type: m[mo].id,
                                                     version: jj.version,
                                                     price: c2
-                                                })}> {c2 + " (" + c3 + ") "} </td>
+                                                })}> {this.props.format(c2) + " (" + c3 + ") "} </td>
                                 </th>
 
 
@@ -611,7 +623,7 @@ class Centerpanel extends Component {
                                             {
                                                 odd: c3 + " (" + c1 + ") ",
                                                 id: this.state.entrada.id,
-                                               
+                                                choose:1,
                                                 logro: m[mo].shortName, name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
@@ -620,7 +632,7 @@ class Centerpanel extends Component {
                                                 version: jj.version,
                                                 price: c1
 
-                                            })}> {c3 + " (" + c1 + ") "} </td>
+                                            })}> {this.props.format(c3) + " (" + c1 + ") "} </td>
                                 </th>
                             </tr>
                         )
@@ -631,9 +643,9 @@ class Centerpanel extends Component {
                         return (
                             <tr>
 
-                                <td> {c1} </td>
-                                <td> {c2} </td>
-                                <td> {c3} </td>
+                                <td> {this.props.format(c1)} </td>
+                                <td> {this.props.format(c2)} </td>
+                                <td> {this.props.format(c3)} </td>
 
                             </tr>
                         )
@@ -666,7 +678,7 @@ class Centerpanel extends Component {
                 </div>
                 <div className="panels">
 
-                    <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
+                    <Tableselect format={this.props.format} getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
 
                     <div id="proximos">
                         Proximos Eventos
