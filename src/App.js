@@ -44,6 +44,7 @@ class App extends Component {
     this.setState({ open: true });
   }
   changeFormat(event) {
+    console.log(event)
     console.log(event.target.value)
     this.setState({ format: event.target.value });
     
