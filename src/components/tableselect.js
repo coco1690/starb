@@ -246,8 +246,8 @@ const Tableselect = (props) => {
                                     home: y.home,
                                     away: y.away
                                 })}
-                                style={{ color: 'black', backgroundColor: "orange", borderRadius: 10 }}>
-                                {y.more ? y.more : ""}
+                                style={{ color: 'black', backgroundColor: "darkorange", borderRadius: 10 }}>
+                                {"+"}
                             </div>
                         </th>
                     </tr>

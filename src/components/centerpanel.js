@@ -336,7 +336,7 @@ class Centerpanel extends Component {
                             </th>
                             <th>
                                 <div className="botn btn btn:active btn:hover"
-                                    style={{ color: 'black', backgroundColor: "orange", borderRadius: 10 }}
+                                    style={{ color: 'black', backgroundColor: "darkorange", borderRadius: 10 }}
                                     onClick={
                                         this.getdata.bind(this, y.idmatch,
                                             {
@@ -348,7 +348,7 @@ class Centerpanel extends Component {
                                                 home: y.home,
                                                 away: y.away
                                             })}>
-                                    {y.more ? y.more : ""}
+                                    {"+"}
                                 </div>
                             </th>
                         </tr>
