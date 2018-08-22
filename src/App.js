@@ -44,9 +44,9 @@ class App extends Component {
     this.setState({ open: true });
   }
   changeFormat(event) {
-    console.log(event.target.value)
-    this.setState({ format: event.target.value });
     
+    this.setState({ format: event.target.value });
+    localStorage.setItem('format', JSON.stringify(event.target.value));
 
   }
   format(value) {
@@ -189,7 +189,7 @@ class App extends Component {
                 "D_id": this.state.user.userdata.D_id,
               }
               let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
-              // console.log(x);
+              console.log(x);
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
@@ -211,12 +211,18 @@ class App extends Component {
                       text: "Los datos se enviaron correctamente",
                       icon: "success"
                     }).then(next => {
+                      this.removeFromCupon();
                       swal({
                         title: "Imprimir?",
                         icon: "info",
                         text: "Desea imprimir este cupon?",
                         buttons: {
-                          cancel: { text: "NO" },
+                          cancel: {
+                            text: "NO",
+                            value: null,
+                            visible: true,                           
+                            closeModal: true,
+                          },
                           confirm: { text: "SI", value: true },
                         }
 
@@ -241,6 +247,7 @@ class App extends Component {
                       text: res.status,
                       icon: "warning",
                     })
+                    console.log(res);
                   }
 
                 }).catch(err => {
@@ -320,11 +327,16 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ user: usertem });
     }
-    // if (localStorage.getItem('ultimoTicket') != null) {
-    //   let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
-    //   // console.log(temporal);
-    //   this.setState({ lastItem });
-    // }
+    if (localStorage.getItem('ultimoTicket') != null) {
+      let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
+      // console.log(temporal);
+      this.setState({ lastItem });
+    }
+    if (localStorage.getItem('format') != null) {
+      let format = JSON.parse(localStorage.getItem('format'));
+      // console.log(temporal);
+      this.setState({ format });
+    }
 
   }
   render() {
@@ -346,6 +358,7 @@ class App extends Component {
             <div style={{ width: "100%" }}>  {f.liga} </div>
             <div> </div>
             <div>{f.name} </div>
+            <div>{f.logro} </div>
             <div>Apuesta: {f.option}
               <div style={{ float: "right" }}>Cuota:
               <span style={{ fontWeight: "bolder", fontSize: 14 }}>{f.odd}</span></div>
@@ -372,11 +385,11 @@ class App extends Component {
 
           <div className="header-menu">
             {/* {JSON.stringify(this.state.lastItem)} */}
-            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos</Link>
+            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos Eventos Deportivos</Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
-            <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link>
-            <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link>
+            {/* <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link> */}
+            {/* <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link> */}
 
           </div>
           <div className="contenedor-total">
@@ -406,7 +419,7 @@ class App extends Component {
                     </div>
                   </div>
                 </div>
-                <Rightpanel stake={this.state.stake} quake={this.state.stake * this.state.price} price={this.state.price} changeStake={this.changeStake} items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem : { data: "", info: "" }} />
+                <Rightpanel stake={this.state.stake} format={this.format} quake={this.state.stake * this.state.price} price={this.state.price} changeStake={this.changeStake} items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem : { data: "", info: "" }} />
               </div>
 
             </div>
@@ -422,9 +435,8 @@ class App extends Component {
               <div className="cliente-print">
                 <div>Agencia: {d.Agencia}</div>
                 <div>Fecha: {d.Fecha}</div>
-                <div>Ticket: {d.ID} | Serial: {d.Serial}</div>
-                <div>Usuario: {d.Usuario}</div>
-                <div>Estado: {d.Usuario}</div>
+                <div>Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego</div>
+                <div>Usuario: {d.Usuario}</div>                
               </div>
               {tk}
               <div className="cliente-print" style={{ float: "right" }}>
@@ -435,7 +447,7 @@ class App extends Component {
               </div>
 
               <div id="ganancia-print">
-                <div className="ga-imprimir">COP {d.Ganancia}</div>
+                <div className="ga-imprimir">${d.Ganancia}</div>
               </div>
               <div className="cliente-print" style={{ marginBottom: 5, border: "1px solid" }}>
                 <span>Las Jugadas o apuestas validas estan sujetas segun

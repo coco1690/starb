@@ -19,7 +19,7 @@ class Centerpanel extends Component {
             select: [],
             idpais: "",
             loading: true,
-            loadingmodal:true,
+            loadingmodal: true,
             entrada: "",
             raw: this.props.select ? this.props.select.leagues : "",
 
@@ -37,31 +37,31 @@ class Centerpanel extends Component {
             context.setState({
                 modal,
                 entrada,
-                loadingmodal:false
+                loadingmodal: false
             })
 
         });
         context.setState({ open: true })
     }
     componentDidMount() {
-       
-        if(this.props.match.params.idsport){
-        fetch('http://91.121.116.131/gecko/api/view/model/pcci/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
-            return results.json();
-        }).then(select => {
-            context.setState({
-                select,
-                loading: true
-            })
-            // console.table(data)
-        }).catch(function (error) {
-            // console.log('Hubo un problema con la petición Fetch:' + error.message);
-            context.setState({ loading: false })
-        });
-    }else{
-        context.setState({ loading: false });
-        
-    }
+
+        if (this.props.match.params.idsport) {
+            fetch('http://91.121.116.131/gecko/api/view/model/pcci/id/' + this.props.match.params.idsport + "" + this.props.match.params.idpais, { cache: "no-cache" }).then(results => {
+                return results.json();
+            }).then(select => {
+                context.setState({
+                    select,
+                    loading: true
+                })
+                // console.table(data)
+            }).catch(function (error) {
+                // console.log('Hubo un problema con la petición Fetch:' + error.message);
+                context.setState({ loading: false })
+            });
+        } else {
+            context.setState({ loading: false });
+
+        }
 
         fetch('http://91.121.116.131/gecko/api/match', { cache: "no-cache" }).then(results => {
             return results.json();
@@ -79,34 +79,34 @@ class Centerpanel extends Component {
         // this.setState({ props: [] })
     }
     static getDerivedStateFromProps(props, current_state) {
-      
-      
+
+
         if (current_state.idpais !== props.match.params.idpais || current_state.idsport !== props.match.params.idsport) {
             context.setState({
                 select: {},
                 loading: true,
                 idpais: props.match.params.idpais,
-                idsport:props.match.params.idsport
+                idsport: props.match.params.idsport
             })
 
             // console.log("Se actualizo la prop ", props.match.params.idsport, props.match.params.idpais);
-            if(props.match.params.idsport)
-            fetch('http://91.121.116.131/gecko/api/view/model/pcci/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
-                .then(results => {
-                    return results.json();
-                }).then(select => {
-                    context.setState({
-                        select,
-                        loading: true
-                    })
-                    // console.table(data)
-                }).catch(function (error) {
-                    // console.log('Hubo un problema con la petición Fetch:' + error.message);
-                    context.setState({ loading: false })
-                });
+            if (props.match.params.idsport)
+                fetch('http://91.121.116.131/gecko/api/view/model/pcci/id/' + props.match.params.idsport + "" + props.match.params.idpais, { cache: "no-cache" })
+                    .then(results => {
+                        return results.json();
+                    }).then(select => {
+                        context.setState({
+                            select,
+                            loading: true
+                        })
+                        // console.table(data)
+                    }).catch(function (error) {
+                        // console.log('Hubo un problema con la petición Fetch:' + error.message);
+                        context.setState({ loading: false })
+                    });
 
         }
-        if(!props.match.params.idpais){ context.setState({ loading: false })}
+        if (!props.match.params.idpais) { context.setState({ loading: false }) }
         return null;
 
     }
@@ -151,7 +151,7 @@ class Centerpanel extends Component {
                     if (minutes.length === 1) { minutes = "0" + minutes; }
 
 
-                    var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
                     var dd = timess.getDate();
                     dd = dd < 10 ? '0' + dd : dd;
                     var today = months[timess.getMonth()] + " " + dd;
@@ -161,6 +161,7 @@ class Centerpanel extends Component {
 
                     let datalocal1 = {
                         choose: 1,
+                        logro: y.data[19992] ? y.data[19992].logro : "",
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[19992] ? y.data[19992].o1 : "",
@@ -172,7 +173,8 @@ class Centerpanel extends Component {
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
                     let dataempatex = {
-                        choose: 1,
+                        choose: 2,
+                        logro: y.data[19992] ? y.data[19992].logro : "",
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[19992] ? y.data[19992].o2 : "",
@@ -184,7 +186,8 @@ class Centerpanel extends Component {
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
                     let datavisitante2 = {
-                        choose: 1,
+                        choose: 3,
+                        logro: y.data[19992] ? y.data[19992].logro : "",
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[19992] ? y.data[19992].o3 : "",
@@ -197,6 +200,7 @@ class Centerpanel extends Component {
                     };
                     let data1x = {
                         choose: 1,
+                        logro: y.data[49992] ? y.data[49992].logro : "",
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[49992] ? y.data[49992].o1 : "",
@@ -208,7 +212,8 @@ class Centerpanel extends Component {
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
                     let data12 = {
-                        choose: 1,
+                        choose: 2,
+                        logro: y.data[49992] ? y.data[49992].logro : "",
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[49992] ? y.data[49992].o2 : "",
@@ -220,7 +225,8 @@ class Centerpanel extends Component {
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
                     let data2x = {
-                        choose: 1,
+                        choose: 3,
+                        logro: y.data[49992] ? y.data[49992].logro : "",
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[49992] ? y.data[49992].o3 : "",
@@ -234,10 +240,11 @@ class Centerpanel extends Component {
 
                     let dataunder = {
                         choose: 1,
+                        logro: y.data[29992] ? y.data[29992].logro : "",
                         id: y.idmatch,
                         name: y.name,
-                        odd: y.data[29992] ? y.data[29992].o1 + '(<' + y.data[29992].o3 + ')' : "",
-                        option: "Under",
+                        odd: y.data[29992] ? y.data[29992].o1 : "",
+                        option: y.data[29992] ? "Mas de " + parseFloat(y.data[29992].o3) + " goles" : "",
                         price: y.data[29992] ? y.data[29992].o1 : "",
                         time: hours + ":" + minutes + pmam + " - " + timess,
                         type: y.data[29992] ? y.data[29992].type : "",
@@ -245,11 +252,12 @@ class Centerpanel extends Component {
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
                     let dataover = {
-                        choose: 1,
+                        choose: 2,
+                        logro: y.data[29992] ? y.data[29992].logro : "",
                         id: y.idmatch,
                         name: y.name,
-                        odd: y.data[29992] ? y.data[29992].o2 + '(<' + y.data[29992].o3 + ')' : "",
-                        option: "Over",
+                        odd: y.data[29992] ? y.data[29992].o2 : "",
+                        option: y.data[29992] ? "Menos de " + parseFloat(y.data[29992].o3) + " goles" : "",
                         price: y.data[29992] ? y.data[29992].o2 : "",
                         time: hours + ":" + minutes + pmam + " - " + timess,
                         type: y.data[29992] ? y.data[29992].type : "",
@@ -258,26 +266,28 @@ class Centerpanel extends Component {
                     };
                     let datagg = {
                         choose: 1,
+                        logro: y.data[109992] ? y.data[109992].logro : "",
                         id: y.idmatch,
                         name: y.name,
-                        odd: y.data[139992] ? y.data[139992].o1 : "",
-                        option: "GG",
-                        price: y.data[139992] ? y.data[139992].o1 : "",
+                        odd: y.data[109992] ? y.data[109992].o1 : "",
+                        option: "IMPAR",
+                        price: y.data[109992] ? y.data[109992].o1 : "",
                         time: hours + ":" + minutes + pmam + " - " + timess,
-                        type: y.data[139992] ? y.data[139992].type : "",
-                        version: y.data[139992] ? y.data[139992].version : "",
+                        type: y.data[109992] ? y.data[109992].type : "",
+                        version: y.data[109992] ? y.data[109992].version : "",
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
                     let datang = {
-                        choose: 1,
+                        choose: 2,
+                        logro: y.data[109992] ? y.data[109992].logro : "",
                         id: y.idmatch,
                         name: y.name,
-                        odd: y.data[139992] ? y.data[139992].o2 : "",
-                        option: "NG",
-                        price: y.data[139992] ? y.data[139992].o2 : "",
+                        odd: y.data[109992] ? y.data[109992].o2 : "",
+                        option: "PAR",
+                        price: y.data[109992] ? y.data[109992].o2 : "",
                         time: hours + ":" + minutes + pmam + " - " + timess,
-                        type: y.data[139992] ? y.data[139992].type : "",
-                        version: y.data[139992] ? y.data[139992].version : "",
+                        type: y.data[109992] ? y.data[109992].type : "",
+                        version: y.data[109992] ? y.data[109992].version : "",
                         liga: l[idliga].sportName + " " + l[idliga].name,
                     };
 
@@ -300,9 +310,9 @@ class Centerpanel extends Component {
                             <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
 
                             <th>
-                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datalocal1) : void (0)}>{y.data[19992] ?  this.props.format(y.data[19992].o1) : ""} </div>
-                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, dataempatex) : void (0)}>{y.data[19992] ?  this.props.format(y.data[19992].o2) : ""}</div>
-                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datavisitante2) : void (0)}>{y.data[19992] ?  this.props.format(y.data[19992].o3) : ""}</div>
+                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datalocal1) : void (0)}>{y.data[19992] ? this.props.format(y.data[19992].o1) : ""} </div>
+                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, dataempatex) : void (0)}>{y.data[19992] ? this.props.format(y.data[19992].o2) : ""}</div>
+                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datavisitante2) : void (0)}>{y.data[19992] ? this.props.format(y.data[19992].o3) : ""}</div>
                             </th>
 
                             <th>
@@ -320,8 +330,8 @@ class Centerpanel extends Component {
                             </th>
                             <th>
 
-                                <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[139992] ? this.props.format(y.data[139992].o1) : ""}</div>
-                                <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[139992] ? this.props.format(y.data[139992].o2) : ""}</div>
+                                <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[109992] ? this.props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[109992] ? this.props.format(y.data[109992].o2) : ""}</div>
+                                <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[109992] ? this.props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[109992] ? this.props.format(y.data[109992].o1) : ""}</div>
 
                             </th>
                             <th>
@@ -350,14 +360,14 @@ class Centerpanel extends Component {
                     <table key={idliga} idl={idliga} id="table-central">
                         <thead id="thead-central">
                             <tr >
-                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100,textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
+                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100, textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
                                     {l[idliga].sportName + " " + l[idliga].name}
                                 </th>
-                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight:'normal' }}>1 X 2 </th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>1X 12 2X</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>UN  OV  T</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>GG NG</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight:'normal' }}>Mas</th>
+                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight: 'normal' }}>1 X 2 </th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>1X 12 2X</th>
+                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>MAS / MENOS</th>
+                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>PAR / IMPAR</th>
+                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>Otros</th>
 
                             </tr>
 
@@ -380,9 +390,9 @@ class Centerpanel extends Component {
 
         // console.log(c)
         let w = -1;
-        
+
         let m = this.state.modal;
-        
+
         // console.log(m)
 
 
@@ -392,7 +402,7 @@ class Centerpanel extends Component {
             let body = m[mo].data;
             let yy = Object.keys(body).map(yo => {
                 let jj = body[yo];
-               
+
                 let c1 = jj.o1;
                 let c2 = jj.o2;
                 let c3 = jj.o3;
@@ -409,43 +419,58 @@ class Centerpanel extends Component {
                                         onClick={
                                             this.props.addTocart.bind(this, this.state.entrada.id,
                                                 {
-                                                    odd: c1,
+                                                    choose: 1,
+                                                    odd: c1, 
+                                                    id: this.state.entrada.id,
+                                                    logro: m[mo].shortName, 
                                                     name: this.state.entrada.name,
                                                     time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                     liga: this.state.entrada.liga,
                                                     option: this.state.entrada.home,
+                                                    type: m[mo].id,
+                                                    version: jj.version,
                                                     price: c1
 
                                                 })}
-                                    >{c1}</td>
+                                    >{this.props.format(c1)}</td>
                                 </th>
 
                                 <th> X <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
+                                                choose: 2, 
+                                                id: this.state.entrada.id,
                                                 odd: c2,
+                                                logro: m[mo].shortName, 
                                                 name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
-                                                liga: this.state.entrada.liga,
+                                                liga: this.state.entrada.liga, 
+                                                type: m[mo].id,
                                                 option: "Empate",
+                                                 version: jj.version,
                                                 price: c2
 
-                                            })}> {c2}  </td>
+                                            })}> {this.props.format(c2)}  </td>
                                 </th>
 
                                 <th> 2 <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
+                                                choose: 3, 
+                                                id: this.state.entrada.id,
                                                 odd: c3,
+                                                logro: m[mo].shortName, 
                                                 name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
-                                                liga: this.state.entrada.liga,
-                                                option: this.state.entrada.away,
+                                                liga: this.state.entrada.liga, 
+                                                type: m[mo].id,
+                                                option: this.state.entrada.away, 
+                                                version: jj.version,
                                                 price: c3
 
-                                            })}> {c3}  </td>
+                                            })}> {this.props.format(c3)}  </td>
                                 </th>
 
                             </tr>
@@ -459,28 +484,38 @@ class Centerpanel extends Component {
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
+                                                choose: 1, 
+                                                id: this.state.entrada.id,
                                                 odd: c1,
+                                                logro: m[mo].shortName, 
                                                 name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
                                                 option: this.state.entrada.home,
+                                                type: m[mo].id,
+                                                version: jj.version,
                                                 price: c1
 
-                                            })}>{c1}</td>
+                                            })}>{this.props.format(c1)}</td>
                                 </th>
 
                                 <th> 2 <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
+                                                choose: 2, 
+                                                id: this.state.entrada.id,
                                                 odd: c2,
+                                                logro: m[mo].shortName, 
                                                 name: this.state.entrada.name,
                                                 time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
-                                                liga: this.state.entrada.liga,
-                                                option: this.state.entrada.away,
+                                                liga: this.state.entrada.liga, 
+                                                type: m[mo].id,
+                                                option: this.state.entrada.away, 
+                                                version: jj.version,
                                                 price: c2
 
-                                            })}>{c2}</td>
+                                            })}>{this.props.format(c2)}</td>
                                 </th>
                             </tr>
 
@@ -495,29 +530,39 @@ class Centerpanel extends Component {
                                         onClick={
                                             this.props.addTocart.bind(this, this.state.entrada.id,
                                                 {
+                                                    choose: 1,
+                                                    id: this.state.entrada.id,
+                                                    
                                                     odd: c1 + " (" + c3 + ") ",
-                                                    name: this.state.entrada.name,
-                                                    time: this.state.entrada.hora + ' ' + this.state.entrada.time,
+                                                    logro: m[mo].shortName, name: this.state.entrada.name,
+                                                    time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                     liga: this.state.entrada.liga,
                                                     option: this.state.entrada.home,
+                                                    type: m[mo].id,
+                                                    version: jj.version,
                                                     price: c1
 
                                                 })}
-                                    > {c1 + " (" + c3 + ") "} </td>
+                                    > {this.props.format(c1) + " (" + c3 + ") "} </td>
                                 </th>
 
                                 <th style={{ fontSize: 8 }}> VISITANTE <br />
                                     <td className="botn btn btn:active btn:hover" onClick={
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
+                                                choose: 2,
+                                                id: this.state.entrada.id,
                                                 odd: c1 + " (" + w * c3 + ") ",
+                                                logro: m[mo].shortName, 
                                                 name: this.state.entrada.name,
-                                                time: this.state.entrada.hora + ' ' + this.state.entrada.time,
+                                                time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
+                                                type: m[mo].id,
                                                 option: this.state.entrada.home,
+                                                version: jj.version,
                                                 price: c1
 
-                                            })}> {c2 + " (" + w * c3 + ") "} </td>
+                                            })}> {this.props.format(c2) + " (" + w * c3 + ") "} </td>
                                 </th>
 
 
@@ -529,34 +574,41 @@ class Centerpanel extends Component {
                         return (
                             <tr>
 
-                                <th style={{ fontSize: 8 }}> OV <br />
+                                <th style={{ fontSize: 8 }}> Mas <br />
                                     <td className="botn btn btn:active btn:hover"
                                         onClick={
                                             this.props.addTocart.bind(this, this.state.entrada.id,
                                                 {
-                                                    odd: c1 + " (" + c3 + ") ",
-                                                    name: this.state.entrada.name,
-                                                    time: this.state.entrada.hora + ' ' + this.state.entrada.time,
+                                                    choose: 1,
+                                                    id: this.state.entrada.id,
+                                                    odd: c1,
+                                                    logro: m[mo].shortName, name: this.state.entrada.name,
+                                                    time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                     liga: this.state.entrada.liga,
-                                                    option: "Over",
+                                                    option: "Mas de " + parseFloat(c3) + " goles",
+                                                    type: m[mo].id,
+                                                    version: jj.version,
                                                     price: c1
-
                                                 })}
-                                    > {c1 + " (" + c3 + ") "} </td>
+                                    > {this.props.format(c1) + " (" + c3 + ") "} </td>
                                 </th>
 
-                                <th style={{ fontSize: 8 }}> UN <br />
-                                    <td className="botn btn btn:active btn:hover" onClick={
-                                        this.props.addTocart.bind(this, this.state.entrada.id,
-                                            {
-                                                odd: c2 + " (" + c3 + ") ",
-                                                name: this.state.entrada.name,
-                                                time: this.state.entrada.hora + ' ' + this.state.entrada.time,
-                                                liga: this.state.entrada.liga,
-                                                option: "Under",
-                                                price: c1
-
-                                            })}> {c2 + " (" + c3 + ") "} </td>
+                                <th style={{ fontSize: 8 }}> Menos <br />
+                                    <td className="botn btn btn:active btn:hover"
+                                        onClick={
+                                            this.props.addTocart.bind(this, this.state.entrada.id,
+                                                {
+                                                    choose: 2,
+                                                    id: this.state.entrada.id,
+                                                    odd: c2,
+                                                    logro: m[mo].shortName, name: this.state.entrada.name,
+                                                    time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
+                                                    liga: this.state.entrada.liga,
+                                                    option: "Menos de " + parseFloat(c3) + " goles",
+                                                    type: m[mo].id,
+                                                    version: jj.version,
+                                                    price: c2
+                                                })}> {this.props.format(c2) + " (" + c3 + ") "} </td>
                                 </th>
 
 
@@ -570,13 +622,17 @@ class Centerpanel extends Component {
                                         this.props.addTocart.bind(this, this.state.entrada.id,
                                             {
                                                 odd: c3 + " (" + c1 + ") ",
-                                                name: this.state.entrada.name,
-                                                time: this.state.entrada.hora + ' ' + this.state.entrada.time,
+                                                id: this.state.entrada.id,
+                                                choose:1,
+                                                logro: m[mo].shortName, name: this.state.entrada.name,
+                                                time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                 liga: this.state.entrada.liga,
                                                 option: "Over",
+                                                type: m[mo].id,
+                                                version: jj.version,
                                                 price: c1
 
-                                            })}> {c3 + " (" + c1 + ") "} </td>
+                                            })}> {this.props.format(c3) + " (" + c1 + ") "} </td>
                                 </th>
                             </tr>
                         )
@@ -587,9 +643,9 @@ class Centerpanel extends Component {
                         return (
                             <tr>
 
-                                <td> {c1} </td>
-                                <td> {c2} </td>
-                                <td> {c3} </td>
+                                <td> {this.props.format(c1)} </td>
+                                <td> {this.props.format(c2)} </td>
+                                <td> {this.props.format(c3)} </td>
 
                             </tr>
                         )
@@ -602,7 +658,6 @@ class Centerpanel extends Component {
                         <thead>
                             <tr>
                                 <td colSpan="3">{m[mo].shortName}</td>
-
                             </tr>
 
                         </thead>
@@ -623,7 +678,7 @@ class Centerpanel extends Component {
                 </div>
                 <div className="panels">
 
-                    <Tableselect getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
+                    <Tableselect format={this.props.format} getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
 
                     <div id="proximos">
                         Proximos Eventos
@@ -643,7 +698,7 @@ class Centerpanel extends Component {
                         </Modal.Header>
                         <Modal.Body style={{ background: "rgb(5, 5, 5)" }}>
 
-                            {this.state.loadingmodal?<div className="lds-ripple"><div></div><div></div></div>:idss}
+                            {this.state.loadingmodal ? <div className="lds-ripple"><div></div><div></div></div> : idss}
 
                         </Modal.Body>
                         <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
