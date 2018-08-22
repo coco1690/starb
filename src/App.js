@@ -198,7 +198,7 @@ class App extends Component {
                 "D_id": this.state.user.userdata.D_id,
               }
               let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
-              // console.log(x);
+              console.log(x);
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
@@ -206,7 +206,9 @@ class App extends Component {
                 .then(res => {
                   if (res.status === 200) {
                     let user = this.state.user;
+                    console.log(flows, user);
                     user['userdata']['balance'] = user['userdata']['balance'] - flows;
+
                     let tikes = user['userdata']['Tickets'];
                     tikes[res.info.ID] = { Estado: 1, Fecha: res.info.Fecha, Ganancia: res.info.Ganancia, Id: res.info.ID, Monto: res.info.Monto, nEventos: res.info.nEventos };
                     user['userdata']['Tickets'] = tikes;
@@ -474,7 +476,7 @@ class App extends Component {
 
                 <div className="cliente-print">
                   <div>Nombre: {d.Agencia}</div>
-                  <div>Fecha: { hours + ":" + minutes + pmam + " - " + timess}</div>
+                  <div>Fecha: {hours + ":" + minutes + pmam + " - " + timess}</div>
                   <div>Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego</div>
                   <div>Usuario: {d.Usuario}</div>
                 </div>
