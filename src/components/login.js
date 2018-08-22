@@ -141,11 +141,7 @@ class Login extends React.Component {
     }
 
     componentDidMount() {
-        // this.setState({
-        //     login: this.props.user.login,
-        //     user: this.props.user.userdata
-        // })
-        // console.log(this.props);
+
     }
     static getDerivedStateFromProps(props, current_state) {
         if (current_state.login !== props.login) {
@@ -177,37 +173,46 @@ class Login extends React.Component {
 
 
             canvas = <div className='navbar'>
+
                 <ul>
-                    <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>
-                        {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
-                    </a></li>
-                   
-                    <li>
-                        <select className="custom-select custom-select-sm" style={{ marginBottom: 0, width: 80 }} value={this.props.format} onChange={this.props.changeFormat}>
-                            <option value="DEC">DEC</option>
-                            <option value="US">US</option>
-                        </select>
+                    <li className="dropdown">
+                        <Link to='#' className="dropbtn usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
+                        <div className="dropdown-content">
+                            <Link to="/perfil">Mi Perfil</Link>
+                            <Link to="/" className="salir" onClick={this.salir} >Cerrar Sesion<i className='ion-power'></i></Link>
+
+                            {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
+                        </div>
                     </li>
+                    <li>
+                        <button className="btn confirm" onClick={this.props.changeFormat} style={{ boxSizing: 'borderBox', width: '100%', height: 37, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>{this.props.format}</button>
+                    </li>
+
+                    <li>
+
+                    </li>
+                    <li>
+                        <Link to="/perfil" className="deposito"> Saldo <i className='ion-social-usd'></i>
+                            {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
+                        </Link>
+                    </li>
+
+
+
                     {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
 
 
-                    <li className="reloj">
-                        <i className='ion-ios-alarm'></i>&nbsp;
-                            <i id="horas" className="horas"> : </i> :
-                            <i id="minutos" className="minutos"> : </i>&nbsp;
-                            <i id="segundos" className="segundos"> 0 </i>
-                        <i id="ampm" className="ampm"> 0 </i>
-                    </li>
-               
-                    <li className="dropdown">
-                        <Link to='#' className="dropbtn" id="usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
-                        <div className="dropdown-content">
-                            <Link to="/perfil">Perfil</Link>
-
-                            {/* <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link> */}
-                            <Link to="/" id="salir" onClick={this.salir} >salir<i className='ion-power'></i></Link>
+                    <li className="reloj salir">
+                        <div>
+                            <span><i className="ion-android-stopwatch" style={{ margin: 0, fontSize: 16, marginRight: 2 }}></i> </span>
+                            <span id="horas"></span>:
+                        <span id="minutos"></span>:
+                        <span id="segundos"></span>
+                            <span id="ampm"></span>
                         </div>
                     </li>
+
+
                 </ul>
 
             </div>

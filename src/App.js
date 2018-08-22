@@ -44,20 +44,25 @@ class App extends Component {
     this.setState({ open: true });
   }
   changeFormat(event) {
-    
-    this.setState({ format: event.target.value });
-    localStorage.setItem('format', JSON.stringify(event.target.value));
+    if(this.state.format==="AMERICAN"){
+      this.setState({ format: "DECIMAL" });
+
+    }else{
+      this.setState({ format: "AMERICAN" });
+
+    }
+    localStorage.setItem('format', JSON.stringify(this.state.format));
 
   }
   format(value) {
     let into = parseFloat(value);
     let outo = 0;
 
-    if (this.state.format == "US") {
+    if (this.state.format === "AMERICAN") {
       if (into >= 2) {
-        outo = parseInt((into - 1) * 100);
+        outo = parseInt((into - 1) * 100,10);
       } else if (into < 2) {
-        outo = parseInt((-100) / (into - 1));
+        outo = parseInt((-100) / (into - 1),10);
       }
     }
     // else
@@ -73,7 +78,7 @@ class App extends Component {
 
     //   }
       else
-        if (this.state.format == "DEC") {
+        if (this.state.format === "DECIMAL") {
           outo = value;
         }
     return outo;

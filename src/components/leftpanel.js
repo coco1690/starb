@@ -85,7 +85,7 @@ class Leftpanel extends Component {
 
 
                 //  ---------------------MUESTRA PAISES-------------------------------
-                aux = <div key={index} className="tabcontent" style={index===1?{display:'table'}:{}} id={index}>
+                aux = <div key={index} className="tabcontent" style={index==="1"?{display:'table'}:{}} id={index}>
                     {aux}
                 </div>
                 paises.push(aux);

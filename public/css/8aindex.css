@@ -217,14 +217,14 @@ a:link {
    margin-left: -6px;
 }
 
-#deposito{
+.deposito{
   background:orange;
 }
-#usuario{
+.usuario{
   background: rgba(227, 231, 6, 0.411);
 }
 
-#salir{
+.salir{
   background: rgba(146, 1, 1, 0.98);
 }
 .contenedor-total{
@@ -667,9 +667,10 @@ li.dropdown {
 .reloj {
   
   font-size: 14px;
-  padding: 10px;
+  padding: 9px;
+   width: 100px;
   text-align: center;
-  margin-right: 24px;
+  /* margin-right: 24px; */
   color: #ffffff;
    
 }
@@ -986,3 +987,5 @@ border: 1px solid rgb(10, 10, 10);
   margin-top: 15px;
   background: #000;
 }
+
+

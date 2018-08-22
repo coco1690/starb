@@ -12,15 +12,15 @@ var actualizarHora = function () {
         pSegundos = document.getElementById("segundos");
 
    
-    if (horas => 12) {
-        horas = horas -! 12;
-        ampm = 'AM';
-    } else {
+    if (horas > 12) {
+        horas = horas - 12;
         ampm = 'PM';
+    } else {
+        ampm = 'AM';
     }
 
     if (horas == 0) {
-        horas = 12;
+        horas = 12;        
     };
 if(document.getElementById("horas")!==null){
 
@@ -39,5 +39,6 @@ if(document.getElementById("horas")!==null){
 };
 
 var intervalo = setInterval(actualizarHora, 1000);
+
 
 
