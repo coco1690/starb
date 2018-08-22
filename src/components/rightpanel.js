@@ -3,23 +3,7 @@ import Sticky from 'react-sticky-el';
 // import ReactModal from 'react-modal';
 
 import { Scrollbars } from 'react-custom-scrollbars';
-// import Modal from 'react-modal';
-// import Imprimir from "./imprimir";
-// import { Link } from 'react-router-dom';
 
-
-// import { Components } from 'react-bootstrap-navbar';
-
-// const customStyles = {
-//     content: {
-//         top: '50%',
-//         left: '50%',
-//         right: 'auto',
-//         bottom: 'auto',
-//         marginRight: '-50%',
-//         transform: 'translate(-50%, -50%)'
-//     }
-// };
 
 let context
 class Rightpanel extends React.Component {
@@ -91,7 +75,7 @@ class Rightpanel extends React.Component {
 
             <div className="right-panel">
                 <Sticky className="mierda">
-                    <div style={{ background: 'rgba(255,255,255,0.1)', border: "1px solid #ff4600" ,textShadow: "2px 2px 4px #000000"}}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)', border: "1px solid #ff4600", textShadow: "2px 2px 4px #000000" }}>
                         <div className="cuponrigth">
                             <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
                             <span className="ticket-title ">Cupón  </span>
@@ -105,7 +89,7 @@ class Rightpanel extends React.Component {
 
                         <Scrollbars style={{ display: 'inline-block', height: 320, width: '100%' }}>
 
-                            <div className="part" style={{ fontWeight: 100,textShadow: "2px 2px 4px #000000" }}>
+                            <div className="part" style={{ fontWeight: 100, textShadow: "2px 2px 4px #000000" }}>
 
                                 {obj}
 
@@ -113,7 +97,7 @@ class Rightpanel extends React.Component {
 
                         </Scrollbars>
 
-                        <div className="mm" style={{textShadow: "2px 2px 4px #000000"}}>
+                        <div className="mm" style={{ textShadow: "2px 2px 4px #000000" }}>
                             <div style={{ marginTop: 20, margin: 0, display: "inline" }}>
                                 <div style={{ width: 70, marginLeft: 10, display: "inline" }}> Apuesta: </div>
 
@@ -126,7 +110,7 @@ class Rightpanel extends React.Component {
                                     onChange={this.changeStake} /></div>
 
                             <div style={{ margin: 10, marginTop: 10 }}>Cuota:
-                                <span style={{ float: 'right' }} className="totalodd">{this.props.format(this.props.price)}</span>
+                                <span style={{ float: 'right' }} className="totalodd">{this.props.price}</span>
                             </div>
                             <div style={{ margin: 10, marginTop: 15 }}>Pago Total:
                                 <span style={{ float: 'right' }}>
@@ -135,7 +119,7 @@ class Rightpanel extends React.Component {
                                 </span>
                             </div>
                             <div style={{ marginTop: 20 }}>
-                                <button className="btn confirm" onClick={this.props.save.bind(this, this.state.stake)} style={{ boxSizing: 'borderBox',textShadow: "2px 2px 4px #000000", width: '100%', height: 40, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>Confirmar</button>
+                                <button className="btn confirm" onClick={this.props.save.bind(this, this.state.stake)} style={{ boxSizing: 'borderBox', textShadow: "2px 2px 4px #000000", width: '100%', height: 40, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>Confirmar</button>
                             </div>
                         </div>
                     </div>

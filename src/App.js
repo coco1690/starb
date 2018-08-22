@@ -26,32 +26,33 @@ class App extends Component {
     // this.changeStake = this.changeStake.bind(this);
     this.state = {
       items: {},
-      format:"DEC",
+      format: "DEC",
       open: true,
       lastItem: {},
       user: {
         login: false
       },
       data: {},
-      
+
       price: 1,
     };
     this.changeFormat = this.changeFormat.bind(this);
-    this.format = this.format.bind(this); 
+    this.format = this.format.bind(this);
   }
 
   handleOpenModal() {
     this.setState({ open: true });
   }
   changeFormat(event) {
-    if(this.state.format==="AMERICAN"){
+    if (this.state.format === "AMERICAN") {
       this.setState({ format: "DECIMAL" });
+      localStorage.setItem('format', "DECIMAL");
 
-    }else{
+    } else {
       this.setState({ format: "AMERICAN" });
+      localStorage.setItem('format', "AMERICAN");
 
     }
-    localStorage.setItem('format', JSON.stringify(this.state.format));
 
   }
   format(value) {
@@ -60,9 +61,9 @@ class App extends Component {
 
     if (this.state.format === "AMERICAN") {
       if (into >= 2) {
-        outo = parseInt((into - 1) * 100,10);
+        outo = parseInt((into - 1) * 100, 10);
       } else if (into < 2) {
-        outo = parseInt((-100) / (into - 1),10);
+        outo = parseInt((-100) / (into - 1), 10);
       }
     }
     // else
@@ -77,10 +78,10 @@ class App extends Component {
 
 
     //   }
-      else
-        if (this.state.format === "DECIMAL") {
-          outo = value;
-        }
+    else
+      if (this.state.format === "DECIMAL") {
+        outo = value;
+      }
     return outo;
   }
 
@@ -163,7 +164,7 @@ class App extends Component {
           return (
             <div>
               <div>
-                Apuesta: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" +flows.replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
+                Apuesta: <span style={{ fontSize: 20, color: "rgb(254, 224, 100)" }}>{"$" + flows.replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
               </div>
 
               {obj}
@@ -197,7 +198,7 @@ class App extends Component {
                 "D_id": this.state.user.userdata.D_id,
               }
               let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
-              console.log(x);
+              // console.log(x);
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
@@ -206,6 +207,9 @@ class App extends Component {
                   if (res.status === 200) {
                     let user = this.state.user;
                     user['userdata']['balance'] = user['userdata']['balance'] - flows;
+                    let tikes = user['userdata']['Tickets'];
+                    tikes[res.info.ID] = { Estado: 1, Fecha: res.info.Fecha, Ganancia: res.info.Ganancia, Id: res.info.ID, Monto: res.info.Monto, nEventos: res.info.nEventos };
+                    user['userdata']['Tickets'] = tikes;
                     this.setState({
                       user
                     })
@@ -228,7 +232,7 @@ class App extends Component {
                           cancel: {
                             text: "NO",
                             value: null,
-                            visible: true,                           
+                            visible: true,
                             closeModal: true,
                           },
                           confirm: { text: "SI", value: true },
@@ -341,7 +345,7 @@ class App extends Component {
       this.setState({ lastItem });
     }
     if (localStorage.getItem('format') != null) {
-      let format = JSON.parse(localStorage.getItem('format'));
+      let format = localStorage.getItem('format');
       // console.log(temporal);
       this.setState({ format });
     }
@@ -352,6 +356,34 @@ class App extends Component {
 
     let d = this.state.lastItem.info ? this.state.lastItem.info : {};
     let o = this.state.lastItem.items ? this.state.lastItem.items : {};
+
+    let timess = new Date(d.Fecha * 1000);
+    let pmam = 'AM';
+    var hours = timess.getHours();
+    // correct for number over 24, and negatives
+    if (hours >= 24) { hours -= 24; }
+    if (hours <= 0) { hours += 12; }
+    if (hours > 12) { hours -= 12; pmam = 'PM' }
+
+
+    // add leading zero, first convert hours to string
+    hours = hours + "";
+    if (hours.length === 1) { hours = "0" + hours; }
+
+    // minutes are the same on every time zone
+    var minutes = timess.getMinutes();
+
+    // add leading zero, first convert hours to string
+    minutes = minutes + "";
+    if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+    var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
+    var dd = timess.getDate();
+    dd = dd < 10 ? '0' + dd : dd;
+    var today = months[timess.getMonth()] + " " + dd;
+    timess = today;
+
 
     let oo = Object.keys(o);
     let tk = [];
@@ -369,7 +401,7 @@ class App extends Component {
             <div>{f.logro} </div>
             <div>Apuesta: {f.option}
               <div style={{ float: "right" }}>Cuota:
-              <span style={{ fontWeight: "bolder", fontSize: 14 }}>{f.odd}</span></div>
+              <span style={{ fontWeight: "bolder", fontSize: 14 }}>{this.format(f.odd)}</span></div>
             </div>
           </div>
 
@@ -387,7 +419,7 @@ class App extends Component {
           <div className="header">
             <div className="contenedor-login">
               <Link to="/"> <img className="img-logo" alt="" src="/img/logo8abet.png" /> </Link>
-              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} format={this.state.format} changeFormat={this.changeFormat}/>
+              <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} format={this.state.format} changeFormat={this.changeFormat} />
             </div>
           </div>
 
@@ -415,7 +447,7 @@ class App extends Component {
                       <Switch>
                         <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
 
-                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} />} />
+                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} format={this.format} />} />
 
                         {/* <Route exact path="/imprimir" render={(props) => <Imprimir {...props} lastItem={this.state.lastItem} />} /> */}
 
@@ -432,39 +464,39 @@ class App extends Component {
 
             </div>
 
-          
 
-          <div>
-            <div className="tick" >
-              <div id="logoprint">
-                <img id="logo-print" alt="" src="/img/logo8abet.png" />
-              </div>
 
-              <div className="cliente-print">
-                <div>Agencia: {d.Agencia}</div>
-                <div>Fecha: {d.Fecha}</div>
-                <div>Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego</div>
-                <div>Usuario: {d.Usuario}</div>                
-              </div>
-              {tk}
-              <div className="cliente-print" style={{ float: "right" }}>
-                Cuota: <span style={{ fontSize: 14, fontWeight: "bolder" }}>{d.Cuota}</span>
-              </div>
-              <div className="cliente-print" style={{ textAlign: "right" }}>
-                Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span>
-              </div>
+            <div>
+              <div className="tick" >
+                <div id="logoprint">
+                  <img id="logo-print" alt="" src="/img/logo8abet.png" />
+                </div>
 
-              <div id="ganancia-print">
-                <div className="ga-imprimir">${d.Ganancia}</div>
-              </div>
-              <div className="cliente-print" style={{ marginBottom: 5, border: "1px solid" }}>
-                <span>Las Jugadas o apuestas validas estan sujetas segun
+                <div className="cliente-print">
+                  <div>Nombre: {d.Agencia}</div>
+                  <div>Fecha: { hours + ":" + minutes + pmam + " - " + timess}</div>
+                  <div>Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego</div>
+                  <div>Usuario: {d.Usuario}</div>
+                </div>
+                {tk}
+                <div className="cliente-print" style={{ float: "right" }}>
+                  Cuota: <span style={{ fontSize: 14, fontWeight: "bolder" }}>{d.Cuota}</span>
+                </div>
+                <div className="cliente-print" style={{ textAlign: "right" }}>
+                  Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span>
+                </div>
+
+                <div id="ganancia-print">
+                  <div className="ga-imprimir">${d.Ganancia}</div>
+                </div>
+                <div className="cliente-print" style={{ marginBottom: 5, border: "1px solid" }}>
+                  <span>Las Jugadas o apuestas validas estan sujetas segun
                       <br />el reglamento oficial de apuestas deportivas descrito
                     <br />en la pagina</span>
+                </div>
               </div>
             </div>
-            </div>
-          <div className="footer">   </div>
+            <div className="footer">   </div>
           </div>
         </div>
       </Router>

@@ -154,33 +154,32 @@ const Tableselect = (props) => {
                     version: y.data[29992] ? y.data[29992].version : "",
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
-                let datagg = {
-                    choose: 1,
-                    logro: y.data[109992] ? y.data[109992].logro : "",
-                    id: y.idmatch,
-                    name: y.name,
-                    odd: y.data[109992] ? y.data[109992].o1 : "",
-                    option: "IMPAR",
-                    price: y.data[109992] ? y.data[109992].o1 : "",
-                    time: hours + ":" + minutes + pmam + " - " + timess,
-                    type: y.data[109992] ? y.data[109992].type : "",
-                    version: y.data[109992] ? y.data[109992].version : "",
-                    liga: l[idliga].sportName + " " + l[idliga].name,
-                };
                 let datang = {
-                    choose: 2,
-                    logro: y.data[109992] ? y.data[109992].logro : "",
+                    choose: 1,
+                    logro: y.data[139992] ? y.data[139992].logro : "",
                     id: y.idmatch,
                     name: y.name,
-                    odd: y.data[109992] ? y.data[109992].o2 : "",
-                    option: "PAR",
-                    price: y.data[109992] ? y.data[109992].o2 : "",
+                    odd: y.data[139992] ? y.data[139992].o1 : "",
+                    option: "Si Anotan",
+                    price: y.data[139992] ? y.data[139992].o1 : "",
                     time: hours + ":" + minutes + pmam + " - " + timess,
-                    type: y.data[109992] ? y.data[109992].type : "",
-                    version: y.data[109992] ? y.data[109992].version : "",
+                    type: y.data[139992] ? y.data[139992].type : "",
+                    version: y.data[139992] ? y.data[139992].version : "",
                     liga: l[idliga].sportName + " " + l[idliga].name,
                 };
-
+                let datagg = {
+                    choose: 2,
+                    logro: y.data[139992] ? y.data[139992].logro : "",
+                    id: y.idmatch,
+                    name: y.name,
+                    odd: y.data[139992] ? y.data[139992].o2 : "",
+                    option: "No Anotan",
+                    price: y.data[139992] ? y.data[139992].o2 : "",
+                    time: hours + ":" + minutes + pmam + " - " + timess,
+                    type: y.data[139992] ? y.data[139992].type : "",
+                    version: y.data[139992] ? y.data[139992].version : "",
+                    liga: l[idliga].sportName + " " + l[idliga].name,
+                };
 
 
                 return (
@@ -228,8 +227,8 @@ const Tableselect = (props) => {
                         </th>
                         <th>
 
-                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[109992] ? props.format(y.data[109992].o2) : ""}</div>
-                            <div className={y.data[109992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[109992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[109992] ? props.format(y.data[109992].o1) : ""}</div>
+                            <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[139992] ? props.format(y.data[139992].o1) : ""}</div>
+                            <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[139992] ? props.format(y.data[139992].o2) : ""}</div>
 
 
 
@@ -272,7 +271,7 @@ const Tableselect = (props) => {
                                 <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight: 'normal' }}>1 X 2 </th>
                                 <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>1X 12 2X</th>
                                 <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>MAS / MENOS</th>
-                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>PAR / IMPAR</th>
+                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>GG / NG</th>
                                 <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>Otros</th>
 
                             </tr>

@@ -711,24 +711,20 @@ table#t01 th {
     color: white;
     background-color: black;
 }
-.abierto{
-      background: #fff700;
+.Espera{
+      background: #1150c7;
+      color:white;
 }
-.cerrado{
-      background-color: red;
+.Anulado{
+      background-color: rgb(117, 117, 117);
 }
-.ganador{
+.Gano{
       background-color: green;
 }
-.perdedor{
+.Perdio{
     background-color: red;
 }
-.ganador-cobrado{
-    background-color: #15f1be;
-}
-.sin-efecto{
-    background: gray;
-}
+
 
 /* .modal-content{
   width: 150%;
@@ -816,7 +812,7 @@ border: 1px solid rgb(255, 62, 62);
 
  
     text-align: center;
-    margin-top: 7px;
+   
     font-size: 35px;
 
 

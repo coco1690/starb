@@ -53,9 +53,9 @@ class Perfil extends Component {
         if (this.props.user.login) {
             movimientos = this.state.usuario.Movimientos.map(obj => {
 
-                let timess = new Date(obj.Fecha*1000);
+                let timess = new Date(obj.Fecha * 1000);
                 let pmam = 'AM';
-        
+
                 var hours = timess.getHours();
                 // correct for number over 24, and negatives
                 if (hours >= 24) { hours -= 24; }
@@ -99,8 +99,10 @@ class Perfil extends Component {
         let tq = this.props.user.login ? this.props.user.userdata : { Tickets: [] };
         let ultimostikets = []
         if (this.props.user.login) {
-            ultimostikets = tq.Tickets.map(ob => {
-                let timess = new Date(ob.Fecha*1000);
+            let ra = Object.keys(tq.Tickets);
+            ultimostikets = ra.map(of => {
+                let ob = tq.Tickets[of];
+                let timess = new Date(ob.Fecha * 1000);
                 let pmam = 'AM';
 
                 var hours = timess.getHours();
@@ -122,7 +124,7 @@ class Perfil extends Component {
                 if (minutes.length === 1) { minutes = "0" + minutes; }
 
 
-                var months = ["Ene/", "Feb/", "Mar/", "Abr/", "May/", "Jun/", "Jul/", "Ago/", "Sep/", "Oct/", "Nov/", "Dec/"];
+                var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
                 var year = timess.getFullYear();
                 var dd = timess.getDate();
                 dd = dd < 10 ? '0' + dd : dd;
@@ -130,16 +132,16 @@ class Perfil extends Component {
                 timess = today;
                 // console.log(i)
 
-                
+
                 // console.log(i)
                 return (
                     <tr key={"Tk" + ob.Id}>
                         <td>{ob.Id}</td>
-                        <td>{timess + " /" + year + " - " + hours + ":" + minutes + " " + pmam}</td>
+                        <td>{timess + ", " + year + " - " + hours + ":" + minutes + " " + pmam}</td>
                         <td>{ob.nEventos}</td>
                         <td>{ob.Monto}</td>
                         <td>{ob.Ganancia}</td>
-                        <td className={ob.Estado === 1 ? "abierto" : ob.Estado === 2 ? "ganador" : ob.Estado === 3 ? "perdedor" : ob.Estado === 5 ? "sin-efecto" : ob.Estado === 8 ? "ganador-cobrado" : ""}>{ob.Estado === 1 ? "Abierto" : ob.Estado === 2 ? "Ganador" : ob.Estado === 3 ? "Perdedor" : ob.Estado === 5 ? "Sin Efecto" : ob.Estado === 8 ? "Ganador-Cobrado" : ""}</td>
+                        <td className={ob.Estado}>{ob.Estado}</td>
                         <td className='btn' >
                             <img src="/img/icons/ticket.png" alt="" onClick={this.getdata.bind(this, ob.Id)} /></td>
                     </tr>
@@ -161,18 +163,28 @@ class Perfil extends Component {
                 let f = o[ticket]
 
                 return (
+                    <div key={ticket} className="panelright">
+                        <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
 
-                    <div key={ticket} className="cliente-print">
-                        <div>► Juego: {f.id} | {f.time}</div>
-                        <div style={{ width: "100%" }}>  {f.liga} </div>
-                        <div> </div>
-                        <div>{f.name} </div>
-                        <div>Apuesta: {f.option}
-                            <div style={{ float: "right" }}>Cuota:
-              <span style={{ fontWeight: "bolder", fontSize: 14 }}>{f.odd}</span></div>
+
+                            <span style={{ display: "block", fontSize: 15, color: "rgb(255, 255, 255)" }}>
+                                {f.liga}
+                            </span>
+                            <span style={{ display: "block", fontSize: 14, color: "rgb(254, 224, 100)" }}>
+                                {f.name}
+                            </span>
+
+                            <div style={{ display: "inline", paddingTop: 10, fontSize: 12 }}>{f.time}</div>
+                            <span style={{ display: "block", fontSize: 14, color: "rgb(254, 224, 100)" }}>
+                                <span style={{ fontSize: 18, color: 'white', float: 'right' }}> {this.props.format(f.odd)}</span>
+                                {f.logro}
+                            </span>
+                            <div style={{ display: "inline", paddingTop: 10, color: "rgb(255, 165, 0)", fontSize: 12 }}>
+                                <div style={{ display: "table-cell" }}>{f.option}</div>
+
+                            </div>
                         </div>
                     </div>
-
                 );
 
             })
@@ -187,41 +199,45 @@ class Perfil extends Component {
                     onHide={closeModal}
                     aria-labelledby="ModalHeader"
                 >
-                    <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }}>
-                        <Modal.Title id='ModalHeader' style={{ color: "black" }}>Ticket Virtual</Modal.Title>
+                    <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)", padding: 0 }}>
+                        <Modal.Title id='ModalHeader' style={{ color: "black" }}>
+                            <div className="cuponrigth">
+                                <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
+                                <span className="ticket-title ">Cupón  </span>
+                                <div className="speech-bubble" >
+                                    <div className="cup" style={{textShadow:"#6b6666 2px 2px 4px"}}>{tk.length}</div>
+
+                                </div>
+
+                            </div>
+                        </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body style={{ background: "rgb(5, 5, 5)" }} >
+                    <Modal.Body style={{ background: "#252525" }} >
                         <div>
                             <div className="ticsk" >
-
                                 <div className="cliente-print" style={{ fontSize: 14, paddingBottom: 10 }}>
                                     <div>Agencia: {d.Agencia}</div>
                                     <div>Fecha: {d.Fecha}</div>
                                     <div>Ticket: {d.ID} </div>
                                     <div>Usuario: {d.Usuario}</div>
-                                    <div>Estado: {d.Usuario}</div>
+                                    <div>Estado: {d.Estado}</div>
                                     <div> Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span> </div>
                                 </div>
                                 {tk}
 
-
-
-                                <div id="ganancia-print">
-                                    <div className="ga-imprimir">COP {d.Ganancia}</div>
+                                <div id="ganancia-print" style={{ marginTop: 15 }}>
+                                    <div className="ga-imprimir">$ {d.Ganancia}</div>
                                 </div>
-
                             </div>
                         </div>
-
                     </Modal.Body>
-                    <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
+                    <Modal.Footer style={{ background: "#252525" }}>
                         <Modal.Dismiss className='btn confirm'
-                            style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>
+                            style={{ boxSizing: 'borderBox',textShadow: "2px 2px 4px #000000", width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>
                             Cerrar</Modal.Dismiss>
                     </Modal.Footer>
                 </Modal>
             </div >
-            // console.log(k)
         }
 
 
