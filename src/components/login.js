@@ -191,7 +191,6 @@ class Login extends React.Component {
                         </div>
                         <select className="custom-select custom-select-sm" style={{ marginBottom: 0, width: 80 }} value={this.props.format} onChange={this.props.changeFormat}>
                             <option value="DEC">DEC</option>
-                            {/* <option value="UK">UK</option> */}
                             <option value="US">US</option>
                         </select>
                     </li>
@@ -205,17 +204,7 @@ class Login extends React.Component {
                             <i id="segundos" className="segundos"> 0 </i>
                         <i id="ampm" className="ampm"> 0 </i>
                     </li>
-                    
-                   
-                    <li className="dropdown">
-                        <Link to="#" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown'></i></Link>
-                        <div className="dropdown-content">
-                            <Link to="/">Historial</Link>
-                            <Link to="/">Deposito</Link>
-                            <Link to="/">Retiros</Link>
-
-                        </div>
-                    </li>
+               
                     <li className="dropdown">
                         <Link to='#' className="dropbtn" id="usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content">
