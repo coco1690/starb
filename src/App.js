@@ -138,7 +138,7 @@ class App extends Component {
             return (
               <div key={idApuesta}>
                 <div style={{ display: "table-cell", right: 1, color: "rgb(254, 224, 100)", fontSize: 22, float: "right" }}>
-                  <span>{temporal[idApuesta].option + " | " + temporal[idApuesta].odd}</span>
+                  <span>{temporal[idApuesta].option + " | " + this.format(temporal[idApuesta].odd)}</span>
                 </div>
                 <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
                   <span style={{ display: "block", fontSize: 15, color: "rgb(255, 255, 255)" }}>
@@ -151,6 +151,9 @@ class App extends Component {
                   <div style={{ display: "inline", paddingTop: 10, fontSize: 12 }}>
                     {temporal[idApuesta].time}
                   </div>
+                  <span style={{ display: "block", fontSize: 14, color: "rgb(254, 224, 100)" }}>
+                    {temporal[idApuesta].logro}
+                  </span>
 
 
                 </div>
@@ -379,7 +382,7 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="App">
+        <div className="App" >
 
           <div className="header">
             <div className="contenedor-login">

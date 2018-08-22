@@ -175,9 +175,9 @@ class Login extends React.Component {
             canvas = <div className='navbar'>
 
                 <ul>
-                    <li className="dropdown">
+                    <li className="dropdown" style={{textShadow: "2px 2px 4px #000000"}}>
                         <Link to='#' className="dropbtn usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
-                        <div className="dropdown-content">
+                        <div className="dropdown-content" >
                             <Link to="/perfil">Mi Perfil</Link>
                             <Link to="/" className="salir" onClick={this.salir} >Cerrar Sesion<i className='ion-power'></i></Link>
 
@@ -185,14 +185,14 @@ class Login extends React.Component {
                         </div>
                     </li>
                     <li>
-                        <button className="btn confirm" onClick={this.props.changeFormat} style={{ boxSizing: 'borderBox', width: '100%', height: 37, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>{this.props.format}</button>
+                        <button className="btn confirm" onClick={this.props.changeFormat} style={{ textShadow: "2px 2px 4px #000000", boxSizing: 'borderBox', width: '100%', height: 37, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>{this.props.format}</button>
                     </li>
 
                     <li>
 
                     </li>
                     <li>
-                        <Link to="/perfil" className="deposito"> Saldo <i className='ion-social-usd'></i>
+                        <Link to="/perfil" className="deposito" style={{textShadow: "2px 2px 4px #000000"}}> Saldo <i className='ion-social-usd'></i>
                             {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
                         </Link>
                     </li>

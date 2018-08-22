@@ -92,7 +92,7 @@ class Leftpanel extends Component {
                 // if(b[index].class=="active")
                 // this.openCity(null, index)
                 return (
-                    <div key={index} className={"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
+                    <div key={index} className={index==="1"?"active sportbutton btn " + b[index].class:"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
                         <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
 
                         </div>
@@ -121,7 +121,7 @@ class Leftpanel extends Component {
 
                         <Scrollbars
                             style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
-                            <div style={{ display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
+                            <div style={{ textShadow: "2px 2px 4px #000000",display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
                                 {paises}
                             </div>
 

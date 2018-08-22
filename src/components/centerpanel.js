@@ -358,7 +358,7 @@ class Centerpanel extends Component {
                 return (
 
                     <table key={idliga} idl={idliga} id="table-central">
-                        <thead id="thead-central">
+                        <thead id="thead-central" style={{textShadow: "2px 2px 4px #000000"}}>
                             <tr >
                                 <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100, textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
                                     {l[idliga].sportName + " " + l[idliga].name}

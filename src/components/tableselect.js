@@ -259,7 +259,7 @@ const Tableselect = (props) => {
                 <div key={idliga} idl={idliga}>
 
                     <table id="table-central">
-                        <thead id="thead-central">
+                        <thead id="thead-central" style={{textShadow: "2px 2px 4px #000000"}}>
                             {/* <tr>
                     <td id="proximos" colSpan='7' style={{ textAlign: 'left', fontSize: 14 }}>{liganombre}</td>
                 </tr>   */}
