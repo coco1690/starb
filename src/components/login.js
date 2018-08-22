@@ -181,16 +181,7 @@ class Login extends React.Component {
                     <li><a href="#news" id="deposito"><i className='ion-social-usd'></i>
                         {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
                     </a></li>
-                    <li className="dropdown">
-                        <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown'></i></Link>
-                        <div className="dropdown-content">
-                            <Link value="US" to="/" onClick={this.props.changeFormat}>Historial</Link>
-                            <Link value="US" to="/" onClick={this.props.changeFormat}>Deposito</Link>
-                            <Link value="US" to="/" onClick={this.props.changeFormat}>Retiros</Link>
-
-                        </div>
-
-                    </li>
+                   
                     <li>
                         <select className="custom-select custom-select-sm" style={{ marginBottom: 0, width: 80 }} value={this.props.format} onChange={this.props.changeFormat}>
                             <option value="DEC">DEC</option>
