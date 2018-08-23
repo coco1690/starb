@@ -206,11 +206,11 @@ class App extends Component {
                 .then(res => {
                   if (res.status === 200) {
                     let user = this.state.user;
-                    console.log(flows, user);
+                    // console.log(flows, user);
                     user['userdata']['balance'] = user['userdata']['balance'] - flows;
 
                     let tikes = user['userdata']['Tickets'];
-                    tikes[res.info.ID] = { Estado: 1, Fecha: res.info.Fecha, Ganancia: res.info.Ganancia, Id: res.info.ID, Monto: res.info.Monto, nEventos: res.info.nEventos };
+                    tikes[res.info.ID] = { Estado: "Espera", Fecha: res.info.Fecha, Ganancia: res.info.Ganancia, Id: res.info.ID, Monto: res.info.Monto, nEventos: res.info.nEventos };
                     user['userdata']['Tickets'] = tikes;
                     this.setState({
                       user
@@ -350,6 +350,8 @@ class App extends Component {
       let format = localStorage.getItem('format');
       // console.log(temporal);
       this.setState({ format });
+    }else{
+      this.setState({ format:"DECIMAL" });
     }
 
   }
