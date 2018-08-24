@@ -264,7 +264,7 @@ class Login extends React.Component {
 
             canvas = <div className='navbar'>
                 <ul>
-                    <li className="dropdown" style={{textShadow: "2px 2px 4px #000000"}}>
+                    <li className="dropdown textusuario">
                         <Link to='#' className="dropbtn usuario">{this.props.user.userdata.fullname}<i className='ion-android-arrow-dropdown'></i> </Link>
                         <div className="dropdown-content" >
                             <Link to="/perfil">Mi Perfil</Link>
@@ -274,14 +274,14 @@ class Login extends React.Component {
                         </div>
                     </li>
                     <li>
-                        <button className="btn confirm" onClick={this.props.changeFormat} style={{ textShadow: "2px 2px 4px #000000", boxSizing: 'borderBox', width: '100%', height: 37, color: 'white', background: '#ff4600', fontSize: 14, border: 'hidden' }}>{this.props.format}</button>
+                        <button className="btn format" onClick={this.props.changeFormat}>{this.props.format}</button>
                     </li>
 
                     <li>
 
                     </li>
                     <li>
-                        <button onClick={this.reload} className="btn deposito" style={{ textShadow: "2px 2px 4px #000000", boxSizing: 'borderBox', width: '100%', height: 37, color: 'white', fontSize: 14, border: 'hidden', textShadow: "2px 2px 4px #000000"}}> 
+                        <button onClick={this.reload} className="btn deposito"> 
                         Saldo <i className='ion-social-usd'></i>
                             {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
                         <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div>

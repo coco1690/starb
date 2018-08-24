@@ -182,109 +182,119 @@ const Tableselect = (props) => {
                 };
 
 
-                return (
+                return <tr key={idevent}>
+                    <th style={{ width: 70 }}>
+                      <div id="text-color-hora-tablecenter">
+                        {hours + ":" + minutes + pmam}
+                      </div>
+                      <small style={{ fontWeight: 100 }}>
+                        {timess}
+                      </small>
+                    </th>
+                    <th id="textequipos-tablecenter">
+                      {y.name}
+                    </th>
+                    <th style={{ width: 40 }}>
+                      <i className="ion-stats-bars" />
+                    </th>
 
+                    <th>
+                      <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datalocal1) : void 0}>
+                        {y.data[19992] ? props.format(y.data[19992].o1) : ""}{" "}
+                      </div>
 
+                      <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, dataempatex) : void 0}>
+                        {y.data[19992] ? props.format(y.data[19992].o2) : ""}
+                      </div>
 
-                    <tr key={idevent} >
+                      <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datavisitante2) : void 0}>
+                        {y.data[19992] ? props.format(y.data[19992].o3) : ""}
+                      </div>
+                    </th>
 
-                        <th style={{ width: 70 }} >
+                    <th>
+                      <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data1x) : void 0}>
+                        {y.data[49992] ? props.format(y.data[49992].o1) : ""}
+                      </div>
 
-                            <div style={{ color: '#C0C11A', fontSize: 13, fontWeight: 100 }} >
-                                {hours + ":" + minutes + pmam}
-                            </div>
-                            <small style={{ fontWeight: 100 }}>
-                                {timess}
-                            </small>
-                        </th>
-                        <th style={{ textAlign: 'left', width: '28%', fontSize: 13, fontWeight: 100 }} >{y.name}</th>
-                        <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
+                      <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data12) : void 0}>
+                        {y.data[49992] ? props.format(y.data[49992].o2) : ""}
+                      </div>
 
-                        <th>
-                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datalocal1) : void (0)}>{y.data[19992] ? props.format(y.data[19992].o1) : ""} </div>
+                      <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data2x) : void 0}>
+                        {y.data[49992] ? props.format(y.data[49992].o3) : ""}
+                      </div>
+                    </th>
 
-                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, dataempatex) : void (0)}>{y.data[19992] ? props.format(y.data[19992].o2) : ""}</div>
+                    <th>
+                      <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataunder) : void 0}>
+                        {y.data[29992] ? props.format(y.data[29992].o1) : ""}
+                      </div>
 
-                            <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? props.addTocart.bind(this, y.idmatch, datavisitante2) : void (0)}>{y.data[19992] ? props.format(y.data[19992].o3) : ""}</div>
-                        </th>
+                      <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataover) : void 0}>
+                        {y.data[29992] ? props.format(y.data[29992].o2) : ""}
+                      </div>
 
-                        <th>
-                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data1x) : void (0)}>{y.data[49992] ? props.format(y.data[49992].o1) : ""}</div>
-
-                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data12) : void (0)}>{y.data[49992] ? props.format(y.data[49992].o2) : ""}</div>
-
-                            <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? props.addTocart.bind(this, y.idmatch, data2x) : void (0)}>{y.data[49992] ? props.format(y.data[49992].o3) : ""}</div>
-                        </th>
-
-                        <th>
-
-                            <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataunder) : void (0)}>{y.data[29992] ? props.format(y.data[29992].o1) : ""}</div>
-
-                            <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? props.addTocart.bind(this, y.idmatch, dataover) : void (0)}>{y.data[29992] ? props.format(y.data[29992].o2) : ""}</div>
-
-                            <div className="botnn btn:active" style={{ color: '#C0C11A' }}>{y.data[29992] ? y.data[29992].o3 : ""}</div>
-
-                        </th>
-                        <th>
-
-                            <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[139992] ? props.format(y.data[139992].o1) : ""}</div>
-                            <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[139992] ? props.format(y.data[139992].o2) : ""}</div>
-
-
-
-
-                        </th>
-                        <th>
-                            <div className="botn btn btn:active btn:hover"
-                                onClick={props.getdata.bind(this, y.idmatch, {
-                                    id: y.idmatch,
-                                    name: y.name,
-                                    time: timess,
-                                    hora: hours + ":" + minutes + pmam,
-                                    liga: liganombre,
-                                    home: y.home,
-                                    away: y.away
-                                })}
-                                style={{ color: 'black', backgroundColor: "darkorange", borderRadius: 10 }}>
-                                {"+"}
-                            </div>
-                        </th>
-                    </tr>
-                );
+                      <div className="botnn btn:active">
+                        {y.data[29992] ? y.data[29992].o3 : ""}
+                      </div>
+                    </th>
+                    <th>
+                      <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datang) : void 0}>
+                        {y.data[139992] ? props.format(y.data[139992].o1) : ""}
+                      </div>
+                      <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[139992] ? props.addTocart.bind(this, y.idmatch, datagg) : void 0}>
+                        {y.data[139992] ? props.format(y.data[139992].o2) : ""}
+                      </div>
+                    </th>
+                    <th>
+                      <div className="botn btn btn:active btn:hover boton-color-others" onClick={props.getdata.bind(
+                          this,
+                          y.idmatch,
+                          {
+                            id: y.idmatch,
+                            name: y.name,
+                            time: timess,
+                            hora: hours + ":" + minutes + pmam,
+                            liga: liganombre,
+                            home: y.home,
+                            away: y.away
+                          }
+                        )}>
+                        {"+"}
+                      </div>
+                    </th>
+                  </tr>;
 
             })
 
-            return (
-                <div key={idliga} idl={idliga}>
-
-                    <table id="table-central">
-                        <thead id="thead-central" style={{textShadow: "2px 2px 4px #000000"}}>
-                            {/* <tr>
+            return <div key={idliga} idl={idliga}>
+                <table id="table-central">
+                  <thead id="thead-central">
+                    {/* <tr>
                     <td id="proximos" colSpan='7' style={{ textAlign: 'left', fontSize: 14 }}>{liganombre}</td>
                 </tr>   */}
-                            <tr >
-
-
-                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100, textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
-                                    {l[idliga].sportName + " " + l[idliga].name}
-                                </th>
-                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight: 'normal' }}>1 X 2 </th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>1X 12 2X</th>
-                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>MAS / MENOS</th>
-                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>GG / NG</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>Otros</th>
-
-                            </tr>
-
-                        </thead>
-                        <tbody>
-
-                            {listaeventos}
-                        </tbody>
-                    </table>
-                </div>
-
-            )
+                    <tr>
+                      <th colSpan="3" id="table-textcenter">
+                        <i className="ion-android-stopwatch" />
+                        <div id="table-center-text-liga">
+                          {l[idliga].sportName +
+                            " " +
+                            l[idliga].name}
+                        </div>
+                      </th>
+                      <th id="text-center1x2">1 X 2 </th>
+                      <th id="text-center1x122x">1X 12 2X</th>
+                      <th id="text-center-mas-menos">
+                        MAS / MENOS
+                      </th>
+                      <th id="text-center-gg-ng">GG / NG</th>
+                      <th id="text-center-otros">Otros</th>
+                    </tr>
+                  </thead>
+                  <tbody>{listaeventos}</tbody>
+                </table>
+              </div>;
 
         });
 

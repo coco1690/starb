@@ -64,20 +64,18 @@ class Leftpanel extends Component {
 
                     aux = paisId.map(index2 => {
                         // console.log(index2)
-                        return (
-                            <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600, }} className="countriesfav">
-                                <div style={{ display: 'table-row' }}>
-                                    <div>
-                                        <Link className={"country:active country:focus country:hover country " + c[index2].class} style={{ width: 126, color: 'white', display: 'table-cell', fontSize: 14 }} to={"/sport/" + index + "/pais/" + index2} >
-                                            &nbsp;&nbsp;   <i className={"ficon-inline f-" + index2}></i>&nbsp;&nbsp;
-                                    {c[index2].name}
-
-
-                                        </Link>
-                                    </div>
-                                </div>
+                        return <div key={index2} className="countriesfav">
+                            <div style={{ display: "table-row" }}>
+                              <div>
+                                <Link className={"country:active country:focus country:hover country text-countriesfav " + c[index2].class} 
+                                 to={"/sport/" + index + "/pais/" + index2}>
+                                  &nbsp;&nbsp; <i className={"ficon-inline f-" + index2} />
+                                  &nbsp;&nbsp;
+                                  {c[index2].name}
+                                </Link>
+                              </div>
                             </div>
-                        )
+                          </div>;
                     })
                 } else {
                     return null;
@@ -93,8 +91,8 @@ class Leftpanel extends Component {
                 // this.openCity(null, index)
                 return (
                     <div key={index} className={index==="1"?"active sportbutton btn " + b[index].class:"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
-                        <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
-
+                        <div id="sportboton"> 
+                            {b[index].name}
                         </div>
                     </div>
                 )
@@ -114,14 +112,14 @@ class Leftpanel extends Component {
 
                     <div className="contenedor-deportes2">
 
-                        <div style={{ width: 70, margin: 1, background:"#000" ,minHeight: 420,}}>
+                        <div id="texto-deportes">
                             {deportes}
                         </div>
 
 
                         <Scrollbars
                             style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
-                            <div style={{ textShadow: "2px 2px 4px #000000",display: 'table-cell', verticalAlign: 'top', width: '150%', maxHeight: 425 }}>
+                            <div id="texto-paises">
                                 {paises}
                             </div>
 

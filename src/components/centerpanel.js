@@ -293,81 +293,110 @@ class Centerpanel extends Component {
 
 
 
-                    return (
+                    return <tr key={y.idmatch}>
+                        <th style={{ width: 70 }}>
+                          <div id="text-color-hora-tablecenter">
+                            {hours + ":" + minutes + pmam}
+                          </div>
+                          <small
+                            style={{ fontWeight: 100 }}
+                          >
+                            {timess}
+                          </small>
+                        </th>
+                        <th id="textequipos-tablecenter">
+                          {y.name}
+                        </th>
+                        <th style={{ width: 40 }}>
+                          <i className="ion-stats-bars" />
+                        </th>
 
-                        <tr
-                            key={y.idmatch} >
+                        <th>
+                          <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datalocal1) : void 0}>
+                            {y.data[19992] ? this.props.format(y.data[19992].o1) : ""}{" "}
+                          </div>
+                          <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, dataempatex) : void 0}>
+                            {y.data[19992] ? this.props.format(y.data[19992].o2) : ""}
+                          </div>
+                          <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datavisitante2) : void 0}>
+                            {y.data[19992] ? this.props.format(y.data[19992].o3) : ""}
+                          </div>
+                        </th>
 
-                            <th style={{ width: 70 }} >
-                                <div style={{ color: '#C0C11A', fontSize: 13, fontWeight: 100 }} >
-                                    {hours + ":" + minutes + pmam}
-                                </div>
-                                <small style={{ fontWeight: 100 }}>
-                                    {timess}
-                                </small>
-                            </th>
-                            <th style={{ textAlign: 'left', width: '28%', fontSize: 13, fontWeight: 100 }} >{y.name}</th>
-                            <th style={{ width: 40 }} ><i className='ion-stats-bars'></i></th>
+                        <th>
+                          <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data1x) : void 0}>
+                            {y.data[49992] ? this.props.format(y.data[49992].o1) : ""}
+                          </div>
+                          <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data12) : void 0}>
+                            {y.data[49992] ? this.props.format(y.data[49992].o2) : ""}
+                          </div>
+                          <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data2x) : void 0}>
+                            {y.data[49992] ? this.props.format(y.data[49992].o3) : ""}
+                          </div>
+                        </th>
 
-                            <th>
-                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datalocal1) : void (0)}>{y.data[19992] ? this.props.format(y.data[19992].o1) : ""} </div>
-                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, dataempatex) : void (0)}>{y.data[19992] ? this.props.format(y.data[19992].o2) : ""}</div>
-                                <div className={y.data[19992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[19992] ? this.props.addTocart.bind(this, y.idmatch, datavisitante2) : void (0)}>{y.data[19992] ? this.props.format(y.data[19992].o3) : ""}</div>
-                            </th>
-
-                            <th>
-                                <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data1x) : void (0)}>{y.data[49992] ? this.props.format(y.data[49992].o1) : ""}</div>
-                                <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data12) : void (0)}>{y.data[49992] ? this.props.format(y.data[49992].o2) : ""}</div>
-                                <div className={y.data[49992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[49992] ? this.props.addTocart.bind(this, y.idmatch, data2x) : void (0)}>{y.data[49992] ? this.props.format(y.data[49992].o3) : ""}</div>
-                            </th>
-
-                            <th>
-
-                                <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? this.props.addTocart.bind(this, y.idmatch, dataunder) : void (0)}>{y.data[29992] ? this.props.format(y.data[29992].o1) : ""}</div>
-                                <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? this.props.addTocart.bind(this, y.idmatch, dataover) : void (0)}>{y.data[29992] ? this.props.format(y.data[29992].o2) : ""}</div>
-                                <div className="botnn btn:active" style={{ color: '#C0C11A' }}>{y.data[29992] ? y.data[29992].o3 : ""}</div>
-
-                            </th>
-                            <th>
-
-                                <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang) : void (0)}>{y.data[139992] ? this.props.format(y.data[139992].o1) : ""}</div>
-                                <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datagg) : void (0)}>{y.data[139992] ? this.props.format(y.data[139992].o2) : ""}</div>
-
-                            </th>
-                            <th>
-                                <div className="botn btn btn:active btn:hover"
-                                    style={{ color: 'black', backgroundColor: "darkorange", borderRadius: 10 }}
-                                    onClick={
-                                        this.getdata.bind(this, y.idmatch,
-                                            {
-                                                id: y.idmatch,
-                                                name: y.name,
-                                                time: timess,
-                                                hora: hours + ":" + minutes + pmam,
-                                                liga: liganombre,
-                                                home: y.home,
-                                                away: y.away
-                                            })}>
-                                    {"+"}
-                                </div>
-                            </th>
-                        </tr>
-                    );
+                        <th>
+                          <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? this.props.addTocart.bind(this, y.idmatch, dataunder) : void 0}>
+                            {y.data[29992] ? this.props.format(y.data[29992].o1) : ""}
+                          </div>
+                          <div className={y.data[29992] ? "botn btn btn:active btn:hover" : "botnone"} style={{}} onClick={y.data[29992] ? this.props.addTocart.bind(this, y.idmatch, dataover) : void 0}>
+                            {y.data[29992] ? this.props.format(y.data[29992].o2) : ""}
+                          </div>
+                          <div className="botnn btn:active" >
+                            {y.data[29992] ? y.data[29992].o3 : ""}
+                          </div>
+                        </th>
+                        <th>
+                          <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datang) : void 0}>
+                            {y.data[139992] ? this.props.format(y.data[139992].o1) : ""}
+                          </div>
+                          <div className={y.data[139992] ? "botn btn btn:active btn:hover" : "botnone"} onClick={y.data[139992] ? this.props.addTocart.bind(this, y.idmatch, datagg) : void 0}>
+                            {y.data[139992] ? this.props.format(y.data[139992].o2) : ""}
+                          </div>
+                        </th>
+                        <th>
+                          <div className="botn btn btn:active btn:hover boton-color-others"  onClick={this.getdata.bind(
+                              this,
+                              y.idmatch,
+                              {
+                                id: y.idmatch,
+                                name: y.name,
+                                time: timess,
+                                hora:
+                                  hours +
+                                  ":" +
+                                  minutes +
+                                  pmam,
+                                liga: liganombre,
+                                home: y.home,
+                                away: y.away
+                              }
+                            )}>
+                            {"+"}
+                          </div>
+                        </th>
+                      </tr>;
                 })
 
                 return (
 
                     <table key={idliga} idl={idliga} id="table-central">
-                        <thead id="thead-central" style={{ textShadow: "2px 2px 4px #000000" }}>
+                        <thead id="thead-central">
                             <tr >
-                                <th colSpan='3' style={{ textAlign: 'left', fontSize: 14, fontWeight: 100, textShadow: "2px 2px 4px #000000" }}  ><i className='ion-android-stopwatch'></i>
-                                    {l[idliga].sportName + " " + l[idliga].name}
+                                <th colSpan='3' id="table-textcenter">
+                                    <i className='ion-android-stopwatch'></i>
+
+                                    <div id="table-center-text-liga">
+                                        {l[idliga].sportName +
+                                            " " +
+                                            l[idliga].name}
+                                    </div>
                                 </th>
-                                <th className='text-center' style={{ wordSpacing: '20pt', fontSize: 12, fontWeight: 'normal' }}>1 X 2 </th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>1X 12 2X</th>
-                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>MAS / MENOS</th>
-                                <th className='text-center' style={{ wordSpacing: '8pt', fontSize: 12, fontWeight: 'normal' }}>GG / NG</th>
-                                <th className='text-center' style={{ wordSpacing: '15pt', fontSize: 12, fontWeight: 'normal' }}>Otros</th>
+                                <th  id='text-center1x2'>1 X 2 </th>
+                                <th  id='text-center1x122x'>1X 12 2X</th>
+                                <th  id='text-center-mas-menos'>MAS / MENOS</th>
+                                <th  id='text-center-gg-ng'>GG / NG</th>
+                                <th  id='text-center-otros'>Otros</th>
 
                             </tr>
 
@@ -736,46 +765,52 @@ class Centerpanel extends Component {
         })
 
 
-        return (
-            <div>
-
-                <div className='center-panel2' >
-                    <Carusel />
-                </div>
-                <div className="panels">
-
-                    <Tableselect format={this.props.format} getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
-
-                    <div id="proximos">
-                        Proximos Eventos
-                    </div>
-
-                    {liga}
-
-                    <Modal show={this.state.open} onHide={this.closeModal.bind()} aria-labelledby="ModalHeader">
-                        <Modal.Header closeButton style={{ background: "rgb(5, 5, 5)" }}>
-                            <Modal.Title id='ModalHeader' style={{ color: '#ffffff', textAlign: "center" }}>
-
-                                <div> {this.state.entrada.liga}<br /></div>
-                                <div style={{ color: "#fce916", fontSize: 15 }} >{this.state.entrada.id}<br /> {this.state.entrada.name}<br /> </div>
-                                <div> <small>{this.state.entrada.time} - {this.state.entrada.hora}</small></div>
-
-                            </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body style={{ background: "rgb(5, 5, 5)" }}>
-
-                            {this.state.loadingmodal ? <div className="lds-ripple"><div></div><div></div></div> : idss}
-
-                        </Modal.Body>
-                        <Modal.Footer style={{ background: "rgb(5, 5, 5)" }}>
-                            <Modal.Dismiss className='btn btn-confirm' style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }} onClick={this.closeModal.bind()}>Cerrar</Modal.Dismiss>
-                        </Modal.Footer>
-                    </Modal>
-
-                </div>
+        return <div>
+            <div className="center-panel2">
+              <Carusel />
             </div>
+            <div className="panels">
+              <Tableselect format={this.props.format} getdata={this.getdata} addTocart={this.props.addTocart} tableheader={this.state.select ? this.state.select.name : ""} raw={this.state.select ? this.state.select.leagues : []} loading={this.state.loading} />
 
-        );
+              <div id="proximos">Proximos Eventos</div>
+
+              {liga}
+
+              <Modal show={this.state.open} onHide={this.closeModal.bind()} aria-labelledby="ModalHeader">
+                <Modal.Header closeButton id="color-headermodal">
+                  <Modal.Title id="color-titulo-modal">
+                    <div>
+                      {" "}
+                      {this.state.entrada.liga}
+                      <br />
+                    </div>
+                    <div id="cont-textcolor-id-liga">
+                      {this.state.entrada.id}
+                      <br /> {this.state.entrada.name}
+                      <br />{" "}
+                    </div>
+                    <div>
+                      {" "}
+                      <small>
+                        {this.state.entrada.time} - {this.state.entrada.hora}
+                      </small>
+                    </div>
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body id="color-bodymodal">
+                  {this.state.loadingmodal ? <div className="lds-ripple">
+                      <div />
+                      <div />
+                    </div> : idss}
+                </Modal.Body>
+                <Modal.Footer id="color-footermodal">
+                  <Modal.Dismiss className="btn btn-confirm btn-confirm-modal" onClick={this.closeModal.bind()}>
+                    Cerrar
+                  </Modal.Dismiss>
+                </Modal.Footer>
+              </Modal>
+            </div>
+          </div>;
     }
 }
 

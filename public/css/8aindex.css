@@ -49,12 +49,24 @@ html, body{
  background: #000000;
 
 }
+#text-color-hora-tablecenter{
+  color: rgb(192, 193, 26); 
+  font-size: 13px; 
+  font-weight: 100;
+}
+#textequipos-tablecenter{
+  text-align: left; 
+  width: 28%; 
+  font-size: 13px; 
+  font-weight: 100;
+}
 #thead-central{
  border-collapse: collapse;
  width: 100%;
  text-align: center;
 /* background: linear-gradient(#1c2d38 0%,#044065 80%); */
-background:#ff4600;  
+background:#ff4600; 
+text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
 
 }
 /* button{
@@ -170,7 +182,11 @@ a:link {
   right: 0;
   width: auto;
 }
-
+.boton-color-others{
+  color: black; 
+  background-color: darkorange; 
+  border-radius: 10px;
+}
 #encabezado{
 
     width: 100%;
@@ -204,6 +220,148 @@ a:link {
   margin-right: 5px;
 
 }
+#panelright-sub{
+  padding: 5px; 
+  position: relative; 
+  text-align: left;
+}
+#cont-cupon{
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255, 70, 0); 
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+}
+.btn-confirm{
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
+  width: 100%; height: 40px;
+  color: white; 
+  background: rgb(255, 70, 0); 
+  font-size: 14px; 
+  border: hidden;
+}
+.btn-confirm-modal{
+  width: 100%; 
+  height: 40px; 
+  color: white; 
+  background: orange; 
+  font-size: 14px; 
+  border: hidden;
+}
+#color-headermodal, #color-bodymodal, #color-footermodal{
+  background: rgb(5, 5, 5);
+}
+#color-titulo-modal{
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  text-align: center;
+}
+#cont-textcolor-id-liga{
+  color: rgb(252, 233, 22); 
+  font-size: 15px;
+}
+#text-confirm{
+  margin-top: 20px;
+}
+.part{
+  font-weight: 100; 
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+}
+#contbtn-delete{
+  display: table-cell; 
+  right: 1px;
+  color: white;
+  float: right;
+}
+.btn-delete{
+  margin-top: 0px; 
+  padding: 6px;
+}
+#text-liga{
+
+  display: block; 
+  font-size: 15px; 
+  color: rgb(255, 255, 255);
+}
+#text-equipos{
+  display: block; 
+  font-size: 14px; 
+  color: rgb(254, 224, 100);
+}
+#text-fecha{
+  display: inline;
+  padding-top: 10px; 
+  font-size: 12px;
+}
+#cont-apuesta{
+  margin: 0px; 
+  display: inline;
+}
+#text-apuesta{
+  font-size: 18px; 
+  color: white; 
+  float: right;
+
+}
+#texto-apuesta{
+  width: 70px; 
+  margin-left: 10px; 
+  display: inline;
+}
+#sportboton{
+  position: absolute; 
+  bottom: 7px; 
+  font-size: 12px; 
+  width: 100%; 
+  left: 0px; 
+  text-align: center;
+}
+.countriesfav{
+  display: table; 
+  width: 100%; 
+  max-height: 600px;
+}
+.text-countriesfav{
+  width: 126px; 
+  color: white; 
+  display: table-cell; 
+  font-size: 14px;
+}
+#texto-deportes{
+  width: 70px; 
+  margin: 1px; 
+  background: rgb(0, 0, 0); 
+  min-height: 420px;
+}
+#texto-paises{
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
+  display: table-cell; 
+  vertical-align: top; 
+  width: 150%; 
+  max-height: 425px;
+}
+#amount{
+  background-color: rgb(199, 199, 199);
+  box-sizing: border-box; 
+  height: 30px; 
+  width: 140px; 
+  border: hidden; 
+  outline: none; 
+  text-align: right; 
+  margin-left: 59px;
+}
+#text-logro{
+  display: block; 
+  font-size: 14px; 
+  color: rgb(254, 224, 100);
+}
+#context-option{
+  display: inline; 
+  padding-top: 10px; 
+  color: rgb(255, 165, 0); 
+  font-size: 12px;
+}
+#text-option{
+  display: table-cell;
+}
 .ion-android-stopwatch{
      margin-left: 30px;
       margin-right: 35px;
@@ -221,6 +379,25 @@ a:link {
 
 .deposito{
   background:orange;
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+  width: 100%; 
+  height: 37px; 
+  color: white; 
+  font-size: 14px; 
+  border: hidden;
+  
+}
+.format{
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
+  width: 100%;
+   height: 37px;
+    color: white; 
+    background: rgb(255, 70, 0); 
+    font-size: 14px; 
+    border: hidden;
+}
+.textusuario{
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
 }
 .usuario{
   background: rgba(227, 231, 6, 0.411);
@@ -288,7 +465,7 @@ a:link {
 
 /* ====================ojo==================== */
 .panelright{
-  height:px;
+  /* height:px; */
   border-bottom: 1px solid rgba(255,255,255,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
   display: block;
@@ -398,6 +575,32 @@ background: rgba(255,255,255,0.1);
   vertical-align: top;
   width: 150%;
   max-height: 500px;
+}
+#table-textcenter{
+  text-align: left; 
+  font-size: 14px; 
+  font-weight: 100; 
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+}
+#table-center-text-liga{
+  margin-left: 83px;
+  margin-top: -13px;
+  height: auto;
+}
+#text-center1x2{
+  word-spacing: 20pt; font-size: 12px; font-weight: normal;
+}
+#text-center1x122x{
+  word-spacing: 15pt; font-size: 12px; font-weight: normal;
+}
+#text-center-mas-menos{
+  word-spacing: 8pt; font-size: 12px; font-weight: normal;
+}
+#text-center-gg-ng{
+  word-spacing: 8pt; font-size: 12px; font-weight: normal;
+}
+#text-center-otros{
+  word-spacing: 15pt; font-size: 12px; font-weight: normal;
 }
 .center-panel{
   float:left;
@@ -846,12 +1049,13 @@ border: 1px solid rgb(255, 62, 62);
 
 }
 
-.mierda{
+.stk{
   display: inline-flex;
 }
 .mm{
       background: #0c0c0cd6;
       font-size: 16px;
+      text-shadow: rgb(0, 0, 0) 2px 2px 4px;
     
       
 }
@@ -866,7 +1070,7 @@ border: 1px solid rgb(255, 62, 62);
 /* ==========================================ticketprint================================== */
 @media print {
 
-  .navbar, .headcont, .header-menu, .center-panel, .confirm, .img-logo, .panelright, .mierda, .right-panel, .countriesfav, .tabcontent, .contenedor-deportes, #buscar, .reloj, .dropdown, .country, .btn,.swal-overlay{
+  .navbar, .headcont, .header-menu, .center-panel, .btn-confirm, .img-logo, .panelright, .stk, .right-panel, .countriesfav, .tabcontent, .contenedor-deportes, #buscar, .reloj, .dropdown, .country, .btn,.swal-overlay{
     display: none;
 }
 
