@@ -19,7 +19,7 @@ class Carusel extends React.Component {
 
         return (
             
-            <Carousel showThumbs={false} showStatus={false}  stopOnHover autoPlay interval={5000} infiniteLoop dynamicHeight  >
+            <Carousel showArrows={false} showThumbs={false} showStatus={false}  stopOnHover autoPlay interval={5000} infiniteLoop dynamicHeight  >
                 <div>
                     <img id="1" alt="" style={{ marginTop: 0}} src="/img/icons/slid11.png" />                                    
                 </div>

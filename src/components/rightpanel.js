@@ -6,7 +6,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 
 
 let context
-class Bubblepanel extends React.Component {
+class Rightpanel extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -146,7 +146,7 @@ class Bubblepanel extends React.Component {
                 </Sticky>
                 <div className="container">
                     <div className="row">
-                        <div className="panel panel-chat" style={this.state.chat=="open"?{}:{bottom:-405}}>
+                        <div className={this.state.chat=="open"?"panel panel-chat":"panel panel-chat closed"}>
                             <div className="panel-heading" >
                                 <div className="cuponrigth" style={this.state.chat=="open"?{}:{ backgroundColor:"#303f9f", color:"white"}}onClick={this.chat}>
                                     <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
@@ -198,4 +198,4 @@ class Bubblepanel extends React.Component {
     }
 }
 
-export default Bubblepanel;
+export default Rightpanel;

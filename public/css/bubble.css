@@ -30,9 +30,17 @@ htlm, body
     .panel.panel-chat 
         {
             display: block;
-            /* bottom: -10px; */
-            /* background: none; */
-            /* border: none; */
+            bottom: 0px;
+            -webkit-transition:all 0.5s ease;
+            -moz-transition:all 0.5s ease;
+            -ms-transition:all 0.5s ease;
+            -o-transition:all 0.5s ease;
+            transition:all 0.5s ease;
+            
+        }
+        .panel.panel-chat.closed{
+            bottom: -405px;
+           
         }
   }
   
@@ -68,7 +76,9 @@ htlm, body
     height: 250px;
     /* border-left: 1px solid #b2b2b2; */
     /* border-right: 1px solid #b2b2b2; */
-    background: #922200;
+    background: #520a02;
+    /* padding-bottom: 25px; */
+    /* padding-top: 25px; */
     overflow: auto;
 }
 .panel.panel-chat .panel-body::-webkit-scrollbar {

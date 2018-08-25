@@ -226,7 +226,7 @@ a:link {
   text-align: left;
 }
 #cont-cupon{
-  background: rgba(255, 255, 255, 0.1);
+  background: #520a02;
   border: 1px solid rgb(255, 70, 0); 
   text-shadow: rgb(0, 0, 0) 2px 2px 4px;
 }
@@ -263,7 +263,14 @@ a:link {
 }
 .part{
   font-weight: 100; 
+  padding-bottom: 30px;
+  padding-top: 10px;
   text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+  background: #bc3c3c;
+background: -moz-linear-gradient(top, #bc3c3c 0%, #520a02 50%, #bc3c3c 100%);
+background: -webkit-linear-gradient(top, #bc3c3c 0%,#520a02 50%,#bc3c3c 100%);
+background: linear-gradient(to bottom, #bc3c3c 0%,#520a02 50%,#bc3c3c 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', endColorstr='#bc3c3c',GradientType=0 );
 }
 #contbtn-delete{
   display: table-cell; 
