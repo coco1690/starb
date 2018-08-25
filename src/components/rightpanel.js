@@ -148,7 +148,7 @@ class Rightpanel extends React.Component {
                     <div className="row">
                         <div className={this.state.chat=="open"?"panel panel-chat":"panel panel-chat closed"}>
                             <div className="panel-heading" >
-                                <div className="cuponrigth" style={this.state.chat=="open"?{}:{ backgroundColor:"#303f9f", color:"white"}}onClick={this.chat}>
+                                <div className={this.state.chat=="open"?"cuponrigth":"cuponrigth mini"} onClick={this.chat}>
                                     <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
                                     <span className="ticket-title ">Cupón  </span>
                                     <div className="speech-bubble" >
