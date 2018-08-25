@@ -70,18 +70,22 @@ body {
     margin-left: 10px;
     margin-right: 10px;
 }
-#modal{
-    background-color: white;
-}
+
 #logo-print{
     padding-bottom: 15px;
       width: 100%;
 }
-.modal-body, .modal-header{
-    background-color: transparent !important;
-}
+
 .close{
     visibility: hidden;
+}
+.modal{
+    visibility: hidden;
+}
+.dialog .modal-open{
+    display: none;
+    visibility: hidden;
+    width: 0;
 }
 .cliente-print{
    border: 1px solid rgb(10, 10, 10);

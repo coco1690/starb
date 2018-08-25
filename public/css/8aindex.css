@@ -289,6 +289,7 @@ a:link {
 #text-fecha{
   display: inline;
   padding-top: 10px; 
+  color: white;
   font-size: 12px;
 }
 #cont-apuesta{
@@ -922,7 +923,7 @@ table#t01 th {
       background-color: rgb(117, 117, 117);
 }
 .Gano{
-      background-color: green;
+      background-color: green;color:white; font-weight: normal;
 }
 .Perdio{
     background-color: red;
@@ -1189,5 +1190,12 @@ border: 1px solid rgb(10, 10, 10);
   margin-top: 15px;
   background: #000;
 }
-
+@media only screen and (max-width: 1210px) {
+  .center-panel {    
+    width: calc(100% - 222px);
+  }
+  .stk{
+    display: none;
+  }
+}
 

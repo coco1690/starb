@@ -244,7 +244,7 @@ class Centerpanel extends Component {
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[29992] ? y.data[29992].o1 : "",
-                        option: y.data[29992] ? "Mas de " + parseFloat(y.data[29992].o3) + " goles" : "",
+                        option: y.data[29992] ? "Mas de " + parseFloat(y.data[29992].o3) + "  " : "",
                         price: y.data[29992] ? y.data[29992].o1 : "",
                         time: hours + ":" + minutes + pmam + " - " + timess,
                         type: y.data[29992] ? y.data[29992].type : "",
@@ -257,7 +257,7 @@ class Centerpanel extends Component {
                         id: y.idmatch,
                         name: y.name,
                         odd: y.data[29992] ? y.data[29992].o2 : "",
-                        option: y.data[29992] ? "Menos de " + parseFloat(y.data[29992].o3) + " goles" : "",
+                        option: y.data[29992] ? "Menos de " + parseFloat(y.data[29992].o3) + "  " : "",
                         price: y.data[29992] ? y.data[29992].o2 : "",
                         time: hours + ":" + minutes + pmam + " - " + timess,
                         type: y.data[29992] ? y.data[29992].type : "",
@@ -615,7 +615,7 @@ class Centerpanel extends Component {
                                                     logro: m[mo].shortName, name: this.state.entrada.name,
                                                     time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                     liga: this.state.entrada.liga,
-                                                    option: "Mas de " + parseFloat(c3) + " goles",
+                                                    option: "Mas de " + parseFloat(c3) + "  ",
                                                     type: m[mo].id,
                                                     version: jj.version,
                                                     price: c1
@@ -634,7 +634,7 @@ class Centerpanel extends Component {
                                                     logro: m[mo].shortName, name: this.state.entrada.name,
                                                     time: this.state.entrada.hora + ' - ' + this.state.entrada.time,
                                                     liga: this.state.entrada.liga,
-                                                    option: "Menos de " + parseFloat(c3) + " goles",
+                                                    option: "Menos de " + parseFloat(c3) + "  ",
                                                     type: m[mo].id,
                                                     version: jj.version,
                                                     price: c2
@@ -750,9 +750,9 @@ class Centerpanel extends Component {
             return (
                 <div key={mo}>
                     <table>
-                        <thead>
+                        <thead id="thead-central">
                             <tr>
-                                <td colSpan="3">{m[mo].shortName}</td>
+                                <td colSpan="4">{m[mo].shortName}</td>
                             </tr>
 
                         </thead>

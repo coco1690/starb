@@ -36,6 +36,7 @@ class Perfil extends Component {
             return results.json();
         }).then(vertiket => {
             console.log(vertiket)
+            this.props.addToPrinter(vertiket);
             context.setState({
                 vertiket,
                 open: true
@@ -75,7 +76,7 @@ class Perfil extends Component {
                 if (minutes.length === 1) { minutes = "0" + minutes; }
 
 
-                var months = ["Ene/", "Feb/", "Mar/", "Abr/", "May/", "Jun/", "Jul/", "Ago/", "Sep/", "Oct/", "Nov/", "Dec/"];
+                var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
                 var year = timess.getFullYear();
                 var dd = timess.getDate();
                 dd = dd < 10 ? '0' + dd : dd;
@@ -85,10 +86,10 @@ class Perfil extends Component {
                 return (
                     <tr key={"MM" + obj.ID}>
                         <td>{obj.ID}</td>
-                        <td>{timess + " /" + year + " - " + hours + ":" + minutes + " " + pmam}</td>
-                        <td>{obj.GCUA_Id === 0 ? "Recarga" : (obj.GCUA_Id === 1 ? "Pago" : "Ajuste")}</td>
+                        <td>{timess + " " + year + " - " + hours + ":" + minutes + " " + pmam}</td>
+                        <td>{obj.GCUA_Id}</td>
                         <td>{obj.Monto}</td>
-                        <td className={obj.Estado < 1 ? "cerrado" : "abierto"}>{obj.Estado < 1 ? "CERRADO" : "ABIERTO"}</td>
+                        <td className={obj.Estado == 1 ? "Gano" : "Espera"}>{obj.Estado ==1 ? "Procesado" : "En Espera de aprobacion"}</td>
 
                     </tr>
                 )
@@ -161,6 +162,35 @@ class Perfil extends Component {
             let oo = Object.keys(o);
             tk = oo.map(ticket => {
                 let f = o[ticket]
+                
+                let timess = new Date(f.time * 1000);
+                let pmam = 'AM';
+
+                var hours = timess.getHours();
+                // correct for number over 24, and negatives
+                if (hours >= 24) { hours -= 24; }
+                if (hours <= 0) { hours += 12; }
+                if (hours > 12) { hours -= 12; pmam = 'PM' }
+
+
+                // add leading zero, first convert hours to string
+                hours = hours + "";
+                if (hours.length === 1) { hours = "0" + hours; }
+
+                // minutes are the same on every time zone
+                var minutes = timess.getMinutes();
+
+                // add leading zero, first convert hours to string
+                minutes = minutes + "";
+                if (minutes.length === 1) { minutes = "0" + minutes; }
+
+
+                var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
+                var year = timess.getFullYear();
+                var dd = timess.getDate();
+                dd = dd < 10 ? '0' + dd : dd;
+                var today = months[timess.getMonth()] + " " + dd;
+                timess = today;
 
                 return (
                     <div key={ticket} className="panelright">
@@ -174,14 +204,13 @@ class Perfil extends Component {
                                 {f.name}
                             </span>
 
-                            <div style={{ display: "inline", paddingTop: 10, fontSize: 12 }}>{f.time}</div>
+                            <div style={{ display: "inline", paddingTop: 10, fontSize: 12 }}>{timess + ", " + year + " - " + hours + ":" + minutes + " " + pmam}</div>
                             <span style={{ display: "block", fontSize: 14, color: "rgb(254, 224, 100)" }}>
                                 <span style={{ fontSize: 18, color: 'white', float: 'right' }}> {this.props.format(f.odd)}</span>
                                 {f.logro}
                             </span>
                             <div style={{ display: "inline", paddingTop: 10, color: "rgb(255, 165, 0)", fontSize: 12 }}>
                                 <div style={{ display: "table-cell" }}>{f.option}</div>
-
                             </div>
                         </div>
                     </div>
@@ -193,6 +222,19 @@ class Perfil extends Component {
         let view = []
         if (d) {
             // console.log(k.GCCA_Id)
+            var date = new Date(d.Fecha * 1000);
+            let pmam = 'AM';
+            var hours = "0" + date.getHours();
+            hours = hours.substr(-2);
+            if (hours >= 24) { hours -= 24; }
+            if (hours <= 0) { hours += 12; }
+            if (hours > 12) { hours -= 12; pmam = 'PM' }
+            var minutes = "0" + date.getMinutes();
+           
+            var year = date.getFullYear();
+            var months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"];
+            var month = months[date.getMonth()];
+            var day = date.getDate();
             view = <div>
                 <Modal
                     show={this.state.open}
@@ -203,25 +245,25 @@ class Perfil extends Component {
                         <Modal.Title id='ModalHeader' style={{ color: "black" }}>
                             <div className="cuponrigth">
                                 <i className="ion ion-clipboard" style={{ marginRight: 10, fontSize: 18 }}></i>
-                                <span className="ticket-title ">Cupón  </span>
+                                <span className="ticket-title ">Cupon Virtual (COPIA)  </span>
                                 <div className="speech-bubble" >
-                                    <div className="cup" style={{textShadow:"#6b6666 2px 2px 4px"}}>{tk.length}</div>
+                                    <div className="cup" style={{ textShadow: "#6b6666 2px 2px 4px" }}>{tk.length}</div>
 
                                 </div>
 
                             </div>
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body style={{ background: "#252525" }} >
+                    <Modal.Body style={{ background: "#252525", paddingBottom:5 }} >
                         <div>
-                            <div className="ticsk" >
-                                <div className="cliente-print" style={{ fontSize: 14, paddingBottom: 10 }}>
-                                    <div>Agencia: {d.Agencia}</div>
-                                    <div>Fecha: {d.Fecha}</div>
+                            <div className="" >
+                                <div className="" style={{ fontSize: 14, paddingBottom: 10 }}>
+                                    <div>{d.Agencia}</div>
+                                    <div>Fecha: {month + " " + day + ", " + year + " " + hours + ':' + minutes.substr(-2) +pmam}</div>
                                     <div>Ticket: {d.ID} </div>
                                     <div>Usuario: {d.Usuario}</div>
                                     <div>Estado: {d.Estado}</div>
-                                    <div> Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span> </div>
+                                    <div>Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span> </div>
                                 </div>
                                 {tk}
 
@@ -231,9 +273,10 @@ class Perfil extends Component {
                             </div>
                         </div>
                     </Modal.Body>
-                    <Modal.Footer style={{ background: "#252525" }}>
+                    <Modal.Footer style={{ background: "#252525", padding:0, border:0}}>
+                    <button className="btn btn-confirm" onClick={ window.print}>Imprimir</button>
                         <Modal.Dismiss className='btn confirm'
-                            style={{ boxSizing: 'borderBox',textShadow: "2px 2px 4px #000000", width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden' }}>
+                            style={{ boxSizing: 'borderBox', textShadow: "2px 2px 4px #000000", width: '100%', height: 40, color: 'white', background: 'orange', fontSize: 14, border: 'hidden', margin:0 }}>
                             Cerrar</Modal.Dismiss>
                     </Modal.Footer>
                 </Modal>

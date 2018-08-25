@@ -1,7 +1,11 @@
 {
-  "name": "taquilla",
+  "name": "charmeleon",
+  "description": "Using react to connect to Sport betting server",
   "version": "0.1.0",
   "private": true,
+  "author": "betstudios",
+  "license": "ISC",
+  "homepage": "http://megabetng.com/sports/",
   "dependencies": {
     "firebase": "^5.0.3",
     "md5": "^2.2.1",
