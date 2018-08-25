@@ -393,6 +393,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
   color: white; 
   font-size: 14px; 
   border: hidden;
+  padding-left: 18px;
+    padding-right: 18px;
   
 }
 .format{
@@ -403,12 +405,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
     background: rgb(255, 70, 0); 
     font-size: 14px; 
     border: hidden;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 .textusuario{
   text-shadow: rgb(0, 0, 0) 2px 2px 4px;
 }
 .usuario{
-  background: rgba(227, 231, 6, 0.411);
+  background: rgb(80, 130, 0);
 }
 
 .salir{
