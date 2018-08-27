@@ -226,7 +226,7 @@ a:link {
   text-align: left;
 }
 #cont-cupon{
-  background: rgba(255, 255, 255, 0.1);
+  background: #520a02;
   border: 1px solid rgb(255, 70, 0); 
   text-shadow: rgb(0, 0, 0) 2px 2px 4px;
 }
@@ -263,7 +263,14 @@ a:link {
 }
 .part{
   font-weight: 100; 
+  padding-bottom: 30px;
+  padding-top: 10px;
   text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+  background: #bc3c3c;
+background: -moz-linear-gradient(top, #bc3c3c 0%, #520a02 50%, #bc3c3c 100%);
+background: -webkit-linear-gradient(top, #bc3c3c 0%,#520a02 50%,#bc3c3c 100%);
+background: linear-gradient(to bottom, #bc3c3c 0%,#520a02 50%,#bc3c3c 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', endColorstr='#bc3c3c',GradientType=0 );
 }
 #contbtn-delete{
   display: table-cell; 
@@ -289,6 +296,7 @@ a:link {
 #text-fecha{
   display: inline;
   padding-top: 10px; 
+  color: white;
   font-size: 12px;
 }
 #cont-apuesta{
@@ -329,7 +337,7 @@ a:link {
   width: 70px; 
   margin: 1px; 
   background: rgb(0, 0, 0); 
-  min-height: 420px;
+  min-height: 512px;
 }
 #texto-paises{
   text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
@@ -385,6 +393,8 @@ a:link {
   color: white; 
   font-size: 14px; 
   border: hidden;
+  padding-left: 18px;
+    padding-right: 18px;
   
 }
 .format{
@@ -395,12 +405,14 @@ a:link {
     background: rgb(255, 70, 0); 
     font-size: 14px; 
     border: hidden;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 .textusuario{
   text-shadow: rgb(0, 0, 0) 2px 2px 4px;
 }
 .usuario{
-  background: rgba(227, 231, 6, 0.411);
+  background: rgb(80, 130, 0);
 }
 
 .salir{
@@ -559,7 +571,7 @@ background: rgba(255,255,255,0.1);
   width: 100%;
   background: rgba(0, 0, 0, 0.37);
   border: 1px solid #ff4600;
-
+  height: 512px;
   
 }
 /* #contenedor-deportes{
@@ -922,7 +934,7 @@ table#t01 th {
       background-color: rgb(117, 117, 117);
 }
 .Gano{
-      background-color: green;
+      background-color: green;color:white; font-weight: normal;
 }
 .Perdio{
     background-color: red;
@@ -1064,6 +1076,11 @@ border: 1px solid rgb(255, 62, 62);
      /* font-weight: bold;  */
      color: #FEE064;
      background: black;
+     -webkit-transition:background-color 3s ease;
+     -moz-transition:background-color 3s ease;
+     -ms-transition:background-color 3s ease;
+     -o-transition:background-color 3s ease;
+     transition:background-color 3s ease;
     
      font-size: 16px;
   }
@@ -1189,5 +1206,12 @@ border: 1px solid rgb(10, 10, 10);
   margin-top: 15px;
   background: #000;
 }
-
+@media only screen and (max-width: 1210px) {
+  .center-panel {    
+    width: calc(100% - 222px);
+  }
+  .stk{
+    display: none;
+  }
+}
 

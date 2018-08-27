@@ -19,6 +19,7 @@ import {
 
 
 
+
 // let items = [];
 class App extends Component {
   constructor() {
@@ -38,6 +39,7 @@ class App extends Component {
     };
     this.changeFormat = this.changeFormat.bind(this);
     this.format = this.format.bind(this);
+    this.addToPrinter = this.addToPrinter.bind(this);
   }
 
   handleOpenModal() {
@@ -198,7 +200,7 @@ class App extends Component {
                 "D_id": this.state.user.userdata.D_id,
               }
               let x = JSON.stringify({ user: prettyUser, items: this.state.items, stake: flows, price: this.state.price, counter: Object.keys(this.state.items).length });
-              console.log(x);
+              // console.log(x);
               fetch('http://91.121.116.131/gecko/api/saveCupon/m', {
                 method: 'post',
                 body: x
@@ -254,7 +256,7 @@ class App extends Component {
                     })
 
 
-                    localStorage.setItem('ultimoTicket', JSON.stringify(res));
+                    // localStorage.setItem('ultimoTicket', JSON.stringify(res));
                   } else {
                     swal({
                       title: "Atencion!",
@@ -324,6 +326,9 @@ class App extends Component {
     localStorage.setItem('user', JSON.stringify(data));
 
   }
+  addToPrinter=(data)=>{
+    this.setState({lastItem:data})
+  }
   componentDidMount() {
     if (localStorage.getItem('tickets') != null) {
       // console.log("App mounting....");
@@ -341,11 +346,11 @@ class App extends Component {
       // console.log(temporal);
       this.setState({ user: usertem });
     }
-    if (localStorage.getItem('ultimoTicket') != null) {
-      let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
-      // console.log(temporal);
-      this.setState({ lastItem });
-    }
+    // if (localStorage.getItem('ultimoTicket') != null) {
+    //   let lastItem = JSON.parse(localStorage.getItem('ultimoTicket'));
+    //   // console.log(temporal);
+    //   this.setState({ lastItem });
+    // }
     if (localStorage.getItem('format') != null) {
       let format = localStorage.getItem('format');
       // console.log(temporal);
@@ -422,7 +427,7 @@ class App extends Component {
 
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="/img/logo8abet.png" /> </Link>
+              <Link to="/"> <img className="img-logo" alt="" src="./img/logo8abet.png" /> </Link>
               <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} format={this.state.format} changeFormat={this.changeFormat} />
             </div>
           </div>
@@ -451,7 +456,7 @@ class App extends Component {
                       <Switch>
                         <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
 
-                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} format={this.format} />} />
+                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} format={this.format} addToPrinter={this.addToPrinter} />} />
 
                         {/* <Route exact path="/imprimir" render={(props) => <Imprimir {...props} lastItem={this.state.lastItem} />} /> */}
 
@@ -473,7 +478,7 @@ class App extends Component {
             <div>
               <div className="tick" >
                 <div id="logoprint">
-                  <img id="logo-print" alt="" src="/img/logo8abet.png" />
+                  <img id="logo-print" alt="" src="./img/logo8abet.png" />
                 </div>
 
                 <div className="cliente-print">

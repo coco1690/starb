@@ -104,9 +104,9 @@ class Leftpanel extends Component {
         return (
 
             <div>
-                <div id="buscar">
+                {/* <div id="buscar">
                     <input placeholder="Buscar" style={{ width: '100%' }} type="text" />
-                </div>
+                </div> */}
 
                 <div className="contenedor-deportes">
 
@@ -118,7 +118,7 @@ class Leftpanel extends Component {
 
 
                         <Scrollbars
-                            style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
+                            style={{ height: 200, display: 'table-cell', verticalAlign: 'top' }}>
                             <div id="texto-paises">
                                 {paises}
                             </div>

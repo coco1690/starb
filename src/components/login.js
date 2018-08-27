@@ -282,7 +282,7 @@ class Login extends React.Component {
                     </li>
                     <li>
                         <button onClick={this.reload} className="btn deposito"> 
-                        Saldo <i className='ion-social-usd'></i>
+                        Saldo<i className='ion-social-usd'></i>
                             {this.props.user.userdata.balance ? this.props.user.userdata.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : ""}
                         <div className={this.state.button.style}><div></div><div></div><div></div><div></div></div>
                         </button>
