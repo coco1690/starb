@@ -118,7 +118,7 @@ class Leftpanel extends Component {
 
 
                         <Scrollbars
-                            style={{ height: 425, display: 'table-cell', verticalAlign: 'top' }}>
+                            style={{ height: 200, display: 'table-cell', verticalAlign: 'top' }}>
                             <div id="texto-paises">
                                 {paises}
                             </div>

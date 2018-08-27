@@ -3,6 +3,7 @@
  @import url('https://fonts.googleapis.com/css?family=Coda+Caption:800');
  @import url('https://fonts.googleapis.com/css?family=Port+Lligat+Slab');
  @import url('https://fonts.googleapis.com/css?family=Sansita');
+ @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 
  @font-face {
@@ -10,17 +11,17 @@
   src: url(GothamRounded-Book.otf);       
 }   
 html, body{
-  font-family: 'Sansita', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin:0px;
   padding:0px;
   height:100%;
   color: #FFF; 
-  font-size: 12px;
+  font-size: 10px;
   /*background: #0c0d11; /* Old browsers */
   /*background: -moz-linear-gradient(top, #2D4A5B 0%, #091E2B 100%); /* FF3.6-15 */
   /*background: -webkit-linear-gradient(top, #2D4A5B 0%,#091E2B 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
-   background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%);
+   background: #676767;
    /*background: linear-gradient(to bottom, #000000 0%,#1f1f1f 80%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
@@ -46,13 +47,13 @@ html, body{
  border-collapse: collapse;
  width: 100%;
  text-align: center;
- background: #000000;
+ background: #464646;
 
 }
 #text-color-hora-tablecenter{
-  color: rgb(192, 193, 26); 
-  font-size: 13px; 
-  font-weight: 100;
+  color: rgb(255, 255, 255); 
+  font-size: 11px; 
+  font-weight: 80;
 }
 #textequipos-tablecenter{
   text-align: left; 
@@ -65,8 +66,8 @@ html, body{
  width: 100%;
  text-align: center;
 /* background: linear-gradient(#1c2d38 0%,#044065 80%); */
-background:#ff4600; 
-text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
+background:rgb(11, 139, 80); 
+text-shadow: rgb(26, 26, 26) 2px 2px 4px; 
 
 }
 /* button{
@@ -109,15 +110,14 @@ input{
 /* -------------------------------botones tabla */
  .botn{
    
-    margin:2px;
-    
+    margin:2px;    
     padding: 4px;
     display: inline-block;
-    background: #ffa500;
+    background: #777777;
     text-align: center;
     font-size: 10px;
-    border-radius: 5px;
-    color: #000;
+    border-radius: 1px;
+    color: rgb(255, 255, 255);
 
  }
  .botnone{
@@ -172,8 +172,8 @@ a:link {
   }
   .botn:hover{
     opacity:1;
-    color: #ffa500;
-    background: #3a3a3a;}
+    color: #ffed00;
+    background: #0b8b50;}
 .btn:active{opacity:1;}
 .headcont{
   height: 35px;
@@ -183,9 +183,9 @@ a:link {
   width: auto;
 }
 .boton-color-others{
-  color: black; 
-  background-color: darkorange; 
-  border-radius: 10px;
+  color: rgb(255, 255, 255); 
+  background-color: rgb(0, 0, 0); 
+  border-radius: 1px;
 }
 #encabezado{
 
@@ -199,22 +199,22 @@ a:link {
 #btnLogin{
   float:right;
   box-sizing:border-box;
-  width: 100px;
-  height: 30px;
+  width: 80px;
+  height: 25px;
   text-align: center;
   color: rgb(255, 255, 255);
-  background: #d95422;
+  background: #414141;
   font-size: 14px;
   border: hidden; 
-  border-radius: 20px;
+  border-radius: 1px;
 }
 #pass, #email{
 
   float: right;
   box-sizing: border-box; 
   padding: 5px;
-  height: 30px;
-  width: 150px;
+  height: 25px;
+  width: 100px;
   border:hidden;
   outline:none;
   margin-right: 5px;
@@ -310,7 +310,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
 
 }
 #texto-apuesta{
-  width: 70px; 
+  /* width: 70px; */ 
   margin-left: 10px; 
   display: inline;
 }
@@ -336,8 +336,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
 #texto-deportes{
   width: 70px; 
   margin: 1px; 
-  background: rgb(0, 0, 0); 
-  min-height: 512px;
+  background: rgb(26, 26, 26); 
+  min-height: 800px;
 }
 #texto-paises{
   text-shadow: rgb(0, 0, 0) 2px 2px 4px; 
@@ -434,14 +434,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
 .header{
   float:left;
   position: relative;
-  height:100px;
+  height:70px;
   width:100%;
   box-sizing: border-box;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 100%;
   text-align: center;
-  background-image: url("/img/fond001.jpg");
+  background: rgb(11, 139, 80);
 }
 .header-menu{
   float:left;
@@ -450,7 +450,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
   width:100%;
   box-sizing: border-box;  
   text-align: center;
-  background: linear-gradient(to bottom, #ff4600 50%,#a82d00 100%);
+  background: rgb(11, 139, 80);
 }
 .contenedor-login{
 
@@ -463,9 +463,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
 
 .img-logo{
 
-  height: 90%; 
+  height: 80%; 
   position: absolute;
-  top: 11px;
+  top: 14px;
   left: 10px;
 
 }
@@ -569,9 +569,10 @@ background: rgba(255,255,255,0.1);
 .contenedor-deportes2{
   display:table;
   width: 100%;
+  min-height: 800px;
   background: rgba(0, 0, 0, 0.37);
-  border: 1px solid #ff4600;
-  height: 512px;
+  /*border: 0px solid #ff4600;*/
+
   
 }
 /* #contenedor-deportes{
@@ -641,12 +642,12 @@ background: rgba(255,255,255,0.1);
   font-size: 15px;
   margin-top: 10px;
   /* font-weight: bold;  */
-  background: #ffff00;
-  border: #262626 solid 1px;
+  background: #0b8b50;
+  /*border: #262626 solid 1px;*/
     /* background: #320605; */
     /* background: #1f2122; */
   text-transform: uppercase;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   
 }
 #panel-usuario{
@@ -783,11 +784,12 @@ background: rgba(255,255,255,0.1);
 }
 
 .country{
-  padding-left:10px;
+  padding-left:2px;
   height: 40px;
   border-right: 2px solid rgba(255,255,255,0.5);
   vertical-align: middle;
   opacity:0.4;
+  font-size: 12px;
   
 }
 .country.active{
