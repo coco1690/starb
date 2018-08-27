@@ -310,7 +310,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3c3c', end
 
 }
 #texto-apuesta{
-  width: 70px; 
+  /*width: 70px;*/ 
   margin-left: 10px; 
   display: inline;
 }
