@@ -421,28 +421,30 @@ class App extends Component {
 
 
 
-    return (
-      <Router>
-        <div className="App" >
-
+    return <Router>
+        <div className="App">
           <div className="header">
             <div className="contenedor-login">
-              <Link to="/"> <img className="img-logo" alt="" src="./img/logo8abet.png" /> </Link>
+              <Link to="/">
+                {" "}
+                <img className="img-logo" alt="" src="./img/logostarbet.png" />{" "}
+              </Link>
               <Login user={this.state.user} removeFromUser={this.removeFromUser} addToUser={this.addToUser} format={this.state.format} changeFormat={this.changeFormat} />
             </div>
           </div>
 
           <div className="header-menu">
             {/* {JSON.stringify(this.state.lastItem)} */}
-            <Link className="menu-item btn active" to="/"><i className="proximos "></i>Proximos Eventos Deportivos</Link>
+            <Link className="menu-item btn active" to="/">
+              <i className="proximos " />
+              Proximos Eventos Deportivos
+            </Link>
             {/* <a className="menu-item btn active" href="/perfil"><i className="perfil"></i>Perfil (demo a)</a>
             <Link to="/perfil" className="menu-item btn active"> Perfil (demo link) </Link> */}
             {/* <Link className="menu-item btn " to="/"><i className=" "></i>En Vivo</Link> */}
             {/* <Link className="menu-item btn " to="/"><i className=" "></i>Resultados</Link> */}
-
           </div>
           <div className="contenedor-total">
-
             <div className="contenedor-sub">
               <div className="contenedor">
                 <div className="left-panel">
@@ -450,19 +452,18 @@ class App extends Component {
                   {/* <Imprimir item={this.state.lastItem ? this.state.lastItem:{data:"",info:""}}/> */}
                 </div>
                 <div className="center-panel">
-                  <div >
-
+                  <div>
                     <div>
                       <Switch>
-                        <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
+                        <Route exact path="/" render={props => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
 
-                        <Route exact path="/perfil/:iduser?" render={(props) => <Perfil {...props} user={this.state.user} format={this.format} addToPrinter={this.addToPrinter} />} />
+                        <Route exact path="/perfil/:iduser?" render={props => <Perfil {...props} user={this.state.user} format={this.format} addToPrinter={this.addToPrinter} />} />
 
                         {/* <Route exact path="/imprimir" render={(props) => <Imprimir {...props} lastItem={this.state.lastItem} />} /> */}
 
-                        <Route exact path="/login" render={(props) => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
+                        <Route exact path="/login" render={props => <Login {...props} user={this.state.user} removeFromUser={this.removeFromuser} addToUser={this.addTouser} />} />
 
-                        <Route exact path="/sport/:idsport/pais/:idpais" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
+                        <Route exact path="/sport/:idsport/pais/:idpais" render={props => <Centerpanel {...props} addTocart={this.addTocart} format={this.format} />} />
                         <Redirect to="/" />
                       </Switch>
                     </div>
@@ -470,46 +471,58 @@ class App extends Component {
                 </div>
                 <Rightpanel stake={this.state.stake} format={this.format} quake={this.state.stake * this.state.price} price={this.state.price} changeStake={this.changeStake} items={this.state.items} removeFromCupon={this.removeFromCupon} save={this.saveCupon} item={this.state.lastItem ? this.state.lastItem : { data: "", info: "" }} />
               </div>
-
             </div>
 
-
-
             <div>
-              <div className="tick" >
+              <div className="tick">
                 <div id="logoprint">
                   <img id="logo-print" alt="" src="./img/logo8abet.png" />
                 </div>
 
                 <div className="cliente-print">
                   <div>Nombre: {d.Agencia}</div>
-                  <div>Fecha: {hours + ":" + minutes + pmam + " - " + timess}</div>
-                  <div>Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego</div>
+                  <div>
+                    Fecha: {hours + ":" + minutes + pmam + " - " + timess}
+                  </div>
+                  <div>
+                    Ticket: {d.ID} | Serial: {d.Serial} | Estado: En Juego
+                  </div>
                   <div>Usuario: {d.Usuario}</div>
                 </div>
                 {tk}
                 <div className="cliente-print" style={{ float: "right" }}>
-                  Cuota: <span style={{ fontSize: 14, fontWeight: "bolder" }}>{d.Cuota}</span>
+                  Cuota: <span
+                    style={{ fontSize: 14, fontWeight: "bolder" }}
+                  >
+                    {d.Cuota}
+                  </span>
                 </div>
                 <div className="cliente-print" style={{ textAlign: "right" }}>
-                  Apuesta: <span style={{ fontSize: 14, fontWeight: "bolder" }}>${d.Monto}</span>
+                  Apuesta: <span
+                    style={{ fontSize: 14, fontWeight: "bolder" }}
+                  >
+                    ${d.Monto}
+                  </span>
                 </div>
 
                 <div id="ganancia-print">
                   <div className="ga-imprimir">${d.Ganancia}</div>
                 </div>
                 <div className="cliente-print" style={{ marginBottom: 5, border: "1px solid" }}>
-                  <span>Las Jugadas o apuestas validas estan sujetas segun
-                      <br />el reglamento oficial de apuestas deportivas descrito
-                    <br />en la pagina</span>
+                  <span>
+                    Las Jugadas o apuestas validas estan sujetas segun
+                    <br />
+                    el reglamento oficial de apuestas deportivas descrito
+                    <br />
+                    en la pagina
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="footer">   </div>
+            <div className="footer"> </div>
           </div>
         </div>
-      </Router>
-    );
+      </Router>;
   }
 }
 
